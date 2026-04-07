@@ -1,2069 +1,1240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kumpula Marketing | Free Homepage Mockups for Local Service Businesses</title>
-<meta name="description" content="I help local service businesses stop losing clients to weak websites. Get a free custom homepage mockup first so you can see exactly what I'd change before paying anything.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --accent: #6B9B50;
-    --accent-dark: #507838;
-    --bg: #0B0D09;
-    --bg2: #111410;
-    --bg3: #171B13;
-    --panel: rgba(255,255,255,0.03);
-    --border: rgba(255,255,255,0.07);
-    --border-bright: rgba(107,155,80,0.28);
-    --text: #EDE9E0;
-    --text-muted: #A2A08F;
-    --text-dim: #666358;
-    --display: 'Bebas Neue', sans-serif;
-    --body: 'Outfit', sans-serif;
-    --shadow: 0 18px 60px rgba(0,0,0,0.35);
-  }
-
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--body);
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  a { color: inherit; }
-
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    height: 72px;
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(11,13,9,0.86);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: var(--display);
-    font-size: 22px;
-    letter-spacing: 0.05em;
-    color: var(--text);
-    text-decoration: none;
-  }
-
-  .nav-logo span { color: var(--accent); }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--text); }
-
-  .nav-cta {
-    background: var(--accent) !important;
-    color: #fff !important;
-    padding: 10px 18px;
-    border-radius: 5px;
-  }
-
-  .nav-cta:hover { background: var(--accent-dark) !important; }
-
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-  }
-
-  .hamburger span {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--text-muted);
-    margin: 5px 0;
-  }
-
-  .mobile-nav {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    padding: 24px 5%;
-    display: none;
-    flex-direction: column;
-    gap: 18px;
-    z-index: 99;
-  }
-
-  .mobile-nav.open { display: flex; }
-
-  .mobile-nav a {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text-muted);
-    text-decoration: none;
-  }
-
-  .hero {
-    min-height: 100vh;
-    padding: 120px 5% 80px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(107,155,80,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(107,155,80,0.05) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse 82% 64% at 50% 44%, black 36%, transparent 100%);
-    pointer-events: none;
-  }
-
-  .hero-glow {
-    position: absolute;
-    width: 760px;
-    height: 760px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(107,155,80,0.15) 0%, transparent 70%);
-    top: 46%;
-    left: 52%;
-    transform: translate(-50%,-50%);
-    pointer-events: none;
-  }
-
-  .hero-wrap {
-    width: 100%;
-    max-width: 1220px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
-    gap: 48px;
-    align-items: center;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 22px;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  .hero h1 {
-    font-family: var(--display);
-    font-size: clamp(82px, 11vw, 158px);
-    line-height: 0.88;
-    letter-spacing: 0.01em;
-    color: var(--text);
-    margin-bottom: 24px;
-    max-width: 820px;
-  }
-
-  .hero h1 em {
-    font-style: normal;
-    color: var(--accent);
-  }
-
-  .hero-sub {
-    font-size: clamp(17px, 2.1vw, 21px);
-    font-weight: 300;
-    color: var(--text-muted);
-    max-width: 640px;
-    margin-bottom: 32px;
-    line-height: 1.65;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-
-  .btn-primary,
-  .btn-ghost,
-  .btn-dark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.2s ease;
-    cursor: pointer;
-    border: none;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 15px 28px;
-  }
-
-  .btn-primary:hover {
-    background: var(--accent-dark);
-    transform: translateY(-1px);
-  }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--text);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 15px 24px;
-    border: 1px solid var(--border);
-  }
-
-  .btn-ghost:hover {
-    border-color: rgba(255,255,255,0.18);
-    color: #fff;
-  }
-
-  .btn-dark {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 12px 18px;
-  }
-
-  .btn-dark:hover {
-    background: rgba(255,255,255,0.06);
-    border-color: rgba(255,255,255,0.16);
-  }
-
-  .hero-points {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 34px;
-  }
-
-  .hero-point {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 12px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.02);
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-muted);
-  }
-
-  .hero-point::before {
-    content: '✓';
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 700;
-  }
-
-  .hero-proof {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    max-width: 760px;
-    background: rgba(255,255,255,0.02);
-  }
-
-  .hero-proof-item {
-    padding: 22px 20px;
-    border-right: 1px solid var(--border);
-  }
-
-  .hero-proof-item:last-child { border-right: none; }
-
-  .hero-proof-top {
-    font-family: var(--display);
-    font-size: 34px;
-    line-height: 1;
-    color: var(--text);
-    margin-bottom: 7px;
-  }
-
-  .hero-proof-top span { color: var(--accent); }
-
-  .hero-proof-bottom {
-    font-size: 12px;
-    line-height: 1.5;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-
-  .hero-media {
-    position: relative;
-  }
-
-  .hero-photo-wrap {
-    position: relative;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(107,155,80,0.08), rgba(255,255,255,0.02));
-    box-shadow: var(--shadow);
-    min-height: 640px;
-  }
-
-  .hero-photo-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(11,13,9,0.05) 0%, rgba(11,13,9,0.18) 100%),
-      radial-gradient(circle at 50% 20%, rgba(107,155,80,0.16), transparent 55%);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .hero-photo {
-    width: 100%;
-    height: 100%;
-    min-height: 640px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .hero-photo-card {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-    z-index: 2;
-    background: rgba(11,13,9,0.78);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(8px);
-    border-radius: 12px;
-    padding: 18px 18px 16px;
-  }
-
-  .hero-photo-card-top {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
-
-  .hero-photo-card-title {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.25;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-
-  .hero-photo-card-text {
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 1.6;
-    color: var(--text-muted);
-  }
-
-  .marquee-wrap {
-    overflow: hidden;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 0;
-    background: var(--bg2);
-  }
-
-  .marquee-track {
-    display: flex;
-    animation: marquee 28s linear infinite;
-    white-space: nowrap;
-  }
-
-  .marquee-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 20px;
-    padding: 0 32px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-
-  .marquee-item::after {
-    content: '◆';
-    font-size: 6px;
-    color: var(--accent);
-  }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  section { padding: 100px 5%; }
-
-  .section-shell {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 22px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  .section-title {
-    font-family: var(--display);
-    font-size: clamp(42px, 5.5vw, 74px);
-    line-height: 0.94;
-    letter-spacing: 0.01em;
-    color: var(--text);
-    margin-bottom: 18px;
-  }
-
-  .section-sub {
-    font-size: 17px;
-    font-weight: 300;
-    color: var(--text-muted);
-    max-width: 620px;
-    line-height: 1.7;
-  }
-
-  .two-col-head {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: end;
-    margin-bottom: 56px;
-  }
-
-  .tag {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 5px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-  }
-
-  .results {
-    background: var(--bg2);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .results-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .result-item {
-    background: rgba(255,255,255,0.015);
-    padding: 40px 32px;
-    border-right: 1px solid var(--border);
-    position: relative;
-  }
-
-  .result-item:last-child { border-right: none; }
-
-  .result-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--accent);
-    opacity: 0;
-    transition: opacity 0.25s;
-  }
-
-  .result-item:hover::before { opacity: 1; }
-
-  .result-num {
-    font-family: var(--display);
-    font-size: 46px;
-    line-height: 1;
-    color: var(--accent);
-    margin-bottom: 8px;
-    display: block;
-  }
-
-  .result-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-
-  .result-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.55;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .service-card {
-    background: var(--bg);
-    padding: 34px 28px;
-    position: relative;
-    transition: background 0.25s;
-  }
-
-  .service-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-
-  .service-card:hover {
-    background: var(--bg2);
-  }
-
-  .service-card:hover::after {
-    transform: scaleX(1);
-  }
-
-  .service-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(107,155,80,0.08);
-    border: 1px solid rgba(107,155,80,0.18);
-    margin-bottom: 18px;
-    font-size: 18px;
-  }
-
-  .service-name {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-
-  .service-desc {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.68;
-    margin-bottom: 18px;
-  }
-
-  .service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .cases-section {
-    background: var(--bg2);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .case-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    transition: border-color 0.25s;
-  }
-
-  .case-card:hover { border-color: var(--border-bright); }
-
-  .case-preview {
-    background: var(--bg3);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    min-height: 360px;
-  }
-
-  .browser-bar {
-    height: 38px;
-    background: #0a0c08;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    padding: 0 14px;
-    gap: 6px;
-    flex-shrink: 0;
-  }
-
-  .bdot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-
-  .bdot-r { background: #2a1414; }
-  .bdot-y { background: #251f10; }
-  .bdot-g { background: rgba(107,155,80,0.35); }
-
-  .burl {
-    margin-left: 10px;
-    flex: 1;
-    height: 20px;
-    background: var(--bg2);
-    border-radius: 3px;
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-  }
-
-  .burl span {
-    font-size: 10px;
-    color: var(--text-dim);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .browser-content {
-    flex: 1;
-    overflow: hidden;
-  }
-
-  .mc, .mk {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mc { background: #0e1710; }
-  .mk { background: #0d0b10; }
-
-  .mc-nav, .mk-nav {
-    height: 32px;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-  }
-
-  .mc-nav {
-    background: #090f0a;
-    border-bottom: 1px solid rgba(107,155,80,0.12);
-  }
-
-  .mk-nav {
-    background: #09080c;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-
-  .mc-logo, .mk-logo {
-    font-family: var(--display);
-    letter-spacing: 0.08em;
-  }
-
-  .mc-logo {
-    font-size: 13px;
-    color: #6B9B50;
-  }
-
-  .mk-logo {
-    font-size: 12px;
-    color: #C4A96A;
-  }
-
-  .mc-navlinks, .mk-navlinks {
-    display: flex;
-    gap: 10px;
-    margin-left: auto;
-  }
-
-  .mc-navlinks span, .mk-navlinks span {
-    font-size: 8px;
-    color: rgba(237,233,224,0.28);
-  }
-
-  .mc-hero, .mk-hero {
-    flex: 1;
-    padding: 20px 18px 12px;
-  }
-
-  .mc-eyebrow, .mk-eyebrow {
-    font-size: 7px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 7px;
-  }
-
-  .mc-eyebrow { color: #6B9B50; }
-  .mk-eyebrow { color: #C4A96A; }
-
-  .mc-h1, .mk-h1 {
-    font-family: var(--display);
-    line-height: 1.02;
-    margin-bottom: 9px;
-    color: #EDE9E0;
-  }
-
-  .mc-h1 {
-    font-size: 30px;
-  }
-
-  .mk-h1 {
-    font-size: 26px;
-  }
-
-  .mc-h1 b, .mk-h1 b {
-    font-family: var(--display);
-    font-weight: 400;
-  }
-
-  .mc-h1 b { color: #6B9B50; }
-  .mk-h1 b { color: #C4A96A; }
-
-  .mc-sub, .mk-sub {
-    font-size: 7.5px;
-    line-height: 1.55;
-    margin-bottom: 14px;
-    max-width: 220px;
-  }
-
-  .mc-sub { color: rgba(237,233,224,0.42); }
-  .mk-sub { color: rgba(237,233,224,0.38); }
-
-  .mc-btns {
-    display: flex;
-    gap: 7px;
-  }
-
-  .mc-btn1, .mk-btn {
-    font-size: 7px;
-    font-weight: 700;
-    padding: 5px 13px;
-    border-radius: 3px;
-    letter-spacing: 0.05em;
-    display: inline-block;
-  }
-
-  .mc-btn1 {
-    background: #6B9B50;
-    color: #fff;
-  }
-
-  .mc-btn2 {
-    background: transparent;
-    color: rgba(237,233,224,0.35);
-    font-size: 7px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    border: 1px solid rgba(255,255,255,0.07);
-  }
-
-  .mk-btn {
-    background: #C4A96A;
-    color: #09080c;
-  }
-
-  .mc-trust {
-    display: flex;
-    gap: 10px;
-    padding: 10px 18px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-  }
-
-  .mc-trust span {
-    font-size: 7px;
-    color: rgba(237,233,224,0.3);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .mc-trust span::before {
-    content: '✓';
-    color: #6B9B50;
-    font-size: 8px;
-  }
-
-  .mk-svcs {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 5px;
-    padding: 10px 18px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-  }
-
-  .mk-svc {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 3px;
-    padding: 6px 7px;
-  }
-
-  .mk-svc-name {
-    font-size: 6px;
-    font-weight: 600;
-    color: rgba(237,233,224,0.4);
-    margin-bottom: 2px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .mk-svc-price {
-    font-size: 9px;
-    font-weight: 600;
-    color: #C4A96A;
-  }
-
-  .case-info {
-    padding: 34px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 24px;
-  }
-
-  .case-category {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-
-  .case-name {
-    font-family: var(--display);
-    font-size: 34px;
-    line-height: 1;
-    letter-spacing: 0.01em;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-
-  .case-location {
-    font-size: 13px;
-    color: var(--text-dim);
-    margin-bottom: 22px;
-  }
-
-  .case-highlights {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .case-highlights li {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.55;
-    padding-left: 18px;
-    position: relative;
-  }
-
-  .case-highlights li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 12px;
-  }
-
-  .case-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .case-badge {
-    background: rgba(107,155,80,0.1);
-    border: 1px solid rgba(107,155,80,0.22);
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 999px;
-    display: inline-flex;
-    width: fit-content;
-  }
-
-  .process-section {
-    background: var(--bg);
-  }
-
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
-  }
-
-  .step-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 30px 24px;
-    position: relative;
-    transition: border-color 0.25s;
-  }
-
-  .step-card:hover { border-color: var(--border-bright); }
-
-  .step-num {
-    font-family: var(--display);
-    font-size: 56px;
-    color: rgba(255,255,255,0.04);
-    line-height: 1;
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    pointer-events: none;
-  }
-
-  .step-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-bottom: 18px;
-  }
-
-  .step-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-
-  .step-desc {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  .diff-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
-  }
-
-  .diff-list {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 34px;
-  }
-
-  .diff-item {
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-    padding: 26px;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
-  }
-
-  .diff-item:last-child { border-bottom: none; }
-  .diff-item:hover { background: var(--bg2); }
-
-  .diff-icon {
-    width: 38px;
-    height: 38px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    background: rgba(107,155,80,0.08);
-    border: 1px solid rgba(107,155,80,0.16);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-  }
-
-  .diff-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-
-  .diff-text {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.62;
-  }
-
-  .quote-block {
-    border-left: 3px solid var(--accent);
-    padding: 22px 24px;
-    background: var(--bg2);
-    border-radius: 0 12px 12px 0;
-    margin-bottom: 24px;
-  }
-
-  .quote-text {
-    font-size: 17px;
-    font-weight: 300;
-    color: var(--text);
-    line-height: 1.7;
-    font-style: italic;
-    margin-bottom: 12px;
-  }
-
-  .quote-attr {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-
-  .mini-panel {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 24px 22px;
-  }
-
-  .mini-panel-title {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 14px;
-  }
-
-  .mini-panel-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .quote-section {
-    background: var(--bg2);
-    border-top: 1px solid var(--border);
-  }
-
-  .quote-layout {
-    display: grid;
-    grid-template-columns: 1fr 1.22fr;
-    gap: 70px;
-    align-items: start;
-  }
-
-  .quote-perks {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-    margin-top: 28px;
-  }
-
-  .quote-perks li {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-muted);
-    padding-left: 20px;
-    position: relative;
-    line-height: 1.55;
-  }
-
-  .quote-perks li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 13px;
-    font-weight: 700;
-  }
-
-  .quote-form-wrap {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 38px 32px;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    margin-bottom: 16px;
-  }
-
-  .form-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-
-  .form-input,
-  .form-select,
-  .form-textarea {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 12px 14px;
-    font-family: var(--body);
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-  }
-
-  .form-input::placeholder,
-  .form-textarea::placeholder {
-    color: var(--text-dim);
-  }
-
-  .form-input:focus,
-  .form-select:focus,
-  .form-textarea:focus {
-    border-color: var(--border-bright);
-  }
-
-  .form-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666358' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 36px;
-    cursor: pointer;
-  }
-
-  .form-select option { background: #171B13; }
-
-  .form-textarea {
-    resize: vertical;
-    min-height: 110px;
-    line-height: 1.6;
-  }
-
-  .form-services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 6px;
-  }
-
-  .form-check {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-  }
-
-  .form-check input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
-    accent-color: var(--accent);
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  .form-check span {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--text-muted);
-  }
-
-  .form-footer {
-    margin-top: 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .form-note {
-    font-size: 12px;
-    color: var(--text-dim);
-    line-height: 1.5;
-  }
-
-  .form-success {
-    display: none;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  .form-success-check {
-    font-size: 36px;
-    margin-bottom: 14px;
-  }
-
-  .form-success-title {
-    font-family: var(--display);
-    font-size: 38px;
-    color: var(--text);
-    margin-bottom: 10px;
-    letter-spacing: 0.02em;
-  }
-
-  .form-success-sub {
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.6;
-    max-width: 540px;
-    margin: 0 auto;
-  }
-
-  footer {
-    padding: 42px 5%;
-    border-top: 1px solid var(--border);
-  }
-
-  .footer-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-
-  .footer-logo {
-    font-family: var(--display);
-    font-size: 20px;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
-    text-decoration: none;
-  }
-
-  .footer-logo span { color: var(--accent); }
-
-  .footer-links {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-    flex-wrap: wrap;
-  }
-
-  .footer-links a {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--text-muted); }
-
-  .footer-copy {
-    font-size: 12px;
-    color: var(--text-dim);
-  }
-
-  .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .fade-up:nth-child(2) { transition-delay: 0.08s; }
-  .fade-up:nth-child(3) { transition-delay: 0.16s; }
-  .fade-up:nth-child(4) { transition-delay: 0.24s; }
-  .fade-up:nth-child(5) { transition-delay: 0.32s; }
-
-  @media (max-width: 1080px) {
-    .hero-wrap,
-    .two-col-head,
-    .diff-grid,
-    .quote-layout {
-      grid-template-columns: 1fr;
-      gap: 34px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kumpula Marketing | Free Homepage Mockups for Local Service Businesses</title>
+  <meta name="description" content="Free homepage mockups for local service businesses. I redesign weak websites so they look more trustworthy and convert more visitors into calls and leads." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #6B9B50;
+      --accent-dark: #507838;
+      --bg: #0B0D09;
+      --bg2: #111410;
+      --bg3: #171B13;
+      --panel: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.08);
+      --border-bright: rgba(107,155,80,0.28);
+      --text: #EDE9E0;
+      --text-muted: #A2A08F;
+      --text-dim: #666358;
+      --display: 'Bebas Neue', sans-serif;
+      --body: 'Outfit', sans-serif;
+      --shadow: 0 22px 70px rgba(0,0,0,0.35);
     }
 
-    .hero {
-      padding-top: 108px;
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .hero h1 {
-      max-width: 100%;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    .hero-media {
-      max-width: 620px;
-    }
+    img { max-width: 100%; display: block; }
 
-    .process-steps {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .results-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .result-item:nth-child(2n) { border-right: none; }
-    .result-item:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
-
-    .case-card {
-      grid-template-columns: 1fr;
-    }
-
-    .case-preview {
-      border-right: none;
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 72px;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(11,13,9,0.88);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-  }
 
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .hamburger { display: block; }
-
-    .hero h1 {
-      font-size: clamp(68px, 17vw, 116px);
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 22px;
+      letter-spacing: 0.05em;
+      color: var(--text);
     }
 
-    .hero-photo-wrap,
-    .hero-photo {
-      min-height: 520px;
-    }
-  }
+    .nav-logo span { color: var(--accent); }
 
-  @media (max-width: 640px) {
-    section { padding: 84px 5%; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 10px 18px;
+      border-radius: 6px;
+    }
+
+    .nav-cta:hover { background: var(--accent-dark); }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text-muted);
+      margin: 5px 0;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 5%;
+      display: none;
+      flex-direction: column;
+      gap: 18px;
+      z-index: 99;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .section-shell {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    section { padding: 96px 5%; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--accent);
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(42px, 5.8vw, 78px);
+      line-height: 0.93;
+      letter-spacing: 0.01em;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .section-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 640px;
+    }
 
     .hero {
-      padding: 100px 5% 64px;
+      min-height: 100vh;
+      padding: 122px 5% 82px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(107,155,80,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(107,155,80,0.05) 1px, transparent 1px);
+      background-size: 62px 62px;
+      mask-image: radial-gradient(ellipse 82% 62% at 50% 40%, black 35%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 760px;
+      height: 760px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(107,155,80,0.14) 0%, transparent 70%);
+      top: 42%;
+      left: 54%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-wrap {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 46px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(88px, 11vw, 160px);
+      line-height: 0.86;
+      letter-spacing: 0.01em;
+      margin-bottom: 22px;
+      max-width: 760px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 2.15vw, 21px);
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin-bottom: 32px;
+      line-height: 1.7;
     }
 
     .hero-actions {
-      flex-direction: column;
-      align-items: stretch;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
     }
 
     .btn-primary,
+    .btn-ghost,
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: 0.2s ease;
+      cursor: pointer;
+      border: none;
+      font-family: var(--body);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 15px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
     .btn-ghost {
-      width: 100%;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 15px 24px;
+      font-size: 14px;
+      font-weight: 600;
     }
 
-    .hero-proof {
-      grid-template-columns: 1fr;
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.18);
     }
 
-    .hero-proof-item {
-      border-right: none;
-      border-bottom: 1px solid var(--border);
+    .btn-dark {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 18px;
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    .hero-proof-item:last-child {
-      border-bottom: none;
+    .btn-dark:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.16);
     }
 
-    .results-grid,
-    .process-steps,
-    .form-row,
-    .form-services-grid {
-      grid-template-columns: 1fr;
+    .hero-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-dim);
+      max-width: 540px;
     }
 
-    .result-item {
-      border-right: none !important;
-      border-bottom: 1px solid var(--border);
+    .hero-photo-wrap {
+      position: relative;
+      min-height: 640px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(107,155,80,0.08), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
     }
 
-    .result-item:last-child { border-bottom: none; }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(11,13,9,0.04) 0%, rgba(11,13,9,0.2) 100%),
+        radial-gradient(circle at 50% 18%, rgba(107,155,80,0.16), transparent 55%);
+      z-index: 1;
+      pointer-events: none;
+    }
 
-    .hero-photo-wrap,
     .hero-photo {
-      min-height: 440px;
+      width: 100%;
+      height: 100%;
+      min-height: 640px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-photo-card {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      background: rgba(11,13,9,0.8);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      padding: 18px 18px 16px;
+    }
+
+    .hero-photo-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .hero-photo-title {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.28;
+      margin-bottom: 8px;
+    }
+
+    .hero-photo-text {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .simple-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 30px 26px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .service-card:hover {
+      border-color: var(--border-bright);
+      transform: translateY(-2px);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(107,155,80,0.08);
+      border: 1px solid rgba(107,155,80,0.18);
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+
+    .service-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .work-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .work-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+
+    .work-card:hover { border-color: var(--border-bright); }
+
+    .work-image-wrap {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background: #0c0f0b;
+    }
+
+    .work-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .work-body {
+      padding: 24px 24px 22px;
+    }
+
+    .work-topline {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .work-title {
+      font-family: var(--display);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      margin-bottom: 10px;
+    }
+
+    .work-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .work-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .after-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .after-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 30px 28px;
+    }
+
+    .after-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .after-card p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .after-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .after-list li {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-muted);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .after-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .contact-section {
+      padding-top: 100px;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .contact-side {
+      padding-top: 8px;
+    }
+
+    .contact-points {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .contact-points li {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-muted);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .contact-points li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .form-wrap {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 34px 30px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--text-dim);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--border-bright);
+    }
+
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666358' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .form-select option { background: #171B13; }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.6;
+    }
+
+    .form-services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .form-check input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .form-check span {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    .form-footer {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px 18px;
+    }
+
+    .form-success-check {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .form-success-title {
+      font-family: var(--display);
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .form-success-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    footer {
+      padding: 42px 5%;
+      border-top: 1px solid var(--border);
     }
 
     .footer-inner {
-      flex-direction: column;
-      align-items: flex-start;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
     }
-  }
-</style>
+
+    .footer-logo {
+      font-family: var(--display);
+      font-size: 20px;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text-muted); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-wrap,
+      .contact-wrap,
+      .work-grid,
+      .after-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .simple-grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+      }
+
+      .hero-photo-wrap,
+      .hero-photo {
+        min-height: 520px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+
+      .hero {
+        padding-top: 108px;
+      }
+
+      .hero h1 {
+        font-size: clamp(72px, 18vw, 118px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 82px 5%; }
+
+      .hero {
+        padding: 102px 5% 64px;
+      }
+
+      .hero-actions,
+      .work-actions,
+      .form-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-ghost,
+      .btn-dark {
+        width: 100%;
+      }
+
+      .form-row,
+      .form-services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo-wrap,
+      .hero-photo {
+        min-height: 420px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="#">Kumpula<span> Marketing</span></a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact" class="nav-cta">Get Free Mockup</a></li>
-  </ul>
-  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <nav>
+    <a class="nav-logo" href="#">Kumpula<span> Marketing</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Web Design</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#after">After</a></li>
+      <li><a href="#contact" class="nav-cta">Get Free Mockup</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<div class="mobile-nav" id="mobileNav">
-  <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#work" onclick="closeMobile()">Work</a>
-  <a href="#process" onclick="closeMobile()">Process</a>
-  <a href="#contact" onclick="closeMobile()">Get Free Mockup</a>
-</div>
-
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-
-  <div class="hero-wrap">
-    <div class="hero-copy">
-      <div class="hero-eyebrow">Free Custom Homepage Mockup</div>
-      <h1>
-        Stop Losing<br>
-        <em>Clients</em><br>
-        to a Weak Site.
-      </h1>
-      <p class="hero-sub">
-        I help local service businesses get a stronger first impression online. I’ll design your first homepage mockup free so you can see exactly what I’d change before paying anything.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Get My Free Mockup →</a>
-        <a href="#work" class="btn-ghost">See Past Work</a>
-      </div>
-
-      <div class="hero-points">
-        <span class="hero-point">No upfront risk</span>
-        <span class="hero-point">Built for local service businesses</span>
-        <span class="hero-point">Focused on calls and quote requests</span>
-      </div>
-
-      <div class="hero-proof">
-        <div class="hero-proof-item">
-          <div class="hero-proof-top">Free <span>First</span></div>
-          <div class="hero-proof-bottom">Homepage concept before you commit</div>
-        </div>
-        <div class="hero-proof-item">
-          <div class="hero-proof-top">2 <span>Live</span></div>
-          <div class="hero-proof-bottom">Local client websites you can review now</div>
-        </div>
-        <div class="hero-proof-item">
-          <div class="hero-proof-top">Built <span>to Convert</span></div>
-          <div class="hero-proof-bottom">Clear offers, stronger trust, better CTA flow</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-media fade-up">
-      <div class="hero-photo-wrap">
-        <img class="hero-photo" src="667700367_122171608172741182_4497036239769471481_n.jpg" alt="Samuel Kumpula">
-        <div class="hero-photo-card">
-          <div class="hero-photo-card-top">Samuel Kumpula</div>
-          <div class="hero-photo-card-title">I build homepages that make local businesses look more trustworthy and convert better.</div>
-          <div class="hero-photo-card-text">
-            The goal is simple: get more people to stay on the page, trust the business faster, and take action.
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#services" onclick="closeMobile()">Web Design</a>
+    <a href="#work" onclick="closeMobile()">Work</a>
+    <a href="#after" onclick="closeMobile()">After</a>
+    <a href="#contact" onclick="closeMobile()">Get Free Mockup</a>
   </div>
-</section>
 
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">Free Homepage Mockups</span>
-    <span class="marquee-item">Website Redesigns</span>
-    <span class="marquee-item">Landing Pages</span>
-    <span class="marquee-item">Conversion Optimization</span>
-    <span class="marquee-item">Google Business Optimization</span>
-    <span class="marquee-item">Google Ads Management</span>
-    <span class="marquee-item">Built for Local Service Businesses</span>
-    <span class="marquee-item">Free Homepage Mockups</span>
-    <span class="marquee-item">Website Redesigns</span>
-    <span class="marquee-item">Landing Pages</span>
-    <span class="marquee-item">Conversion Optimization</span>
-    <span class="marquee-item">Google Business Optimization</span>
-    <span class="marquee-item">Google Ads Management</span>
-    <span class="marquee-item">Built for Local Service Businesses</span>
-  </div>
-</div>
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
 
-<section class="results">
-  <div class="section-shell">
-    <div class="results-grid">
-      <div class="result-item fade-up">
-        <span class="result-num">Stronger</span>
-        <div class="result-title">First Impression</div>
-        <div class="result-desc">A better homepage makes the business feel more legit the second someone lands on it.</div>
-      </div>
-      <div class="result-item fade-up">
-        <span class="result-num">Clearer</span>
-        <div class="result-title">Call to Action</div>
-        <div class="result-desc">Visitors should instantly know what the business does and what to do next.</div>
-      </div>
-      <div class="result-item fade-up">
-        <span class="result-num">More</span>
-        <div class="result-title">Trust</div>
-        <div class="result-desc">Better structure, better proof, and better messaging help stop people from bouncing.</div>
-      </div>
-      <div class="result-item fade-up">
-        <span class="result-num">Better</span>
-        <div class="result-title">Lead Flow</div>
-        <div class="result-desc">The site should push more calls, more quote requests, and more booked jobs.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="section-shell">
-    <div class="two-col-head">
-      <div>
-        <div class="section-label">What I Can Help With</div>
-        <h2 class="section-title">THE STUFF<br>BEHIND THE<br>MOCKUP</h2>
-      </div>
-      <p class="section-sub">
-        The free homepage mockup is the entry point. If you like what I show you, these are the services I can help with after that.
-      </p>
-    </div>
-
-    <div class="services-grid">
-      <div class="service-card fade-up">
-        <div class="service-icon">🖥</div>
-        <div class="service-name">Website Design & Build</div>
-        <p class="service-desc">Custom websites for local service businesses built around trust, clarity, and getting people to take action.</p>
-        <div class="service-tags">
-          <span class="tag">Custom Build</span>
-          <span class="tag">Mobile-First</span>
-          <span class="tag">Lead Focused</span>
-        </div>
-      </div>
-
-      <div class="service-card fade-up">
-        <div class="service-icon">📄</div>
-        <div class="service-name">Landing Pages</div>
-        <p class="service-desc">Dedicated pages built for one offer, one audience, and one clear next step.</p>
-        <div class="service-tags">
-          <span class="tag">Simple Offer</span>
-          <span class="tag">Clear CTA</span>
-          <span class="tag">High Intent</span>
-        </div>
-      </div>
-
-      <div class="service-card fade-up">
-        <div class="service-icon">⚡</div>
-        <div class="service-name">Conversion Optimization</div>
-        <p class="service-desc">I look for weak headlines, buried CTAs, and friction in the page so more visitors turn into leads.</p>
-        <div class="service-tags">
-          <span class="tag">CTA Placement</span>
-          <span class="tag">Trust Signals</span>
-          <span class="tag">Form Cleanup</span>
-        </div>
-      </div>
-
-      <div class="service-card fade-up">
-        <div class="service-icon">📍</div>
-        <div class="service-name">Google Business Optimization</div>
-        <p class="service-desc">I help local businesses look stronger in Maps and local search when people are ready to hire.</p>
-        <div class="service-tags">
-          <span class="tag">Local SEO</span>
-          <span class="tag">Offer Posts</span>
-          <span class="tag">Profile Cleanup</span>
-        </div>
-      </div>
-
-      <div class="service-card fade-up">
-        <div class="service-icon">🎯</div>
-        <div class="service-name">Google Ads Management</div>
-        <p class="service-desc">Search campaigns built around buyer intent, backed by landing pages that are designed to convert.</p>
-        <div class="service-tags">
-          <span class="tag">Keywords</span>
-          <span class="tag">Tracking</span>
-          <span class="tag">Local Leads</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cases-section" id="work">
-  <div class="section-shell">
-    <div class="two-col-head">
-      <div>
-        <div class="section-label">Past Work</div>
-        <h2 class="section-title">REAL<br>CLIENT SITES</h2>
-      </div>
-      <p class="section-sub">
-        Two live local service business websites. You can look at the actual work instead of just hearing me talk about it.
-      </p>
-    </div>
-
-    <div class="case-card fade-up">
-      <div class="case-preview">
-        <div class="browser-bar">
-          <div class="bdot bdot-r"></div>
-          <div class="bdot bdot-y"></div>
-          <div class="bdot bdot-g"></div>
-          <div class="burl"><span>https://theoneclearchoiceautoglass.com/</span></div>
-        </div>
-        <div class="browser-content">
-          <div class="mc">
-            <div class="mc-nav">
-              <div class="mc-logo">CLEAR CHOICE</div>
-              <div class="mc-navlinks"><span>Services</span><span>About</span><span>Quote</span></div>
-            </div>
-            <div class="mc-hero">
-              <div class="mc-eyebrow">Salem &amp; Keizer, OR · Mobile Auto Glass</div>
-              <div class="mc-h1">Chipped or<br><b>Cracked?</b><br>We Come<br>To You.</div>
-              <div class="mc-sub">Fast mobile windshield, side window, and back glass replacement built for local conversions.</div>
-              <div class="mc-btns">
-                <div class="mc-btn1">GET A QUOTE</div>
-                <div class="mc-btn2">CALL NOW</div>
-              </div>
-            </div>
-            <div class="mc-trust">
-              <span>Local &amp; Mobile</span>
-              <span>Quote Flow</span>
-              <span>Lead Focused</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="case-info">
-        <div>
-          <div class="case-category">Auto Glass · Salem &amp; Keizer, OR</div>
-          <div class="case-name">Clear Choice Auto Glass</div>
-          <div class="case-location">Custom website, conversion improvements, and local lead generation support</div>
-          <ul class="case-highlights">
-            <li>Custom website built around a clear offer and fast quote requests</li>
-            <li>Strong service messaging for windshield, side window, and back glass replacement</li>
-            <li>Local trust-building layout designed for calls and quote form submissions</li>
-            <li>Live production site you can review right now</li>
-          </ul>
-        </div>
-
-        <div class="case-actions">
-          <span class="case-badge">Live Website</span>
-          <a class="btn-dark" href="https://theoneclearchoiceautoglass.com/" target="_blank" rel="noopener">Visit Live Site ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="case-card fade-up">
-      <div class="case-preview">
-        <div class="browser-bar">
-          <div class="bdot bdot-r"></div>
-          <div class="bdot bdot-y"></div>
-          <div class="bdot bdot-g"></div>
-          <div class="burl"><span>https://www.keizermobiledetailing.com/</span></div>
-        </div>
-        <div class="browser-content">
-          <div class="mk">
-            <div class="mk-nav">
-              <div class="mk-logo">KEIZER DETAILING</div>
-              <div class="mk-navlinks"><span>Services</span><span>Pricing</span><span>Book</span></div>
-            </div>
-            <div class="mk-hero">
-              <div class="mk-eyebrow">Keizer, OR · Mobile Auto Detailing</div>
-              <div class="mk-h1">Premium Detail.<br><b>We Come</b><br>To Your Door.</div>
-              <div class="mk-sub">Premium mobile detailing site built to make the business look higher-end and easier to book.</div>
-              <div class="mk-btn">BOOK &amp; GET A QUOTE</div>
-            </div>
-            <div class="mk-svcs">
-              <div class="mk-svc"><div class="mk-svc-name">Basic Wash</div><div class="mk-svc-price">from $65</div></div>
-              <div class="mk-svc"><div class="mk-svc-name">Full Detail</div><div class="mk-svc-price">from $149</div></div>
-              <div class="mk-svc"><div class="mk-svc-name">Premium</div><div class="mk-svc-price">from $249</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="case-info">
-        <div>
-          <div class="case-category">Mobile Detailing · Keizer, OR</div>
-          <div class="case-name">Keizer Mobile Detailing</div>
-          <div class="case-location">Custom detailing website with premium positioning and booking-focused structure</div>
-          <ul class="case-highlights">
-            <li>Premium visual direction built to support higher-ticket detailing offers</li>
-            <li>Service and pricing structure designed to guide people toward booking</li>
-            <li>Cleaner offer hierarchy and more polished first impression</li>
-            <li>Live production site you can review right now</li>
-          </ul>
-        </div>
-
-        <div class="case-actions">
-          <span class="case-badge">Live Website</span>
-          <a class="btn-dark" href="https://www.keizermobiledetailing.com/" target="_blank" rel="noopener">Visit Live Site ↗</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="process" class="process-section">
-  <div class="section-shell">
-    <div class="two-col-head">
-      <div>
-        <div class="section-label">How This Works</div>
-        <h2 class="section-title">MOCKUP<br>FIRST</h2>
-      </div>
-      <p class="section-sub">
-        The goal is to make saying yes easy. I show you a real homepage concept first. Then you decide if you want to move forward.
-      </p>
-    </div>
-
-    <div class="process-steps">
-      <div class="step-card fade-up">
-        <div class="step-num">01</div>
-        <div class="step-dot"></div>
-        <div class="step-title">Send Me Your Site</div>
-        <p class="step-desc">You send your current website, business info, and what you want help with.</p>
-      </div>
-
-      <div class="step-card fade-up">
-        <div class="step-num">02</div>
-        <div class="step-dot"></div>
-        <div class="step-title">I Review What’s Weak</div>
-        <p class="step-desc">I look for weak first impressions, trust issues, clutter, and missed conversion opportunities.</p>
-      </div>
-
-      <div class="step-card fade-up">
-        <div class="step-num">03</div>
-        <div class="step-dot"></div>
-        <div class="step-title">I Make the Mockup</div>
-        <p class="step-desc">You get a custom homepage concept so you can actually see the improvement instead of guessing.</p>
-      </div>
-
-      <div class="step-card fade-up">
-        <div class="step-num">04</div>
-        <div class="step-dot"></div>
-        <div class="step-title">You Decide</div>
-        <p class="step-desc">If you like the direction, we can move forward. If not, there’s no upfront cost for that first concept.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="section-shell">
-    <div class="diff-grid">
-      <div>
-        <div class="section-label">Why This Offer Works</div>
-        <h2 class="section-title">EASIER TO<br>SAY YES</h2>
-
-        <div class="diff-list">
-          <div class="diff-item">
-            <div class="diff-icon">🎯</div>
-            <div>
-              <div class="diff-title">You lead with value first</div>
-              <p class="diff-text">The free homepage mockup lowers resistance and gives people something real to react to.</p>
-            </div>
-          </div>
-
-          <div class="diff-item">
-            <div class="diff-icon">🧠</div>
-            <div>
-              <div class="diff-title">It feels specific, not generic</div>
-              <p class="diff-text">You are not saying “I do marketing.” You are saying “I’ll show you how your homepage could be better.”</p>
-            </div>
-          </div>
-
-          <div class="diff-item">
-            <div class="diff-icon">📍</div>
-            <div>
-              <div class="diff-title">Built for local service businesses</div>
-              <p class="diff-text">Calls, quote forms, trust, and clear offers matter more here than trendy agency talk.</p>
-            </div>
-          </div>
-
-          <div class="diff-item">
-            <div class="diff-icon">🔧</div>
-            <div>
-              <div class="diff-title">You can show, not just tell</div>
-              <p class="diff-text">Once they see the mockup, the conversation gets much easier because the difference feels obvious.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <p class="section-sub" style="max-width:100%; margin-bottom: 28px;">
-          I’m not trying to sell a huge package up front. The point is to make it easy for a business owner to see the value first.
+    <div class="hero-wrap">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">Free Homepage Mockup</div>
+        <h1>
+          See a Better<br>
+          <em>Homepage</em><br>
+          Before You Pay.
+        </h1>
+        <p class="hero-sub">
+          I help local service businesses stop losing clients to weak websites. I’ll design your first homepage mockup for free so you can see exactly how I’d improve it before spending anything.
         </p>
-
-        <div class="quote-block">
-          <p class="quote-text">“A business owner should be able to look at the homepage and instantly think: this feels more trustworthy, clearer, and more likely to get me leads.”</p>
-          <div class="quote-attr">Samuel Kumpula — Kumpula Marketing</div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Get My Free Mockup →</a>
+          <a href="#work" class="btn-ghost">See Past Work</a>
         </div>
+        <p class="hero-note">
+          Best fit for local service businesses that already have a website but know it could look better, build more trust, and convert more visitors.
+        </p>
+      </div>
 
-        <div class="mini-panel">
-          <div class="mini-panel-title">Tools & Platforms</div>
-          <div class="mini-panel-tags">
-            <span class="tag">HTML / CSS / JS</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Vercel</span>
-            <span class="tag">Google Ads</span>
-            <span class="tag">Google Business</span>
-            <span class="tag">Landing Pages</span>
+      <div class="hero-media fade-up">
+        <div class="hero-photo-wrap">
+          <img class="hero-photo" src="667700367_122171608172741182_4497036239769471481_n.jpg" alt="Samuel Kumpula">
+          <div class="hero-photo-card">
+            <div class="hero-photo-label">Samuel Kumpula</div>
+            <div class="hero-photo-title">Clean, modern homepage redesigns built to make local businesses look more trustworthy.</div>
+            <div class="hero-photo-text">
+              The goal is simple. Better first impression, clearer offer, stronger trust, and more people taking action.
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="quote-section" id="contact">
-  <div class="section-shell">
-    <div class="quote-layout">
-      <div>
-        <div class="section-label">Request Your Mockup</div>
-        <h2 class="section-title">GET YOUR FREE<br>HOMEPAGE<br>CONCEPT</h2>
-        <p class="section-sub">
-          Send me your current website and some quick context. I’ll review it and put together a custom homepage direction for your business.
-        </p>
+  <section id="services">
+    <div class="section-shell">
+      <div class="section-label">Web Design</div>
+      <h2 class="section-title">WHAT I<br>ACTUALLY BUILD</h2>
+      <p class="section-sub" style="margin-bottom: 34px;">
+        I am leading with the free homepage mockup, but the real service is building cleaner, more professional websites for local businesses that need stronger first impressions and better conversions.
+      </p>
 
-        <ul class="quote-perks">
-          <li>No upfront payment for the first homepage concept</li>
-          <li>Built specifically around your business, not a generic template</li>
-          <li>Focused on trust, clarity, and getting more leads</li>
-          <li>Good fit for local service businesses that already have a site but know it could be better</li>
-          <li>If you like it, then we can talk about moving forward</li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="quote-form-wrap" id="quoteFormWrap">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="fname">Your Name</label>
-              <input class="form-input" type="text" id="fname" placeholder="First Last">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fphone">Phone Number</label>
-              <input class="form-input" type="tel" id="fphone" placeholder="(503) 555-0000">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="femail">Email</label>
-              <input class="form-input" type="email" id="femail" placeholder="you@yourbusiness.com">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fbiz">Business Name</label>
-              <input class="form-input" type="text" id="fbiz" placeholder="Your Business">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="fsite">Current Website</label>
-            <input class="form-input" type="text" id="fsite" placeholder="https://yourwebsite.com">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="ftype">Type of Business</label>
-            <select class="form-select" id="ftype">
-              <option value="" disabled selected>Select your industry</option>
-              <option>Auto Glass</option>
-              <option>Auto Detailing</option>
-              <option>Landscaping / Lawn Care</option>
-              <option>Cleaning Services</option>
-              <option>Plumbing / HVAC</option>
-              <option>Roofing / Exterior</option>
-              <option>Pest Control</option>
-              <option>Home Services (other)</option>
-              <option>Other Local Service</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">What Do You Want Help With?</label>
-            <div class="form-services-grid">
-              <label class="form-check"><input type="checkbox" value="homepage-redesign"><span>Homepage Redesign</span></label>
-              <label class="form-check"><input type="checkbox" value="full-website"><span>Full Website</span></label>
-              <label class="form-check"><input type="checkbox" value="landing-page"><span>Landing Page</span></label>
-              <label class="form-check"><input type="checkbox" value="conversion-help"><span>Conversion Help</span></label>
-              <label class="form-check"><input type="checkbox" value="google-ads"><span>Google Ads</span></label>
-              <label class="form-check"><input type="checkbox" value="gbp"><span>Google Business</span></label>
-            </div>
-          </div>
-
-          <div class="form-group" style="margin-bottom:0;">
-            <label class="form-label" for="fmsg">What Feels Weak Right Now?</label>
-            <textarea class="form-textarea" id="fmsg" placeholder="What do you think is costing you leads right now? Outdated design, weak trust, low calls, weak quote flow, unclear offer, etc."></textarea>
-          </div>
-
-          <div class="form-footer">
-            <button class="btn-primary" onclick="submitForm()">Request My Free Mockup →</button>
-            <p class="form-note">No spam. I’ll personally review it and reach out with next steps.</p>
-          </div>
+      <div class="simple-grid-3">
+        <div class="service-card fade-up">
+          <div class="service-icon">🖥</div>
+          <div class="service-name">Homepage Redesigns</div>
+          <p class="service-desc">
+            Cleaner hero sections, better trust signals, stronger calls to action, and messaging that makes the business feel more legit right away.
+          </p>
         </div>
 
-        <div class="form-success" id="formSuccess">
-          <div class="form-success-check">✅</div>
-          <div class="form-success-title">Got It.</div>
-          <p class="form-success-sub">
-            I’ll review your info and reach out about your free homepage mockup. If it looks like a good fit, I’ll show you a direction built around your business.
+        <div class="service-card fade-up">
+          <div class="service-icon">⚙</div>
+          <div class="service-name">Full Website Builds</div>
+          <p class="service-desc">
+            If the whole site is weak, I can turn the homepage direction into a full website with service pages, contact flow, and better structure.
+          </p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">📄</div>
+          <div class="service-name">Landing Pages</div>
+          <p class="service-desc">
+            Separate pages for one offer, one audience, and one clear goal. Good for local paid traffic and higher-conversion campaigns.
           </p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="footer-inner">
-    <a class="footer-logo" href="#">Kumpula<span> Marketing</span></a>
+  <section class="work-section" id="work">
+    <div class="section-shell">
+      <div class="section-label">Past Work</div>
+      <h2 class="section-title">REAL CLIENT<br>WEBSITES</h2>
+      <p class="section-sub" style="margin-bottom: 34px;">
+        These are real local business websites, not fake concept pieces. You can look at the actual work and click through to the live sites.
+      </p>
 
-    <ul class="footer-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#contact">Free Mockup</a></li>
-    </ul>
+      <div class="work-grid">
+        <div class="work-card fade-up">
+          <div class="work-image-wrap">
+            <img class="work-image" src="Screenshot 2026-04-06 192032.png" alt="Clear Choice Auto Glass website screenshot" loading="lazy">
+          </div>
+          <div class="work-body">
+            <div class="work-topline">Auto Glass · Salem &amp; Keizer</div>
+            <div class="work-title">Clear Choice<br>Auto Glass</div>
+            <p class="work-text">
+              Custom site focused on local trust, a clear mobile service offer, and pushing visitors toward quote requests and calls.
+            </p>
+            <div class="work-actions">
+              <a class="btn-dark" href="https://theoneclearchoiceautoglass.com/" target="_blank" rel="noopener">Visit Live Site ↗</a>
+            </div>
+          </div>
+        </div>
 
-    <span class="footer-copy">© 2026 Kumpula Marketing</span>
-  </div>
-</footer>
+        <div class="work-card fade-up">
+          <div class="work-image-wrap">
+            <img class="work-image" src="Screenshot 2026-04-06 192106.png" alt="Keizer Mobile Detailing website screenshot" loading="lazy">
+          </div>
+          <div class="work-body">
+            <div class="work-topline">Mobile Detailing · Keizer</div>
+            <div class="work-title">Keizer Mobile<br>Detailing</div>
+            <p class="work-text">
+              Premium visual direction, cleaner service presentation, and a stronger first impression for a higher-ticket local service business.
+            </p>
+            <div class="work-actions">
+              <a class="btn-dark" href="https://www.keizermobiledetailing.com/" target="_blank" rel="noopener">Visit Live Site ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  <section id="after">
+    <div class="section-shell">
+      <div class="section-label">What Comes After</div>
+      <h2 class="section-title">AFTER THE<br>WEBSITE</h2>
+      <p class="section-sub" style="margin-bottom: 34px;">
+        The website is the foundation. After that, the next two things that matter most are looking stronger on Google and having traffic to send into the site.
+      </p>
 
-  document.querySelectorAll('.fade-up').forEach((el) => obs.observe(el));
+      <div class="after-grid">
+        <div class="after-card fade-up">
+          <h3>Google Business Optimization</h3>
+          <p>
+            If someone finds you in Maps or local search first, your profile needs to look complete, trustworthy, and active. That helps more people click through and reach out.
+          </p>
+          <ul class="after-list">
+            <li>Profile cleanup and stronger setup</li>
+            <li>Better local trust signals</li>
+            <li>Stronger presentation in Maps and local search</li>
+          </ul>
+        </div>
 
-  function toggleMobile() {
-    document.getElementById('mobileNav').classList.toggle('open');
-  }
+        <div class="after-card fade-up">
+          <h3>Google Ads</h3>
+          <p>
+            Once the page looks strong, ads make more sense because you are sending traffic to something built to convert instead of wasting clicks on a weak site.
+          </p>
+          <ul class="after-list">
+            <li>Search campaigns built around buyer intent</li>
+            <li>Landing page and offer alignment</li>
+            <li>Cleaner path from click to lead</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  function closeMobile() {
-    document.getElementById('mobileNav').classList.remove('open');
-  }
+  <section class="contact-section" id="contact">
+    <div class="section-shell">
+      <div class="contact-wrap">
+        <div class="contact-side">
+          <div class="section-label">Request Your Mockup</div>
+          <h2 class="section-title">GET YOUR FREE<br>HOMEPAGE<br>MOCKUP</h2>
+          <p class="section-sub">
+            Send me your current website and some quick context. I’ll review it and send a confirmation email with the info you submitted.
+          </p>
 
-  function submitForm() {
-    const name = document.getElementById('fname').value.trim();
-    const email = document.getElementById('femail').value.trim();
-    const website = document.getElementById('fsite').value.trim();
+          <ul class="contact-points">
+            <li>No upfront payment for the first homepage concept</li>
+            <li>Built around your actual business, not a generic template</li>
+            <li>Simple first step to see if working together makes sense</li>
+          </ul>
+        </div>
 
-    if (!name || !email || !website) {
-      alert('Please fill in your name, email, and current website to continue.');
-      return;
+        <div>
+          <div class="form-wrap" id="quoteFormWrap">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="fname">Your Name</label>
+                <input class="form-input" type="text" id="fname" placeholder="First Last">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fphone">Phone Number</label>
+                <input class="form-input" type="tel" id="fphone" placeholder="(503) 555-0000">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="femail">Email</label>
+                <input class="form-input" type="email" id="femail" placeholder="you@yourbusiness.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fbiz">Business Name</label>
+                <input class="form-input" type="text" id="fbiz" placeholder="Your Business">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fsite">Current Website</label>
+              <input class="form-input" type="text" id="fsite" placeholder="https://yourwebsite.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ftype">Type of Business</label>
+              <select class="form-select" id="ftype">
+                <option value="" disabled selected>Select your industry</option>
+                <option>Auto Glass</option>
+                <option>Auto Detailing</option>
+                <option>Landscaping / Lawn Care</option>
+                <option>Cleaning Services</option>
+                <option>Plumbing / HVAC</option>
+                <option>Roofing / Exterior</option>
+                <option>Pest Control</option>
+                <option>Home Services (other)</option>
+                <option>Other Local Service</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">What Do You Want Help With?</label>
+              <div class="form-services-grid">
+                <label class="form-check"><input type="checkbox" value="Homepage Redesign"><span>Homepage Redesign</span></label>
+                <label class="form-check"><input type="checkbox" value="Full Website"><span>Full Website</span></label>
+                <label class="form-check"><input type="checkbox" value="Landing Page"><span>Landing Page</span></label>
+                <label class="form-check"><input type="checkbox" value="Google Business"><span>Google Business</span></label>
+                <label class="form-check"><input type="checkbox" value="Google Ads"><span>Google Ads</span></label>
+                <label class="form-check"><input type="checkbox" value="General Website Help"><span>General Website Help</span></label>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="fmsg">What Feels Weak Right Now?</label>
+              <textarea class="form-textarea" id="fmsg" placeholder="Outdated design, weak first impression, low calls, poor trust, weak offer, no real direction, etc."></textarea>
+            </div>
+
+            <div class="form-footer">
+              <button class="btn-primary" type="button" onclick="submitForm()">Request My Free Mockup →</button>
+              <p class="form-note">You will get a confirmation email after submitting.</p>
+            </div>
+          </div>
+
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-check">✅</div>
+            <div class="form-success-title">Request Sent.</div>
+            <p class="form-success-sub">
+              I got your homepage mockup request. Check your email. I sent a confirmation with the info you submitted.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a class="footer-logo" href="#">Kumpula<span> Marketing</span></a>
+
+      <ul class="footer-links">
+        <li><a href="#services">Web Design</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#after">After</a></li>
+        <li><a href="#contact">Free Mockup</a></li>
+      </ul>
+
+      <span class="footer-copy">© 2026 Kumpula Marketing</span>
+    </div>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxZLDwmzGjtz7BxtnQIsrF3B5htBA2oZ-VGp1h907RPrEL-IPku0ZGac1LfEsqLg32Olw/exec";
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach((el) => obs.observe(el));
+
+    function toggleMobile() {
+      document.getElementById('mobileNav').classList.toggle('open');
     }
 
-    document.getElementById('quoteFormWrap').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }
-</script>
+    function closeMobile() {
+      document.getElementById('mobileNav').classList.remove('open');
+    }
 
+    async function submitForm() {
+      const name = document.getElementById('fname').value.trim();
+      const phone = document.getElementById('fphone').value.trim();
+      const email = document.getElementById('femail').value.trim();
+      const businessName = document.getElementById('fbiz').value.trim();
+      const website = document.getElementById('fsite').value.trim();
+      const businessType = document.getElementById('ftype').value;
+      const message = document.getElementById('fmsg').value.trim();
+
+      const services = Array.from(
+        document.querySelectorAll('.form-check input[type="checkbox"]:checked')
+      ).map((checkbox) => checkbox.value);
+
+      if (!name || !email || !website) {
+        alert('Please fill in your name, email, and current website to continue.');
+        return;
+      }
+
+      const button = document.querySelector('#quoteFormWrap .btn-primary');
+      const originalText = button.textContent;
+
+      button.disabled = true;
+      button.textContent = 'Sending...';
+      button.style.opacity = '0.7';
+      button.style.cursor = 'not-allowed';
+
+      const payload = new URLSearchParams();
+      payload.append('name', name);
+      payload.append('phone', phone);
+      payload.append('email', email);
+      payload.append('businessName', businessName);
+      payload.append('website', website);
+      payload.append('businessType', businessType);
+      payload.append('services', services.join('||'));
+      payload.append('message', message);
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: payload
+        });
+
+        document.getElementById('quoteFormWrap').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } catch (error) {
+        alert('Something went wrong sending the form. Please try again.');
+        button.disabled = false;
+        button.textContent = originalText;
+        button.style.opacity = '1';
+        button.style.cursor = 'pointer';
+      }
+    }
+  </script>
 </body>
 </html>
