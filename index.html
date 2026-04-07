@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kumpula Marketing — Local Service Lead Generation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent: #6B9B50;
+    --accent-dark: #507838;
+    --bg:  #0B0D09;
+    --bg2: #111410;
+    --bg3: #171B13;
+    --border: rgba(255,255,255,0.07);
+    --border-bright: rgba(107,155,80,0.28);
+    --text: #EDE9E0;
+    --text-muted: #8A8878;
+    --text-dim: #52504A;
+    --display: 'Bebas Neue', sans-serif;
+    --body: 'Outfit', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; background: rgba(11,13,9,0.9); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: var(--display); font-size: 20px; letter-spacing: 0.05em; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta { background: var(--accent) !important; color: #fff !important; padding: 8px 20px; border-radius: 4px; }
+  .nav-cta:hover { background: var(--accent-dark) !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text-muted); margin: 5px 0; }
+  .mobile-nav { position: fixed; top: 64px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 24px 5%; display: none; flex-direction: column; gap: 20px; z-index: 99; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { font-size: 16px; font-weight: 500; color: var(--text-muted); text-decoration: none; }
+
+  /* HERO */
+  .hero { min-height: 100vh; padding: 120px 5% 80px; display: flex; align-items: center; position: relative; overflow: hidden; }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(107,155,80,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(107,155,80,0.05) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%); }
+  .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(107,155,80,0.12) 0%, transparent 70%); top: 50%; left: 40%; transform: translate(-50%,-50%); pointer-events: none; }
+  .hero-inner { position: relative; z-index: 1; max-width: 900px; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+  .hero h1 { font-family: var(--display); font-size: clamp(56px, 9vw, 110px); line-height: 0.92; letter-spacing: 0.01em; color: var(--text); margin-bottom: 32px; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-sub { font-size: clamp(16px, 2.2vw, 20px); font-weight: 300; color: var(--text-muted); max-width: 580px; margin-bottom: 44px; line-height: 1.65; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .btn-primary { background: var(--accent); color: #fff; font-family: var(--body); font-size: 14px; font-weight: 600; letter-spacing: 0.04em; padding: 14px 32px; border-radius: 4px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--text-muted); font-family: var(--body); font-size: 14px; font-weight: 500; padding: 14px 28px; border-radius: 4px; text-decoration: none; border: 1px solid var(--border); cursor: pointer; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+  .hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .hero-stat-num { font-family: var(--display); font-size: 36px; color: var(--text); display: block; line-height: 1; }
+  .hero-stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; display: block; }
+
+  /* MARQUEE */
+  .marquee-wrap { overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 14px 0; background: var(--bg2); }
+  .marquee-track { display: flex; animation: marquee 30s linear infinite; white-space: nowrap; }
+  .marquee-item { display: inline-flex; align-items: center; gap: 20px; padding: 0 32px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+  .marquee-item::after { content: '◆'; font-size: 6px; color: var(--accent); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* SHARED */
+  section { padding: 100px 5%; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+  .section-title { font-family: var(--display); font-size: clamp(38px, 5.5vw, 64px); line-height: 0.96; letter-spacing: 0.01em; color: var(--text); margin-bottom: 20px; }
+  .section-sub { font-size: 17px; font-weight: 300; color: var(--text-muted); max-width: 520px; line-height: 1.65; }
+  .tag { font-size: 11px; font-weight: 500; letter-spacing: 0.04em; padding: 4px 10px; border-radius: 3px; border: 1px solid var(--border); color: var(--text-dim); }
+
+  /* RESULTS */
+  .results { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .results-inner { max-width: 1100px; margin: 0 auto; }
+  .results-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+  .result-item { padding: 52px 40px; border-right: 1px solid var(--border); position: relative; }
+  .result-item:last-child { border-right: none; }
+  .result-item::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); opacity: 0; transition: opacity 0.3s; }
+  .result-item:hover::before { opacity: 1; }
+  .result-num { font-family: var(--display); font-size: 52px; color: var(--accent); line-height: 1; display: block; margin-bottom: 10px; }
+  .result-title { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .result-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* SERVICES */
+  .services-wrap { max-width: 1100px; margin: 0 auto; }
+  .two-col-head { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .service-card { background: var(--bg); padding: 36px 32px; transition: background 0.25s; position: relative; overflow: hidden; }
+  .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .service-card:hover { background: var(--bg2); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-icon { width: 40px; height: 40px; border: 1px solid rgba(107,155,80,0.2); background: rgba(107,155,80,0.06); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 18px; }
+  .service-name { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+  .service-desc { font-size: 14px; font-weight: 300; color: var(--text-muted); line-height: 1.65; margin-bottom: 20px; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* PROCESS */
+  .process-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .process-inner { max-width: 1100px; margin: 0 auto; }
+  .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .step-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 32px 28px; position: relative; transition: border-color 0.25s; }
+  .step-card:hover { border-color: var(--border-bright); }
+  .step-num { font-family: var(--display); font-size: 64px; color: rgba(255,255,255,0.04); line-height: 1; position: absolute; top: 20px; right: 24px; pointer-events: none; transition: color 0.25s; }
+  .step-card:hover .step-num { color: rgba(107,155,80,0.1); }
+  .step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-bottom: 20px; }
+  .step-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+  .step-desc { font-size: 14px; font-weight: 300; color: var(--text-muted); line-height: 1.65; }
+
+  /* CASE STUDIES */
+  .cases-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .cases-inner { max-width: 1100px; margin: 0 auto; }
+  .case-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 28px; display: grid; grid-template-columns: 1fr 1fr; transition: border-color 0.25s; }
+  .case-card:hover { border-color: var(--border-bright); }
+
+  /* Browser mockup */
+  .case-preview { background: var(--bg3); border-right: 1px solid var(--border); display: flex; flex-direction: column; min-height: 360px; }
+  .browser-bar { height: 36px; background: #0a0c08; border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 14px; gap: 6px; flex-shrink: 0; }
+  .bdot { width: 10px; height: 10px; border-radius: 50%; }
+  .bdot-r { background: #2a1414; }
+  .bdot-y { background: #251f10; }
+  .bdot-g { background: rgba(107,155,80,0.35); }
+  .burl { margin-left: 10px; flex: 1; height: 20px; background: var(--bg2); border-radius: 3px; border: 1px solid var(--border); display: flex; align-items: center; padding: 0 10px; }
+  .burl span { font-size: 10px; color: var(--text-dim); }
+  .browser-content { flex: 1; overflow: hidden; }
+
+  /* Mockup: Clear Choice */
+  .mc { background: #0e1710; height: 100%; display: flex; flex-direction: column; }
+  .mc-nav { height: 32px; background: #090f0a; border-bottom: 1px solid rgba(107,155,80,0.12); display: flex; align-items: center; padding: 0 16px; gap: 12px; }
+  .mc-logo { font-family: var(--display); font-size: 13px; letter-spacing: 0.06em; color: #6B9B50; }
+  .mc-navlinks { display: flex; gap: 10px; margin-left: auto; }
+  .mc-navlinks span { font-size: 8px; color: rgba(237,233,224,0.28); }
+  .mc-hero { padding: 22px 18px 14px; flex: 1; }
+  .mc-eyebrow { font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6B9B50; margin-bottom: 7px; }
+  .mc-h1 { font-family: var(--display); font-size: 30px; line-height: 1; color: #EDE9E0; margin-bottom: 9px; }
+  .mc-h1 b { color: #6B9B50; font-family: var(--display); font-weight: 400; }
+  .mc-sub { font-size: 7.5px; color: rgba(237,233,224,0.42); line-height: 1.55; max-width: 210px; margin-bottom: 14px; }
+  .mc-btns { display: flex; gap: 7px; }
+  .mc-btn1 { background: #6B9B50; color: #fff; font-size: 7px; font-weight: 600; padding: 5px 13px; border-radius: 3px; letter-spacing: 0.05em; }
+  .mc-btn2 { background: transparent; color: rgba(237,233,224,0.35); font-size: 7px; padding: 5px 10px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.07); }
+  .mc-trust { display: flex; gap: 10px; padding: 10px 18px; border-top: 1px solid rgba(255,255,255,0.05); }
+  .mc-trust span { font-size: 7px; color: rgba(237,233,224,0.3); display: flex; align-items: center; gap: 4px; }
+  .mc-trust span::before { content: '✓'; color: #6B9B50; font-size: 8px; }
+
+  /* Mockup: Keizer Detailing */
+  .mk { background: #0d0b10; height: 100%; display: flex; flex-direction: column; }
+  .mk-nav { height: 32px; background: #09080c; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; padding: 0 16px; }
+  .mk-logo { font-family: var(--display); font-size: 12px; letter-spacing: 0.09em; color: #C4A96A; }
+  .mk-navlinks { display: flex; gap: 10px; margin-left: auto; }
+  .mk-navlinks span { font-size: 8px; color: rgba(237,233,224,0.24); }
+  .mk-hero { padding: 20px 18px 12px; flex: 1; }
+  .mk-eyebrow { font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #C4A96A; margin-bottom: 7px; }
+  .mk-h1 { font-family: var(--display); font-size: 26px; line-height: 1.05; color: #EDE9E0; margin-bottom: 9px; }
+  .mk-h1 b { color: #C4A96A; font-family: var(--display); font-weight: 400; }
+  .mk-sub { font-size: 7.5px; color: rgba(237,233,224,0.38); line-height: 1.55; max-width: 200px; margin-bottom: 13px; }
+  .mk-btn { background: #C4A96A; color: #09080c; font-size: 7px; font-weight: 700; padding: 5px 14px; border-radius: 3px; letter-spacing: 0.06em; display: inline-block; }
+  .mk-svcs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; padding: 10px 18px; border-top: 1px solid rgba(255,255,255,0.05); }
+  .mk-svc { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 3px; padding: 6px 7px; }
+  .mk-svc-name { font-size: 6px; font-weight: 600; color: rgba(237,233,224,0.4); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .mk-svc-price { font-size: 9px; font-weight: 600; color: #C4A96A; }
+
+  /* Case info */
+  .case-info { padding: 36px; display: flex; flex-direction: column; justify-content: space-between; }
+  .case-category { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .case-name { font-family: var(--display); font-size: 32px; color: var(--text); line-height: 1; letter-spacing: 0.01em; margin-bottom: 5px; }
+  .case-location { font-size: 12px; color: var(--text-dim); margin-bottom: 24px; }
+  .case-highlights { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .case-highlights li { font-size: 14px; font-weight: 300; color: var(--text-muted); padding-left: 18px; position: relative; line-height: 1.5; }
+  .case-highlights li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 12px; }
+  .case-badge { background: rgba(107,155,80,0.1); border: 1px solid rgba(107,155,80,0.2); color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; display: inline-block; }
+
+  /* DIFFERENTIATORS */
+  .diff-inner { max-width: 1100px; margin: 0 auto; }
+  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .diff-list { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 40px; }
+  .diff-item { display: flex; align-items: flex-start; gap: 20px; padding: 28px; border-bottom: 1px solid var(--border); transition: background 0.2s; }
+  .diff-item:last-child { border-bottom: none; }
+  .diff-item:hover { background: var(--bg2); }
+  .diff-icon { width: 36px; height: 36px; flex-shrink: 0; border-radius: 6px; background: rgba(107,155,80,0.08); border: 1px solid rgba(107,155,80,0.15); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .diff-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .diff-text { font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+  .quote-block { border-left: 3px solid var(--accent); padding: 20px 24px; background: var(--bg2); border-radius: 0 8px 8px 0; margin-bottom: 24px; }
+  .quote-text { font-size: 17px; font-weight: 300; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 12px; }
+  .quote-attr { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+
+  /* QUOTE FORM */
+  .quote-section { background: var(--bg2); border-top: 1px solid var(--border); }
+  .quote-inner { max-width: 1000px; margin: 0 auto; }
+  .quote-layout { display: grid; grid-template-columns: 1fr 1.45fr; gap: 80px; align-items: start; }
+  .quote-perks { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-top: 28px; }
+  .quote-perks li { font-size: 14px; font-weight: 300; color: var(--text-muted); padding-left: 20px; position: relative; line-height: 1.5; }
+  .quote-perks li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-size: 13px; font-weight: 600; }
+  .quote-form-wrap { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 40px 36px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+  .form-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-dim); }
+  .form-input, .form-select, .form-textarea { background: var(--bg); border: 1px solid var(--border); border-radius: 5px; padding: 11px 14px; font-family: var(--body); font-size: 14px; font-weight: 300; color: var(--text); outline: none; transition: border-color 0.2s; width: 100%; }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--border-bright); }
+  .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2352504A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+  .form-select option { background: #171B13; }
+  .form-textarea { resize: vertical; min-height: 96px; line-height: 1.6; }
+  .form-services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }
+  .form-check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+  .form-check input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
+  .form-check span { font-size: 13px; font-weight: 300; color: var(--text-muted); }
+  .form-footer { margin-top: 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .form-note { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
+  .form-success { display: none; text-align: center; padding: 40px 20px; }
+  .form-success-check { font-size: 36px; margin-bottom: 14px; }
+  .form-success-title { font-family: var(--display); font-size: 36px; color: var(--text); margin-bottom: 10px; letter-spacing: 0.02em; }
+  .form-success-sub { font-size: 15px; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+
+  /* FOOTER */
+  footer { padding: 48px 5%; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-logo { font-family: var(--display); font-size: 20px; letter-spacing: 0.05em; color: var(--text-muted); text-decoration: none; }
+  .footer-logo span { color: var(--accent); }
+  .footer-links { display: flex; gap: 28px; list-style: none; }
+  .footer-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text-muted); }
+  .footer-copy { font-size: 12px; color: var(--text-dim); }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up:nth-child(2) { transition-delay: 0.08s; }
+  .fade-up:nth-child(3) { transition-delay: 0.16s; }
+  .fade-up:nth-child(4) { transition-delay: 0.24s; }
+  .fade-up:nth-child(5) { transition-delay: 0.32s; }
+  .fade-up:nth-child(6) { transition-delay: 0.4s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .two-col-head, .diff-grid, .quote-layout { grid-template-columns: 1fr; gap: 32px; }
+    .case-card { grid-template-columns: 1fr; }
+    .case-preview { min-height: 240px; border-right: none; border-bottom: 1px solid var(--border); }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .result-item:nth-child(2n) { border-right: none; }
+    .result-item { border-bottom: 1px solid var(--border); }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    .results-grid { grid-template-columns: 1fr; }
+    .result-item { border-right: none; }
+    .form-services-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Kumpula<span> Marketing</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#work" onclick="closeMobile()">Work</a>
+  <a href="#process" onclick="closeMobile()">Process</a>
+  <a href="#contact" onclick="closeMobile()">Get a Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Local Service Lead Generation</div>
+    <h1>
+      Turn Clicks Into<br>
+      <em>Calls & Booked</em><br>
+      Jobs.
+    </h1>
+    <p class="hero-sub">
+      Kumpula Marketing builds conversion-focused websites, landing pages, and ad systems for local service businesses that need more leads — not just a nicer website.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Quote →</a>
+      <a href="#work" class="btn-ghost">See the Work</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="hero-stat-num">100%</span>
+        <span class="hero-stat-label">Conversion-First</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">Local</span>
+        <span class="hero-stat-label">Service Focus</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">1</span>
+        <span class="hero-stat-label">Goal: More Leads</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Website Design & Build</span>
+    <span class="marquee-item">Custom Quote Forms</span>
+    <span class="marquee-item">Google Business Optimization</span>
+    <span class="marquee-item">Google Ads Management</span>
+    <span class="marquee-item">Conversion Optimization</span>
+    <span class="marquee-item">Landing Pages</span>
+    <span class="marquee-item">Facebook Ads</span>
+    <span class="marquee-item">Local Lead Generation</span>
+    <span class="marquee-item">Website Design & Build</span>
+    <span class="marquee-item">Custom Quote Forms</span>
+    <span class="marquee-item">Google Business Optimization</span>
+    <span class="marquee-item">Google Ads Management</span>
+    <span class="marquee-item">Conversion Optimization</span>
+    <span class="marquee-item">Landing Pages</span>
+    <span class="marquee-item">Facebook Ads</span>
+    <span class="marquee-item">Local Lead Generation</span>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="results-inner">
+    <div class="results-grid">
+      <div class="result-item fade-up">
+        <span class="result-num">More</span>
+        <div class="result-title">Inbound Calls</div>
+        <div class="result-desc">Sites built around click-to-call, not just looks.</div>
+      </div>
+      <div class="result-item fade-up">
+        <span class="result-num">More</span>
+        <div class="result-title">Quote Requests</div>
+        <div class="result-desc">Custom forms that reduce friction and increase fills.</div>
+      </div>
+      <div class="result-item fade-up">
+        <span class="result-num">Better</span>
+        <div class="result-title">Local Visibility</div>
+        <div class="result-desc">Google Business profiles that get you found first.</div>
+      </div>
+      <div class="result-item fade-up">
+        <span class="result-num">Cleaner</span>
+        <div class="result-title">Ad Funnels</div>
+        <div class="result-desc">Ads matched to landing pages built to close.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-wrap">
+    <div class="two-col-head">
+      <div>
+        <div class="section-label">What I Do</div>
+        <h2 class="section-title">THE FULL<br>SERVICE STACK</h2>
+      </div>
+      <p class="section-sub">One person. Six services. Built around one goal — getting your phone to ring and your quote form to fill up.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">🖥</div>
+        <div class="service-name">Website Design & Build</div>
+        <p class="service-desc">Mobile-first, custom websites built to generate leads. Every section earns its place — hero, service pages, CTAs, trust signals, and a custom quote form built in.</p>
+        <div class="service-tags"><span class="tag">Custom Build</span><span class="tag">Mobile-First</span><span class="tag">Click-to-Call</span><span class="tag">Quote Forms</span></div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📄</div>
+        <div class="service-name">Landing Pages</div>
+        <p class="service-desc">Standalone pages built to turn ad traffic into leads. Matched to your campaign. One purpose — convert.</p>
+        <div class="service-tags"><span class="tag">Ad Matching</span><span class="tag">Quote Forms</span><span class="tag">Call CTAs</span></div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Conversion Optimization</div>
+        <p class="service-desc">I audit your site for friction, buried CTAs, and weak trust signals — then fix them. More visitors become customers without spending more on ads.</p>
+        <div class="service-tags"><span class="tag">CTA Placement</span><span class="tag">Form Cleanup</span><span class="tag">Trust Signals</span></div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📍</div>
+        <div class="service-name">Google Business Optimization</div>
+        <p class="service-desc">Your Google Business Profile fully set up and dialed in so you show up stronger in local search and Maps when people are ready to hire.</p>
+        <div class="service-tags"><span class="tag">Profile Setup</span><span class="tag">Review Strategy</span><span class="tag">Local SEO</span><span class="tag">Offer Posts</span></div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🎯</div>
+        <div class="service-name">Google Ads Management</div>
+        <p class="service-desc">Local search campaigns built around buyer intent. I handle setup, targeting, tracking, and optimization. You pay ad spend directly — I manage everything else.</p>
+        <div class="service-tags"><span class="tag">Campaign Setup</span><span class="tag">Keywords</span><span class="tag">Conv. Tracking</span><span class="tag">Reporting</span></div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📱</div>
+        <div class="service-name">Social & Facebook Ads</div>
+        <p class="service-desc">Facebook and Instagram setup, ad creative for local service businesses, and a posting system that doesn't require you to become a content creator.</p>
+        <div class="service-tags"><span class="tag">FB & IG</span><span class="tag">Ad Creative</span><span class="tag">Content System</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="cases-section" id="work">
+  <div class="cases-inner">
+    <div class="two-col-head">
+      <div>
+        <div class="section-label">Past Work</div>
+        <h2 class="section-title">CLIENT<br>PROJECTS</h2>
+      </div>
+      <p class="section-sub">Two local service businesses. Two brand-new custom websites with quote forms built from scratch. Here's what that looks like.</p>
+    </div>
+
+    <!-- Clear Choice -->
+    <div class="case-card fade-up">
+      <div class="case-preview">
+        <div class="browser-bar">
+          <div class="bdot bdot-r"></div>
+          <div class="bdot bdot-y"></div>
+          <div class="bdot bdot-g"></div>
+          <div class="burl"><span>clearchoiceautoglass.com</span></div>
+        </div>
+        <div class="browser-content">
+          <div class="mc">
+            <div class="mc-nav">
+              <div class="mc-logo">CLEAR CHOICE</div>
+              <div class="mc-navlinks"><span>Services</span><span>About</span><span>Contact</span></div>
+            </div>
+            <div class="mc-hero">
+              <div class="mc-eyebrow">Salem &amp; Keizer, OR · Mobile Auto Glass</div>
+              <div class="mc-h1">Chipped or<br><b>Cracked?</b><br>We Come<br>To You.</div>
+              <div class="mc-sub">Fast mobile windshield repair and replacement. Insurance accepted. Same-day service available.</div>
+              <div class="mc-btns">
+                <div class="mc-btn1">GET A FREE QUOTE</div>
+                <div class="mc-btn2">CALL NOW</div>
+              </div>
+            </div>
+            <div class="mc-trust">
+              <span>Insurance Accepted</span>
+              <span>Same-Day Service</span>
+              <span>Local &amp; Mobile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="case-info">
+        <div>
+          <div class="case-category">Auto Glass · Salem &amp; Keizer, OR</div>
+          <div class="case-name">Clear Choice Auto Glass</div>
+          <div class="case-location">Mobile windshield repair &amp; replacement</div>
+          <ul class="case-highlights">
+            <li>Brand new custom website built from scratch</li>
+            <li>Custom quote form to capture lead info upfront</li>
+            <li>Google Ads running to drive local inbound leads</li>
+            <li>Google Business Profile set up &amp; actively managed</li>
+            <li>Ongoing conversion improvements &amp; monthly edits</li>
+          </ul>
+        </div>
+        <div class="case-badge">Website + Google Ads + GBP</div>
+      </div>
+    </div>
+
+    <!-- Keizer Detailing -->
+    <div class="case-card fade-up">
+      <div class="case-preview">
+        <div class="browser-bar">
+          <div class="bdot bdot-r"></div>
+          <div class="bdot bdot-y"></div>
+          <div class="bdot bdot-g"></div>
+          <div class="burl"><span>keizermobiledetailing.com</span></div>
+        </div>
+        <div class="browser-content">
+          <div class="mk">
+            <div class="mk-nav">
+              <div class="mk-logo">KEIZER DETAILING</div>
+              <div class="mk-navlinks"><span>Services</span><span>Pricing</span><span>Book Now</span></div>
+            </div>
+            <div class="mk-hero">
+              <div class="mk-eyebrow">Keizer, OR · Mobile Auto Detailing</div>
+              <div class="mk-h1">Premium Detail.<br><b>We Come</b><br>To Your Door.</div>
+              <div class="mk-sub">Professional mobile detailing for cars, trucks, and SUVs. Book online and get an instant quote.</div>
+              <div class="mk-btn">BOOK &amp; GET A QUOTE</div>
+            </div>
+            <div class="mk-svcs">
+              <div class="mk-svc"><div class="mk-svc-name">Basic Wash</div><div class="mk-svc-price">from $65</div></div>
+              <div class="mk-svc"><div class="mk-svc-name">Full Detail</div><div class="mk-svc-price">from $149</div></div>
+              <div class="mk-svc"><div class="mk-svc-name">Premium Pkg</div><div class="mk-svc-price">from $249</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="case-info">
+        <div>
+          <div class="case-category">Mobile Detailing · Keizer, OR</div>
+          <div class="case-name">Keizer Mobile Detailing</div>
+          <div class="case-location">Premium mobile auto detailing</div>
+          <ul class="case-highlights">
+            <li>Brand new custom website built from scratch</li>
+            <li>Custom booking &amp; quote flow built directly into the site</li>
+            <li>Google Business Profile optimized for local search</li>
+            <li>Facebook ad creative developed for local reach</li>
+            <li>Service pricing pages structured to convert visitors</li>
+          </ul>
+        </div>
+        <div class="case-badge">Website + Quote Flow + GBP</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="process-section">
+  <div class="process-inner">
+    <div class="two-col-head">
+      <div>
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">THE<br>PROCESS</h2>
+      </div>
+      <p class="section-sub">Everything is built backward from what your business actually needs. More calls. More quote requests. More booked jobs.</p>
+    </div>
+    <div class="process-steps">
+      <div class="step-card fade-up">
+        <div class="step-num">01</div>
+        <div class="step-dot"></div>
+        <div class="step-title">Understand Your Business</div>
+        <p class="step-desc">What kind of leads do you need? What's your current online presence? What's working and what's costing you jobs?</p>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">02</div>
+        <div class="step-dot"></div>
+        <div class="step-title">Build the Foundation</div>
+        <p class="step-desc">Custom website or landing page — strong headline, custom quote form, click-to-call, and trust messaging that actually converts.</p>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">03</div>
+        <div class="step-dot"></div>
+        <div class="step-title">Lock Down Local Presence</div>
+        <p class="step-desc">Google Business Profile dialed in. You show up where people are looking when they're ready to hire someone.</p>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">04</div>
+        <div class="step-dot"></div>
+        <div class="step-title">Launch Paid Traffic</div>
+        <p class="step-desc">Google Ads or Facebook Ads pointed at a landing page built to close. Tracked from click to call. Budget-conscious from the start.</p>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">05</div>
+        <div class="step-dot"></div>
+        <div class="step-title">Track & Keep Improving</div>
+        <p class="step-desc">Conversion tracking from day one. Monthly reporting. Edits based on what the numbers actually show — not guesswork.</p>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">06</div>
+        <div class="step-dot"></div>
+        <div class="step-title">Ongoing Management</div>
+        <p class="step-desc">Monthly retainer covering edits, ads, content, and strategy. You run the business — I keep the leads coming.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section>
+  <div class="diff-inner">
+    <div class="diff-grid">
+      <div>
+        <div class="section-label">Why Kumpula Marketing</div>
+        <h2 class="section-title">BUILT FOR<br>OPERATORS,<br>NOT BRANDS</h2>
+        <div class="diff-list">
+          <div class="diff-item">
+            <div class="diff-icon">🎯</div>
+            <div>
+              <div class="diff-title">Conversion over aesthetics</div>
+              <p class="diff-text">I care about calls, form fills, and booked jobs. The design serves that — not the other way around.</p>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon">🔧</div>
+            <div>
+              <div class="diff-title">Operator-level thinking</div>
+              <p class="diff-text">I look at form friction, CTA placement, and quote flow drop-off — the stuff that actually moves your numbers.</p>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon">📍</div>
+            <div>
+              <div class="diff-title">Built for local service businesses</div>
+              <p class="diff-text">Phone calls. Local trust. Google presence. Quick quotes. I know how your customers decide and build around that.</p>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon">🔗</div>
+            <div>
+              <div class="diff-title">One person, full system</div>
+              <p class="diff-text">Site, landing pages, Google Business, ads — one practical lead-gen system, not four different vendors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="section-sub" style="max-width:100%; margin-bottom: 28px;">I'm not an agency. I'm one person who understands how local service businesses get customers — and I build systems around that, not around what looks good in a portfolio.</p>
+        <div class="quote-block">
+          <p class="quote-text">"If your site looks great but doesn't ring the phone, we've built the wrong thing. I focus on trust, clarity, and conversion — nothing else."</p>
+          <div class="quote-attr">Samuel Kumpula — Kumpula Marketing</div>
+        </div>
+        <div style="padding: 24px 28px; background: var(--bg2); border-radius: 8px; border: 1px solid var(--border);">
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px;">Tools & Platforms</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tag">HTML / CSS / JS</span><span class="tag">Squarespace</span><span class="tag">Vercel &amp; GitHub</span><span class="tag">Google Ads</span><span class="tag">Google Business</span><span class="tag">Facebook Ads</span><span class="tag">Illustrator &amp; PS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="quote-section" id="contact">
+  <div class="quote-inner">
+    <div class="quote-layout">
+      <div>
+        <div class="section-label">Get a Quote</div>
+        <h2 class="section-title">LET'S TALK<br>ABOUT YOUR<br>BUSINESS</h2>
+        <p class="section-sub">Tell me what you're working with and what you need. I'll review it and send back a real quote based on your actual situation — no generic packages.</p>
+        <ul class="quote-perks">
+          <li>No commitment required to get a quote</li>
+          <li>Quoted based on your needs, not a fixed menu</li>
+          <li>Typically respond within 1 business day</li>
+          <li>Free strategy call before any work starts</li>
+          <li>Ad spend is always separate — you pay platforms directly</li>
+        </ul>
+      </div>
+      <div>
+        <div class="quote-form-wrap" id="quoteFormWrap">
+          <div class="form-row" style="margin-bottom:16px;">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="fname">Your Name</label>
+              <input class="form-input" type="text" id="fname" placeholder="First Last">
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="fphone">Phone Number</label>
+              <input class="form-input" type="tel" id="fphone" placeholder="(503) 555-0000">
+            </div>
+          </div>
+          <div class="form-row" style="margin-bottom:16px;">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="femail">Email</label>
+              <input class="form-input" type="email" id="femail" placeholder="you@yourbusiness.com">
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="fbiz">Business Name</label>
+              <input class="form-input" type="text" id="fbiz" placeholder="Your Business">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ftype">Type of Business</label>
+            <select class="form-select" id="ftype">
+              <option value="" disabled selected>Select your industry</option>
+              <option>Auto Glass</option>
+              <option>Auto Detailing</option>
+              <option>Landscaping / Lawn Care</option>
+              <option>Cleaning Services</option>
+              <option>Plumbing / HVAC</option>
+              <option>Roofing / Exterior</option>
+              <option>Pest Control</option>
+              <option>Home Services (other)</option>
+              <option>Other Local Service</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">What Do You Need?</label>
+            <div class="form-services-grid">
+              <label class="form-check"><input type="checkbox" value="website"><span>New Website</span></label>
+              <label class="form-check"><input type="checkbox" value="landing"><span>Landing Page</span></label>
+              <label class="form-check"><input type="checkbox" value="google-ads"><span>Google Ads</span></label>
+              <label class="form-check"><input type="checkbox" value="gbp"><span>Google Business</span></label>
+              <label class="form-check"><input type="checkbox" value="facebook"><span>Facebook Ads</span></label>
+              <label class="form-check"><input type="checkbox" value="more-leads"><span>More Leads / SEO</span></label>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label" for="fmsg">Tell Me About Your Situation</label>
+            <textarea class="form-textarea" id="fmsg" placeholder="What does your online presence look like now? What's your biggest challenge getting new customers? Any context helps."></textarea>
+          </div>
+          <div class="form-footer">
+            <button class="btn-primary" onclick="submitForm()">Send My Info →</button>
+            <p class="form-note">No spam. I'll personally review this<br>and respond with a real quote.</p>
+          </div>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-check">✅</div>
+          <div class="form-success-title">Got It.</div>
+          <p class="form-success-sub">I'll review your info and reach out within 1 business day with a quote — and a link to schedule a free strategy call.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="footer-logo" href="#">Kumpula<span> Marketing</span></a>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Get a Quote</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Kumpula Marketing</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  function toggleMobile() { document.getElementById('mobileNav').classList.toggle('open'); }
+  function closeMobile() { document.getElementById('mobileNav').classList.remove('open'); }
+
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    if (!name || !email) { alert('Please fill in your name and email to continue.'); return; }
+    document.getElementById('quoteFormWrap').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>
