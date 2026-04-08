@@ -328,7 +328,7 @@ textarea.fi{resize:vertical;min-height:70px}
 </div></div></section>
 
 <section class="about"><div class="container"><div class="about-inner fade-up">
-  <img src="images/667700367_122171608172741182_4497036239769471481_n.jpg" alt="Samuel Kumpula" class="about-photo" onerror="this.style.display='none'">
+  <img src="667700367_122171608172741182_4497036239769471481_n.jpg" alt="Samuel Kumpula" class="about-photo" onerror="this.style.display='none'">
   <div class="about-text"><h2>Hey, I'm Samuel.</h2><p>I'm a digital marketer based right here in Salem, Oregon. I work exclusively with local service businesses in Salem and Keizer &mdash; building websites that actually generate calls, customers, and revenue. Not just something that looks nice and sits there.</p></div>
 </div></div></section>
 
@@ -346,11 +346,11 @@ textarea.fi{resize:vertical;min-height:70px}
   </div>
   <div class="pw-label fade-up">Businesses I've Worked With</div>
   <div class="pw-card fade-up">
-    <div class="pw-img"><img src="images/Screenshot 2026-04-06 192032.png" alt="Clear Choice Auto Glass" onerror="this.outerHTML='<div class=pw-img-ph>Screenshot: Clear Choice</div>'"></div>
+    <div class="pw-img"><img src="Screenshot 2026-04-06 192032.png" alt="Clear Choice Auto Glass" onerror="this.outerHTML='<div class=pw-img-ph>Screenshot: Clear Choice</div>'"></div>
     <div class="pw-body"><h3>The One Clear Choice Auto Glass</h3><p class="pw-type">Mobile Auto Glass &mdash; Salem & Keizer</p><div class="pw-list"><div class="pw-li"><div class="pw-chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Custom 5-page website</span></div><div class="pw-li"><div class="pw-chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>SEO + Google Business Profile</span></div><div class="pw-li"><div class="pw-chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Google Ads campaigns</span></div><div class="pw-li"><div class="pw-chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Custom quote flow + email follow-up</span></div><div class="pw-li"><div class="pw-chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Weekly optimization</span></div></div><a href="https://theoneclearchoiceautoglass.com" target="_blank" class="pw-url">Visit Live Site &rarr;</a></div>
   </div>
   <div class="pw-card fade-up">
-    <div class="pw-img"><img src="images/Screenshot 2026-04-06 192106.png" alt="Keizer Mobile Detailing" onerror="this.outerHTML='<div class=pw-img-ph>Screenshot: Keizer Detailing</div>'"></div>
+    <div class="pw-img"><img src="Screenshot 2026-04-06 192106.png" alt="Keizer Mobile Detailing" onerror="this.outerHTML='<div class=pw-img-ph>Screenshot: Keizer Detailing</div>'"></div>
     <div class="pw-body"><h3>Keizer Mobile Detailing</h3><p class="pw-type">Mobile Detailing &mdash; Keizer, OR</p><div class="pw-list"><div class="pw-li"><div class="pw-chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Custom website build</span></div><div class="pw-li"><div class="pw-chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Full SEO optimization</span></div><div class="pw-li"><div class="pw-chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Advanced 8-step quote flow</span></div></div><a href="https://keizermobiledetailing.com" target="_blank" class="pw-url">Visit Live Site &rarr;</a></div>
   </div>
 </div></section>
@@ -546,7 +546,7 @@ document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('exitOverlay').addEventListener('click',function(e){if(e.target===document.getElementById('exitOverlay'))document.getElementById('exitOverlay').classList.remove('show')});
 });
 function calcROI(){var c=parseInt(document.getElementById('roiCalls').value)||0;var v=parseInt(document.getElementById('roiValue').value)||0;var extra=c*v;document.getElementById('roiAmount').textContent='$'+extra.toLocaleString()+'/mo';document.getElementById('roiResult').classList.add('show')}
-var FE='PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+var FE='https://script.google.com/macros/s/AKfycbwQTWT0RIyblO6S1ObWEl3PM6yFE2L4RzbVlS0X_ez81SLWhJkWTHK7RkD7Pc6SVqli/execE';
 function submitForm(e){e.preventDefault();var f=document.getElementById('cform'),b=document.getElementById('subBtn');var d={name:f.querySelector('[name="name"]').value.trim(),business:f.querySelector('[name="business"]').value.trim(),phone:f.querySelector('[name="phone"]').value.trim(),message:f.querySelector('[name="message"]').value.trim(),timestamp:new Date().toISOString()};if(!d.name||!d.phone){alert('Please fill in your name and phone number.');return}b.disabled=true;b.textContent='Sending...';fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).then(function(){f.style.display='none';document.getElementById('fsuccess').style.display='block'}).catch(function(){f.style.display='none';document.getElementById('fsuccess').style.display='block'})}
 </script>
 </body>
