@@ -201,11 +201,16 @@
 .p-btn{display:block;text-align:center;padding:13px 20px;border-radius:10px;font-family:var(--font-body);font-size:14px;font-weight:700;transition:all .3s;width:100%;border:none;cursor:pointer;margin-top:auto}
 .p-card .p-btn{background:transparent;color:var(--forest);border:2px solid var(--forest)}.p-card .p-btn:hover{background:var(--forest);color:var(--cream)}
 .p-card.feat .p-btn{background:linear-gradient(135deg,var(--tan),var(--gold));color:var(--forest-deep);box-shadow:0 4px 16px rgba(201,168,76,.3)}.p-card.feat .p-btn:hover{transform:translateY(-2px)}
-.fp{margin-top:48px;padding:24px;background:var(--cream);border-radius:14px;border:1px solid rgba(26,58,42,.06)}
-.fp h4{font-size:14px;font-weight:700;color:var(--forest);margin-bottom:10px}
-.fp ul{list-style:none;display:flex;flex-direction:column;gap:6px}
-.fp li{font-size:13px;color:var(--text-muted);line-height:1.6;padding-left:16px;position:relative}
-.fp li::before{content:'\2022';position:absolute;left:0;color:var(--sage)}
+.pricing-faqs{max-width:920px;margin:48px auto 0;display:flex;flex-direction:column;gap:14px}
+.pricing-faq-item{background:var(--cream);border:1px solid rgba(26,58,42,.08);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.pricing-faq-item summary{list-style:none;cursor:pointer;padding:20px 22px;font-size:15px;font-weight:700;color:var(--forest);display:flex;align-items:center;justify-content:space-between}
+.pricing-faq-item summary::-webkit-details-marker{display:none}
+.pricing-faq-icon{font-size:22px;color:var(--sage);line-height:1;transition:transform .25s ease}
+.pricing-faq-item[open] .pricing-faq-icon{transform:rotate(45deg)}
+.pricing-faq-body{padding:0 22px 20px}
+.pricing-faq-body ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.pricing-faq-body li{font-size:14px;color:var(--text-muted);line-height:1.6;padding-left:18px;position:relative}
+.pricing-faq-body li::before{content:'\2022';position:absolute;left:0;color:var(--sage)}
 
 /* CONTACT */
 .contact{background:linear-gradient(165deg,var(--cream),var(--cream-dark));padding:100px 24px}
@@ -281,6 +286,10 @@ textarea.fi{resize:vertical;min-height:70px}
 .st-icon svg{width:16px;height:16px;stroke:var(--sage);fill:none;stroke-width:2}
 .st-text{font-size:13px;color:var(--text);font-weight:600;line-height:1.3}.st-text small{font-weight:400;color:var(--text-muted);display:block;font-size:11px}
 
+@media(min-width:769px){
+  .pricing-grid{max-width:1140px;margin:0 auto}
+  .pricing-faqs{max-width:920px;margin:48px auto 0}
+}
 @media(max-width:900px){.pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}.pw-card{grid-template-columns:1fr}.sol-list{grid-template-columns:1fr}.ba-row{flex-direction:column}.wwd-features{grid-template-columns:1fr}.stat-strip{flex-direction:column}.stat-strip-item{border-right:none;border-bottom:1px solid rgba(26,58,42,.06)}.stat-strip-item:last-child{border-bottom:none}}
 @media(max-width:768px){
   .nav-links{display:none}.hamburger{display:block}
@@ -415,13 +424,6 @@ textarea.fi{resize:vertical;min-height:70px}
 
 <hr class="divider">
 
-<section style="background:linear-gradient(135deg,var(--forest),var(--forest-mid));padding:56px 24px;text-align:center"><div class="container"><div class="fade-up" style="max-width:640px;margin:0 auto">
-  <h2 style="font-family:var(--font-display);font-size:clamp(24px,3.5vw,36px);font-weight:700;color:var(--cream);margin-bottom:12px;line-height:1.2">Get a Free Website Consultation &mdash;<br>See Exactly What Your Site Should Look Like</h2>
-  <p style="font-size:16px;color:rgba(232,213,184,.6);line-height:1.65;margin-bottom:24px">I'll review your current online presence, show you what's costing you customers, and build you a custom strategy &mdash; completely free, no strings attached.</p>
-  <a href="#contact" class="btn-primary" style="font-size:18px;padding:18px 44px">Claim Your Free Consultation</a>
-</div></div></section>
-
-<hr class="divider">
 
 <section class="pricing" id="pricing"><div class="container">
   <div class="pricing-header fade-up"><span class="eyebrow">Transparent Pricing</span><h2 class="heading">A Website That Pays for Itself</h2><p>One new customer covers the cost. Everything else is profit.</p></div>
@@ -431,8 +433,31 @@ textarea.fi{resize:vertical;min-height:70px}
     <div class="p-card feat fade-up d2"><div class="p-badge">Most Popular</div><div class="p-tier">Growth</div><div class="p-price-row"><span class="p-orig">$1,425</span><span class="p-price">$997</span><span class="p-save">Save 30%</span></div><div class="p-once">one-time build</div><div class="p-mo">+ $300/mo</div><div class="p-mo-note">Hosting, domain, on-demand changes</div><hr class="p-div"><div class="p-feats"><div class="p-feat"><span class="p-ck">&#10003;</span><span>Everything in Starter +</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Custom 3-page website</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Conversion-optimized</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Custom quote flow</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Same-day changes</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Monthly reports</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Review badges</span></div></div><a href="#contact" class="p-btn">Book Strategy Call</a></div>
     <div class="p-card fade-up d3"><div class="p-tier">Dominate</div><div class="p-price-row"><span class="p-orig">$2,850</span><span class="p-price">$1,997</span><span class="p-save">Save 30%</span></div><div class="p-once">one-time build</div><div class="p-mo">+ $450/mo</div><div class="p-mo-note">Full-service everything</div><hr class="p-div"><div class="p-feats"><div class="p-feat"><span class="p-ck">&#10003;</span><span>Everything in Growth +</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Custom 5-page website</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Extreme quote flow</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Same-hour support</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Email automation</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Ads-ready structure</span></div><div class="p-feat"><span class="p-ck">&#10003;</span><span>Reputation setup</span></div></div><a href="#contact" class="p-btn">Let's Talk</a></div>
   </div>
-  <div class="fp fade-up"><h4>Monthly Fee Covers</h4><ul><li><strong>Hosting & SSL</strong> &mdash; high-speed, everything handled</li><li><strong>Domain</strong> &mdash; your .com registered & renewed</li><li><strong>On-demand changes</strong> &mdash; text me, done same day</li><li><strong>Optimization</strong> &mdash; speed, SEO, analytics</li><li><strong>Direct support</strong> &mdash; my personal phone number</li></ul></div>
-  <div class="fp fade-up" style="margin-top:14px"><h4>Good to Know</h4><ul><li><strong>3-month minimum</strong> &mdash; enough time for real results</li><li>Website stays on my platform. If you cancel, site stays with me</li><li>Cancel after 3 months with 30 days notice</li><li><strong>$0 risk:</strong> I build first, you pay only when you love it</li></ul></div>
+  <div class="pricing-faqs">
+    <details class="pricing-faq-item fade-up" open>
+      <summary>What does the monthly fee cover?<span class="pricing-faq-icon">+</span></summary>
+      <div class="pricing-faq-body">
+        <ul>
+          <li><strong>Hosting &amp; SSL</strong> &mdash; high-speed, everything handled</li>
+          <li><strong>Domain</strong> &mdash; your .com registered &amp; renewed</li>
+          <li><strong>On-demand changes</strong> &mdash; text me, done same day</li>
+          <li><strong>Optimization</strong> &mdash; speed, SEO, analytics</li>
+          <li><strong>Direct support</strong> &mdash; my personal phone number</li>
+        </ul>
+      </div>
+    </details>
+    <details class="pricing-faq-item fade-up">
+      <summary>Anything I should know before signing up?<span class="pricing-faq-icon">+</span></summary>
+      <div class="pricing-faq-body">
+        <ul>
+          <li><strong>3-month minimum</strong> &mdash; enough time for real results</li>
+          <li>Website stays on my platform. If you cancel, the site stays with me</li>
+          <li>Cancel after 3 months with 30 days notice</li>
+          <li><strong>$0 risk:</strong> I build first, you pay only when you love it</li>
+        </ul>
+      </div>
+    </details>
+  </div>
 </div></section>
 
 <hr class="divider">
@@ -521,7 +546,7 @@ document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('exitOverlay').addEventListener('click',function(e){if(e.target===document.getElementById('exitOverlay'))document.getElementById('exitOverlay').classList.remove('show')});
 });
 function calcROI(){var c=parseInt(document.getElementById('roiCalls').value)||0;var v=parseInt(document.getElementById('roiValue').value)||0;var extra=c*v;document.getElementById('roiAmount').textContent='$'+extra.toLocaleString()+'/mo';document.getElementById('roiResult').classList.add('show')}
-var FE='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+var FE='PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
 function submitForm(e){e.preventDefault();var f=document.getElementById('cform'),b=document.getElementById('subBtn');var d={name:f.querySelector('[name="name"]').value.trim(),business:f.querySelector('[name="business"]').value.trim(),phone:f.querySelector('[name="phone"]').value.trim(),message:f.querySelector('[name="message"]').value.trim(),timestamp:new Date().toISOString()};if(!d.name||!d.phone){alert('Please fill in your name and phone number.');return}b.disabled=true;b.textContent='Sending...';fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).then(function(){f.style.display='none';document.getElementById('fsuccess').style.display='block'}).catch(function(){f.style.display='none';document.getElementById('fsuccess').style.display='block'})}
 </script>
 </body>
