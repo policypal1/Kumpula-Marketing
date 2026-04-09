@@ -215,7 +215,7 @@ button,input,textarea{font:inherit}
 }
 .hero-inner{
   position:relative;z-index:1;padding:164px 0 96px;
-  display:grid;grid-template-columns:minmax(0,760px) 1fr;gap:34px;align-items:end
+  display:block
 }
 .hero-copy{max-width:760px}
 .hero-kicker{color:var(--tan);margin-bottom:22px}
@@ -289,24 +289,20 @@ button,input,textarea{font:inherit}
 }
 
 /* about */
-.about{padding:70px 0 40px}
+.about{padding:78px 0 44px}
 .about-wrap{
-  display:grid;grid-template-columns:220px 1fr;gap:34px;align-items:center;
+  max-width:780px;margin:0 auto;
+  display:grid;justify-items:center;gap:24px;text-align:center;
   background:rgba(255,255,255,.72);border:1px solid var(--line);
-  border-radius:32px;padding:28px;box-shadow:var(--shadow-soft)
+  border-radius:32px;padding:34px;box-shadow:var(--shadow-soft)
 }
 .about-photo{
-  width:100%;aspect-ratio:4/5;border-radius:26px;object-fit:cover;object-position:center top;
+  width:min(100%,260px);aspect-ratio:4/5;border-radius:26px;object-fit:cover;object-position:center top;
   border:1px solid rgba(26,58,42,.08);box-shadow:0 16px 40px rgba(10,20,14,.10)
 }
 .about-text h2{font-size:clamp(26px,3vw,40px);color:var(--forest);margin-bottom:12px}
-.about-text p{font-size:16px;line-height:1.8;color:var(--text-muted);max-width:760px}
-.about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.about-tags span{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--cream-dark);border:1px solid rgba(26,58,42,.08);
-  color:var(--forest);padding:10px 14px;border-radius:999px;font-size:13px;font-weight:700
-}
+.about-text p{font-size:16px;line-height:1.8;color:var(--text-muted);max-width:680px;margin:0 auto}
+.about-tags{display:none}
 
 /* editorial services */
 .editorial{
@@ -319,55 +315,33 @@ button,input,textarea{font:inherit}
              radial-gradient(circle at left center, rgba(74,124,92,.14), transparent 18%)
 }
 .editorial .container{position:relative;z-index:1}
-.editorial-head{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:end;margin-bottom:56px}
-.editorial-head .eyebrow{color:var(--tan)}
-.editorial-head .heading{color:var(--cream);font-size:clamp(34px,5vw,56px);margin-bottom:16px}
-.editorial-head .copy{color:rgba(232,213,184,.64)}
-.editorial-summary{
-  padding:24px;border-radius:24px;background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,184,150,.10)
-}
-.editorial-summary strong{display:block;color:var(--tan);font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.editorial-summary p{color:rgba(232,213,184,.70);line-height:1.75;font-size:15px}
+.editorial-head{max-width:760px;margin:0 auto 40px;text-align:center}
+.editorial-head .eyebrow{color:var(--tan);justify-content:center}
+.editorial-head .heading{color:var(--cream);font-size:clamp(34px,5vw,56px);margin:16px 0 14px}
+.editorial-head .copy{color:rgba(232,213,184,.66);max-width:620px;margin:0 auto}
 
-.service-rows{display:grid;gap:22px;margin-bottom:60px}
-.service-row{
-  display:grid;grid-template-columns:90px 1.1fr .9fr;gap:28px;align-items:center;
-  padding:28px;border-radius:28px;background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,184,150,.08)
+.service-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:60px}
+.service-tab{
+  border-radius:26px;overflow:hidden;background:rgba(255,255,255,.04);
+  border:1px solid rgba(212,184,150,.10);box-shadow:0 20px 60px rgba(0,0,0,.16)
 }
-.service-no{
-  font-family:var(--font-display);font-size:54px;color:rgba(212,184,150,.22);
-  text-align:center;line-height:1
+.service-tab-top{
+  display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid rgba(212,184,150,.08);
+  background:rgba(9,19,14,.32)
 }
-.service-body h3{font-size:28px;color:var(--cream);margin-bottom:8px}
-.service-body p{color:rgba(232,213,184,.62);line-height:1.8;font-size:15px}
-.service-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.service-points span{
-  padding:9px 12px;border-radius:999px;border:1px solid rgba(212,184,150,.12);
-  color:rgba(232,213,184,.82);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase
+.tab-dot{width:10px;height:10px;border-radius:50%;background:rgba(212,184,150,.22)}
+.tab-url{
+  margin-left:8px;flex:1;height:30px;border-radius:999px;background:rgba(255,255,255,.06);
+  display:flex;align-items:center;padding:0 14px;color:rgba(232,213,184,.46);font-size:12px;text-transform:lowercase
 }
-.service-visual{
-  min-height:160px;border-radius:24px;background:
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  border:1px solid rgba(212,184,150,.08);padding:18px;
-  display:grid;gap:12px
-}
-.visual-line{
-  height:12px;border-radius:999px;background:rgba(232,213,184,.12)
-}
-.visual-line.short{width:62%}
-.visual-line.mid{width:78%}
-.visual-line.long{width:100%}
-.visual-frame{
-  margin-top:auto;background:rgba(8,18,13,.36);border:1px solid rgba(212,184,150,.08);
-  border-radius:18px;padding:14px;display:grid;gap:10px
-}
-.visual-chip-row{display:flex;gap:8px;flex-wrap:wrap}
-.visual-chip{
-  background:rgba(212,184,150,.10);border:1px solid rgba(212,184,150,.10);
-  color:var(--tan);padding:8px 10px;border-radius:999px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em
-}
+.service-tab-body{padding:24px 22px 26px}
+.service-kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tan);margin-bottom:10px}
+.service-tab-body h3{font-size:24px;line-height:1.18;color:var(--cream);margin-bottom:10px}
+.service-tab-body p{font-size:14px;line-height:1.72;color:rgba(232,213,184,.66)}
+.service-mini-list{display:grid;gap:8px;margin-top:16px}
+.service-mini-list li{list-style:none;display:flex;gap:9px;align-items:flex-start;color:rgba(232,213,184,.78);font-size:13px;line-height:1.55}
+.service-mini-list li::before{content:'✓';color:var(--tan);font-weight:700}
+
 
 .portfolio-label{
   color:var(--tan);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px
@@ -395,14 +369,41 @@ button,input,textarea{font:inherit}
     linear-gradient(135deg, #efe7d9, #faf5ee)
 }
 .mock-old{
-  width:88%;border-radius:18px;padding:20px;background:white;border:1px solid rgba(26,58,42,.08);
+  width:90%;border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(26,58,42,.08);
   box-shadow:0 18px 40px rgba(10,20,14,.10)
 }
-.mock-old h4{font-size:24px;color:#244836;margin-bottom:10px}
-.mock-old p{font-size:13px;color:#68756f;line-height:1.65;margin-bottom:14px}
-.mock-old .old-btn{
-  display:inline-flex;padding:10px 14px;border-radius:10px;background:#dfe5e2;color:#365f4c;font-size:12px;font-weight:700
+.old-topbar{
+  display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:10px 14px;background:#234331;color:#f3eee6;
+  font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase
 }
+.old-hero{
+  display:grid;grid-template-columns:120px 1fr;gap:12px;padding:14px;background:linear-gradient(135deg,#f5e3cf,#fff7ee)
+}
+.old-hero-image{
+  min-height:118px;border-radius:12px;background:
+    linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.18)),
+    linear-gradient(135deg,#d27d52,#5e8f73);
+  position:relative;overflow:hidden
+}
+.old-hero-image::after{
+  content:'';position:absolute;inset:0;background:
+    radial-gradient(circle at 60% 28%, rgba(255,255,255,.45), transparent 18%),
+    radial-gradient(circle at 42% 70%, rgba(255,255,255,.22), transparent 24%)
+}
+.old-hero-copy h4{font-size:17px;line-height:1.12;color:#7d2f2f;margin-bottom:8px;text-transform:uppercase}
+.old-hero-copy p{font-size:11px;color:#6d625d;line-height:1.45;margin-bottom:10px}
+.old-btn-row{display:flex;gap:8px;flex-wrap:wrap}
+.old-btn{display:inline-flex;padding:8px 10px;border-radius:8px;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.old-btn.red{background:#cb584d;color:#fff}
+.old-btn.gray{background:#e7dfd7;color:#355647}
+.old-columns{display:grid;grid-template-columns:1.1fr .9fr;gap:12px;padding:12px 14px}
+.old-box{background:#faf7f1;border:1px solid #ece1d5;border-radius:12px;padding:10px}
+.old-line{height:8px;border-radius:999px;background:#d8cec1;margin-bottom:8px}
+.old-line.short{width:62%}
+.old-line.mid{width:80%}
+.old-box-stack{display:grid;gap:8px}
+.old-footerline{height:12px;margin:0 14px 14px;border-radius:999px;background:#dfd6cb}
+
 .browser-body{padding:20px}
 .browser-body h3{font-size:24px;color:var(--cream);margin-bottom:6px}
 .browser-body p{font-size:14px;line-height:1.7;color:rgba(232,213,184,.62);margin-bottom:16px}
@@ -418,7 +419,7 @@ button,input,textarea{font:inherit}
 
 /* loss section */
 .loss-layout{
-  display:grid;grid-template-columns:1fr 460px;gap:34px;align-items:start
+  display:grid;grid-template-columns:1fr 520px;gap:34px;align-items:start
 }
 .loss-copy .eyebrow{color:var(--sage)}
 .loss-copy .heading{color:var(--forest);font-size:clamp(34px,5vw,56px);margin-bottom:16px}
@@ -438,30 +439,52 @@ button,input,textarea{font:inherit}
   padding:28px;box-shadow:var(--shadow-soft);position:sticky;top:110px
 }
 .roi-wrap h3{font-size:24px;color:var(--forest);margin-bottom:8px}
-.roi-wrap p{color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:20px}
-.roi-field{margin-bottom:18px}
-.roi-label{display:block;margin-bottom:7px;font-size:13px;font-weight:700;color:var(--forest)}
-.roi-input{
-  width:100%;padding:15px 16px;border-radius:14px;border:1px solid rgba(26,58,42,.12);
-  background:white;color:var(--text);outline:none;transition:border-color .18s ease, box-shadow .18s ease
+.roi-wrap p{color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:18px}
+.roi-help{font-size:13px;color:var(--text-muted);margin-bottom:16px}
+.roi-stage{
+  position:relative;height:320px;border-radius:26px;overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(74,124,92,.10), rgba(74,124,92,.03)),
+    linear-gradient(135deg,#fdf9f2,#f3eadf);
+  border:1px solid rgba(26,58,42,.10)
 }
-.roi-input:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(74,124,92,.10)}
-.roi-button{
-  width:100%;min-height:54px;border:none;border-radius:14px;cursor:pointer;
-  background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);
-  font-weight:700;font-size:15px
+.roi-stage::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(26,58,42,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,58,42,.08) 1px, transparent 1px);
+  background-size:25% 25%;
+  pointer-events:none
 }
-.roi-result{
-  display:none;margin-top:16px;padding:22px;border-radius:22px;
-  background:linear-gradient(135deg,var(--forest-deep),var(--forest));
-  color:var(--cream)
+.roi-axis-x{
+  position:absolute;left:18px;right:18px;bottom:12px;display:flex;justify-content:space-between;
+  font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(26,58,42,.52);pointer-events:none
 }
-.roi-result.show{display:block}
-.roi-result p{margin:0;color:rgba(232,213,184,.60);font-size:14px}
-.roi-amount{
-  display:block;font-family:var(--font-display);font-size:40px;line-height:1;color:var(--tan);
-  margin:10px 0 8px
+.roi-axis-y{
+  position:absolute;top:16px;right:16px;display:grid;gap:54px;text-align:right;
+  font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(26,58,42,.46);pointer-events:none
 }
+.roi-guide-x,.roi-guide-y{position:absolute;background:rgba(74,124,92,.18);pointer-events:none}
+.roi-guide-x{top:0;bottom:0;width:1px}
+.roi-guide-y{left:0;right:0;height:1px}
+.roi-dot{
+  position:absolute;width:22px;height:22px;border-radius:50%;border:none;cursor:grab;
+  background:linear-gradient(135deg,var(--tan),var(--gold));box-shadow:0 8px 20px rgba(201,168,76,.42);
+  border:2px solid rgba(255,255,255,.95)
+}
+.roi-dot:active{cursor:grabbing}
+.roi-bubble{
+  position:absolute;min-width:132px;padding:12px 14px;border-radius:16px;
+  background:var(--forest-deep);color:var(--cream);box-shadow:0 18px 34px rgba(10,20,14,.18);pointer-events:none
+}
+.roi-bubble strong{display:block;font-size:22px;line-height:1;color:var(--tan);margin-bottom:4px}
+.roi-bubble span{display:block;font-size:12px;line-height:1.4;color:rgba(232,213,184,.62)}
+.roi-summary{
+  margin-top:16px;padding:18px 20px;border-radius:20px;
+  background:linear-gradient(135deg,var(--forest-deep),var(--forest));color:var(--cream)
+}
+.roi-summary p{margin:0;color:rgba(232,213,184,.60);font-size:13px}
+.roi-amount{display:block;font-family:var(--font-display);font-size:40px;line-height:1;color:var(--tan);margin:8px 0 6px}
 .roi-note{display:block;color:rgba(232,213,184,.42);font-size:12px;line-height:1.6}
 
 /* problem / before after */
@@ -860,6 +883,7 @@ textarea.form-input{resize:vertical;min-height:92px}
   .contact-grid,
   .editorial-head{grid-template-columns:1fr}
   .hero-side{justify-content:flex-start}
+  .service-tabs,
   .portfolio-grid,
   .showcase,
   .pricing-grid,
@@ -873,10 +897,9 @@ textarea.form-input{resize:vertical;min-height:92px}
   .hero h1{max-width:unset}
   .hero-sub{max-width:unset}
   .hero-side{display:none}
-  .about-wrap{grid-template-columns:1fr;padding:22px}
+  .about-wrap{padding:24px}
   .about-photo{max-width:220px}
-  .service-row{grid-template-columns:1fr;gap:20px}
-  .service-no{text-align:left}
+  .service-tabs{grid-template-columns:1fr}
   .loss-stat{grid-template-columns:1fr}
   .problem-list{grid-template-columns:1fr}
   .solution-step{grid-template-columns:1fr}
@@ -969,28 +992,6 @@ textarea.form-input{resize:vertical;min-height:92px}
             <p>That keeps the risk on me, not you. If it does not feel like a real upgrade for your business, you do not move forward.</p>
           </div>
         </div>
-        <div class="hero-scrollnote fade-up d4">Built for local service businesses. Hand-coded. Conversion-focused.</div>
-      </div>
-
-      <div class="hero-side fade-up d3">
-        <div class="hero-side-card">
-          <h3>This page finally feels like a real brand.</h3>
-          <p>Cleaner hierarchy, better spacing, stronger sections, and less of the same square-card pattern over and over.</p>
-          <div class="hero-side-stack">
-            <div class="hero-side-item">
-              <strong>Clear offer</strong>
-              <span>Headline, proof, CTA, and your promise are all stacked in the right order now.</span>
-            </div>
-            <div class="hero-side-item">
-              <strong>Better design rhythm</strong>
-              <span>More editorial layouts, browser frames, number blocks, and section contrast.</span>
-            </div>
-            <div class="hero-side-item">
-              <strong>No fake-feeling filler</strong>
-              <span>The desktop placeholder photo is gone and the hero is ready for a real background image.</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -1005,11 +1006,6 @@ textarea.form-input{resize:vertical;min-height:92px}
         <p>
           I’m a digital marketer based in Salem, Oregon. I work with local service businesses in Salem and Keizer that need a site that does more than just look decent. The goal is simple: make the business feel legit, make the offer obvious, and make it easy for visitors to become leads.
         </p>
-        <div class="about-tags">
-          <span>Local service businesses</span>
-          <span>Custom-coded sites</span>
-          <span>SEO + speed + conversion</span>
-        </div>
       </div>
     </div>
   </div>
@@ -1024,92 +1020,53 @@ textarea.form-input{resize:vertical;min-height:92px}
         <div class="eyebrow fade-up">What I Do</div>
         <h2 class="heading fade-up d1">Websites That Convert Visitors Into Paying Customers</h2>
         <p class="copy fade-up d2">
-          This section is no longer just a wall of matching cards. It is built more like a real sales page now, with better pacing and more visual variety.
-        </p>
-      </div>
-      <div class="editorial-summary fade-up d3">
-        <strong>What changes when I build it</strong>
-        <p>
-          Better hierarchy. Cleaner flow. Faster pages. Stronger calls to action. A site that actually feels worth trusting when someone lands on it for the first time.
+          I keep this part simple. Better SEO. Better speed. Better mobile structure. That is what makes the site easier to trust and easier to contact.
         </p>
       </div>
     </div>
 
-    <div class="service-rows">
-      <div class="service-row fade-up">
-        <div class="service-no">01</div>
-        <div class="service-body">
-          <h3>Custom web design built around trust</h3>
-          <p>I design the page around what a real visitor needs to see in the first few seconds, not around stuffing random sections everywhere.</p>
-          <div class="service-points">
-            <span>Clear headline</span>
-            <span>Stronger CTA flow</span>
-            <span>Cleaner layout</span>
-          </div>
+    <div class="service-tabs">
+      <article class="service-tab fade-up">
+        <div class="service-tab-top"><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><div class="tab-url">seo foundation</div></div>
+        <div class="service-tab-body">
+          <div class="service-kicker">SEO</div>
+          <h3>Built so Google can actually understand the site.</h3>
+          <p>Clean headings, local copy, page structure, and search basics that help you show up for the right jobs.</p>
+          <ul class="service-mini-list">
+            <li>Local keyword structure</li>
+            <li>Clear page hierarchy</li>
+            <li>Search-ready copy</li>
+          </ul>
         </div>
-        <div class="service-visual">
-          <div class="visual-line long"></div>
-          <div class="visual-line mid"></div>
-          <div class="visual-line short"></div>
-          <div class="visual-frame">
-            <div class="visual-chip-row">
-              <div class="visual-chip">Hero</div>
-              <div class="visual-chip">Offer</div>
-              <div class="visual-chip">Proof</div>
-            </div>
-            <div class="visual-line long"></div>
-            <div class="visual-line mid"></div>
-          </div>
-        </div>
-      </div>
+      </article>
 
-      <div class="service-row fade-up d1">
-        <div class="service-no">02</div>
-        <div class="service-body">
-          <h3>SEO, speed, and mobile-first structure</h3>
-          <p>Most local traffic is on phones. If the mobile experience is sloppy or slow, you lose trust before they ever call.</p>
-          <div class="service-points">
-            <span>Fast load times</span>
-            <span>Mobile-first</span>
-            <span>SEO setup</span>
-          </div>
+      <article class="service-tab fade-up d1">
+        <div class="service-tab-top"><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><div class="tab-url">speed optimization</div></div>
+        <div class="service-tab-body">
+          <div class="service-kicker">Speed</div>
+          <h3>Fast enough that people do not bounce before they trust you.</h3>
+          <p>A slow site feels sloppy. I tighten the build so the page loads cleaner, feels lighter, and keeps attention longer.</p>
+          <ul class="service-mini-list">
+            <li>Faster perceived load</li>
+            <li>Cleaner code</li>
+            <li>Less friction</li>
+          </ul>
         </div>
-        <div class="service-visual">
-          <div class="visual-chip-row">
-            <div class="visual-chip">Phone first</div>
-            <div class="visual-chip">Fast</div>
-          </div>
-          <div class="visual-frame">
-            <div class="visual-line long"></div>
-            <div class="visual-line short"></div>
-            <div class="visual-line mid"></div>
-          </div>
-        </div>
-      </div>
+      </article>
 
-      <div class="service-row fade-up d2">
-        <div class="service-no">03</div>
-        <div class="service-body">
-          <h3>Quote flows and CTA paths that make people act</h3>
-          <p>Buttons, forms, proof, and page order all need to work together. Otherwise your site just becomes a brochure.</p>
-          <div class="service-points">
-            <span>Guided lead flow</span>
-            <span>Tracking-ready</span>
-            <span>Built to convert</span>
-          </div>
+      <article class="service-tab fade-up d2">
+        <div class="service-tab-top"><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><div class="tab-url">mobile-first layout</div></div>
+        <div class="service-tab-body">
+          <div class="service-kicker">Mobile-First</div>
+          <h3>Structured for the screen most local visitors are actually using.</h3>
+          <p>Most local traffic lands on a phone. The layout needs to feel obvious, tap-friendly, and easy to move through fast.</p>
+          <ul class="service-mini-list">
+            <li>Cleaner stacking</li>
+            <li>Bigger tap targets</li>
+            <li>Better section flow</li>
+          </ul>
         </div>
-        <div class="service-visual">
-          <div class="visual-frame">
-            <div class="visual-line long"></div>
-            <div class="visual-line long"></div>
-            <div class="visual-chip-row">
-              <div class="visual-chip">Call</div>
-              <div class="visual-chip">Form</div>
-              <div class="visual-chip">Text</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </article>
     </div>
 
     <div class="portfolio-label fade-up">Businesses I’ve Worked With</div>
@@ -1166,7 +1123,7 @@ textarea.form-input{resize:vertical;min-height:92px}
         <div class="eyebrow fade-up">Here’s How Much You’re Leaving On The Table</div>
         <h2 class="heading fade-up d1">A weak website quietly costs you leads every month.</h2>
         <p class="copy fade-up d2">
-          This part keeps the idea you liked, but it is designed with more weight now. It reads like a real sales argument instead of another row of matching boxes.
+          A stronger site does more than look good. It turns more of the traffic you are already getting into actual calls, quotes, and booked jobs.
         </p>
 
         <div class="loss-stats">
@@ -1187,25 +1144,33 @@ textarea.form-input{resize:vertical;min-height:92px}
 
       <div class="roi-wrap fade-up d3">
         <h3>How much are you losing?</h3>
-        <p>Plug in a rough monthly lead number and average job value. This gives you a simple revenue gap estimate.</p>
+        <p>Plot your rough monthly leads and average job value. The chart updates live as you move the dot.</p>
+        <div class="roi-help">Right = more leads. Up = higher job value.</div>
 
-        <div class="roi-field">
-          <label class="roi-label" for="roiCalls">How many calls do you get per month from your website?</label>
-          <input id="roiCalls" class="roi-input" type="number" min="0" placeholder="e.g. 5">
+        <div class="roi-stage" id="roiStage">
+          <div class="roi-guide-x" id="roiGuideX"></div>
+          <div class="roi-guide-y" id="roiGuideY"></div>
+          <button type="button" class="roi-dot" id="roiDot" aria-label="Adjust lost revenue estimate"></button>
+          <div class="roi-bubble" id="roiBubble">
+            <strong id="roiBubbleValue">$3,000/mo</strong>
+            <span id="roiBubbleMeta">10 leads • $300/job</span>
+          </div>
+          <div class="roi-axis-y">
+            <span>$1.2k</span>
+            <span>$800</span>
+            <span>$400</span>
+          </div>
+          <div class="roi-axis-x">
+            <span>0 leads</span>
+            <span>15 leads</span>
+            <span>30 leads</span>
+          </div>
         </div>
 
-        <div class="roi-field">
-          <label class="roi-label" for="roiValue">What’s your average job value? ($)</label>
-          <input id="roiValue" class="roi-input" type="number" min="0" placeholder="e.g. 300">
-        </div>
-
-        <button type="button" class="roi-button" onclick="calcROI()">Calculate My Lost Revenue</button>
-
-        <div class="roi-result" id="roiResult">
-          <p>With a stronger, conversion-focused website, you could be generating</p>
-          <span class="roi-amount" id="roiAmount">$0/mo</span>
-          <p>in additional monthly revenue</p>
-          <span class="roi-note">Simple estimate based on doubling your current website conversion rate.</span>
+        <div class="roi-summary">
+          <p>Estimated missed monthly revenue</p>
+          <span class="roi-amount" id="roiAmount">$3,000/mo</span>
+          <span class="roi-note" id="roiNote">Based on a rough estimate that a stronger site could recover this much extra revenue.</span>
         </div>
       </div>
     </div>
@@ -1220,7 +1185,7 @@ textarea.form-input{resize:vertical;min-height:92px}
       <div class="eyebrow fade-up">The Problem</div>
       <h2 class="heading fade-up d1">Every day you wait, a competitor gets the customer instead.</h2>
       <p class="fade-up d2">
-        This section is cleaned up too. Less ugly square-card repetition. Better spacing. Better comparison. Better storytelling.
+        When the site feels generic, slow, or confusing, visitors leave and the next business gets the call.
       </p>
     </div>
 
@@ -1264,9 +1229,33 @@ textarea.form-input{resize:vertical;min-height:92px}
         <div class="showcase-top bad"><span>Typical local business site</span></div>
         <div class="showcase-media mock">
           <div class="mock-old">
-            <h4>Local Service Co.</h4>
-            <p>Welcome to our website. We do quality work and care about our customers. Please contact us for more information.</p>
-            <div class="old-btn">Learn More</div>
+            <div class="old-topbar">
+              <span>Home</span><span>About</span><span>Services</span><span>Gallery</span><span>Contact</span>
+            </div>
+            <div class="old-hero">
+              <div class="old-hero-image"></div>
+              <div class="old-hero-copy">
+                <h4>Best Local Service Company</h4>
+                <p>Family owned. Trusted. Professional. We do quality work for all your needs. Call today for more information.</p>
+                <div class="old-btn-row">
+                  <div class="old-btn red">Call Now</div>
+                  <div class="old-btn gray">Learn More</div>
+                </div>
+              </div>
+            </div>
+            <div class="old-columns">
+              <div class="old-box">
+                <div class="old-line"></div>
+                <div class="old-line mid"></div>
+                <div class="old-line short"></div>
+              </div>
+              <div class="old-box old-box-stack">
+                <div class="old-line"></div>
+                <div class="old-line short"></div>
+                <div class="old-line mid"></div>
+              </div>
+            </div>
+            <div class="old-footerline"></div>
           </div>
         </div>
         <div class="showcase-caption">
@@ -1307,7 +1296,7 @@ textarea.form-input{resize:vertical;min-height:92px}
       <div class="eyebrow fade-up">Here’s How I Fix It</div>
       <h2 class="heading fade-up d1">The site should guide people, not make them work.</h2>
       <p class="copy fade-up d2">
-        You asked for more design and less repetitive card clutter. So this section is rebuilt into clearer steps with stronger visual structure.
+        I rebuild the page so the first impression is stronger, the flow is cleaner, and the path to contacting you feels obvious.
       </p>
     </div>
 
@@ -1827,6 +1816,8 @@ document.addEventListener('DOMContentLoaded', function(){
   tick();
   setInterval(tick, 1000);
 
+  initRoiGraph();
+
   setTimeout(function(){
     (function showToastLoop(){
       var toast = document.getElementById('spotsToast');
@@ -1867,12 +1858,84 @@ function closeExitPopup(){
   document.getElementById('exitOverlay').classList.remove('show');
 }
 
-function calcROI(){
-  var calls = parseInt(document.getElementById('roiCalls').value, 10) || 0;
-  var value = parseInt(document.getElementById('roiValue').value, 10) || 0;
-  var extra = calls * value;
-  document.getElementById('roiAmount').textContent = '$' + extra.toLocaleString() + '/mo';
-  document.getElementById('roiResult').classList.add('show');
+function initRoiGraph(){
+  var stage = document.getElementById('roiStage');
+  var dot = document.getElementById('roiDot');
+  var bubble = document.getElementById('roiBubble');
+  var bubbleValue = document.getElementById('roiBubbleValue');
+  var bubbleMeta = document.getElementById('roiBubbleMeta');
+  var amount = document.getElementById('roiAmount');
+  var note = document.getElementById('roiNote');
+  var guideX = document.getElementById('roiGuideX');
+  var guideY = document.getElementById('roiGuideY');
+
+  if(!stage || !dot || !bubble || !amount) return;
+
+  var MAX_LEADS = 30;
+  var MIN_VALUE = 100;
+  var MAX_VALUE = 1200;
+  var state = { leads: 10, value: 300 };
+  var dragging = false;
+
+  function clamp(min, value, max){
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function roundToStep(value, step){
+    return Math.round(value / step) * step;
+  }
+
+  function render(){
+    var rect = stage.getBoundingClientRect();
+    if(!rect.width || !rect.height) return;
+
+    var x = (state.leads / MAX_LEADS) * rect.width;
+    var yRatio = (state.value - MIN_VALUE) / (MAX_VALUE - MIN_VALUE);
+    var y = rect.height - (yRatio * rect.height);
+
+    dot.style.left = (x - 11) + 'px';
+    dot.style.top = (y - 11) + 'px';
+    guideX.style.left = x + 'px';
+    guideY.style.top = y + 'px';
+
+    bubble.style.left = clamp(14, x - 70, rect.width - 146) + 'px';
+    bubble.style.top = clamp(14, y - 92, rect.height - 86) + 'px';
+
+    var lostRevenue = state.leads * state.value;
+    bubbleValue.textContent = '$' + lostRevenue.toLocaleString() + '/mo';
+    bubbleMeta.textContent = state.leads + ' leads • $' + state.value.toLocaleString() + '/job';
+    amount.textContent = '$' + lostRevenue.toLocaleString() + '/mo';
+    note.textContent = 'Example: if a stronger site recovered ' + state.leads + ' extra lead' + (state.leads === 1 ? '' : 's') + ' at about $' + state.value.toLocaleString() + ' per job.';
+  }
+
+  function updateFromClient(clientX, clientY){
+    var rect = stage.getBoundingClientRect();
+    var localX = clamp(0, clientX - rect.left, rect.width);
+    var localY = clamp(0, clientY - rect.top, rect.height);
+
+    state.leads = Math.max(0, Math.round((localX / rect.width) * MAX_LEADS));
+    var value = MAX_VALUE - ((localY / rect.height) * (MAX_VALUE - MIN_VALUE));
+    state.value = clamp(MIN_VALUE, roundToStep(value, 25), MAX_VALUE);
+    render();
+  }
+
+  stage.addEventListener('pointerdown', function(e){
+    dragging = true;
+    if(stage.setPointerCapture) stage.setPointerCapture(e.pointerId);
+    updateFromClient(e.clientX, e.clientY);
+  });
+
+  stage.addEventListener('pointermove', function(e){
+    if(!dragging) return;
+    updateFromClient(e.clientX, e.clientY);
+  });
+
+  stage.addEventListener('pointerup', function(){ dragging = false; });
+  stage.addEventListener('pointercancel', function(){ dragging = false; });
+  stage.addEventListener('click', function(e){ updateFromClient(e.clientX, e.clientY); });
+  window.addEventListener('resize', render);
+
+  render();
 }
 
 var FE = 'https://script.google.com/macros/s/AKfycbwQTWT0RIyblO6S1ObWEl3PM6yFE2L4RzbVlS0X_ez81SLWhJkWTHK7RkD7Pc6SVqli/execE';
