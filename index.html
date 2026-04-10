@@ -72,10 +72,13 @@ h2 strong,h1 strong{color:var(--tan)}
 .nav-inner{max-width:1080px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{color:var(--cream);font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .nav-logo span{color:var(--tan)}
-.nav-links{display:flex;align-items:center;gap:22px}
-.nav-links a{color:rgba(232,213,184,.75);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.nav-links a:hover{color:var(--tan)}
-.nav-cta{background:linear-gradient(135deg,var(--tan),var(--gold))!important;color:var(--forest-deep)!important;padding:11px 18px!important;border-radius:10px;font-weight:700!important}
+.nav-links{display:flex;align-items:center;gap:14px}
+.nav-timer-wrap{display:flex;align-items:center;gap:10px}
+.nav-timer-label{color:rgba(232,213,184,.6);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.nav-timer{display:inline-flex;align-items:center;gap:3px}
+.nav-timer .nt-b{background:rgba(212,184,150,.12);color:var(--tan);padding:2px 6px;border-radius:4px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.nav-timer .nt-s{color:rgba(232,213,184,.3);font-size:12px;font-weight:700}
+.nav-cta{background:linear-gradient(135deg,var(--tan),var(--gold))!important;color:var(--forest-deep)!important;padding:11px 18px!important;border-radius:10px;font-weight:700!important;font-size:13px!important;letter-spacing:.04em;text-transform:uppercase}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
 .hamburger span{display:block;width:24px;height:2px;margin-bottom:5px;background:var(--tan);transition:all .25s ease}
 .hamburger span:last-child{margin-bottom:0}
@@ -177,22 +180,6 @@ h2 strong,h1 strong{color:var(--tan)}
 .port-body p{color:rgba(232,213,184,.56);font-size:14px;line-height:1.65;margin-bottom:12px}
 .port-link{color:var(--tan);font-size:13px;font-weight:700}
 
-/* ── FREE CONSULTATION OFFER ── */
-.consult-offer{text-align:center}
-.consult-offer-head{max-width:620px;margin:0 auto 24px}
-.consult-offer-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1;margin-bottom:14px}
-.consult-offer-head p{font-size:17px;line-height:1.8;color:var(--text-muted)}
-.consult-timer{max-width:480px;margin:0 auto 48px;background:linear-gradient(135deg,var(--forest-deep),var(--forest));border-radius:18px;padding:20px 24px;border:1px solid rgba(212,184,150,.12)}
-.consult-timer p{color:var(--tan);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
-.consult-cd{display:flex;align-items:center;justify-content:center;gap:8px}
-.cc-b{min-width:54px;border-radius:10px;padding:8px 12px;background:rgba(212,184,150,.10);border:1px solid rgba(212,184,150,.08)}
-.cc-n{display:block;font-family:var(--font-display);font-size:26px;color:var(--cream);font-variant-numeric:tabular-nums}
-.cc-l{display:block;font-size:9px;color:rgba(232,213,184,.38);text-transform:uppercase;letter-spacing:.10em}
-.cc-s{color:rgba(232,213,184,.20);font-size:22px;font-weight:700}
-.consult-offer-card{max-width:560px;margin:0 auto;background:white;border:1px solid rgba(26,58,42,.06);border-radius:24px;padding:36px 28px;box-shadow:0 4px 20px rgba(10,20,14,.04)}
-.consult-offer-card h3{font-size:20px;color:var(--forest);margin-bottom:6px;text-align:center}
-.consult-offer-card .offer-sub{font-size:14px;color:var(--text-muted);text-align:center;margin-bottom:20px}
-
 /* ── CONTACT ── */
 .contact{text-align:center}
 .contact-inner{max-width:560px;margin:0 auto}
@@ -214,6 +201,16 @@ textarea.form-input{resize:vertical;min-height:80px}
 .contact-method svg{width:18px;height:18px;stroke:var(--sage);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 18px}
 .contact-method span{font-size:14px;color:var(--text-muted)}
 .contact-method strong{color:var(--forest)}
+
+/* ── URGENCY BLOCK ABOVE FORM ── */
+.urgency-block{max-width:560px;margin:0 auto 32px;background:linear-gradient(135deg,var(--forest-deep),var(--forest));border-radius:22px;padding:28px 24px;border:1px solid rgba(212,184,150,.12);text-align:center}
+.urgency-block h3{font-family:var(--font-display);font-size:clamp(20px,3vw,26px);color:var(--cream);margin-bottom:6px;line-height:1.2}
+.urgency-block p{color:rgba(232,213,184,.56);font-size:14px;line-height:1.6;margin-bottom:16px}
+.urgency-cd{display:flex;align-items:center;justify-content:center;gap:8px}
+.uc-b{min-width:58px;border-radius:10px;padding:10px 12px;background:rgba(212,184,150,.10);border:1px solid rgba(212,184,150,.08)}
+.uc-n{display:block;font-family:var(--font-display);font-size:28px;color:var(--cream);font-variant-numeric:tabular-nums}
+.uc-l{display:block;font-size:9px;color:rgba(232,213,184,.38);text-transform:uppercase;letter-spacing:.10em}
+.uc-s{color:rgba(232,213,184,.20);font-size:22px;font-weight:700}
 
 /* ── FAQ ── */
 .faq{background:linear-gradient(180deg,var(--cream-dark),#ece2d3);text-align:center}
@@ -296,7 +293,7 @@ textarea.form-input{resize:vertical;min-height:80px}
 
 <div class="sale-banner" id="saleBanner">
   <div class="sale-banner-inner">
-    <span class="sale-banner-text">Free Website Consultation — Limited Time</span>
+    <span class="sale-banner-text">Free Consultations Only For The Next</span>
     <div class="sale-banner-timer">
       <div class="timer-block" id="bH">--</div><span class="timer-sep">:</span>
       <div class="timer-block" id="bM">--</div><span class="timer-sep">:</span>
@@ -310,14 +307,19 @@ textarea.form-input{resize:vertical;min-height:80px}
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">KUMPULA <span>MARKETING</span></a>
     <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#faq">FAQ</a>
+      <div class="nav-timer-wrap">
+        <span class="nav-timer-label">Free Consultation Ends In</span>
+        <div class="nav-timer">
+          <span class="nt-b" id="nH">--</span><span class="nt-s">:</span>
+          <span class="nt-b" id="nM">--</span><span class="nt-s">:</span>
+          <span class="nt-b" id="nS">--</span>
+        </div>
+      </div>
       <a href="#contact" class="nav-cta">Free Consultation</a>
     </div>
     <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="#work">Work</a><a href="#faq">FAQ</a>
     <a href="#contact" class="nav-cta">Free Consultation</a>
   </div>
 </nav>
@@ -345,7 +347,7 @@ textarea.form-input{resize:vertical;min-height:80px}
 <section class="about">
   <div class="container">
     <div class="about-wrap fade-up">
-      <img src="667700367_122171608172741182_4497036239769471481_n (2).jpg" alt="Samuel Kumpula" class="about-photo" onerror="this.style.display='none'">
+      <img src="667700367_122171608172741182_4497036239769471481_n.jpg" alt="Samuel Kumpula" class="about-photo" onerror="this.style.display='none'">
       <div class="about-text">
         <h2>Hey, I'm Samuel.</h2>
         <p>I'm a digital marketer based in Salem, Oregon. I work with local service businesses that need a site that does more than just look decent — it needs to feel legit, make the offer obvious, and turn visitors into leads.</p>
@@ -489,33 +491,25 @@ textarea.form-input{resize:vertical;min-height:80px}
   </div>
 </section>
 
-<!-- 8. FREE CONSULTATION OFFER (replaces pricing) -->
-<section class="consult-offer section" id="consult-offer">
-  <div class="container">
-    <div class="consult-offer-head fade-up">
-      <span class="label">Limited Time Offer</span>
-      <h2>Get a Free Website<br><strong>Consultation</strong></h2>
-      <p>For the next 48 hours only — I'll review your current site, identify what's costing you leads, and give you a custom strategy. No strings attached.</p>
-    </div>
-    <div class="consult-timer fade-up d1">
-      <p>This Offer Expires In</p>
-      <div class="consult-cd">
-        <div class="cc-b"><span class="cc-n" id="cH">--</span><span class="cc-l">Hours</span></div><span class="cc-s">:</span>
-        <div class="cc-b"><span class="cc-n" id="cM">--</span><span class="cc-l">Min</span></div><span class="cc-s">:</span>
-        <div class="cc-b"><span class="cc-n" id="cS">--</span><span class="cc-l">Sec</span></div>
-      </div>
-    </div>
-    <a href="#contact" class="btn btn-gold fade-up d2">Book Your Free Consultation</a>
-  </div>
-</section>
-
-<!-- 9. CONTACT (Book Your Free Strategy Call) -->
+<!-- 8. CONTACT — Free Website Consultation -->
 <section class="contact section" id="contact">
   <div class="container">
     <div class="contact-inner">
-      <span class="label fade-up">Free Stuff</span>
-      <h2 class="fade-up d1">Book Your Free <strong>Strategy Call</strong></h2>
-      <p class="fade-up d2">If this sounds like what your business needs, fill out the form and I'll get back to you within a few hours with a free strategy plan.</p>
+      <span class="label fade-up">Limited Time — Free Consultation</span>
+      <h2 class="fade-up d1">Get Your Free Website <strong>Consultation</strong></h2>
+      <p class="fade-up d2">I'm not doing this forever. For a limited time, I'll review your current site, show you exactly what's costing you leads, and build you a custom strategy — completely free. No strings, no obligations.</p>
+
+      <!-- URGENCY TIMER BLOCK -->
+      <div class="urgency-block fade-up d2">
+        <h3>I'm Only Offering Free Consultations For The Next</h3>
+        <p>After that, this goes back to a paid service. Don't wait.</p>
+        <div class="urgency-cd">
+          <div class="uc-b"><span class="uc-n" id="uH">--</span><span class="uc-l">Hours</span></div><span class="uc-s">:</span>
+          <div class="uc-b"><span class="uc-n" id="uM">--</span><span class="uc-l">Min</span></div><span class="uc-s">:</span>
+          <div class="uc-b"><span class="uc-n" id="uS">--</span><span class="uc-l">Sec</span></div>
+        </div>
+      </div>
+
       <div class="form-card fade-up d3">
         <form id="cform" onsubmit="submitForm(event)">
           <div class="form-group"><input type="text" name="name" class="form-input" placeholder="Your Name *" required></div>
@@ -539,7 +533,7 @@ textarea.form-input{resize:vertical;min-height:80px}
   </div>
 </section>
 
-<!-- 10. FAQ (moved to bottom) -->
+<!-- 9. FAQ (bottom) -->
 <section class="faq section" id="faq">
   <div class="container">
     <div class="faq-head fade-up">
@@ -573,15 +567,16 @@ textarea.form-input{resize:vertical;min-height:80px}
 <div class="exit-overlay" id="exitOverlay">
   <div class="exit-popup">
     <button class="exit-close" onclick="closeExitPopup()" aria-label="Close popup">&times;</button>
-    <h2>Wait — don't miss your<br>free consultation</h2>
-    <p>Fill out the form before the timer runs out and lock in your free strategy session.</p>
+    <h2>Wait — your free website<br>consultation is still available</h2>
+    <p>I'm giving away free, no-strings website consultations — but only for a limited time. Don't leave without claiming yours.</p>
     <div class="exit-timer"><div class="et-b"><span class="et-n" id="eH">--</span><span class="et-l">Hours</span></div><div class="et-b"><span class="et-n" id="eM">--</span><span class="et-l">Min</span></div><div class="et-b"><span class="et-n" id="eS">--</span><span class="et-l">Sec</span></div></div>
-    <button class="exit-cta" onclick="closeExitPopup();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Claim Free Consultation Now</button>
+    <button class="exit-cta" onclick="closeExitPopup();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Claim My Free Consultation</button>
     <div class="exit-phone">Or text: <strong>(503) 569-4291</strong></div>
   </div>
 </div>
 
 <script>
+var formSubmitted=false;
 document.addEventListener('DOMContentLoaded',function(){
   var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.12});
   document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el)});
@@ -597,20 +592,16 @@ document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('a[href^="#"]').forEach(function(link){link.addEventListener('click',function(e){var t=document.querySelector(link.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
 
   // RANDOMIZED 48-HOUR TIMER
-  // On each page load, generate a random remaining time between 1 hour and 47 hours
-  // so it never looks like it just started and never looks nearly done
   var SALE_KEY='kmConsultEnd4';
   var stored=localStorage.getItem(SALE_KEY);
   var now=Date.now();
   var end;
 
   if(stored && parseInt(stored,10)>now){
-    // Use existing timer if it hasn't expired
     end=parseInt(stored,10);
   } else {
-    // Generate random remaining time: between 1hr and 47hr
-    var minMs=1*3600*1000;   // 1 hour
-    var maxMs=47*3600*1000;  // 47 hours
+    var minMs=1*3600*1000;
+    var maxMs=47*3600*1000;
     var randomRemaining=Math.floor(Math.random()*(maxMs-minMs))+minMs;
     end=now+randomRemaining;
     localStorage.setItem(SALE_KEY,end);
@@ -620,7 +611,6 @@ document.addEventListener('DOMContentLoaded',function(){
   function tick(){
     var diff=Math.max(0,end-Date.now());
     if(diff<=0){
-      // Timer expired — generate a new random time
       var minMs=1*3600*1000;
       var maxMs=47*3600*1000;
       var randomRemaining=Math.floor(Math.random()*(maxMs-minMs))+minMs;
@@ -631,20 +621,20 @@ document.addEventListener('DOMContentLoaded',function(){
     var h=Math.floor(diff/3600000);diff%=3600000;
     var m=Math.floor(diff/60000);diff%=60000;
     var s=Math.floor(diff/1000);
-    ['bH','cH','eH','sH'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(h)});
-    ['bM','cM','eM','sM'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(m)});
-    ['bS','cS','eS','sS'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(s)});
+    ['bH','nH','uH','eH','sH'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(h)});
+    ['bM','nM','uM','eM','sM'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(m)});
+    ['bS','nS','uS','eS','sS'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(s)});
   }
   tick();setInterval(tick,1000);
 
   setTimeout(function(){(function showToastLoop(){var toast=document.getElementById('spotsToast');if(!toast)return;toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},5000);setTimeout(showToastLoop,45000)})()},8000);
   var exitShown=false,exitReady=false;setTimeout(function(){exitReady=true},5000);
-  document.addEventListener('mouseout',function(e){if(exitShown||!exitReady||window.innerWidth<769||window.scrollY<120||e.clientY>8||e.relatedTarget)return;exitShown=true;document.getElementById('exitOverlay').classList.add('show')});
+  document.addEventListener('mouseout',function(e){if(formSubmitted||exitShown||!exitReady||window.innerWidth<769||window.scrollY<120||e.clientY>8||e.relatedTarget)return;exitShown=true;document.getElementById('exitOverlay').classList.add('show')});
   document.getElementById('exitOverlay').addEventListener('click',function(e){if(e.target===document.getElementById('exitOverlay'))closeExitPopup()})
 });
 function closeExitPopup(){document.getElementById('exitOverlay').classList.remove('show')}
-var FE='https://script.google.com/macros/s/AKfycbw78URfBF8VFWrSnbFRHWuynwI00je6vgARKSKRCHrB78C6AAXsIcQbM3EmxEfB7jB1/exec';
-function submitForm(e){e.preventDefault();var f=document.getElementById('cform'),b=document.getElementById('subBtn');var data={name:f.querySelector('[name="name"]').value.trim(),business:f.querySelector('[name="business"]').value.trim(),email:f.querySelector('[name="email"]').value.trim(),notes:f.querySelector('[name="notes"]').value.trim(),timestamp:new Date().toISOString()};if(!data.name||!data.email){alert('Please fill in your name and email.');return}b.disabled=true;b.textContent='Sending...';fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(){f.style.display='none';document.getElementById('fsuccess').style.display='block'}).catch(function(){f.style.display='none';document.getElementById('fsuccess').style.display='block'})}
+var FE='https://script.google.com/macros/s/AKfycbwQTWT0RIyblO6S1ObWEl3PM6yFE2L4RzbVlS0X_ez81SLWhJkWTHK7RkD7Pc6SVqli/execE';
+function submitForm(e){e.preventDefault();var f=document.getElementById('cform'),b=document.getElementById('subBtn');var data={name:f.querySelector('[name="name"]').value.trim(),business:f.querySelector('[name="business"]').value.trim(),email:f.querySelector('[name="email"]').value.trim(),notes:f.querySelector('[name="notes"]').value.trim(),timestamp:new Date().toISOString()};if(!data.name||!data.email){alert('Please fill in your name and email.');return}b.disabled=true;b.textContent='Sending...';fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(){formSubmitted=true;f.style.display='none';document.getElementById('fsuccess').style.display='block'}).catch(function(){formSubmitted=true;f.style.display='none';document.getElementById('fsuccess').style.display='block'})}
 </script>
 </body>
 </html>
