@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kumpula Marketing — Roofing Websites That Bring You More Calls | Salem &amp; Keizer, OR</title>
+<meta name="description" content="Custom websites for roofing companies in Salem &amp; Keizer, Oregon. I build it first — you only pay if you love it.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root{
+  --forest-deep:#0f2419;
+  --forest:#1a3a2a;
+  --forest-mid:#2d5a3f;
+  --sage:#4a7c5c;
+  --tan:#d4b896;
+  --tan-light:#e8d5b8;
+  --cream:#faf5ee;
+  --cream-dark:#f0e8d9;
+  --white:#fff;
+  --gold:#c9a84c;
+  --text:#1a1a1a;
+  --text-muted:#5a5a5a;
+  --line:rgba(26,58,42,.10);
+  --shadow:0 20px 60px rgba(10,20,14,.12);
+  --shadow-soft:0 8px 32px rgba(10,20,14,.08);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'DM Sans',sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text);background:var(--cream);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input,textarea{font:inherit}
+::selection{background:var(--tan);color:var(--forest-deep)}
+
+.container{max-width:1080px;margin:0 auto;padding:0 28px}
+.section{padding:140px 0}
+
+.label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:18px}
+.label-light{color:var(--tan)}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.02em}
+h2 strong,h1 strong{color:var(--tan)}
+
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1)}
+.fade-up.visible{opacity:1;transform:none}
+.fade-up.d1{transition-delay:.1s}
+.fade-up.d2{transition-delay:.2s}
+.fade-up.d3{transition-delay:.3s}
+.fade-up.d4{transition-delay:.4s}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:18px 32px;border-radius:16px;font-size:15px;font-weight:700;border:none;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--tan),var(--gold));color:var(--forest-deep);box-shadow:0 10px 30px rgba(201,168,76,.25)}
+.btn-outline-light{background:rgba(255,255,255,.06);border:1px solid rgba(232,213,184,.18);color:var(--cream)}
+
+/* ── SALE BANNER ── */
+.sale-banner{position:relative;z-index:1002;background:linear-gradient(90deg,var(--forest-deep),var(--forest-mid),var(--forest-deep));padding:11px 18px;text-align:center}
+.sale-banner-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.sale-banner-text{color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.sale-banner-timer{display:inline-flex;align-items:center;gap:4px}
+.timer-block{background:rgba(212,184,150,.15);color:var(--tan);padding:3px 7px;border-radius:5px;min-width:28px;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.timer-sep{color:rgba(232,213,184,.35);font-weight:700}
+.sale-banner-cta{background:var(--tan);color:var(--forest-deep);padding:6px 14px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+
+/* ── NAV ── */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .28s ease, top .28s ease, backdrop-filter .28s ease}
+.navbar.scrolled{background:rgba(15,36,25,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,184,150,.12)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{color:var(--cream);font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.nav-logo span{color:var(--tan)}
+.nav-links{display:flex;align-items:center;gap:14px}
+.nav-timer-wrap{display:flex;align-items:center;gap:10px}
+.nav-timer-label{color:rgba(232,213,184,.6);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.nav-timer{display:inline-flex;align-items:center;gap:3px}
+.nav-timer .nt-b{background:rgba(212,184,150,.12);color:var(--tan);padding:2px 6px;border-radius:4px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.nav-timer .nt-s{color:rgba(232,213,184,.3);font-size:12px;font-weight:700}
+.nav-cta{background:linear-gradient(135deg,var(--tan),var(--gold))!important;color:var(--forest-deep)!important;padding:11px 18px!important;border-radius:10px;font-weight:700!important;font-size:13px!important;letter-spacing:.04em;text-transform:uppercase}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;margin-bottom:5px;background:var(--tan);transition:all .25s ease}
+.hamburger span:last-child{margin-bottom:0}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;flex-direction:column;background:rgba(15,36,25,.96);padding:0 28px 24px;border-bottom:1px solid rgba(212,184,150,.08)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--tan-light);padding:14px 0;font-size:15px;font-weight:600;border-bottom:1px solid rgba(212,184,150,.08)}
+.mobile-menu .nav-cta{text-align:center;margin-top:12px;border-bottom:none!important}
+
+/* ── HERO ── */
+.hero{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;background:linear-gradient(160deg, var(--forest-deep) 0%, #123325 40%, #1d4a35 100%)}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 20%, rgba(212,184,150,.12), transparent 22%),radial-gradient(circle at 20% 80%, rgba(74,124,92,.18), transparent 30%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;padding:180px 0 120px;max-width:820px;margin:0 auto;text-align:center}
+.hero h1{color:var(--cream);font-size:clamp(52px,8vw,96px);line-height:1.04;margin-bottom:24px}
+.hero-rotate{display:inline-block;min-width:10ch;white-space:nowrap;vertical-align:baseline}
+.hero-rotate .word{display:inline-block;white-space:nowrap}
+.hero-sub{font-size:clamp(17px,2vw,20px);line-height:1.8;color:rgba(232,213,184,.72);max-width:560px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-promise{margin-top:12px;display:inline-flex;align-items:center;gap:14px;padding:18px 24px;border-radius:18px;background:rgba(212,184,150,.08);border:1px solid rgba(212,184,150,.14);text-align:left;max-width:520px}
+.hero-promise svg{width:28px;height:28px;stroke:var(--tan);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 28px}
+.hero-promise p{color:rgba(232,213,184,.68);font-size:14px;line-height:1.6}
+.hero-promise p strong{color:var(--cream)}
+
+/* ── ABOUT ── */
+.about{padding:80px 0 40px}
+.about-wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.about-photo{width:220px;height:280px;border-radius:22px;object-fit:cover;object-position:center top;border:1px solid rgba(26,58,42,.08);box-shadow:0 12px 32px rgba(10,20,14,.08)}
+.about-text h2{font-size:clamp(24px,3vw,36px);color:var(--forest);margin-bottom:10px}
+.about-text p{font-size:16px;line-height:1.8;color:var(--text-muted);max-width:520px;margin:0 auto}
+
+/* ── WORTH IT ── */
+.worth{text-align:center}
+.worth-head{max-width:600px;margin:0 auto 60px}
+.worth-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1}
+.worth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto}
+.worth-card{padding:36px 28px;border-radius:24px;background:white;border:1px solid rgba(26,58,42,.06);box-shadow:0 4px 20px rgba(10,20,14,.04);text-align:left}
+.worth-num{font-family:var(--font-display);font-size:48px;color:var(--forest);line-height:1;margin-bottom:14px}
+.worth-card h3{font-size:18px;color:var(--forest);margin-bottom:8px}
+.worth-card p{font-size:15px;line-height:1.7;color:var(--text-muted)}
+
+/* ── BEFORE / AFTER ── */
+.compare{background:linear-gradient(180deg,var(--cream-dark),#ece2d3);text-align:center}
+.compare-head{max-width:600px;margin:0 auto 56px}
+.compare-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:0 auto}
+.compare-card{border-radius:24px;overflow:hidden;background:white;border:1px solid rgba(26,58,42,.06);box-shadow:var(--shadow-soft)}
+.compare-badge{padding:14px 20px;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+.compare-badge.bad{color:#a33c36;background:rgba(163,60,54,.04)}
+.compare-badge.good{color:var(--sage);background:rgba(74,124,92,.04)}
+.compare-media{aspect-ratio:16/10;background:#f5efe5;overflow:hidden}
+.compare-media img{width:100%;height:100%;object-fit:cover}
+.compare-body{padding:24px;text-align:left}
+.compare-body h3{font-size:22px;color:var(--forest);margin-bottom:8px}
+.compare-body p{font-size:15px;line-height:1.7;color:var(--text-muted);margin-bottom:14px}
+.compare-tags{display:flex;flex-wrap:wrap;gap:8px}
+.compare-tags span{background:var(--cream);color:var(--forest);font-size:11px;font-weight:700;letter-spacing:.03em;padding:7px 12px;border-radius:999px}
+
+/* ── AGITATE ── */
+.agitate{background:linear-gradient(180deg,var(--forest-deep),#122d21);text-align:center;position:relative;overflow:hidden}
+.agitate::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(212,184,150,.06), transparent 40%);pointer-events:none}
+.agitate .container{position:relative;z-index:1}
+.agitate-head{max-width:620px;margin:0 auto 60px}
+.agitate-head h2{font-size:clamp(32px,5vw,52px);color:var(--cream);line-height:1.1;margin-bottom:16px}
+.agitate-head p{color:rgba(232,213,184,.58);font-size:17px;line-height:1.8}
+.agitate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto 56px}
+.agitate-card{padding:32px 24px;border-radius:22px;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(212,184,150,.08)}
+.agitate-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:rgba(179,82,72,.12);color:#e87c72;font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:18px}
+.agitate-card h3{color:var(--cream);font-size:18px;margin-bottom:10px}
+.agitate-card p{color:rgba(232,213,184,.52);font-size:14px;line-height:1.7;margin-bottom:16px}
+.agitate-verdict{display:inline-block;padding:6px 12px;border-radius:8px;background:rgba(179,82,72,.10);border:1px solid rgba(179,82,72,.14);color:#e87c72;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.agitate-cta{max-width:600px;margin:0 auto;padding:36px 32px;border-radius:24px;background:rgba(212,184,150,.06);border:1px solid rgba(212,184,150,.12)}
+.agitate-cta h3{font-size:clamp(22px,3vw,30px);color:var(--cream);margin-bottom:12px;line-height:1.2}
+.agitate-cta p{color:rgba(232,213,184,.54);font-size:15px;line-height:1.7;margin-bottom:22px}
+
+/* ── HOW IT WORKS ── */
+.steps{text-align:center}
+.steps-head{max-width:600px;margin:0 auto 60px}
+.steps-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1}
+.steps-list{max-width:720px;margin:0 auto;display:grid;gap:0}
+.step-item{display:grid;grid-template-columns:80px 1fr;gap:24px;text-align:left;padding:36px 0;border-bottom:1px solid rgba(26,58,42,.08)}
+.step-item:last-child{border-bottom:none}
+.step-num{font-family:var(--font-display);font-size:52px;line-height:1;color:var(--forest);opacity:.18}
+.step-item h3{font-size:20px;color:var(--forest);margin-bottom:8px}
+.step-item p{font-size:15px;line-height:1.75;color:var(--text-muted)}
+
+/* ── PORTFOLIO ── */
+.portfolio{background:linear-gradient(180deg,var(--forest-deep),#153425);text-align:center}
+.portfolio-head{max-width:600px;margin:0 auto 56px}
+.portfolio-head h2{font-size:clamp(32px,5vw,52px);color:var(--cream);line-height:1.1}
+.portfolio-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:0 auto}
+.port-card{border-radius:22px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(212,184,150,.08);box-shadow:0 16px 48px rgba(0,0,0,.14)}
+.port-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(9,19,14,.3);border-bottom:1px solid rgba(212,184,150,.06)}
+.port-dot{width:8px;height:8px;border-radius:50%;background:rgba(212,184,150,.2)}
+.port-url{margin-left:8px;flex:1;height:28px;border-radius:999px;background:rgba(255,255,255,.05);display:flex;align-items:center;padding:0 12px;color:rgba(232,213,184,.4);font-size:11px}
+.port-media{aspect-ratio:16/10;background:#10281d;overflow:hidden}
+.port-media img{width:100%;height:100%;object-fit:cover}
+.port-body{padding:20px;text-align:left}
+.port-body h3{color:var(--cream);font-size:20px;margin-bottom:6px}
+.port-body p{color:rgba(232,213,184,.56);font-size:14px;line-height:1.65;margin-bottom:12px}
+.port-link{color:var(--tan);font-size:13px;font-weight:700}
+
+/* ── CONTACT ── */
+.contact{text-align:center}
+.contact-inner{max-width:560px;margin:0 auto}
+.contact-inner h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1;margin-bottom:14px}
+.contact-inner>p{font-size:17px;line-height:1.8;color:var(--text-muted);margin-bottom:36px}
+.form-card{background:white;border:1px solid rgba(26,58,42,.06);border-radius:24px;padding:32px 28px;box-shadow:0 4px 20px rgba(10,20,14,.04);text-align:left}
+.form-card h3{font-size:20px;color:var(--forest);margin-bottom:18px;text-align:center}
+.form-group{margin-bottom:12px}
+.form-input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(26,58,42,.10);background:var(--cream);color:var(--text);outline:none;transition:border-color .18s ease, box-shadow .18s ease}
+textarea.form-input{resize:vertical;min-height:80px}
+.form-input:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(74,124,92,.08)}
+.form-submit{width:100%;min-height:52px;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);font-size:15px;font-weight:700;box-shadow:0 8px 24px rgba(26,58,42,.16);margin-top:4px}
+.form-note{text-align:center;font-size:12px;color:var(--text-muted);margin-top:10px}
+.form-success{text-align:center;padding:28px 0}
+.form-success h4{font-size:20px;color:var(--forest);margin:10px 0 6px}
+.form-success p{font-size:14px;color:var(--text-muted)}
+.contact-methods{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px}
+.contact-method{display:flex;align-items:center;gap:10px}
+.contact-method svg{width:18px;height:18px;stroke:var(--sage);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 18px}
+.contact-method span{font-size:14px;color:var(--text-muted)}
+.contact-method strong{color:var(--forest)}
+
+/* ── URGENCY BLOCK ABOVE FORM ── */
+.urgency-block{max-width:560px;margin:0 auto 32px;background:linear-gradient(135deg,var(--forest-deep),var(--forest));border-radius:22px;padding:28px 24px;border:1px solid rgba(212,184,150,.12);text-align:center}
+.urgency-block h3{font-family:var(--font-display);font-size:clamp(20px,3vw,26px);color:var(--cream);margin-bottom:6px;line-height:1.2}
+.urgency-block p{color:rgba(232,213,184,.56);font-size:14px;line-height:1.6;margin-bottom:16px}
+.urgency-cd{display:flex;align-items:center;justify-content:center;gap:8px}
+.uc-b{min-width:58px;border-radius:10px;padding:10px 12px;background:rgba(212,184,150,.10);border:1px solid rgba(212,184,150,.08)}
+.uc-n{display:block;font-family:var(--font-display);font-size:28px;color:var(--cream);font-variant-numeric:tabular-nums}
+.uc-l{display:block;font-size:9px;color:rgba(232,213,184,.38);text-transform:uppercase;letter-spacing:.10em}
+.uc-s{color:rgba(232,213,184,.20);font-size:22px;font-weight:700}
+
+/* ── FAQ ── */
+.faq{background:linear-gradient(180deg,var(--cream-dark),#ece2d3);text-align:center}
+.faq-head{max-width:600px;margin:0 auto 48px}
+.faq-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1}
+.faq-list{max-width:680px;margin:0 auto;display:grid;gap:10px}
+.faq-item{background:white;border:1px solid rgba(26,58,42,.06);border-radius:16px;overflow:hidden;cursor:pointer;transition:border-color .2s ease}
+.faq-item.open{border-color:rgba(74,124,92,.18)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px}
+.faq-q h3{font-size:15px;color:var(--forest);font-weight:600;text-align:left}
+.faq-t{font-size:22px;color:var(--sage);line-height:1;transition:transform .2s ease;flex:0 0 auto}
+.faq-item.open .faq-t{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .34s ease}
+.faq-a p{padding:0 20px 18px;font-size:14px;line-height:1.75;color:var(--text-muted);text-align:left}
+
+/* ── FOOTER ── */
+.footer{background:var(--forest-deep);padding:32px 0;border-top:1px solid rgba(212,184,150,.06)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-logo{color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.footer-logo span{color:var(--tan)}
+.footer-copy{color:rgba(232,213,184,.30);font-size:12px}
+.footer-links{display:flex;align-items:center;gap:18px}
+.footer-links a{color:rgba(232,213,184,.44);font-size:12px}
+.footer-links a:hover{color:var(--tan)}
+
+/* ── STICKY / TOAST / EXIT ── */
+.sticky-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:999;background:#111;padding:12px 16px;box-shadow:0 -8px 28px rgba(0,0,0,.28)}
+.sticky-bar-inner{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.sticky-bar-timer{display:inline-flex;align-items:center;gap:4px}
+.stb{background:rgba(255,255,255,.12);color:var(--tan);padding:2px 5px;border-radius:4px;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.sts{color:rgba(255,255,255,.28);font-size:12px}
+.sticky-bar a{color:var(--white);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.exit-overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.62);backdrop-filter:blur(5px);align-items:center;justify-content:center}
+.exit-overlay.show{display:flex}
+.exit-popup{position:relative;width:min(92vw,440px);border-radius:24px;padding:36px 28px;background:white;box-shadow:0 30px 90px rgba(0,0,0,.30);text-align:center}
+.exit-close{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--text-muted);font-size:24px;cursor:pointer}
+.exit-popup h2{font-family:var(--font-display);font-size:28px;line-height:1.1;color:var(--forest);margin-bottom:10px}
+.exit-popup>p{font-size:15px;line-height:1.7;color:var(--text-muted);margin-bottom:16px}
+.exit-timer{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:16px}
+.et-b{min-width:52px;padding:7px 10px;border-radius:10px;background:var(--forest-deep);color:var(--cream)}
+.et-n{display:block;font-family:var(--font-display);font-size:22px;font-variant-numeric:tabular-nums}
+.et-l{display:block;font-size:9px;letter-spacing:.10em;text-transform:uppercase;color:rgba(232,213,184,.38)}
+.exit-cta{width:100%;min-height:50px;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);font-weight:700;font-size:14px;margin-bottom:10px}
+.exit-phone{font-size:14px;color:var(--forest);font-weight:600}
+.spots-toast{position:fixed;left:24px;bottom:98px;z-index:998;max-width:300px;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:16px;background:white;border:1px solid rgba(26,58,42,.06);box-shadow:var(--shadow-soft);transform:translateX(-120%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.spots-toast.show{transform:translateX(0)}
+.st-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(74,124,92,.08);flex:0 0 32px}
+.st-icon svg{width:16px;height:16px;stroke:var(--sage);fill:none;stroke-width:2}
+.st-text{font-size:13px;font-weight:700;color:var(--text);line-height:1.35}
+.st-text small{display:block;margin-top:2px;font-size:11px;font-weight:500;color:var(--text-muted)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .worth-grid,.agitate-grid,.compare-grid,.portfolio-grid{grid-template-columns:1fr}
+  .worth-grid,.agitate-grid{max-width:480px;margin-left:auto;margin-right:auto}
+  .compare-grid,.portfolio-grid{max-width:560px;margin-left:auto;margin-right:auto}
+}
+@media(max-width:768px){
+  .nav-links{display:none}.hamburger{display:block}
+  .section{padding:100px 0}
+  .hero-inner{padding:140px 0 90px}
+  .hero-promise{flex-direction:column;text-align:center}
+  .step-item{grid-template-columns:60px 1fr;gap:16px}.step-num{font-size:40px}
+  .contact-methods{flex-direction:column;align-items:center;gap:16px}
+  .footer-inner{text-align:center;justify-content:center}
+  .sticky-bar{display:block}body{padding-bottom:56px}
+  .spots-toast{left:12px;right:12px;bottom:70px;max-width:none}
+}
+@media(max-width:560px){
+  .container{padding:0 20px}.section{padding:80px 0}
+  .hero h1{font-size:clamp(42px,12vw,60px)}
+  .hero-rotate{min-width:10ch}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn{width:100%;max-width:320px}
+  .about-photo{width:190px;height:240px}
+}
+
+@keyframes fadeSlide{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<div class="sale-banner" id="saleBanner">
+  <div class="sale-banner-inner">
+    <span class="sale-banner-text">Free Roofing Consultations Only For The Next</span>
+    <div class="sale-banner-timer">
+      <div class="timer-block" id="bH">--</div><span class="timer-sep">:</span>
+      <div class="timer-block" id="bM">--</div><span class="timer-sep">:</span>
+      <div class="timer-block" id="bS">--</div>
+    </div>
+    <a href="#contact" class="sale-banner-cta">Claim Now</a>
+  </div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">KUMPULA <span>MARKETING</span></a>
+    <div class="nav-links">
+      <div class="nav-timer-wrap">
+        <span class="nav-timer-label">Free Roofing Consultation Ends In</span>
+        <div class="nav-timer">
+          <span class="nt-b" id="nH">--</span><span class="nt-s">:</span>
+          <span class="nt-b" id="nM">--</span><span class="nt-s">:</span>
+          <span class="nt-b" id="nS">--</span>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta">Free Roofing Consultation</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="#contact" class="nav-cta">Free Roofing Consultation</a>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="label label-light fade-up">Roofing Website Design For Contractors</span>
+      <h1 class="fade-up d1">Your Roofing Website Should<br>Bring You <strong><span class="hero-rotate"><span class="word">Leads</span></span></strong></h1>
+      <p class="hero-sub fade-up d2">Most roofing websites blend together. I build roofing sites that make homeowners trust you fast, understand your services clearly, and actually call for an estimate or inspection.</p>
+      <div class="hero-btns fade-up d3">
+        <a href="#contact" class="btn btn-gold">Get Your Free Roofing Consultation</a>
+        <a href="#work" class="btn btn-outline-light">See My Work</a>
+      </div>
+      <div class="hero-promise fade-up d4">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        <p><strong>I build it first. You pay only if you love it.</strong> That keeps the risk on me and lets you see the roofing-focused direction before you commit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about-wrap fade-up">
+      <img src="667700367_122171608172741182_4497036239769471481_n.jpg" alt="Samuel Kumpula" class="about-photo" onerror="this.style.display='none'">
+      <div class="about-text">
+        <h2>Hey, I'm Samuel.</h2>
+        <p>I'm a digital marketer based in Salem, Oregon. I help roofing companies look more credible online, make their services easy to understand, and turn homeowners into calls, estimate requests, and inspection leads.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. BUT IS THIS WORTH IT? -->
+<section class="worth section">
+  <div class="container">
+    <div class="worth-head fade-up">
+      <span class="label">Why Roofers Lose Jobs Online</span>
+      <h2>A weak roofing website quietly costs you jobs <strong>all year.</strong></h2>
+    </div>
+    <div class="worth-grid">
+      <div class="worth-card fade-up d1">
+        <div class="worth-num">1st</div>
+        <h3>Homeowners judge fast</h3>
+        <p>When someone lands on your site, they decide within seconds whether you feel legit enough to call.</p>
+      </div>
+      <div class="worth-card fade-up d2">
+        <div class="worth-num">24/7</div>
+        <h3>Storm traffic does not wait</h3>
+        <p>After wind, rain, or a leak, people compare roofers quickly. If your site feels outdated, they move on.</p>
+      </div>
+      <div class="worth-card fade-up d3">
+        <div class="worth-num">1</div>
+        <h3>Clear next step wins</h3>
+        <p>One strong call to action like request an inspection or get an estimate beats clutter and confusion every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. BEFORE / AFTER -->
+<section class="compare section">
+  <div class="container">
+    <div class="compare-head fade-up">
+      <span class="label">Before / After</span>
+      <h2>The <strong>Difference</strong></h2>
+    </div>
+    <div class="compare-grid">
+      <article class="compare-card fade-up d1">
+        <div class="compare-badge bad">Typical roofing company site</div>
+        <div class="compare-media">
+          <img src="Tom's Local Plumbing website overview.png" alt="Generic contractor website" onerror="this.parentNode.style.background='linear-gradient(135deg,#efe7d9,#faf5ee)';this.remove();">
+        </div>
+        <div class="compare-body">
+          <h3>Looks like every other roofer.</h3>
+          <p>No clear inspection offer. No proof. No strong service-area message. It blends in instead of helping you win the job.</p>
+          <div class="compare-tags"><span>Weak estimate CTA</span><span>No trust cues</span><span>Feels generic</span></div>
+        </div>
+      </article>
+      <article class="compare-card fade-up d2">
+        <div class="compare-badge good">Built by Kumpula Marketing</div>
+        <div class="compare-media">
+          <img src="Screenshot 2026-04-06 192032.png" alt="One Clear Choice Auto Glass" onerror="this.parentNode.style.background='linear-gradient(135deg,#efe7d9,#faf5ee)';this.remove();">
+        </div>
+        <div class="compare-body">
+          <h3>Cleaner, sharper, easier to trust</h3>
+          <p>The same kind of clear positioning, trust-first structure, and stronger lead flow I would build for a roofing company.</p>
+          <div class="compare-tags"><span>Service clarity</span><span>Better trust</span><span>Lead-focused</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5. THE REAL PROBLEM -->
+<section class="agitate section">
+  <div class="container">
+    <div class="agitate-head fade-up">
+      <span class="label label-light">The Real Problem</span>
+      <h2>You know the site needs work.<br>But every option feels <strong>wrong.</strong></h2>
+      <p>Most roofing companies end up trying one of three things, and all three usually waste time or money.</p>
+    </div>
+    <div class="agitate-grid">
+      <div class="agitate-card fade-up d1">
+        <div class="agitate-num">1</div>
+        <h3>Do It Yourself</h3>
+        <p>You already have crews, estimates, calls, and jobs to manage. Adding "learn web design" to that list usually means the site never gets done right.</p>
+        <span class="agitate-verdict">Overwhelming &amp; slow</span>
+      </div>
+      <div class="agitate-card fade-up d2">
+        <div class="agitate-num">2</div>
+        <h3>Hire In-House</h3>
+        <p>Hiring someone full-time just to fix a roofing website is expensive. Hire wrong and you burn money before the site even improves.</p>
+        <span class="agitate-verdict">Risky &amp; expensive</span>
+      </div>
+      <div class="agitate-card fade-up d3">
+        <div class="agitate-num">3</div>
+        <h3>Hire a Big Agency</h3>
+        <p>A lot of agencies throw roofers into generic contractor templates with the same boring copy everyone else has.</p>
+        <span class="agitate-verdict">Deprioritized &amp; generic</span>
+      </div>
+    </div>
+    <div class="agitate-cta fade-up">
+      <h3>A local marketer who builds around what actually gets roofers more calls.</h3>
+      <p>No giant roster. No junior hand-offs. One person building the site around estimates, inspections, service areas, and trust.</p>
+      <a href="#contact" class="btn btn-gold">See If We're a Fit</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. HOW IT WORKS -->
+<section class="steps section">
+  <div class="container">
+    <div class="steps-head fade-up">
+      <span class="label">How It Works For Roofers</span>
+      <h2>A roofing site process that's <strong>simple.</strong></h2>
+    </div>
+    <div class="steps-list">
+      <div class="step-item fade-up d1"><div class="step-num">01.</div><div><h3>Strategy Call</h3><p>Book a free call so I can look at your current roofing site, your service area, and what is costing you estimate requests right now.</p></div></div>
+      <div class="step-item fade-up d2"><div class="step-num">02.</div><div><h3>I Build It First</h3><p>I build your roofing site around the offers that matter most, like inspections, repairs, replacements, storm damage, and financing if you offer it.</p></div></div>
+      <div class="step-item fade-up d3"><div class="step-num">03.</div><div><h3>Launch &amp; Optimize</h3><p>We launch the site with stronger service pages, cleaner calls to action, and a faster path from visitor to estimate request.</p></div></div>
+      <div class="step-item fade-up d4"><div class="step-num">04.</div><div><h3>Track What Works</h3><p>I track calls, form fills, and lead flow so we can keep improving what gets homeowners to reach out.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. PORTFOLIO -->
+<section class="portfolio section" id="work">
+  <div class="container">
+    <div class="portfolio-head fade-up">
+      <span class="label label-light">Past Work</span>
+      <h2 style="color:var(--cream)">Proof I Know <strong>Local-Service Websites</strong></h2>
+    </div>
+    <div class="portfolio-grid">
+      <article class="port-card fade-up d1">
+        <div class="port-bar"><span class="port-dot"></span><span class="port-dot"></span><span class="port-dot"></span><div class="port-url">theoneclearchoiceautoglass.com</div></div>
+        <div class="port-media"><img src="Screenshot 2026-04-06 192032.png" alt="The One Clear Choice Auto Glass" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
+        <div class="port-body"><h3>The One Clear Choice Auto Glass</h3><p>Custom site, SEO, Google Ads support, and a lead flow built to turn local traffic into calls. The same trust-first structure works well for roofing.</p><a class="port-link" href="https://theoneclearchoiceautoglass.com" target="_blank" rel="noopener noreferrer">Visit live site →</a></div>
+      </article>
+      <article class="port-card fade-up d2">
+        <div class="port-bar"><span class="port-dot"></span><span class="port-dot"></span><span class="port-dot"></span><div class="port-url">keizermobiledetailing.com</div></div>
+        <div class="port-media"><img src="Screenshot 2026-04-06 192106.png" alt="Keizer Mobile Detailing" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
+        <div class="port-body"><h3>Keizer Mobile Detailing</h3><p>Cleaner local-service layout with a stronger booking path, clearer sections, and a more premium feel. Exactly the kind of clarity roofers need.</p><a class="port-link" href="https://keizermobiledetailing.com" target="_blank" rel="noopener noreferrer">Visit live site →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CONTACT — Free Website Consultation -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <span class="label fade-up">Limited Time — Free Roofing Consultation</span>
+      <h2 class="fade-up d1">Get Your Free Roofing Website <strong>Consultation</strong></h2>
+      <p class="fade-up d2">For a limited time, I'll review your current roofing site, show you what is costing you calls and estimate requests, and map out exactly how I would improve it. Free. No strings attached.</p>
+
+      <!-- URGENCY TIMER BLOCK -->
+      <div class="urgency-block fade-up d2">
+        <h3>I'm Only Offering Free Roofing Consultations For The Next</h3>
+        <p>After that, this goes back to a paid service. If you want a roofing-focused review, grab it now.</p>
+        <div class="urgency-cd">
+          <div class="uc-b"><span class="uc-n" id="uH">--</span><span class="uc-l">Hours</span></div><span class="uc-s">:</span>
+          <div class="uc-b"><span class="uc-n" id="uM">--</span><span class="uc-l">Min</span></div><span class="uc-s">:</span>
+          <div class="uc-b"><span class="uc-n" id="uS">--</span><span class="uc-l">Sec</span></div>
+        </div>
+      </div>
+
+      <div class="form-card fade-up d3">
+        <form id="cform" onsubmit="submitForm(event)">
+          <div class="form-group"><input type="text" name="name" class="form-input" placeholder="Your Name *" required></div>
+          <div class="form-group"><input type="text" name="business" class="form-input" placeholder="Business Name"></div>
+          <div class="form-group"><input type="email" name="email" class="form-input" placeholder="Email Address *" required></div>
+          <div class="form-group"><textarea name="notes" class="form-input" placeholder="Notes (optional) — Tell me about your roofing company, your current site, service area, or what you need help with"></textarea></div>
+          <button type="submit" class="form-submit" id="subBtn">Get My Free Roofing Consultation</button>
+          <p class="form-note">No obligation — No contracts — I reply within hours</p>
+        </form>
+        <div id="fsuccess" class="form-success" style="display:none">
+          <div><svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:var(--sage);fill:none;stroke-width:2"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg></div>
+          <h4>You're in.</h4><p>I'll reach out within a few hours with ideas for your roofing site.</p>
+        </div>
+      </div>
+      <div class="contact-methods fade-up d4">
+        <div class="contact-method"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3"></path></svg><span><strong>(503) 569-4291</strong> · Text preferred</span></div>
+        <div class="contact-method"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span><strong><a href="mailto:samuelkumpula4@gmail.com" style="color:var(--forest)">samuelkumpula4@gmail.com</a></strong></span></div>
+        <div class="contact-method"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span><strong>Salem &amp; Keizer, Oregon</strong></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ (bottom) -->
+<section class="faq section" id="faq">
+  <div class="container">
+    <div class="faq-head fade-up">
+      <span class="label">FAQs</span>
+      <h2>Frequently Asked <strong>Questions</strong></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up"><div class="faq-q"><h3>How fast can my roofing website be ready?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>Usually 5 to 7 business days. If the site is straightforward and you already have your logo and photos, it can move faster.</p></div></div>
+      <div class="faq-item fade-up d1"><div class="faq-q"><h3>Can you build around repairs, replacements, and inspections?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>Yes. I can structure the site around the services you actually want to push, whether that is roof repair, full replacement, storm damage, inspections, or financing.</p></div></div>
+      <div class="faq-item fade-up d2"><div class="faq-q"><h3>Do I need to provide photos or reviews?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>No. If you have them, great. If not, I can still structure the site properly and help you plan what is missing so the site still feels credible.</p></div></div>
+      <div class="faq-item fade-up d3"><div class="faq-q"><h3>How does "build first, pay later" actually work?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>We talk first, I build the direction, and you review it. If you like it, we move forward. If not, you are not stuck paying for something you do not want.</p></div></div>
+      <div class="faq-item fade-up d4"><div class="faq-q"><h3>Can you help me run Google Ads after the site is live?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>Yes. But the site needs to convert first. Roofing ads work a lot better when the landing page already feels trustworthy and clear.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">KUMPULA <span>MARKETING</span></div>
+      <div class="footer-copy">Custom websites for roofing companies in Salem &amp; Keizer, Oregon.</div>
+      <div class="footer-links"><a href="#work">Work</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-bar"><div class="sticky-bar-inner"><div class="sticky-bar-timer"><span class="stb" id="sH">--</span><span class="sts">:</span><span class="stb" id="sM">--</span><span class="sts">:</span><span class="stb" id="sS">--</span></div><a href="#contact">Get Your Free Roofing Consultation</a></div></div>
+
+<div class="spots-toast" id="spotsToast"><div class="st-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div><div class="st-text">Only 2 roofing spots left this week<small>Limited — Salem &amp; Keizer</small></div></div>
+
+<div class="exit-overlay" id="exitOverlay">
+  <div class="exit-popup">
+    <button class="exit-close" onclick="closeExitPopup()" aria-label="Close popup">&times;</button>
+    <h2>Wait — your free roofing website<br>consultation is still available</h2>
+    <p>I'm giving away free, no-strings roofing website consultations, but only for a limited time. Don't leave without claiming yours.</p>
+    <div class="exit-timer"><div class="et-b"><span class="et-n" id="eH">--</span><span class="et-l">Hours</span></div><div class="et-b"><span class="et-n" id="eM">--</span><span class="et-l">Min</span></div><div class="et-b"><span class="et-n" id="eS">--</span><span class="et-l">Sec</span></div></div>
+    <button class="exit-cta" onclick="closeExitPopup();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Claim My Free Roofing Consultation</button>
+    <div class="exit-phone">Or text: <strong>(503) 569-4291</strong></div>
+  </div>
+</div>
+
+<script>
+var formSubmitted=false;
+document.addEventListener('DOMContentLoaded',function(){
+  var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.12});
+  document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el)});
+  var nav=document.getElementById('navbar'),banner=document.getElementById('saleBanner');
+  function updateNav(){var scrolled=window.scrollY>40;nav.classList.toggle('scrolled',scrolled);nav.style.top=scrolled?'0':banner.offsetHeight+'px'}
+  updateNav();window.addEventListener('scroll',updateNav);
+  var ham=document.querySelector('.hamburger'),mob=document.querySelector('.mobile-menu');
+  ham.addEventListener('click',function(){ham.classList.toggle('active');mob.classList.toggle('open')});
+  mob.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){ham.classList.remove('active');mob.classList.remove('open')})});
+  var rotateWord=document.querySelector('.hero-rotate .word');
+  if(rotateWord){var words=['Leads','Calls','Jobs','Estimates'],i=0;setInterval(function(){i=(i+1)%words.length;rotateWord.style.animation='none';rotateWord.offsetHeight;rotateWord.textContent=words[i];rotateWord.style.animation='fadeSlide .45s ease'},2800)}
+  document.querySelectorAll('.faq-item').forEach(function(item){item.querySelector('.faq-q').addEventListener('click',function(){var isOpen=item.classList.contains('open'),a=item.querySelector('.faq-a');document.querySelectorAll('.faq-item').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight='0'});if(!isOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}})});
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){link.addEventListener('click',function(e){var t=document.querySelector(link.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+
+  // RANDOMIZED 48-HOUR TIMER
+  var SALE_KEY='kmRoofConsultEnd1';
+  var stored=localStorage.getItem(SALE_KEY);
+  var now=Date.now();
+  var end;
+
+  if(stored && parseInt(stored,10)>now){
+    end=parseInt(stored,10);
+  } else {
+    var minMs=1*3600*1000;
+    var maxMs=47*3600*1000;
+    var randomRemaining=Math.floor(Math.random()*(maxMs-minMs))+minMs;
+    end=now+randomRemaining;
+    localStorage.setItem(SALE_KEY,end);
+  }
+
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var diff=Math.max(0,end-Date.now());
+    if(diff<=0){
+      var minMs=1*3600*1000;
+      var maxMs=47*3600*1000;
+      var randomRemaining=Math.floor(Math.random()*(maxMs-minMs))+minMs;
+      end=Date.now()+randomRemaining;
+      localStorage.setItem(SALE_KEY,end);
+      diff=randomRemaining;
+    }
+    var h=Math.floor(diff/3600000);diff%=3600000;
+    var m=Math.floor(diff/60000);diff%=60000;
+    var s=Math.floor(diff/1000);
+    ['bH','nH','uH','eH','sH'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(h)});
+    ['bM','nM','uM','eM','sM'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(m)});
+    ['bS','nS','uS','eS','sS'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(s)});
+  }
+  tick();setInterval(tick,1000);
+
+  setTimeout(function(){(function showToastLoop(){var toast=document.getElementById('spotsToast');if(!toast)return;toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},5000);setTimeout(showToastLoop,45000)})()},8000);
+  var exitShown=false,exitReady=false;setTimeout(function(){exitReady=true},5000);
+  document.addEventListener('mouseout',function(e){if(formSubmitted||exitShown||!exitReady||window.innerWidth<769||window.scrollY<120||e.clientY>8||e.relatedTarget)return;exitShown=true;document.getElementById('exitOverlay').classList.add('show')});
+  document.getElementById('exitOverlay').addEventListener('click',function(e){if(e.target===document.getElementById('exitOverlay'))closeExitPopup()})
+});
+function closeExitPopup(){document.getElementById('exitOverlay').classList.remove('show')}
+var FE='https://script.google.com/macros/s/AKfycbwQTWT0RIyblO6S1ObWEl3PM6yFE2L4RzbVlS0X_ez81SLWhJkWTHK7RkD7Pc6SVqli/execE';
+function submitForm(e){e.preventDefault();var f=document.getElementById('cform'),b=document.getElementById('subBtn');var data={name:f.querySelector('[name="name"]').value.trim(),business:f.querySelector('[name="business"]').value.trim(),email:f.querySelector('[name="email"]').value.trim(),notes:f.querySelector('[name="notes"]').value.trim(),timestamp:new Date().toISOString()};if(!data.name||!data.email){alert('Please fill in your name and email.');return}b.disabled=true;b.textContent='Sending...';fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(){formSubmitted=true;f.style.display='none';document.getElementById('fsuccess').style.display='block'}).catch(function(){formSubmitted=true;f.style.display='none';document.getElementById('fsuccess').style.display='block'})}
+</script>
+</body>
+</html>
