@@ -320,27 +320,37 @@ button,input,textarea{font:inherit}
 .editorial-head .heading{color:var(--cream);font-size:clamp(34px,5vw,56px);margin:16px 0 14px}
 .editorial-head .copy{color:rgba(232,213,184,.66);max-width:620px;margin:0 auto}
 
-.service-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:60px}
-.service-tab{
-  border-radius:26px;overflow:hidden;background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,184,150,.10);box-shadow:0 20px 60px rgba(0,0,0,.16)
+
+.service-essentials{
+  max-width:900px;margin:0 auto 60px;
+  display:grid;grid-template-columns:280px 1fr;gap:34px;align-items:start
 }
-.service-tab-top{
-  display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid rgba(212,184,150,.08);
-  background:rgba(9,19,14,.32)
+.service-intro{
+  padding-top:4px
 }
-.tab-dot{width:10px;height:10px;border-radius:50%;background:rgba(212,184,150,.22)}
-.tab-url{
-  margin-left:8px;flex:1;height:30px;border-radius:999px;background:rgba(255,255,255,.06);
-  display:flex;align-items:center;padding:0 14px;color:rgba(232,213,184,.46);font-size:12px;text-transform:lowercase
+.service-overline{
+  display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tan);margin-bottom:10px
 }
-.service-tab-body{padding:24px 22px 26px}
-.service-kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tan);margin-bottom:10px}
-.service-tab-body h3{font-size:24px;line-height:1.18;color:var(--cream);margin-bottom:10px}
-.service-tab-body p{font-size:14px;line-height:1.72;color:rgba(232,213,184,.66)}
-.service-mini-list{display:grid;gap:8px;margin-top:16px}
-.service-mini-list li{list-style:none;display:flex;gap:9px;align-items:flex-start;color:rgba(232,213,184,.78);font-size:13px;line-height:1.55}
-.service-mini-list li::before{content:'✓';color:var(--tan);font-weight:700}
+.service-intro p{
+  font-size:15px;line-height:1.8;color:rgba(232,213,184,.66)
+}
+.service-list{
+  display:grid;gap:0;
+  border-top:1px solid rgba(212,184,150,.12);
+  border-bottom:1px solid rgba(212,184,150,.12)
+}
+.service-line{
+  display:grid;grid-template-columns:160px 1fr;gap:18px;align-items:start;
+  padding:18px 0;border-top:1px solid rgba(212,184,150,.08)
+}
+.service-line:first-child{border-top:none}
+.service-line strong{
+  color:var(--cream);font-size:18px;line-height:1.2
+}
+.service-line span{
+  color:rgba(232,213,184,.72);font-size:15px;line-height:1.7
+}
+
 
 
 .portfolio-label{
@@ -434,51 +444,65 @@ button,input,textarea{font:inherit}
   font-family:var(--font-display);font-size:48px;line-height:.95;color:var(--forest)
 }
 .loss-stat span{display:block;color:var(--text-muted);font-size:15px;line-height:1.7}
+
 .roi-wrap{
-  background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:30px;
+  background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:30px;
   padding:28px;box-shadow:var(--shadow-soft);position:sticky;top:110px
 }
 .roi-wrap h3{font-size:24px;color:var(--forest);margin-bottom:8px}
 .roi-wrap p{color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:18px}
-.roi-help{font-size:13px;color:var(--text-muted);margin-bottom:16px}
-.roi-stage{
-  position:relative;height:320px;border-radius:26px;overflow:hidden;
+.revenue-chart{
+  height:320px;border-radius:26px;overflow:hidden;
   background:
-    linear-gradient(180deg, rgba(74,124,92,.10), rgba(74,124,92,.03)),
+    linear-gradient(180deg, rgba(74,124,92,.08), rgba(74,124,92,.02)),
     linear-gradient(135deg,#fdf9f2,#f3eadf);
-  border:1px solid rgba(26,58,42,.10)
+  border:1px solid rgba(26,58,42,.10);
+  display:grid;grid-template-columns:86px 1fr;align-items:stretch
 }
-.roi-stage::before{
-  content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(26,58,42,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,58,42,.08) 1px, transparent 1px);
-  background-size:25% 25%;
+.revenue-scale{
+  border-right:1px solid rgba(26,58,42,.08);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:22px 14px 18px
+}
+.revenue-scale span{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(26,58,42,.46)
+}
+.revenue-bars{
+  position:relative;display:flex;align-items:flex-end;justify-content:space-around;
+  gap:18px;padding:36px 26px 54px
+}
+.revenue-bars::before{
+  content:'';position:absolute;inset:20px 18px 42px;
+  background-image:linear-gradient(rgba(26,58,42,.08) 1px, transparent 1px);
+  background-size:100% 25%;
   pointer-events:none
 }
-.roi-axis-x{
-  position:absolute;left:18px;right:18px;bottom:12px;display:flex;justify-content:space-between;
-  font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(26,58,42,.52);pointer-events:none
+.revenue-col{
+  position:relative;z-index:1;
+  width:110px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:14px
 }
-.roi-axis-y{
-  position:absolute;top:16px;right:16px;display:grid;gap:54px;text-align:right;
-  font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(26,58,42,.46);pointer-events:none
+.revenue-bar{
+  width:100%;border-radius:22px 22px 10px 10px;position:relative;
+  box-shadow:0 14px 34px rgba(10,20,14,.10)
 }
-.roi-guide-x,.roi-guide-y{position:absolute;background:rgba(74,124,92,.18);pointer-events:none}
-.roi-guide-x{top:0;bottom:0;width:1px}
-.roi-guide-y{left:0;right:0;height:1px}
-.roi-dot{
-  position:absolute;width:22px;height:22px;border-radius:50%;border:none;cursor:grab;
-  background:linear-gradient(135deg,var(--tan),var(--gold));box-shadow:0 8px 20px rgba(201,168,76,.42);
-  border:2px solid rgba(255,255,255,.95)
+.revenue-col.weak .revenue-bar{
+  height:108px;background:linear-gradient(180deg,#d8cec1,#bdaea0)
 }
-.roi-dot:active{cursor:grabbing}
-.roi-bubble{
-  position:absolute;min-width:132px;padding:12px 14px;border-radius:16px;
-  background:var(--forest-deep);color:var(--cream);box-shadow:0 18px 34px rgba(10,20,14,.18);pointer-events:none
+.revenue-col.mid .revenue-bar{
+  height:168px;background:linear-gradient(180deg,#b9cbbf,#789685)
 }
-.roi-bubble strong{display:block;font-size:22px;line-height:1;color:var(--tan);margin-bottom:4px}
-.roi-bubble span{display:block;font-size:12px;line-height:1.4;color:rgba(232,213,184,.62)}
+.revenue-col.strong .revenue-bar{
+  height:236px;background:linear-gradient(180deg,var(--tan),var(--gold))
+}
+.revenue-bar em{
+  position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  font-style:normal;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(15,36,25,.75)
+}
+.revenue-col.weak .revenue-bar em{color:rgba(70,56,48,.78)}
+.revenue-col span{
+  text-align:center;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--forest)
+}
 .roi-summary{
   margin-top:16px;padding:18px 20px;border-radius:20px;
   background:linear-gradient(135deg,var(--forest-deep),var(--forest));color:var(--cream)
@@ -486,6 +510,7 @@ button,input,textarea{font:inherit}
 .roi-summary p{margin:0;color:rgba(232,213,184,.60);font-size:13px}
 .roi-amount{display:block;font-family:var(--font-display);font-size:40px;line-height:1;color:var(--tan);margin:8px 0 6px}
 .roi-note{display:block;color:rgba(232,213,184,.42);font-size:12px;line-height:1.6}
+
 
 /* problem / before after */
 .problem{
@@ -883,7 +908,7 @@ textarea.form-input{resize:vertical;min-height:92px}
   .contact-grid,
   .editorial-head{grid-template-columns:1fr}
   .hero-side{justify-content:flex-start}
-  .service-tabs,
+  .service-essentials,
   .portfolio-grid,
   .showcase,
   .pricing-grid,
@@ -899,7 +924,10 @@ textarea.form-input{resize:vertical;min-height:92px}
   .hero-side{display:none}
   .about-wrap{padding:24px}
   .about-photo{max-width:220px}
-  .service-tabs{grid-template-columns:1fr}
+  .revenue-chart{grid-template-columns:64px 1fr;height:280px}
+  .revenue-bars{gap:10px;padding:28px 14px 46px}
+  .revenue-col{width:78px}
+  .service-essentials{grid-template-columns:1fr}
   .loss-stat{grid-template-columns:1fr}
   .problem-list{grid-template-columns:1fr}
   .solution-step{grid-template-columns:1fr}
@@ -1025,48 +1053,29 @@ textarea.form-input{resize:vertical;min-height:92px}
       </div>
     </div>
 
-    <div class="service-tabs">
-      <article class="service-tab fade-up">
-        <div class="service-tab-top"><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><div class="tab-url">seo foundation</div></div>
-        <div class="service-tab-body">
-          <div class="service-kicker">SEO</div>
-          <h3>Built so Google can actually understand the site.</h3>
-          <p>Clean headings, local copy, page structure, and search basics that help you show up for the right jobs.</p>
-          <ul class="service-mini-list">
-            <li>Local keyword structure</li>
-            <li>Clear page hierarchy</li>
-            <li>Search-ready copy</li>
-          </ul>
-        </div>
-      </article>
+    
+<div class="service-essentials fade-up d3">
+      <div class="service-intro">
+        <span class="service-overline">What actually matters</span>
+        <p>
+          Most local business sites do not need more stuff. They need better SEO, better speed, and a cleaner mobile experience so more visitors actually trust the business and reach out.
+        </p>
+      </div>
 
-      <article class="service-tab fade-up d1">
-        <div class="service-tab-top"><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><div class="tab-url">speed optimization</div></div>
-        <div class="service-tab-body">
-          <div class="service-kicker">Speed</div>
-          <h3>Fast enough that people do not bounce before they trust you.</h3>
-          <p>A slow site feels sloppy. I tighten the build so the page loads cleaner, feels lighter, and keeps attention longer.</p>
-          <ul class="service-mini-list">
-            <li>Faster perceived load</li>
-            <li>Cleaner code</li>
-            <li>Less friction</li>
-          </ul>
+      <div class="service-list">
+        <div class="service-line">
+          <strong>SEO</strong>
+          <span>Cleaner structure and local copy so Google can understand what the business does and who it serves.</span>
         </div>
-      </article>
-
-      <article class="service-tab fade-up d2">
-        <div class="service-tab-top"><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><div class="tab-url">mobile-first layout</div></div>
-        <div class="service-tab-body">
-          <div class="service-kicker">Mobile-First</div>
-          <h3>Structured for the screen most local visitors are actually using.</h3>
-          <p>Most local traffic lands on a phone. The layout needs to feel obvious, tap-friendly, and easy to move through fast.</p>
-          <ul class="service-mini-list">
-            <li>Cleaner stacking</li>
-            <li>Bigger tap targets</li>
-            <li>Better section flow</li>
-          </ul>
+        <div class="service-line">
+          <strong>Speed</strong>
+          <span>Faster load and less friction so people stay on the page instead of bouncing before they ever read the offer.</span>
         </div>
-      </article>
+        <div class="service-line">
+          <strong>Mobile-first</strong>
+          <span>A simpler layout on phones so the sections feel easier to scan, easier to trust, and easier to contact.</span>
+        </div>
+      </div>
     </div>
 
     <div class="portfolio-label fade-up">Businesses I’ve Worked With</div>
@@ -1142,35 +1151,38 @@ textarea.form-input{resize:vertical;min-height:92px}
         </div>
       </div>
 
-      <div class="roi-wrap fade-up d3">
-        <h3>How much are you losing?</h3>
-        <p>Plot your rough monthly leads and average job value. The chart updates live as you move the dot.</p>
-        <div class="roi-help">Right = more leads. Up = higher job value.</div>
+      
+<div class="roi-wrap fade-up d3">
+        <h3>What a stronger site can do</h3>
+        <p>Same traffic. Better conversion. Cleaner design and clearer flow usually mean more people stay, trust you, and reach out.</p>
 
-        <div class="roi-stage" id="roiStage">
-          <div class="roi-guide-x" id="roiGuideX"></div>
-          <div class="roi-guide-y" id="roiGuideY"></div>
-          <button type="button" class="roi-dot" id="roiDot" aria-label="Adjust lost revenue estimate"></button>
-          <div class="roi-bubble" id="roiBubble">
-            <strong id="roiBubbleValue">$3,000/mo</strong>
-            <span id="roiBubbleMeta">10 leads • $300/job</span>
+        <div class="revenue-chart" aria-hidden="true">
+          <div class="revenue-scale">
+            <span>high</span>
+            <span>mid</span>
+            <span>low</span>
           </div>
-          <div class="roi-axis-y">
-            <span>$1.2k</span>
-            <span>$800</span>
-            <span>$400</span>
-          </div>
-          <div class="roi-axis-x">
-            <span>0 leads</span>
-            <span>15 leads</span>
-            <span>30 leads</span>
+
+          <div class="revenue-bars">
+            <div class="revenue-col weak">
+              <div class="revenue-bar"><em>34%</em></div>
+              <span>Weak site</span>
+            </div>
+            <div class="revenue-col mid">
+              <div class="revenue-bar"><em>56%</em></div>
+              <span>Decent site</span>
+            </div>
+            <div class="revenue-col strong">
+              <div class="revenue-bar"><em>84%</em></div>
+              <span>Optimized site</span>
+            </div>
           </div>
         </div>
 
         <div class="roi-summary">
-          <p>Estimated missed monthly revenue</p>
-          <span class="roi-amount" id="roiAmount">$3,000/mo</span>
-          <span class="roi-note" id="roiNote">Based on a rough estimate that a stronger site could recover this much extra revenue.</span>
+          <p>What this means in plain English</p>
+          <span class="roi-amount">More trust. More calls.</span>
+          <span class="roi-note">A better site does not need more traffic to win. It just needs to convert more of the traffic you already have.</span>
         </div>
       </div>
     </div>
@@ -1198,8 +1210,8 @@ textarea.form-input{resize:vertical;min-height:92px}
             <line x1="12" y1="17" x2="12" y2="21"></line>
           </svg>
         </div>
-        <h3>Outdated design</h3>
-        <p>If the site feels old, cluttered, or cheap, people assume the business feels the same way.</p>
+        <h3>Your site looks like it’s from 2015.</h3>
+        <p>If the site feels old, cluttered, or cheap, people assume the business feels the same way before they ever contact you.</p>
       </div>
 
       <div class="problem-item fade-up d2">
@@ -1209,8 +1221,8 @@ textarea.form-input{resize:vertical;min-height:92px}
             <line x1="12" y1="18" x2="12" y2="18.01"></line>
           </svg>
         </div>
-        <h3>Bad mobile experience</h3>
-        <p>Most local visitors are on their phone. If the layout feels cramped or confusing, they leave fast.</p>
+        <h3>Looks generic. Feels forgettable.</h3>
+        <p>If the design blends in with every other small business site online, there is no reason for someone to remember you or trust you first.</p>
       </div>
 
       <div class="problem-item fade-up d3">
@@ -1219,7 +1231,7 @@ textarea.form-input{resize:vertical;min-height:92px}
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3"></path>
           </svg>
         </div>
-        <h3>No clear next step</h3>
+        <h3>No clear next step.</h3>
         <p>A visitor should instantly know where to click, what to trust, and how to contact you. Most small business sites fail here.</p>
       </div>
     </div>
@@ -1533,7 +1545,8 @@ textarea.form-input{resize:vertical;min-height:92px}
 
       <div class="form-panel fade-up d1">
         <h3>Get Your Free Website Consultation</h3>
-        <form id="cform" onsubmit="submitForm(event)">
+        
+<form id="cform" onsubmit="submitForm(event)">
           <div class="form-group">
             <input type="text" name="name" class="form-input" placeholder="Your Name *" required>
           </div>
@@ -1541,10 +1554,7 @@ textarea.form-input{resize:vertical;min-height:92px}
             <input type="text" name="business" class="form-input" placeholder="Business Name">
           </div>
           <div class="form-group">
-            <input type="tel" name="phone" class="form-input" placeholder="Phone Number *" required>
-          </div>
-          <div class="form-group">
-            <textarea name="message" class="form-input" placeholder="Tell me about your business (optional)"></textarea>
+            <input type="email" name="email" class="form-input" placeholder="Email Address *" required>
           </div>
           <button type="submit" class="form-submit" id="subBtn">Get My Free Consultation</button>
           <p class="form-note">No obligation — No contracts — I reply within hours</p>
@@ -1816,7 +1826,6 @@ document.addEventListener('DOMContentLoaded', function(){
   tick();
   setInterval(tick, 1000);
 
-  initRoiGraph();
 
   setTimeout(function(){
     (function showToastLoop(){
@@ -1858,86 +1867,6 @@ function closeExitPopup(){
   document.getElementById('exitOverlay').classList.remove('show');
 }
 
-function initRoiGraph(){
-  var stage = document.getElementById('roiStage');
-  var dot = document.getElementById('roiDot');
-  var bubble = document.getElementById('roiBubble');
-  var bubbleValue = document.getElementById('roiBubbleValue');
-  var bubbleMeta = document.getElementById('roiBubbleMeta');
-  var amount = document.getElementById('roiAmount');
-  var note = document.getElementById('roiNote');
-  var guideX = document.getElementById('roiGuideX');
-  var guideY = document.getElementById('roiGuideY');
-
-  if(!stage || !dot || !bubble || !amount) return;
-
-  var MAX_LEADS = 30;
-  var MIN_VALUE = 100;
-  var MAX_VALUE = 1200;
-  var state = { leads: 10, value: 300 };
-  var dragging = false;
-
-  function clamp(min, value, max){
-    return Math.min(Math.max(value, min), max);
-  }
-
-  function roundToStep(value, step){
-    return Math.round(value / step) * step;
-  }
-
-  function render(){
-    var rect = stage.getBoundingClientRect();
-    if(!rect.width || !rect.height) return;
-
-    var x = (state.leads / MAX_LEADS) * rect.width;
-    var yRatio = (state.value - MIN_VALUE) / (MAX_VALUE - MIN_VALUE);
-    var y = rect.height - (yRatio * rect.height);
-
-    dot.style.left = (x - 11) + 'px';
-    dot.style.top = (y - 11) + 'px';
-    guideX.style.left = x + 'px';
-    guideY.style.top = y + 'px';
-
-    bubble.style.left = clamp(14, x - 70, rect.width - 146) + 'px';
-    bubble.style.top = clamp(14, y - 92, rect.height - 86) + 'px';
-
-    var lostRevenue = state.leads * state.value;
-    bubbleValue.textContent = '$' + lostRevenue.toLocaleString() + '/mo';
-    bubbleMeta.textContent = state.leads + ' leads • $' + state.value.toLocaleString() + '/job';
-    amount.textContent = '$' + lostRevenue.toLocaleString() + '/mo';
-    note.textContent = 'Example: if a stronger site recovered ' + state.leads + ' extra lead' + (state.leads === 1 ? '' : 's') + ' at about $' + state.value.toLocaleString() + ' per job.';
-  }
-
-  function updateFromClient(clientX, clientY){
-    var rect = stage.getBoundingClientRect();
-    var localX = clamp(0, clientX - rect.left, rect.width);
-    var localY = clamp(0, clientY - rect.top, rect.height);
-
-    state.leads = Math.max(0, Math.round((localX / rect.width) * MAX_LEADS));
-    var value = MAX_VALUE - ((localY / rect.height) * (MAX_VALUE - MIN_VALUE));
-    state.value = clamp(MIN_VALUE, roundToStep(value, 25), MAX_VALUE);
-    render();
-  }
-
-  stage.addEventListener('pointerdown', function(e){
-    dragging = true;
-    if(stage.setPointerCapture) stage.setPointerCapture(e.pointerId);
-    updateFromClient(e.clientX, e.clientY);
-  });
-
-  stage.addEventListener('pointermove', function(e){
-    if(!dragging) return;
-    updateFromClient(e.clientX, e.clientY);
-  });
-
-  stage.addEventListener('pointerup', function(){ dragging = false; });
-  stage.addEventListener('pointercancel', function(){ dragging = false; });
-  stage.addEventListener('click', function(e){ updateFromClient(e.clientX, e.clientY); });
-  window.addEventListener('resize', render);
-
-  render();
-}
-
 var FE = 'https://script.google.com/macros/s/AKfycbwQTWT0RIyblO6S1ObWEl3PM6yFE2L4RzbVlS0X_ez81SLWhJkWTHK7RkD7Pc6SVqli/execE';
 
 function submitForm(e){
@@ -1948,13 +1877,12 @@ function submitForm(e){
   var data = {
     name: f.querySelector('[name="name"]').value.trim(),
     business: f.querySelector('[name="business"]').value.trim(),
-    phone: f.querySelector('[name="phone"]').value.trim(),
-    message: f.querySelector('[name="message"]').value.trim(),
+    email: f.querySelector('[name="email"]').value.trim(),
     timestamp: new Date().toISOString()
   };
 
-  if(!data.name || !data.phone){
-    alert('Please fill in your name and phone number.');
+  if(!data.name || !data.email){
+    alert('Please fill in your name and email.');
     return;
   }
 
