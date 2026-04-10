@@ -25,950 +25,282 @@
   --line:rgba(26,58,42,.10);
   --shadow:0 20px 60px rgba(10,20,14,.12);
   --shadow-soft:0 8px 32px rgba(10,20,14,.08);
-  --radius:26px;
-  --radius-sm:16px;
   --font-display:'Playfair Display',Georgia,serif;
   --font-body:'DM Sans',sans-serif;
-  /* Replace "none" below with url('images/your-hero-image.jpg') when you pick a hero photo */
-  --hero-photo:none;
 }
 
-*,
-*::before,
-*::after{box-sizing:border-box;margin:0;padding:0}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:var(--font-body);
-  color:var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(212,184,150,.14), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(74,124,92,.08), transparent 26%),
-    var(--cream);
-  overflow-x:hidden;
-}
+body{font-family:var(--font-body);color:var(--text);background:var(--cream);overflow-x:hidden}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 button,input,textarea{font:inherit}
 ::selection{background:var(--tan);color:var(--forest-deep)}
 
-.container{max-width:1180px;margin:0 auto;padding:0 24px}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase
-}
-.eyebrow::before{
-  content:'';
-  width:36px;height:1px;background:currentColor;opacity:.5
-}
-.heading{
-  font-family:var(--font-display);
-  font-weight:700;
-  line-height:1.08;
-  letter-spacing:-.02em;
-}
-.copy{font-size:17px;line-height:1.75;color:var(--text-muted)}
-.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease}
+.container{max-width:1080px;margin:0 auto;padding:0 28px}
+.section{padding:140px 0}
+
+.label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:18px}
+.label-light{color:var(--tan)}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.02em}
+h2 strong,h1 strong{color:var(--tan)}
+
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1)}
 .fade-up.visible{opacity:1;transform:none}
-.fade-up.d1{transition-delay:.08s}
-.fade-up.d2{transition-delay:.16s}
-.fade-up.d3{transition-delay:.24s}
-.fade-up.d4{transition-delay:.32s}
-.section-shell{padding:110px 0}
-.section-divider{
-  width:min(1120px, calc(100% - 48px));
-  height:1px;
-  margin:0 auto;
-  background:linear-gradient(90deg,transparent,rgba(74,124,92,.16) 20%,rgba(212,184,150,.28) 50%,rgba(74,124,92,.16) 80%,transparent)
-}
+.fade-up.d1{transition-delay:.1s}
+.fade-up.d2{transition-delay:.2s}
+.fade-up.d3{transition-delay:.3s}
+.fade-up.d4{transition-delay:.4s}
 
-.btn-row{display:flex;flex-wrap:wrap;gap:14px}
-.btn-primary,
-.btn-secondary,
-.btn-dark{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  min-height:56px;padding:16px 26px;border-radius:14px;
-  font-size:15px;font-weight:700;border:none;cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, background .22s ease
-}
-.btn-primary{
-  background:linear-gradient(135deg,var(--tan),var(--gold));
-  color:var(--forest-deep);
-  box-shadow:0 10px 30px rgba(201,168,76,.28)
-}
-.btn-secondary{
-  background:rgba(255,255,255,.08);
-  color:var(--cream);
-  border:1px solid rgba(232,213,184,.18)
-}
-.btn-dark{
-  background:var(--forest-deep);
-  color:var(--cream)
-}
-.btn-primary:hover,.btn-secondary:hover,.btn-dark:hover{transform:translateY(-2px)}
-.badge-pill{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:10px 14px;border-radius:999px;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
-  color:rgba(255,255,255,.8);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase
-}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:18px 32px;border-radius:16px;font-size:15px;font-weight:700;border:none;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--tan),var(--gold));color:var(--forest-deep);box-shadow:0 10px 30px rgba(201,168,76,.25)}
+.btn-outline-light{background:rgba(255,255,255,.06);border:1px solid rgba(232,213,184,.18);color:var(--cream)}
 
-/* top sale bar */
-.sale-banner{
-  position:relative;z-index:1002;
-  background:linear-gradient(90deg,var(--forest-deep),var(--forest-mid),var(--forest-deep));
-  padding:11px 18px;text-align:center
-}
-.sale-banner-inner{
-  display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap
-}
-.sale-banner-text{
-  color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase
-}
+/* ── SALE BANNER ── */
+.sale-banner{position:relative;z-index:1002;background:linear-gradient(90deg,var(--forest-deep),var(--forest-mid),var(--forest-deep));padding:11px 18px;text-align:center}
+.sale-banner-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.sale-banner-text{color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
 .sale-banner-timer{display:inline-flex;align-items:center;gap:4px}
-.timer-block{
-  background:rgba(212,184,150,.15);color:var(--tan);
-  padding:3px 7px;border-radius:5px;min-width:28px;
-  font-size:14px;font-weight:700;font-variant-numeric:tabular-nums
-}
+.timer-block{background:rgba(212,184,150,.15);color:var(--tan);padding:3px 7px;border-radius:5px;min-width:28px;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
 .timer-sep{color:rgba(232,213,184,.35);font-weight:700}
-.sale-banner-cta{
-  background:var(--tan);color:var(--forest-deep);padding:6px 14px;border-radius:8px;
-  font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase
-}
+.sale-banner-cta{background:var(--tan);color:var(--forest-deep);padding:6px 14px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
 
-/* nav */
-.navbar{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  transition:background .28s ease, border-color .28s ease, top .28s ease, backdrop-filter .28s ease
-}
-.navbar.scrolled{
-  background:rgba(15,36,25,.92);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(212,184,150,.12)
-}
-.nav-inner{
-  max-width:1180px;margin:0 auto;padding:18px 24px;
-  display:flex;align-items:center;justify-content:space-between
-}
-.nav-logo{
-  color:var(--cream);font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase
-}
+/* ── NAV ── */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .28s ease, top .28s ease, backdrop-filter .28s ease}
+.navbar.scrolled{background:rgba(15,36,25,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,184,150,.12)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{color:var(--cream);font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .nav-logo span{color:var(--tan)}
-.nav-links{display:flex;align-items:center;gap:20px}
-.nav-links a{
-  color:rgba(232,213,184,.75);
-  font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase
-}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links a{color:rgba(232,213,184,.75);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
 .nav-links a:hover{color:var(--tan)}
-.nav-cta{
-  background:linear-gradient(135deg,var(--tan),var(--gold))!important;
-  color:var(--forest-deep)!important;
-  padding:11px 18px!important;border-radius:10px;font-weight:700!important
-}
+.nav-cta{background:linear-gradient(135deg,var(--tan),var(--gold))!important;color:var(--forest-deep)!important;padding:11px 18px!important;border-radius:10px;font-weight:700!important}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.hamburger span{
-  display:block;width:24px;height:2px;margin-bottom:5px;background:var(--tan);transition:all .25s ease
-}
+.hamburger span{display:block;width:24px;height:2px;margin-bottom:5px;background:var(--tan);transition:all .25s ease}
 .hamburger span:last-child{margin-bottom:0}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mobile-menu{
-  display:none;flex-direction:column;background:rgba(15,36,25,.96);
-  padding:0 24px 24px;border-bottom:1px solid rgba(212,184,150,.08)
-}
+.mobile-menu{display:none;flex-direction:column;background:rgba(15,36,25,.96);padding:0 28px 24px;border-bottom:1px solid rgba(212,184,150,.08)}
 .mobile-menu.open{display:flex}
-.mobile-menu a{
-  color:var(--tan-light);padding:14px 0;font-size:15px;font-weight:600;border-bottom:1px solid rgba(212,184,150,.08)
-}
-.mobile-menu .nav-cta{
-  text-align:center;margin-top:12px;border-bottom:none!important
-}
+.mobile-menu a{color:var(--tan-light);padding:14px 0;font-size:15px;font-weight:600;border-bottom:1px solid rgba(212,184,150,.08)}
+.mobile-menu .nav-cta{text-align:center;margin-top:12px;border-bottom:none!important}
 
-/* hero */
-.hero{
-  position:relative;overflow:hidden;
-  min-height:100vh;display:flex;align-items:center;
-  background:
-    linear-gradient(180deg, rgba(15,36,25,.28), rgba(15,36,25,.12)),
-    linear-gradient(135deg, var(--forest-deep) 0%, #123325 36%, #234b37 100%);
-}
-.hero::before{
-  content:'';
-  position:absolute;inset:0;
-  background:
-    linear-gradient(125deg, rgba(8,18,13,.84) 20%, rgba(8,18,13,.52) 52%, rgba(8,18,13,.74) 100%),
-    var(--hero-photo);
-  background-position:center;
-  background-size:cover;
-  opacity:1
-}
-.hero::after{
-  content:'';
-  position:absolute;inset:0;
-  background:
-    radial-gradient(circle at 82% 22%, rgba(212,184,150,.15), transparent 18%),
-    radial-gradient(circle at 18% 78%, rgba(74,124,92,.22), transparent 26%),
-    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-  background-size:auto, auto, 64px 64px, 64px 64px;
-  opacity:.24
-}
-.hero-inner{
-  position:relative;z-index:1;padding:164px 0 96px;
-  display:block
-}
-.hero-copy{max-width:760px}
-.hero-kicker{color:var(--tan);margin-bottom:22px}
-.hero h1{
-  color:var(--cream);
-  font-size:clamp(46px, 7vw, 86px);
-  margin-bottom:18px;
-  max-width:11ch
-}
-.hero-rotate{
-  position:relative;color:var(--tan);display:inline-block
-}
-.hero-rotate .word{display:inline-block;animation:fadeSlide .45s ease}
-.hero-rotate::after{
-  content:'';position:absolute;left:0;right:0;bottom:-6px;height:3px;border-radius:999px;
-  background:linear-gradient(90deg,var(--tan),var(--gold))
-}
-.hero-sub{
-  max-width:640px;
-  font-size:clamp(17px,2vw,20px);
-  line-height:1.78;color:rgba(232,213,184,.78);
-  margin-bottom:28px
-}
-.hero-proof{
-  display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px
-}
-.promise-banner{
-  display:flex;align-items:flex-start;gap:16px;
-  max-width:620px;
-  padding:20px 22px;border-radius:20px;
-  background:linear-gradient(180deg, rgba(212,184,150,.13), rgba(212,184,150,.07));
-  border:1px solid rgba(212,184,150,.18);
-  box-shadow:0 18px 44px rgba(0,0,0,.18)
-}
-.promise-icon{
-  width:52px;height:52px;border-radius:16px;flex:0 0 52px;
-  display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--tan),var(--gold))
-}
-.promise-icon svg{
-  width:26px;height:26px;stroke:var(--forest-deep);fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round
-}
-.promise-copy h3{color:var(--cream);font-size:19px;font-weight:700;margin-bottom:4px}
-.promise-copy p{color:rgba(232,213,184,.62);font-size:14px;line-height:1.6}
-.hero-side{
-  display:flex;align-items:flex-end;justify-content:flex-end
-}
-.hero-side-card{
-  width:min(330px,100%);
-  padding:24px;border-radius:28px;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(212,184,150,.14);
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(8px)
-}
-.hero-side-card h3{
-  font-family:var(--font-display);font-size:28px;line-height:1.05;color:var(--cream);margin-bottom:12px
-}
-.hero-side-card p{
-  color:rgba(232,213,184,.68);font-size:14px;line-height:1.7;margin-bottom:18px
-}
-.hero-side-stack{display:grid;gap:12px}
-.hero-side-item{
-  padding:14px 16px;border-radius:16px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)
-}
-.hero-side-item strong{display:block;color:var(--tan);font-size:14px;margin-bottom:3px}
-.hero-side-item span{display:block;color:rgba(232,213,184,.64);font-size:13px;line-height:1.5}
-.hero-scrollnote{
-  margin-top:28px;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:rgba(232,213,184,.42)
-}
+/* ── HERO ── */
+.hero{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;background:linear-gradient(160deg, var(--forest-deep) 0%, #123325 40%, #1d4a35 100%)}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 20%, rgba(212,184,150,.12), transparent 22%),radial-gradient(circle at 20% 80%, rgba(74,124,92,.18), transparent 30%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;padding:180px 0 120px;max-width:820px;margin:0 auto;text-align:center}
+.hero h1{color:var(--cream);font-size:clamp(52px,8vw,96px);line-height:1.04;margin-bottom:24px}
+.hero-sub{font-size:clamp(17px,2vw,20px);line-height:1.8;color:rgba(232,213,184,.72);max-width:560px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-promise{margin-top:12px;display:inline-flex;align-items:center;gap:14px;padding:18px 24px;border-radius:18px;background:rgba(212,184,150,.08);border:1px solid rgba(212,184,150,.14);text-align:left;max-width:520px}
+.hero-promise svg{width:28px;height:28px;stroke:var(--tan);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 28px}
+.hero-promise p{color:rgba(232,213,184,.68);font-size:14px;line-height:1.6}
+.hero-promise p strong{color:var(--cream)}
 
-/* about */
-.about{padding:78px 0 44px}
-.about-wrap{
-  max-width:780px;margin:0 auto;
-  display:grid;justify-items:center;gap:24px;text-align:center;
-  background:rgba(255,255,255,.72);border:1px solid var(--line);
-  border-radius:32px;padding:34px;box-shadow:var(--shadow-soft)
-}
-.about-photo{
-  width:min(100%,260px);aspect-ratio:4/5;border-radius:26px;object-fit:cover;object-position:center top;
-  border:1px solid rgba(26,58,42,.08);box-shadow:0 16px 40px rgba(10,20,14,.10)
-}
-.about-text h2{font-size:clamp(26px,3vw,40px);color:var(--forest);margin-bottom:12px}
-.about-text p{font-size:16px;line-height:1.8;color:var(--text-muted);max-width:680px;margin:0 auto}
-.about-tags{display:none}
+/* ── ABOUT ── */
+.about{padding:80px 0 40px}
+.about-wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.about-photo{width:160px;height:200px;border-radius:22px;object-fit:cover;object-position:center top;border:1px solid rgba(26,58,42,.08);box-shadow:0 12px 32px rgba(10,20,14,.08)}
+.about-text h2{font-size:clamp(24px,3vw,36px);color:var(--forest);margin-bottom:10px}
+.about-text p{font-size:16px;line-height:1.8;color:var(--text-muted);max-width:520px;margin:0 auto}
 
-/* editorial services */
-.editorial{
-  background:linear-gradient(180deg, rgba(15,36,25,1) 0%, rgba(18,45,33,1) 100%);
-  position:relative;overflow:hidden
-}
-.editorial::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at top right, rgba(212,184,150,.10), transparent 22%),
-             radial-gradient(circle at left center, rgba(74,124,92,.14), transparent 18%)
-}
-.editorial .container{position:relative;z-index:1}
-.editorial-head{max-width:760px;margin:0 auto 40px;text-align:center}
-.editorial-head .eyebrow{color:var(--tan);justify-content:center}
-.editorial-head .heading{color:var(--cream);font-size:clamp(34px,5vw,56px);margin:16px 0 14px}
-.editorial-head .copy{color:rgba(232,213,184,.66);max-width:620px;margin:0 auto}
+/* ── WORTH IT ── */
+.worth{text-align:center}
+.worth-head{max-width:600px;margin:0 auto 60px}
+.worth-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1}
+.worth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto}
+.worth-card{padding:36px 28px;border-radius:24px;background:white;border:1px solid rgba(26,58,42,.06);box-shadow:0 4px 20px rgba(10,20,14,.04);text-align:left}
+.worth-num{font-family:var(--font-display);font-size:48px;color:var(--forest);line-height:1;margin-bottom:14px}
+.worth-card h3{font-size:18px;color:var(--forest);margin-bottom:8px}
+.worth-card p{font-size:15px;line-height:1.7;color:var(--text-muted)}
 
+/* ── BEFORE / AFTER ── */
+.compare{background:linear-gradient(180deg,var(--cream-dark),#ece2d3);text-align:center}
+.compare-head{max-width:600px;margin:0 auto 56px}
+.compare-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:0 auto}
+.compare-card{border-radius:24px;overflow:hidden;background:white;border:1px solid rgba(26,58,42,.06);box-shadow:var(--shadow-soft)}
+.compare-badge{padding:14px 20px;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+.compare-badge.bad{color:#a33c36;background:rgba(163,60,54,.04)}
+.compare-badge.good{color:var(--sage);background:rgba(74,124,92,.04)}
+.compare-media{aspect-ratio:16/10;background:#f5efe5;overflow:hidden}
+.compare-media img{width:100%;height:100%;object-fit:cover}
+.compare-body{padding:24px;text-align:left}
+.compare-body h3{font-size:22px;color:var(--forest);margin-bottom:8px}
+.compare-body p{font-size:15px;line-height:1.7;color:var(--text-muted);margin-bottom:14px}
+.compare-tags{display:flex;flex-wrap:wrap;gap:8px}
+.compare-tags span{background:var(--cream);color:var(--forest);font-size:11px;font-weight:700;letter-spacing:.03em;padding:7px 12px;border-radius:999px}
 
-.service-essentials{
-  max-width:900px;margin:0 auto 60px;
-  display:grid;grid-template-columns:280px 1fr;gap:34px;align-items:start
-}
-.service-intro{
-  padding-top:4px
-}
-.service-overline{
-  display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tan);margin-bottom:10px
-}
-.service-intro p{
-  font-size:15px;line-height:1.8;color:rgba(232,213,184,.66)
-}
-.service-list{
-  display:grid;gap:0;
-  border-top:1px solid rgba(212,184,150,.12);
-  border-bottom:1px solid rgba(212,184,150,.12)
-}
-.service-line{
-  display:grid;grid-template-columns:160px 1fr;gap:18px;align-items:start;
-  padding:18px 0;border-top:1px solid rgba(212,184,150,.08)
-}
-.service-line:first-child{border-top:none}
-.service-line strong{
-  color:var(--cream);font-size:18px;line-height:1.2
-}
-.service-line span{
-  color:rgba(232,213,184,.72);font-size:15px;line-height:1.7
-}
+/* ── AGITATE ── */
+.agitate{background:linear-gradient(180deg,var(--forest-deep),#122d21);text-align:center;position:relative;overflow:hidden}
+.agitate::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(212,184,150,.06), transparent 40%);pointer-events:none}
+.agitate .container{position:relative;z-index:1}
+.agitate-head{max-width:620px;margin:0 auto 60px}
+.agitate-head h2{font-size:clamp(32px,5vw,52px);color:var(--cream);line-height:1.1;margin-bottom:16px}
+.agitate-head p{color:rgba(232,213,184,.58);font-size:17px;line-height:1.8}
+.agitate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto 56px}
+.agitate-card{padding:32px 24px;border-radius:22px;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(212,184,150,.08)}
+.agitate-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:rgba(179,82,72,.12);color:#e87c72;font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:18px}
+.agitate-card h3{color:var(--cream);font-size:18px;margin-bottom:10px}
+.agitate-card p{color:rgba(232,213,184,.52);font-size:14px;line-height:1.7;margin-bottom:16px}
+.agitate-verdict{display:inline-block;padding:6px 12px;border-radius:8px;background:rgba(179,82,72,.10);border:1px solid rgba(179,82,72,.14);color:#e87c72;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.agitate-cta{max-width:600px;margin:0 auto;padding:36px 32px;border-radius:24px;background:rgba(212,184,150,.06);border:1px solid rgba(212,184,150,.12)}
+.agitate-cta h3{font-size:clamp(22px,3vw,30px);color:var(--cream);margin-bottom:12px;line-height:1.2}
+.agitate-cta p{color:rgba(232,213,184,.54);font-size:15px;line-height:1.7;margin-bottom:22px}
 
+/* ── HOW IT WORKS ── */
+.steps{text-align:center}
+.steps-head{max-width:600px;margin:0 auto 60px}
+.steps-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1}
+.steps-list{max-width:720px;margin:0 auto;display:grid;gap:0}
+.step-item{display:grid;grid-template-columns:80px 1fr;gap:24px;text-align:left;padding:36px 0;border-bottom:1px solid rgba(26,58,42,.08)}
+.step-item:last-child{border-bottom:none}
+.step-num{font-family:var(--font-display);font-size:52px;line-height:1;color:var(--forest);opacity:.18}
+.step-item h3{font-size:20px;color:var(--forest);margin-bottom:8px}
+.step-item p{font-size:15px;line-height:1.75;color:var(--text-muted)}
 
+/* ── PORTFOLIO ── */
+.portfolio{background:linear-gradient(180deg,var(--forest-deep),#153425);text-align:center}
+.portfolio-head{max-width:600px;margin:0 auto 56px}
+.portfolio-head h2{font-size:clamp(32px,5vw,52px);color:var(--cream);line-height:1.1}
+.portfolio-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:0 auto}
+.port-card{border-radius:22px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(212,184,150,.08);box-shadow:0 16px 48px rgba(0,0,0,.14)}
+.port-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(9,19,14,.3);border-bottom:1px solid rgba(212,184,150,.06)}
+.port-dot{width:8px;height:8px;border-radius:50%;background:rgba(212,184,150,.2)}
+.port-url{margin-left:8px;flex:1;height:28px;border-radius:999px;background:rgba(255,255,255,.05);display:flex;align-items:center;padding:0 12px;color:rgba(232,213,184,.4);font-size:11px}
+.port-media{aspect-ratio:16/10;background:#10281d;overflow:hidden}
+.port-media img{width:100%;height:100%;object-fit:cover}
+.port-body{padding:20px;text-align:left}
+.port-body h3{color:var(--cream);font-size:20px;margin-bottom:6px}
+.port-body p{color:rgba(232,213,184,.56);font-size:14px;line-height:1.65;margin-bottom:12px}
+.port-link{color:var(--tan);font-size:13px;font-weight:700}
 
-.portfolio-label{
-  color:var(--tan);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px
-}
-.portfolio-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.browser{
-  border-radius:26px;overflow:hidden;background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,184,150,.10);box-shadow:0 20px 60px rgba(0,0,0,.16)
-}
-.browser-top{
-  display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid rgba(212,184,150,.08);
-  background:rgba(9,19,14,.32)
-}
-.dot{width:10px;height:10px;border-radius:50%;background:rgba(212,184,150,.22)}
-.url-bar{
-  margin-left:8px;flex:1;height:30px;border-radius:999px;background:rgba(255,255,255,.06);
-  display:flex;align-items:center;padding:0 14px;color:rgba(232,213,184,.46);font-size:12px
-}
-.browser-media{aspect-ratio:16/10;background:#10281d;overflow:hidden}
-.browser-media img{width:100%;height:100%;object-fit:cover}
-.browser-media.mock{
-  display:grid;place-items:center;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
-    linear-gradient(135deg, #efe7d9, #faf5ee)
-}
-.mock-old{
-  width:90%;border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(26,58,42,.08);
-  box-shadow:0 18px 40px rgba(10,20,14,.10)
-}
-.old-topbar{
-  display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:10px 14px;background:#234331;color:#f3eee6;
-  font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase
-}
-.old-hero{
-  display:grid;grid-template-columns:120px 1fr;gap:12px;padding:14px;background:linear-gradient(135deg,#f5e3cf,#fff7ee)
-}
-.old-hero-image{
-  min-height:118px;border-radius:12px;background:
-    linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.18)),
-    linear-gradient(135deg,#d27d52,#5e8f73);
-  position:relative;overflow:hidden
-}
-.old-hero-image::after{
-  content:'';position:absolute;inset:0;background:
-    radial-gradient(circle at 60% 28%, rgba(255,255,255,.45), transparent 18%),
-    radial-gradient(circle at 42% 70%, rgba(255,255,255,.22), transparent 24%)
-}
-.old-hero-copy h4{font-size:17px;line-height:1.12;color:#7d2f2f;margin-bottom:8px;text-transform:uppercase}
-.old-hero-copy p{font-size:11px;color:#6d625d;line-height:1.45;margin-bottom:10px}
-.old-btn-row{display:flex;gap:8px;flex-wrap:wrap}
-.old-btn{display:inline-flex;padding:8px 10px;border-radius:8px;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-.old-btn.red{background:#cb584d;color:#fff}
-.old-btn.gray{background:#e7dfd7;color:#355647}
-.old-columns{display:grid;grid-template-columns:1.1fr .9fr;gap:12px;padding:12px 14px}
-.old-box{background:#faf7f1;border:1px solid #ece1d5;border-radius:12px;padding:10px}
-.old-line{height:8px;border-radius:999px;background:#d8cec1;margin-bottom:8px}
-.old-line.short{width:62%}
-.old-line.mid{width:80%}
-.old-box-stack{display:grid;gap:8px}
-.old-footerline{height:12px;margin:0 14px 14px;border-radius:999px;background:#dfd6cb}
+/* ── FREE CONSULTATION OFFER ── */
+.consult-offer{text-align:center}
+.consult-offer-head{max-width:620px;margin:0 auto 24px}
+.consult-offer-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1;margin-bottom:14px}
+.consult-offer-head p{font-size:17px;line-height:1.8;color:var(--text-muted)}
+.consult-timer{max-width:480px;margin:0 auto 48px;background:linear-gradient(135deg,var(--forest-deep),var(--forest));border-radius:18px;padding:20px 24px;border:1px solid rgba(212,184,150,.12)}
+.consult-timer p{color:var(--tan);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.consult-cd{display:flex;align-items:center;justify-content:center;gap:8px}
+.cc-b{min-width:54px;border-radius:10px;padding:8px 12px;background:rgba(212,184,150,.10);border:1px solid rgba(212,184,150,.08)}
+.cc-n{display:block;font-family:var(--font-display);font-size:26px;color:var(--cream);font-variant-numeric:tabular-nums}
+.cc-l{display:block;font-size:9px;color:rgba(232,213,184,.38);text-transform:uppercase;letter-spacing:.10em}
+.cc-s{color:rgba(232,213,184,.20);font-size:22px;font-weight:700}
+.consult-offer-card{max-width:560px;margin:0 auto;background:white;border:1px solid rgba(26,58,42,.06);border-radius:24px;padding:36px 28px;box-shadow:0 4px 20px rgba(10,20,14,.04)}
+.consult-offer-card h3{font-size:20px;color:var(--forest);margin-bottom:6px;text-align:center}
+.consult-offer-card .offer-sub{font-size:14px;color:var(--text-muted);text-align:center;margin-bottom:20px}
 
-.browser-body{padding:20px}
-.browser-body h3{font-size:24px;color:var(--cream);margin-bottom:6px}
-.browser-body p{font-size:14px;line-height:1.7;color:rgba(232,213,184,.62);margin-bottom:16px}
-.browser-list{display:grid;gap:8px}
-.browser-list li{
-  list-style:none;display:flex;gap:9px;align-items:flex-start;
-  color:rgba(232,213,184,.78);font-size:14px;line-height:1.55
-}
-.browser-list li::before{
-  content:'✓';color:var(--tan);font-weight:700
-}
-.browser-link{display:inline-flex;margin-top:16px;color:var(--tan);font-size:13px;font-weight:700}
-
-/* loss section */
-.loss-layout{
-  display:grid;grid-template-columns:1fr 520px;gap:34px;align-items:start
-}
-.loss-copy .eyebrow{color:var(--sage)}
-.loss-copy .heading{color:var(--forest);font-size:clamp(34px,5vw,56px);margin-bottom:16px}
-.loss-copy p{max-width:660px}
-.loss-stats{display:grid;gap:16px;margin-top:34px}
-.loss-stat{
-  display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:start;
-  padding:20px 0;border-top:1px solid rgba(26,58,42,.10)
-}
-.loss-stat:first-child{padding-top:0;border-top:none}
-.loss-stat strong{
-  font-family:var(--font-display);font-size:48px;line-height:.95;color:var(--forest)
-}
-.loss-stat span{display:block;color:var(--text-muted);font-size:15px;line-height:1.7}
-
-.roi-wrap{
-  background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:30px;
-  padding:28px;box-shadow:var(--shadow-soft);position:sticky;top:110px
-}
-.roi-wrap h3{font-size:24px;color:var(--forest);margin-bottom:8px}
-.roi-wrap p{color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:18px}
-.revenue-chart{
-  height:320px;border-radius:26px;overflow:hidden;
-  background:
-    linear-gradient(180deg, rgba(74,124,92,.08), rgba(74,124,92,.02)),
-    linear-gradient(135deg,#fdf9f2,#f3eadf);
-  border:1px solid rgba(26,58,42,.10);
-  display:grid;grid-template-columns:86px 1fr;align-items:stretch
-}
-.revenue-scale{
-  border-right:1px solid rgba(26,58,42,.08);
-  display:flex;flex-direction:column;justify-content:space-between;
-  padding:22px 14px 18px
-}
-.revenue-scale span{
-  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  color:rgba(26,58,42,.46)
-}
-.revenue-bars{
-  position:relative;display:flex;align-items:flex-end;justify-content:space-around;
-  gap:18px;padding:36px 26px 54px
-}
-.revenue-bars::before{
-  content:'';position:absolute;inset:20px 18px 42px;
-  background-image:linear-gradient(rgba(26,58,42,.08) 1px, transparent 1px);
-  background-size:100% 25%;
-  pointer-events:none
-}
-.revenue-col{
-  position:relative;z-index:1;
-  width:110px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:14px
-}
-.revenue-bar{
-  width:100%;border-radius:22px 22px 10px 10px;position:relative;
-  box-shadow:0 14px 34px rgba(10,20,14,.10)
-}
-.revenue-col.weak .revenue-bar{
-  height:108px;background:linear-gradient(180deg,#d8cec1,#bdaea0)
-}
-.revenue-col.mid .revenue-bar{
-  height:168px;background:linear-gradient(180deg,#b9cbbf,#789685)
-}
-.revenue-col.strong .revenue-bar{
-  height:236px;background:linear-gradient(180deg,var(--tan),var(--gold))
-}
-.revenue-bar em{
-  position:absolute;top:14px;left:50%;transform:translateX(-50%);
-  font-style:normal;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(15,36,25,.75)
-}
-.revenue-col.weak .revenue-bar em{color:rgba(70,56,48,.78)}
-.revenue-col span{
-  text-align:center;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--forest)
-}
-.roi-summary{
-  margin-top:16px;padding:18px 20px;border-radius:20px;
-  background:linear-gradient(135deg,var(--forest-deep),var(--forest));color:var(--cream)
-}
-.roi-summary p{margin:0;color:rgba(232,213,184,.60);font-size:13px}
-.roi-amount{display:block;font-family:var(--font-display);font-size:40px;line-height:1;color:var(--tan);margin:8px 0 6px}
-.roi-note{display:block;color:rgba(232,213,184,.42);font-size:12px;line-height:1.6}
-
-
-/* problem / before after */
-.problem{
-  background:linear-gradient(180deg,var(--cream-dark), #ece2d3);
-  position:relative;overflow:hidden
-}
-.problem::before{
-  content:'';position:absolute;inset:auto auto 0 -120px;width:320px;height:320px;border-radius:50%;
-  background:radial-gradient(circle, rgba(74,124,92,.10), transparent 70%)
-}
-.problem .container{position:relative;z-index:1}
-.problem-head{text-align:center;max-width:820px;margin:0 auto 48px}
-.problem-head .eyebrow{color:var(--sage);justify-content:center}
-.problem-head .heading{font-size:clamp(34px,5vw,56px);color:var(--forest);margin:12px 0 14px}
-.problem-head p{font-size:17px;color:var(--text-muted);line-height:1.8}
-
-.problem-list{
-  display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;margin-bottom:48px
-}
-.problem-item{
-  padding:24px;border-radius:24px;background:rgba(255,255,255,.75);border:1px solid rgba(26,58,42,.08);
-  box-shadow:var(--shadow-soft)
-}
-.problem-item .iconbox{
-  width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;
-  background:rgba(74,124,92,.10);margin-bottom:16px
-}
-.problem-item .iconbox svg{
-  width:24px;height:24px;stroke:var(--sage);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round
-}
-.problem-item h3{font-size:19px;color:var(--forest);margin-bottom:8px}
-.problem-item p{font-size:15px;line-height:1.72;color:var(--text-muted)}
-
-.showcase{
-  display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch
-}
-.showcase-card{
-  border-radius:28px;overflow:hidden;border:1px solid rgba(26,58,42,.08);
-  box-shadow:var(--shadow);background:white
-}
-.showcase-top{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 18px;border-bottom:1px solid rgba(26,58,42,.08)
-}
-.showcase-top span{
-  font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase
-}
-.showcase-top.bad span{color:#a33c36}
-.showcase-top.good span{color:var(--sage)}
-.showcase-media{aspect-ratio:16/10;background:#f5efe5;overflow:hidden}
-.showcase-media img{width:100%;height:100%;object-fit:cover}
-.showcase-caption{padding:22px}
-.showcase-caption h3{font-size:24px;color:var(--forest);margin-bottom:10px}
-.showcase-caption p{font-size:15px;line-height:1.75;color:var(--text-muted)}
-.showcase-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.showcase-tags span{
-  background:var(--cream-dark);color:var(--forest);font-size:12px;font-weight:700;
-  letter-spacing:.03em;padding:9px 12px;border-radius:999px
-}
-
-/* steps solution */
-.solution-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:18px
-}
-.solution-head{max-width:760px;margin-bottom:40px}
-.solution-head .eyebrow{color:var(--sage)}
-.solution-head .heading{font-size:clamp(34px,5vw,56px);color:var(--forest);margin:12px 0 14px}
-.solution-step{
-  display:grid;grid-template-columns:86px 1fr;gap:18px;
-  padding:28px;border-radius:28px;background:white;border:1px solid rgba(26,58,42,.08);box-shadow:var(--shadow-soft)
-}
-.solution-step .step-no{
-  width:86px;height:86px;border-radius:24px;
-  background:linear-gradient(135deg,var(--forest-deep),var(--forest));
-  color:var(--tan);display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-size:42px;line-height:1
-}
-.solution-step h3{font-size:24px;color:var(--forest);margin-bottom:8px}
-.solution-step p{font-size:15px;line-height:1.75;color:var(--text-muted)}
-.solution-step ul{margin-top:14px;display:grid;gap:8px}
-.solution-step li{
-  list-style:none;display:flex;gap:9px;align-items:flex-start;
-  color:var(--text-muted);font-size:14px;line-height:1.6
-}
-.solution-step li::before{
-  content:'•';color:var(--sage);font-size:20px;line-height:1
-}
-
-/* pricing */
-.pricing{
-  background:linear-gradient(180deg,var(--cream-dark), #e9decd);
-  position:relative;overflow:hidden
-}
-.pricing::before{
-  content:'';position:absolute;right:-120px;top:-80px;width:320px;height:320px;border-radius:50%;
-  background:radial-gradient(circle, rgba(212,184,150,.24), transparent 68%)
-}
-.pricing .container{position:relative;z-index:1}
-.pricing-head{text-align:center;max-width:760px;margin:0 auto 30px}
-.pricing-head .eyebrow{color:var(--sage);justify-content:center}
-.pricing-head .heading{font-size:clamp(34px,5vw,56px);color:var(--forest);margin:12px 0 14px}
-.pricing-head p{font-size:17px;line-height:1.8;color:var(--text-muted)}
-.sale-timer{
-  max-width:470px;margin:0 auto 44px;text-align:center;
-  background:linear-gradient(135deg,var(--forest-deep),var(--forest));
-  border-radius:22px;padding:18px 22px;border:1px solid rgba(212,184,150,.14);box-shadow:var(--shadow)
-}
-.sale-timer p{
-  color:var(--tan);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px
-}
-.sale-cd{display:flex;align-items:center;justify-content:center;gap:8px}
-.sc-b{
-  min-width:54px;border-radius:10px;padding:7px 12px;background:rgba(212,184,150,.10);
-  border:1px solid rgba(212,184,150,.10)
-}
-.sc-n{display:block;font-family:var(--font-display);font-size:26px;color:var(--cream);font-variant-numeric:tabular-nums}
-.sc-l{display:block;font-size:10px;color:rgba(232,213,184,.42);text-transform:uppercase;letter-spacing:.10em}
-.sc-s{color:rgba(232,213,184,.24);font-size:24px;font-weight:700}
-
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
-.price-card{
-  position:relative;display:flex;flex-direction:column;
-  border-radius:30px;padding:30px 26px;background:rgba(255,255,255,.84);
-  border:1px solid rgba(26,58,42,.10);box-shadow:var(--shadow-soft)
-}
-.price-card.featured{
-  background:linear-gradient(180deg,var(--forest-deep), #153425);
-  border:1px solid rgba(212,184,150,.20);box-shadow:0 20px 60px rgba(10,20,14,.18)
-}
-.p-badge{
-  position:absolute;left:50%;top:-13px;transform:translateX(-50%);
-  background:linear-gradient(135deg,var(--tan),var(--gold));color:var(--forest-deep);
-  padding:6px 16px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap
-}
-.p-tier{
-  font-size:13px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;margin-bottom:10px
-}
-.price-card .p-tier{color:var(--sage)}
-.price-card.featured .p-tier{color:var(--tan)}
-.p-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
-.p-orig{
-  font-family:var(--font-display);font-size:24px;text-decoration:line-through;opacity:.42
-}
-.price-card .p-orig{color:var(--text-muted)}
-.price-card.featured .p-orig{color:rgba(232,213,184,.36)}
-.p-price{
-  font-family:var(--font-display);font-size:46px;line-height:1;color:var(--forest)
-}
-.price-card.featured .p-price{color:var(--cream)}
-.p-save{
-  background:#b5392f;color:white;padding:4px 8px;border-radius:8px;
-  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em
-}
-.p-once,.p-mo,.p-mo-note{margin-bottom:4px}
-.price-card .p-once,.price-card .p-mo-note{color:var(--text-muted)}
-.price-card .p-mo{color:var(--forest-mid);font-weight:700}
-.price-card.featured .p-once,.price-card.featured .p-mo-note{color:rgba(232,213,184,.44)}
-.price-card.featured .p-mo{color:var(--tan);font-weight:700}
-.p-div{border:none;border-top:1px solid rgba(26,58,42,.10);margin:18px 0 20px}
-.price-card.featured .p-div{border-color:rgba(212,184,150,.10)}
-.p-feats{display:grid;gap:10px;flex:1}
-.p-feat{
-  list-style:none;display:flex;gap:9px;align-items:flex-start;font-size:14px;line-height:1.6
-}
-.price-card .p-feat{color:var(--text)}
-.price-card.featured .p-feat{color:rgba(232,213,184,.76)}
-.p-feat::before{
-  content:'✓';font-weight:700
-}
-.price-card .p-feat::before{color:var(--sage)}
-.price-card.featured .p-feat::before{color:var(--tan)}
-.p-btn{
-  margin-top:22px;display:inline-flex;align-items:center;justify-content:center;
-  min-height:52px;border-radius:14px;font-weight:700;font-size:15px
-}
-.price-card .p-btn{
-  background:transparent;border:2px solid var(--forest);color:var(--forest)
-}
-.price-card.featured .p-btn{
-  background:linear-gradient(135deg,var(--tan),var(--gold));color:var(--forest-deep)
-}
-.pricing-faqs{max-width:920px;margin:44px auto 0;display:grid;gap:14px}
-.pricing-faq-item{
-  background:rgba(255,255,255,.72);border:1px solid rgba(26,58,42,.10);border-radius:20px;overflow:hidden
-}
-.pricing-faq-item summary{
-  list-style:none;cursor:pointer;padding:20px 22px;
-  display:flex;align-items:center;justify-content:space-between;
-  color:var(--forest);font-weight:700
-}
-.pricing-faq-item summary::-webkit-details-marker{display:none}
-.pricing-faq-icon{font-size:22px;color:var(--sage);transition:transform .2s ease}
-.pricing-faq-item[open] .pricing-faq-icon{transform:rotate(45deg)}
-.pricing-faq-body{padding:0 22px 20px}
-.pricing-faq-body ul{display:grid;gap:8px}
-.pricing-faq-body li{
-  list-style:none;position:relative;padding-left:18px;
-  font-size:14px;line-height:1.65;color:var(--text-muted)
-}
-.pricing-faq-body li::before{
-  content:'•';position:absolute;left:0;color:var(--sage)
-}
-
-/* contact */
-.contact{
-  background:linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%)
-}
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start
-}
-.contact-panel,
-.form-panel{
-  background:rgba(255,255,255,.82);border:1px solid rgba(26,58,42,.10);
-  border-radius:30px;padding:32px;box-shadow:var(--shadow-soft)
-}
-.contact-panel .eyebrow{color:var(--sage)}
-.contact-panel .heading{font-size:clamp(32px,4vw,48px);color:var(--forest);margin:12px 0 14px}
-.contact-panel p{font-size:16px;line-height:1.8;color:var(--text-muted);margin-bottom:24px}
-.contact-methods{display:grid;gap:16px}
-.contact-method{
-  display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;
-  padding:16px;border-radius:18px;background:var(--cream);border:1px solid rgba(26,58,42,.08)
-}
-.contact-icon{
-  width:48px;height:48px;border-radius:14px;background:rgba(74,124,92,.10);
-  display:flex;align-items:center;justify-content:center
-}
-.contact-icon svg{
-  width:22px;height:22px;stroke:var(--sage);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round
-}
-.contact-text strong{
-  display:block;font-size:16px;color:var(--forest);margin-bottom:4px
-}
-.contact-text span{
-  display:block;font-size:13px;color:var(--text-muted);line-height:1.6
-}
-
-.form-panel h3{font-size:24px;color:var(--forest);margin-bottom:18px}
-.form-group{margin-bottom:14px}
-.form-input{
-  width:100%;padding:15px 16px;border-radius:14px;border:1px solid rgba(26,58,42,.12);
-  background:white;color:var(--text);outline:none;transition:border-color .18s ease, box-shadow .18s ease
-}
-.form-input:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(74,124,92,.10)}
-textarea.form-input{resize:vertical;min-height:92px}
-.form-submit{
-  width:100%;min-height:56px;border:none;border-radius:14px;cursor:pointer;
-  background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);
-  font-size:15px;font-weight:700;box-shadow:0 10px 26px rgba(26,58,42,.18)
-}
+/* ── CONTACT ── */
+.contact{text-align:center}
+.contact-inner{max-width:560px;margin:0 auto}
+.contact-inner h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1;margin-bottom:14px}
+.contact-inner>p{font-size:17px;line-height:1.8;color:var(--text-muted);margin-bottom:36px}
+.form-card{background:white;border:1px solid rgba(26,58,42,.06);border-radius:24px;padding:32px 28px;box-shadow:0 4px 20px rgba(10,20,14,.04);text-align:left}
+.form-card h3{font-size:20px;color:var(--forest);margin-bottom:18px;text-align:center}
+.form-group{margin-bottom:12px}
+.form-input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(26,58,42,.10);background:var(--cream);color:var(--text);outline:none;transition:border-color .18s ease, box-shadow .18s ease}
+textarea.form-input{resize:vertical;min-height:80px}
+.form-input:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(74,124,92,.08)}
+.form-submit{width:100%;min-height:52px;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);font-size:15px;font-weight:700;box-shadow:0 8px 24px rgba(26,58,42,.16);margin-top:4px}
 .form-note{text-align:center;font-size:12px;color:var(--text-muted);margin-top:10px}
 .form-success{text-align:center;padding:28px 0}
-.form-success h4{font-size:22px;color:var(--forest);margin:12px 0 6px}
+.form-success h4{font-size:20px;color:var(--forest);margin:10px 0 6px}
 .form-success p{font-size:14px;color:var(--text-muted)}
+.contact-methods{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px}
+.contact-method{display:flex;align-items:center;gap:10px}
+.contact-method svg{width:18px;height:18px;stroke:var(--sage);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 18px}
+.contact-method span{font-size:14px;color:var(--text-muted)}
+.contact-method strong{color:var(--forest)}
 
-/* faq */
-.faq{
-  background:linear-gradient(180deg,var(--forest-deep), #122d21)
-}
-.faq-head{text-align:center;max-width:740px;margin:0 auto 44px}
-.faq-head .eyebrow{color:var(--tan);justify-content:center}
-.faq-head .heading{font-size:clamp(34px,5vw,54px);color:var(--cream);margin:12px 0 14px}
-.faq-head p{font-size:16px;line-height:1.8;color:rgba(232,213,184,.58)}
-.faq-list{max-width:760px;margin:0 auto;display:grid;gap:12px}
-.faq-item{
-  background:rgba(255,255,255,.04);border:1px solid rgba(212,184,150,.08);
-  border-radius:18px;overflow:hidden;cursor:pointer;transition:border-color .22s ease
-}
-.faq-item.open{border-color:rgba(212,184,150,.20)}
-.faq-q{
-  display:flex;align-items:center;justify-content:space-between;gap:18px;
-  padding:19px 22px
-}
-.faq-q h3{font-size:16px;color:var(--cream);font-weight:600}
-.faq-t{font-size:24px;color:var(--tan);line-height:1;transition:transform .2s ease}
+/* ── FAQ ── */
+.faq{background:linear-gradient(180deg,var(--cream-dark),#ece2d3);text-align:center}
+.faq-head{max-width:600px;margin:0 auto 48px}
+.faq-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1}
+.faq-list{max-width:680px;margin:0 auto;display:grid;gap:10px}
+.faq-item{background:white;border:1px solid rgba(26,58,42,.06);border-radius:16px;overflow:hidden;cursor:pointer;transition:border-color .2s ease}
+.faq-item.open{border-color:rgba(74,124,92,.18)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px}
+.faq-q h3{font-size:15px;color:var(--forest);font-weight:600;text-align:left}
+.faq-t{font-size:22px;color:var(--sage);line-height:1;transition:transform .2s ease;flex:0 0 auto}
 .faq-item.open .faq-t{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .34s ease}
-.faq-a p{
-  padding:0 22px 20px;
-  font-size:14px;line-height:1.75;color:rgba(232,213,184,.60)
-}
-.faq-a a{color:var(--tan);text-decoration:underline}
+.faq-a p{padding:0 20px 18px;font-size:14px;line-height:1.75;color:var(--text-muted);text-align:left}
 
-/* final cta */
-.final-cta{
-  background:linear-gradient(135deg,var(--forest-deep),var(--forest));
-  position:relative;overflow:hidden
-}
-.final-cta::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at center, rgba(212,184,150,.08), transparent 60%)
-}
-.final-cta-inner{
-  position:relative;z-index:1;max-width:720px;margin:0 auto;text-align:center;padding:86px 0
-}
-.final-cta h2{
-  font-size:clamp(34px,5vw,58px);color:var(--cream);margin-bottom:16px
-}
-.final-cta h2 em{font-style:normal;color:var(--tan)}
-.final-cta p{font-size:17px;line-height:1.8;color:rgba(232,213,184,.62);margin-bottom:28px}
-
-/* footer */
-.footer{
-  background:var(--forest-deep);
-  padding:36px 0;border-top:1px solid rgba(212,184,150,.08)
-}
-.footer-inner{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap
-}
-.footer-logo{
-  color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase
-}
+/* ── FOOTER ── */
+.footer{background:var(--forest-deep);padding:32px 0;border-top:1px solid rgba(212,184,150,.06)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-logo{color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .footer-logo span{color:var(--tan)}
-.footer-copy{color:rgba(232,213,184,.34);font-size:12px}
+.footer-copy{color:rgba(232,213,184,.30);font-size:12px}
 .footer-links{display:flex;align-items:center;gap:18px}
-.footer-links a{color:rgba(232,213,184,.50);font-size:12px}
+.footer-links a{color:rgba(232,213,184,.44);font-size:12px}
 .footer-links a:hover{color:var(--tan)}
 
-/* sticky / exit / toast */
-.sticky-bar{
-  display:none;position:fixed;left:0;right:0;bottom:0;z-index:999;
-  background:#111;padding:12px 16px;box-shadow:0 -8px 28px rgba(0,0,0,.28)
-}
-.sticky-bar-inner{
-  display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap
-}
+/* ── STICKY / TOAST / EXIT ── */
+.sticky-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:999;background:#111;padding:12px 16px;box-shadow:0 -8px 28px rgba(0,0,0,.28)}
+.sticky-bar-inner{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
 .sticky-bar-timer{display:inline-flex;align-items:center;gap:4px}
-.stb{
-  background:rgba(255,255,255,.12);color:var(--tan);
-  padding:2px 5px;border-radius:4px;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums
-}
+.stb{background:rgba(255,255,255,.12);color:var(--tan);padding:2px 5px;border-radius:4px;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
 .sts{color:rgba(255,255,255,.28);font-size:12px}
 .sticky-bar a{color:var(--white);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-
-.exit-overlay{
-  display:none;position:fixed;inset:0;z-index:2000;
-  background:rgba(0,0,0,.62);backdrop-filter:blur(5px);align-items:center;justify-content:center
-}
+.exit-overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.62);backdrop-filter:blur(5px);align-items:center;justify-content:center}
 .exit-overlay.show{display:flex}
-.exit-popup{
-  position:relative;width:min(92vw,480px);border-radius:28px;padding:38px 30px;
-  background:white;box-shadow:0 30px 90px rgba(0,0,0,.30);text-align:center
-}
-.exit-close{
-  position:absolute;top:14px;right:18px;background:none;border:none;color:var(--text-muted);
-  font-size:26px;cursor:pointer
-}
-.exit-popup h2{
-  font-family:var(--font-display);font-size:30px;line-height:1.1;color:var(--forest);margin-bottom:10px
-}
-.exit-popup > p{font-size:15px;line-height:1.7;color:var(--text-muted);margin-bottom:18px}
-.exit-timer{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px}
-.et-b{
-  min-width:58px;padding:8px 10px;border-radius:12px;background:var(--forest-deep);color:var(--cream)
-}
-.et-n{
-  display:block;font-family:var(--font-display);font-size:24px;font-variant-numeric:tabular-nums
-}
-.et-l{
-  display:block;font-size:9px;letter-spacing:.10em;text-transform:uppercase;color:rgba(232,213,184,.42)
-}
-.exit-cta{
-  width:100%;min-height:54px;border:none;border-radius:14px;cursor:pointer;
-  background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);
-  font-weight:700;font-size:15px;margin-bottom:10px
-}
+.exit-popup{position:relative;width:min(92vw,440px);border-radius:24px;padding:36px 28px;background:white;box-shadow:0 30px 90px rgba(0,0,0,.30);text-align:center}
+.exit-close{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--text-muted);font-size:24px;cursor:pointer}
+.exit-popup h2{font-family:var(--font-display);font-size:28px;line-height:1.1;color:var(--forest);margin-bottom:10px}
+.exit-popup>p{font-size:15px;line-height:1.7;color:var(--text-muted);margin-bottom:16px}
+.exit-timer{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:16px}
+.et-b{min-width:52px;padding:7px 10px;border-radius:10px;background:var(--forest-deep);color:var(--cream)}
+.et-n{display:block;font-family:var(--font-display);font-size:22px;font-variant-numeric:tabular-nums}
+.et-l{display:block;font-size:9px;letter-spacing:.10em;text-transform:uppercase;color:rgba(232,213,184,.38)}
+.exit-cta{width:100%;min-height:50px;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);font-weight:700;font-size:14px;margin-bottom:10px}
 .exit-phone{font-size:14px;color:var(--forest);font-weight:600}
-
-.spots-toast{
-  position:fixed;left:24px;bottom:98px;z-index:998;max-width:320px;
-  display:flex;gap:12px;align-items:flex-start;
-  padding:14px 16px;border-radius:18px;background:white;
-  border:1px solid rgba(26,58,42,.08);box-shadow:var(--shadow-soft);
-  transform:translateX(-120%);transition:transform .45s cubic-bezier(.16,1,.3,1)
-}
+.spots-toast{position:fixed;left:24px;bottom:98px;z-index:998;max-width:300px;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:16px;background:white;border:1px solid rgba(26,58,42,.06);box-shadow:var(--shadow-soft);transform:translateX(-120%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
 .spots-toast.show{transform:translateX(0)}
-.st-icon{
-  width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:rgba(74,124,92,.10);flex:0 0 38px
-}
-.st-icon svg{
-  width:18px;height:18px;stroke:var(--sage);fill:none;stroke-width:2
-}
-.st-text{
-  font-size:13px;font-weight:700;color:var(--text);line-height:1.35
-}
-.st-text small{
-  display:block;margin-top:2px;font-size:11px;font-weight:500;color:var(--text-muted)
-}
+.st-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(74,124,92,.08);flex:0 0 32px}
+.st-icon svg{width:16px;height:16px;stroke:var(--sage);fill:none;stroke-width:2}
+.st-text{font-size:13px;font-weight:700;color:var(--text);line-height:1.35}
+.st-text small{display:block;margin-top:2px;font-size:11px;font-weight:500;color:var(--text-muted)}
 
-/* responsive */
-@media (max-width:1024px){
-  .hero-inner,
-  .loss-layout,
-  .contact-grid,
-  .editorial-head{grid-template-columns:1fr}
-  .hero-side{justify-content:flex-start}
-  .service-essentials,
-  .portfolio-grid,
-  .showcase,
-  .pricing-grid,
-  .solution-grid{grid-template-columns:1fr}
-  .problem-list{grid-template-columns:1fr 1fr}
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .worth-grid,.agitate-grid,.compare-grid,.portfolio-grid{grid-template-columns:1fr}
+  .worth-grid,.agitate-grid{max-width:480px;margin-left:auto;margin-right:auto}
+  .compare-grid,.portfolio-grid{max-width:560px;margin-left:auto;margin-right:auto}
 }
-@media (max-width:768px){
-  .nav-links{display:none}
-  .hamburger{display:block}
-  .hero-inner{padding:136px 0 72px}
-  .hero h1{max-width:unset}
-  .hero-sub{max-width:unset}
-  .hero-side{display:none}
-  .about-wrap{padding:24px}
-  .about-photo{max-width:220px}
-  .revenue-chart{grid-template-columns:64px 1fr;height:280px}
-  .revenue-bars{gap:10px;padding:28px 14px 46px}
-  .revenue-col{width:78px}
-  .service-essentials{grid-template-columns:1fr}
-  .loss-stat{grid-template-columns:1fr}
-  .problem-list{grid-template-columns:1fr}
-  .solution-step{grid-template-columns:1fr}
-  .solution-step .step-no{width:74px;height:74px;border-radius:20px}
+@media(max-width:768px){
+  .nav-links{display:none}.hamburger{display:block}
+  .section{padding:100px 0}
+  .hero-inner{padding:140px 0 90px}
+  .hero-promise{flex-direction:column;text-align:center}
+  .step-item{grid-template-columns:60px 1fr;gap:16px}.step-num{font-size:40px}
+  .contact-methods{flex-direction:column;align-items:center;gap:16px}
   .footer-inner{text-align:center;justify-content:center}
-  .sticky-bar{display:block}
-  body{padding-bottom:60px}
-  .spots-toast{left:12px;right:12px;bottom:72px;max-width:none}
+  .sticky-bar{display:block}body{padding-bottom:56px}
+  .spots-toast{left:12px;right:12px;bottom:70px;max-width:none}
 }
-@media (max-width:560px){
-  .container{padding:0 18px}
-  .section-shell{padding:86px 0}
-  .hero h1{font-size:clamp(40px,13vw,58px)}
-  .btn-row{flex-direction:column}
-  .btn-primary,.btn-secondary,.btn-dark{width:100%}
-  .promise-banner{padding:18px}
-  .editorial-head .heading,
-  .loss-copy .heading,
-  .problem-head .heading,
-  .solution-head .heading,
-  .pricing-head .heading,
-  .contact-panel .heading,
-  .faq-head .heading,
-  .final-cta h2{line-height:1.12}
+@media(max-width:560px){
+  .container{padding:0 20px}.section{padding:80px 0}
+  .hero h1{font-size:clamp(42px,12vw,60px)}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn{width:100%;max-width:320px}
 }
 
-@keyframes fadeSlide{
-  0%{opacity:0;transform:translateY(12px)}
-  100%{opacity:1;transform:translateY(0)}
-}
+@keyframes fadeSlide{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 
 <div class="sale-banner" id="saleBanner">
   <div class="sale-banner-inner">
-    <span class="sale-banner-text">48-Hour Flash Sale — 30% Off</span>
+    <span class="sale-banner-text">Free Website Consultation — Limited Time</span>
     <div class="sale-banner-timer">
-      <div class="timer-block" id="bH">47</div><span class="timer-sep">:</span>
-      <div class="timer-block" id="bM">59</div><span class="timer-sep">:</span>
-      <div class="timer-block" id="bS">59</div>
+      <div class="timer-block" id="bH">--</div><span class="timer-sep">:</span>
+      <div class="timer-block" id="bM">--</div><span class="timer-sep">:</span>
+      <div class="timer-block" id="bS">--</div>
     </div>
     <a href="#contact" class="sale-banner-cta">Claim Now</a>
   </div>
@@ -979,671 +311,247 @@ textarea.form-input{resize:vertical;min-height:92px}
     <a href="index.html" class="nav-logo">KUMPULA <span>MARKETING</span></a>
     <div class="nav-links">
       <a href="#work">Work</a>
-      <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a href="#contact" class="nav-cta">Free Consultation</a>
     </div>
-    <button class="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="#work">Work</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
+    <a href="#work">Work</a><a href="#faq">FAQ</a>
     <a href="#contact" class="nav-cta">Free Consultation</a>
   </div>
 </nav>
 
+<!-- 1. HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-copy">
-        <div class="hero-kicker eyebrow fade-up">Salem &amp; Keizer Website Design</div>
-        <h1 class="heading fade-up d1">Your Website Should Bring You <span class="hero-rotate"><span class="word">Customers</span></span></h1>
-        <p class="hero-sub fade-up d2">
-          Most local business websites just sit there. I build websites that make people trust you, understand what you do fast, and actually reach out.
-        </p>
-        <div class="btn-row fade-up d3">
-          <a href="#contact" class="btn-primary">Get Your Free Website Consultation</a>
-          <a href="#work" class="btn-secondary">See My Work</a>
-        </div>
-        <div class="promise-banner fade-up d4" style="margin-top:24px">
-          <div class="promise-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              <polyline points="9 12 11 14 15 10"></polyline>
-            </svg>
-          </div>
-          <div class="promise-copy">
-            <h3>I Build It First. You Pay Me Only If You Love It.</h3>
-            <p>That keeps the risk on me, not you. If it does not feel like a real upgrade for your business, you do not move forward.</p>
-          </div>
-        </div>
+      <span class="label label-light fade-up">Salem &amp; Keizer Website Design</span>
+      <h1 class="fade-up d1">Your Website Should<br>Bring You <strong><span class="hero-rotate"><span class="word">Customers</span></span></strong></h1>
+      <p class="hero-sub fade-up d2">Most local business websites just sit there. I build websites that make people trust you, understand what you do fast, and actually reach out.</p>
+      <div class="hero-btns fade-up d3">
+        <a href="#contact" class="btn btn-gold">Get Your Free Consultation</a>
+        <a href="#work" class="btn btn-outline-light">See My Work</a>
+      </div>
+      <div class="hero-promise fade-up d4">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        <p><strong>I build it first. You pay only if you love it.</strong> That keeps the risk on me, not you.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- 2. ABOUT -->
 <section class="about">
   <div class="container">
     <div class="about-wrap fade-up">
       <img src="667700367_122171608172741182_4497036239769471481_n.jpg" alt="Samuel Kumpula" class="about-photo" onerror="this.style.display='none'">
       <div class="about-text">
-        <h2 class="heading">Hey, I’m Samuel.</h2>
-        <p>
-          I’m a digital marketer based in Salem, Oregon. I work with local service businesses in Salem and Keizer that need a site that does more than just look decent. The goal is simple: make the business feel legit, make the offer obvious, and make it easy for visitors to become leads.
-        </p>
+        <h2>Hey, I'm Samuel.</h2>
+        <p>I'm a digital marketer based in Salem, Oregon. I work with local service businesses that need a site that does more than just look decent — it needs to feel legit, make the offer obvious, and turn visitors into leads.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<section class="editorial section-shell" id="work">
+<!-- 3. BUT IS THIS WORTH IT? -->
+<section class="worth section">
   <div class="container">
-    <div class="editorial-head">
-      <div>
-        <div class="eyebrow fade-up">What I Do</div>
-        <h2 class="heading fade-up d1">Websites That Convert Visitors Into Paying Customers</h2>
-        <p class="copy fade-up d2">
-          I keep this part simple. Better SEO. Better speed. Better mobile structure. That is what makes the site easier to trust and easier to contact.
-        </p>
-      </div>
+    <div class="worth-head fade-up">
+      <span class="label">But, Is This Even Worth It?</span>
+      <h2>A weak website quietly costs you leads <strong>every month.</strong></h2>
     </div>
-
-      <div class="service-list">
-        <div class="service-line">
-          <strong>SEO</strong>
-          <span>Cleaner structure and local copy so Google can understand what the business does and who it serves.</span>
-        </div>
-        <div class="service-line">
-          <strong>Speed</strong>
-          <span>Faster load and less friction so people stay on the page instead of bouncing before they ever read the offer.</span>
-        </div>
-        <div class="service-line">
-          <strong>Mobile-first</strong>
-          <span>A simpler layout on phones so the sections feel easier to scan, easier to trust, and easier to contact.</span>
-        </div>
+    <div class="worth-grid">
+      <div class="worth-card fade-up d1">
+        <div class="worth-num">75%</div>
+        <h3>Judge by website</h3>
+        <p>of people judge a business by its website before they ever talk to you.</p>
       </div>
-    </div>
-
-    <div class="portfolio-label fade-up">Businesses I’ve Worked With</div>
-    <div class="portfolio-grid">
-      <article class="browser fade-up d1">
-        <div class="browser-top">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <div class="url-bar">theoneclearchoiceautoglass.com</div>
-        </div>
-        <div class="browser-media">
-          <img src="Screenshot 2026-04-06 192032.png" alt="The One Clear Choice Auto Glass website screenshot" onerror="this.parentNode.classList.add('mock');this.remove();">
-        </div>
-        <div class="browser-body">
-          <h3>The One Clear Choice Auto Glass</h3>
-          <p>Custom site, SEO work, Google Ads support, and a quote flow built to turn local traffic into leads.</p>
-          <ul class="browser-list">
-            <li>Custom 5-page site</li>
-            <li>SEO + conversion-focused copy</li>
-            <li>Lead flow + follow-up infrastructure</li>
-          </ul>
-          <a class="browser-link" href="https://theoneclearchoiceautoglass.com" target="_blank" rel="noopener noreferrer">Visit live site →</a>
-        </div>
-      </article>
-
-      <article class="browser fade-up d2">
-        <div class="browser-top">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <div class="url-bar">keizermobiledetailing.com</div>
-        </div>
-        <div class="browser-media">
-          <img src="Screenshot 2026-04-06 192106.png" alt="Keizer Mobile Detailing website screenshot" onerror="this.parentNode.classList.add('mock');this.remove();">
-        </div>
-        <div class="browser-body">
-          <h3>Keizer Mobile Detailing</h3>
-          <p>A cleaner local-service layout with a stronger booking path and a more premium feel than a generic small-business template.</p>
-          <ul class="browser-list">
-            <li>Custom website build</li>
-            <li>SEO optimization</li>
-            <li>Advanced quote flow</li>
-          </ul>
-          <a class="browser-link" href="https://keizermobiledetailing.com" target="_blank" rel="noopener noreferrer">Visit live site →</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<section class="section-shell">
-  <div class="container">
-    <div class="loss-layout">
-      <div class="loss-copy">
-        <div class="eyebrow fade-up">Here’s How Much You’re Leaving On The Table</div>
-        <h2 class="heading fade-up d1">A weak website quietly costs you leads every month.</h2>
-        <p class="copy fade-up d2">
-          A stronger site does more than look good. It turns more of the traffic you are already getting into actual calls, quotes, and booked jobs.
-        </p>
-
-        <div class="loss-stats">
-          <div class="loss-stat fade-up d2">
-            <strong>75%</strong>
-            <span>of people judge a business by its website before they ever talk to you.</span>
-          </div>
-          <div class="loss-stat fade-up d3">
-            <strong>94%</strong>
-            <span>of first impressions are tied to design, which means the look and feel changes how trustworthy you seem.</span>
-          </div>
-          <div class="loss-stat fade-up d4">
-            <strong>53%</strong>
-            <span>leave when a site feels slow or clunky. Every second of friction costs you attention.</span>
-          </div>
-        </div>
+      <div class="worth-card fade-up d2">
+        <div class="worth-num">94%</div>
+        <h3>Design = trust</h3>
+        <p>of first impressions are tied to design. The look changes how trustworthy you seem.</p>
       </div>
-
-      
-<div class="roi-wrap fade-up d3">
-        <h3>What a stronger site can do</h3>
-        <p>Same traffic. Better conversion. Cleaner design and clearer flow usually mean more people stay, trust you, and reach out.</p>
-
-        <div class="revenue-chart" aria-hidden="true">
-          <div class="revenue-scale">
-            <span>high</span>
-            <span>mid</span>
-            <span>low</span>
-          </div>
-
-          <div class="revenue-bars">
-            <div class="revenue-col weak">
-              <div class="revenue-bar"><em>34%</em></div>
-              <span>Weak site</span>
-            </div>
-            <div class="revenue-col mid">
-              <div class="revenue-bar"><em>56%</em></div>
-              <span>Decent site</span>
-            </div>
-            <div class="revenue-col strong">
-              <div class="revenue-bar"><em>84%</em></div>
-              <span>Optimized site</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="roi-summary">
-          <p>What this means in plain English</p>
-          <span class="roi-amount">More trust. More calls.</span>
-          <span class="roi-note">A better site does not need more traffic to win. It just needs to convert more of the traffic you already have.</span>
-        </div>
+      <div class="worth-card fade-up d3">
+        <div class="worth-num">53%</div>
+        <h3>Leave when slow</h3>
+        <p>leave when a site feels slow or clunky. Every second of friction costs you attention.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<section class="problem section-shell">
+<!-- 4. BEFORE / AFTER -->
+<section class="compare section">
   <div class="container">
-    <div class="problem-head">
-      <div class="eyebrow fade-up">The Problem</div>
-      <h2 class="heading fade-up d1">Every day you wait, a competitor gets the customer instead.</h2>
-      <p class="fade-up d2">
-        When the site feels generic, slow, or confusing, visitors leave and the next business gets the call.
-      </p>
+    <div class="compare-head fade-up">
+      <span class="label">Before / After</span>
+      <h2>The <strong>Difference</strong></h2>
     </div>
-
-    <div class="problem-list">
-      <div class="problem-item fade-up d1">
-        <div class="iconbox">
-          <svg viewBox="0 0 24 24">
-            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
-            <line x1="8" y1="21" x2="16" y2="21"></line>
-            <line x1="12" y1="17" x2="12" y2="21"></line>
-          </svg>
+    <div class="compare-grid">
+      <article class="compare-card fade-up d1">
+        <div class="compare-badge bad">Typical local business site</div>
+        <div class="compare-media">
+          <img src="Tom's Local Plumbing website overview.png" alt="Generic plumbing website" onerror="this.parentNode.style.background='linear-gradient(135deg,#efe7d9,#faf5ee)';this.remove();">
         </div>
-        <h3>Your site looks like it’s from 2015.</h3>
-        <p>If the site feels old, cluttered, or cheap, people assume the business feels the same way before they ever contact you.</p>
-      </div>
-
-      <div class="problem-item fade-up d2">
-        <div class="iconbox">
-          <svg viewBox="0 0 24 24">
-            <rect x="5" y="2" width="14" height="20" rx="2"></rect>
-            <line x1="12" y1="18" x2="12" y2="18.01"></line>
-          </svg>
-        </div>
-        <h3>Looks generic. Feels forgettable.</h3>
-        <p>If the design blends in with every other small business site online, there is no reason for someone to remember you or trust you first.</p>
-      </div>
-
-      <div class="problem-item fade-up d3">
-        <div class="iconbox">
-          <svg viewBox="0 0 24 24">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3"></path>
-          </svg>
-        </div>
-        <h3>No clear next step.</h3>
-        <p>A visitor should instantly know where to click, what to trust, and how to contact you. Most small business sites fail here.</p>
-      </div>
-    </div>
-
-    <div class="showcase">
-      <article class="showcase-card fade-up d2">
-        <div class="showcase-top bad"><span>Typical local business site</span></div>
-        <div class="showcase-media mock">
-          <div class="mock-old">
-            <div class="old-topbar">
-              <span>Home</span><span>About</span><span>Services</span><span>Gallery</span><span>Contact</span>
-            </div>
-            <div class="old-hero">
-              <div class="old-hero-image"></div>
-              <div class="old-hero-copy">
-                <h4>Best Local Service Company</h4>
-                <p>Family owned. Trusted. Professional. We do quality work for all your needs. Call today for more information.</p>
-                <div class="old-btn-row">
-                  <div class="old-btn red">Call Now</div>
-                  <div class="old-btn gray">Learn More</div>
-                </div>
-              </div>
-            </div>
-            <div class="old-columns">
-              <div class="old-box">
-                <div class="old-line"></div>
-                <div class="old-line mid"></div>
-                <div class="old-line short"></div>
-              </div>
-              <div class="old-box old-box-stack">
-                <div class="old-line"></div>
-                <div class="old-line short"></div>
-                <div class="old-line mid"></div>
-              </div>
-            </div>
-            <div class="old-footerline"></div>
-          </div>
-        </div>
-        <div class="showcase-caption">
+        <div class="compare-body">
           <h3>Looks generic. Feels forgettable.</h3>
-          <p>No strong offer. No strong proof. No real reason to trust it fast. It blends in with every other local site someone has already forgotten.</p>
-          <div class="showcase-tags">
-            <span>No visual hierarchy</span>
-            <span>Weak CTA</span>
-            <span>Feels cheap</span>
-          </div>
+          <p>No strong offer. No proof. No reason to trust it. Blends in with every other local site.</p>
+          <div class="compare-tags"><span>No hierarchy</span><span>Weak CTA</span><span>Feels cheap</span></div>
         </div>
       </article>
-
-      <article class="showcase-card fade-up d3">
-        <div class="showcase-top good"><span>Built by Kumpula Marketing</span></div>
-        <div class="showcase-media">
-          <img src="Screenshot 2026-04-06 192032.png" alt="Clear Choice Auto Glass site comparison screenshot" onerror="this.parentNode.classList.add('mock');this.remove();">
+      <article class="compare-card fade-up d2">
+        <div class="compare-badge good">Built by Kumpula Marketing</div>
+        <div class="compare-media">
+          <img src="Screenshot 2026-04-06 192032.png" alt="One Clear Choice Auto Glass" onerror="this.parentNode.style.background='linear-gradient(135deg,#efe7d9,#faf5ee)';this.remove();">
         </div>
-        <div class="showcase-caption">
+        <div class="compare-body">
           <h3>Cleaner, faster, easier to trust</h3>
-          <p>Stronger local positioning, cleaner design, sharper sections, and a clearer path to get someone from visitor to lead.</p>
-          <div class="showcase-tags">
-            <span>Clear offer</span>
-            <span>Better trust</span>
-            <span>Lead-focused</span>
-          </div>
+          <p>Stronger positioning, sharper sections, and a clearer path from visitor to lead.</p>
+          <div class="compare-tags"><span>Clear offer</span><span>Better trust</span><span>Lead-focused</span></div>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<section class="section-shell">
+<!-- 5. THE REAL PROBLEM -->
+<section class="agitate section">
   <div class="container">
-    <div class="solution-head">
-      <div class="eyebrow fade-up">Here’s How I Fix It</div>
-      <h2 class="heading fade-up d1">The site should guide people, not make them work.</h2>
-      <p class="copy fade-up d2">
-        I rebuild the page so the first impression is stronger, the flow is cleaner, and the path to contacting you feels obvious.
-      </p>
+    <div class="agitate-head fade-up">
+      <span class="label label-light">The Real Problem</span>
+      <h2>You know the site needs work.<br>But every option feels <strong>wrong.</strong></h2>
+      <p>Most business owners try one of three things — and all three have serious downsides.</p>
     </div>
-
-    <div class="solution-grid">
-      <article class="solution-step fade-up d1">
-        <div class="step-no">1</div>
-        <div>
-          <h3>Sharper first impression</h3>
-          <p>I rebuild the top of the page so visitors instantly understand what you do, why they should trust you, and what to click next.</p>
-          <ul>
-            <li>Better headline hierarchy</li>
-            <li>Cleaner CTA placement</li>
-            <li>More trust in the first screen</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="solution-step fade-up d2">
-        <div class="step-no">2</div>
-        <div>
-          <h3>Cleaner section flow</h3>
-          <p>The page needs rhythm. Too many matching boxes makes the whole site feel fake. I redesign the layout so every section has a job.</p>
-          <ul>
-            <li>Less repeated card styling</li>
-            <li>Better spacing and contrast</li>
-            <li>More premium feel</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="solution-step fade-up d3">
-        <div class="step-no">3</div>
-        <div>
-          <h3>Mobile-first polish</h3>
-          <p>The design has to hold up on a phone first, because that is where most people will see it.</p>
-          <ul>
-            <li>Cleaner stacking on mobile</li>
-            <li>Easier tap targets</li>
-            <li>Faster perceived load</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="solution-step fade-up d4">
-        <div class="step-no">4</div>
-        <div>
-          <h3>Lead-ready structure</h3>
-          <p>From contact forms to call buttons to proof sections, the whole page is built to move visitors toward reaching out.</p>
-          <ul>
-            <li>Conversion-focused layout</li>
-            <li>Tracking-ready contact flow</li>
-            <li>Zero-risk offer built in</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<section class="pricing section-shell" id="pricing">
-  <div class="container">
-    <div class="pricing-head fade-up">
-      <div class="eyebrow">Transparent Pricing</div>
-      <h2 class="heading">A Website That Pays For Itself</h2>
-      <p>One new customer can cover the cost. Everything after that is upside.</p>
-    </div>
-
-    <div class="sale-timer fade-up d1">
-      <p>48-Hour Flash Sale Ends In</p>
-      <div class="sale-cd">
-        <div class="sc-b"><span class="sc-n" id="pH">47</span><span class="sc-l">Hours</span></div>
-        <span class="sc-s">:</span>
-        <div class="sc-b"><span class="sc-n" id="pM">59</span><span class="sc-l">Min</span></div>
-        <span class="sc-s">:</span>
-        <div class="sc-b"><span class="sc-n" id="pS">59</span><span class="sc-l">Sec</span></div>
+    <div class="agitate-grid">
+      <div class="agitate-card fade-up d1">
+        <div class="agitate-num">1</div>
+        <h3>Do It Yourself</h3>
+        <p>You already run the business. Adding "learn web design" to your plate means less time on the work that pays.</p>
+        <span class="agitate-verdict">Overwhelming &amp; slow</span>
+      </div>
+      <div class="agitate-card fade-up d2">
+        <div class="agitate-num">2</div>
+        <h3>Hire In-House</h3>
+        <p>Putting a marketing person on payroll is expensive. Hire wrong and you're out months of salary.</p>
+        <span class="agitate-verdict">Risky &amp; expensive</span>
+      </div>
+      <div class="agitate-card fade-up d3">
+        <div class="agitate-num">3</div>
+        <h3>Hire a Big Agency</h3>
+        <p>Smaller businesses get passed to junior staff and lumped into cookie-cutter templates.</p>
+        <span class="agitate-verdict">Deprioritized &amp; generic</span>
       </div>
     </div>
-
-    <div class="pricing-grid">
-      <article class="price-card fade-up d1">
-        <div class="p-tier">Starter</div>
-        <div class="p-price-row">
-          <span class="p-orig">$710</span>
-          <span class="p-price">$497</span>
-          <span class="p-save">Save 30%</span>
-        </div>
-        <div class="p-once">one-time build</div>
-        <div class="p-mo">+ $175/mo</div>
-        <div class="p-mo-note">Hosting, domain, updates &amp; support</div>
-        <hr class="p-div">
-        <ul class="p-feats">
-          <li class="p-feat">Custom 1-page website</li>
-          <li class="p-feat">Mobile-optimized</li>
-          <li class="p-feat">SEO deep dive</li>
-          <li class="p-feat">Speed optimization</li>
-          <li class="p-feat">Analytics tracking</li>
-          <li class="p-feat">Unlimited revisions</li>
-          <li class="p-feat">Click-to-call</li>
-        </ul>
-        <a href="#contact" class="p-btn">Get Started</a>
-      </article>
-
-      <article class="price-card featured fade-up d2">
-        <div class="p-badge">Most Popular</div>
-        <div class="p-tier">Growth</div>
-        <div class="p-price-row">
-          <span class="p-orig">$1,425</span>
-          <span class="p-price">$997</span>
-          <span class="p-save">Save 30%</span>
-        </div>
-        <div class="p-once">one-time build</div>
-        <div class="p-mo">+ $300/mo</div>
-        <div class="p-mo-note">Hosting, domain, on-demand changes</div>
-        <hr class="p-div">
-        <ul class="p-feats">
-          <li class="p-feat">Everything in Starter +</li>
-          <li class="p-feat">Custom 3-page website</li>
-          <li class="p-feat">Conversion-optimized</li>
-          <li class="p-feat">Custom quote flow</li>
-          <li class="p-feat">Same-day changes</li>
-          <li class="p-feat">Monthly reports</li>
-          <li class="p-feat">Review badges</li>
-        </ul>
-        <a href="#contact" class="p-btn">Book Strategy Call</a>
-      </article>
-
-      <article class="price-card fade-up d3">
-        <div class="p-tier">Dominate</div>
-        <div class="p-price-row">
-          <span class="p-orig">$2,850</span>
-          <span class="p-price">$1,997</span>
-          <span class="p-save">Save 30%</span>
-        </div>
-        <div class="p-once">one-time build</div>
-        <div class="p-mo">+ $400/mo</div>
-        <div class="p-mo-note">Full-service everything</div>
-        <hr class="p-div">
-        <ul class="p-feats">
-          <li class="p-feat">Everything in Growth +</li>
-          <li class="p-feat">Custom 5-page website</li>
-          <li class="p-feat">Extreme quote flow</li>
-          <li class="p-feat">Same-hour support</li>
-          <li class="p-feat">Email automation</li>
-          <li class="p-feat">Ads-ready structure</li>
-          <li class="p-feat">Reputation setup</li>
-        </ul>
-        <a href="#contact" class="p-btn">Let’s Talk</a>
-      </article>
-    </div>
-
-    <div class="pricing-faqs">
-      <details class="pricing-faq-item fade-up" open>
-        <summary>What does the monthly fee cover?<span class="pricing-faq-icon">+</span></summary>
-        <div class="pricing-faq-body">
-          <ul>
-            <li><strong>Hosting &amp; SSL</strong> — high-speed, handled for you</li>
-            <li><strong>Domain</strong> — registered and renewed</li>
-            <li><strong>On-demand changes</strong> — text me, I handle it</li>
-            <li><strong>Optimization</strong> — speed, SEO, analytics, upkeep</li>
-            <li><strong>Direct support</strong> — you are not talking to a random support queue</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="pricing-faq-item fade-up d1">
-        <summary>Anything I should know before signing up?<span class="pricing-faq-icon">+</span></summary>
-        <div class="pricing-faq-body">
-          <ul>
-            <li><strong>3-month minimum</strong> — enough time for real momentum</li>
-            <li>The site stays on my platform during the monthly partnership</li>
-            <li>Cancel after 3 months with 30 days notice</li>
-            <li><strong>$0 risk</strong> — I build first, you pay only if you love it</li>
-          </ul>
-        </div>
-      </details>
+    <div class="agitate-cta fade-up">
+      <h3>A local marketer who only works with a few clients — and cares if your phone rings.</h3>
+      <p>No massive roster. No junior hand-offs. One person who builds the site, runs the strategy, and is accountable.</p>
+      <a href="#contact" class="btn btn-gold">See If We're a Fit</a>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<section class="contact section-shell" id="contact">
+<!-- 6. HOW IT WORKS -->
+<section class="steps section">
   <div class="container">
-    <div class="contact-grid">
-      <div class="contact-panel fade-up">
-        <div class="eyebrow">Let’s Talk</div>
-        <h2 class="heading">Ready to stop losing customers?</h2>
-        <p>
-          Fill out the form and I’ll get back to you within a few hours with a free strategy plan for your business.
-        </p>
+    <div class="steps-head fade-up">
+      <span class="label">How Does It Work?</span>
+      <h2>It's pretty <strong>easy.</strong></h2>
+    </div>
+    <div class="steps-list">
+      <div class="step-item fade-up d1"><div class="step-num">01.</div><div><h3>Strategy Call</h3><p>Book a free call so I can look at your current site, understand your market, and figure out what's costing you leads.</p></div></div>
+      <div class="step-item fade-up d2"><div class="step-num">02.</div><div><h3>I Build It First</h3><p>I design and build your new site before you pay a dime. You review it, give feedback, and only move forward if you love it.</p></div></div>
+      <div class="step-item fade-up d3"><div class="step-num">03.</div><div><h3>Launch &amp; Optimize</h3><p>We push the site live. I handle hosting, speed, SEO, and ongoing tweaks so the site keeps converting.</p></div></div>
+      <div class="step-item fade-up d4"><div class="step-num">04.</div><div><h3>Track What Works</h3><p>I track the data — calls, form fills, traffic — so we know what's working and do more of it.</p></div></div>
+    </div>
+  </div>
+</section>
 
-        <div class="contact-methods">
-          <div class="contact-method">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3"></path>
-              </svg>
-            </div>
-            <div class="contact-text">
-              <strong>(503) 569-4291</strong>
-              <span>Text preferred</span>
-            </div>
-          </div>
+<!-- 7. PORTFOLIO -->
+<section class="portfolio section" id="work">
+  <div class="container">
+    <div class="portfolio-head fade-up">
+      <span class="label label-light">Recent Work</span>
+      <h2 style="color:var(--cream)">Businesses I've <strong>Worked With</strong></h2>
+    </div>
+    <div class="portfolio-grid">
+      <article class="port-card fade-up d1">
+        <div class="port-bar"><span class="port-dot"></span><span class="port-dot"></span><span class="port-dot"></span><div class="port-url">theoneclearchoiceautoglass.com</div></div>
+        <div class="port-media"><img src="Screenshot 2026-04-06 192032.png" alt="The One Clear Choice Auto Glass" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
+        <div class="port-body"><h3>The One Clear Choice Auto Glass</h3><p>Custom site, SEO, Google Ads support, and a quote flow built to turn local traffic into leads.</p><a class="port-link" href="https://theoneclearchoiceautoglass.com" target="_blank" rel="noopener noreferrer">Visit live site →</a></div>
+      </article>
+      <article class="port-card fade-up d2">
+        <div class="port-bar"><span class="port-dot"></span><span class="port-dot"></span><span class="port-dot"></span><div class="port-url">keizermobiledetailing.com</div></div>
+        <div class="port-media"><img src="Screenshot 2026-04-06 192106.png" alt="Keizer Mobile Detailing" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
+        <div class="port-body"><h3>Keizer Mobile Detailing</h3><p>Cleaner local-service layout with a stronger booking path and a more premium feel.</p><a class="port-link" href="https://keizermobiledetailing.com" target="_blank" rel="noopener noreferrer">Visit live site →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
 
-          <div class="contact-method">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>
-            <div class="contact-text">
-              <strong><a href="mailto:samuelkumpula4@gmail.com">samuelkumpula4@gmail.com</a></strong>
-              <span>Reply within 1 hour</span>
-            </div>
-          </div>
-
-          <div class="contact-method">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-            </div>
-            <div class="contact-text">
-              <strong>Salem &amp; Keizer, Oregon</strong>
-              <span>Proudly local</span>
-            </div>
-          </div>
-        </div>
+<!-- 8. FREE CONSULTATION OFFER (replaces pricing) -->
+<section class="consult-offer section" id="consult-offer">
+  <div class="container">
+    <div class="consult-offer-head fade-up">
+      <span class="label">Limited Time Offer</span>
+      <h2>Get a Free Website<br><strong>Consultation</strong></h2>
+      <p>For the next 48 hours only — I'll review your current site, identify what's costing you leads, and give you a custom strategy. No strings attached.</p>
+    </div>
+    <div class="consult-timer fade-up d1">
+      <p>This Offer Expires In</p>
+      <div class="consult-cd">
+        <div class="cc-b"><span class="cc-n" id="cH">--</span><span class="cc-l">Hours</span></div><span class="cc-s">:</span>
+        <div class="cc-b"><span class="cc-n" id="cM">--</span><span class="cc-l">Min</span></div><span class="cc-s">:</span>
+        <div class="cc-b"><span class="cc-n" id="cS">--</span><span class="cc-l">Sec</span></div>
       </div>
+    </div>
+    <a href="#contact" class="btn btn-gold fade-up d2">Book Your Free Consultation</a>
+  </div>
+</section>
 
-      <div class="form-panel fade-up d1">
-        <h3>Get Your Free Website Consultation</h3>
-        
-<form id="cform" onsubmit="submitForm(event)">
-          <div class="form-group">
-            <input type="text" name="name" class="form-input" placeholder="Your Name *" required>
-          </div>
-          <div class="form-group">
-            <input type="text" name="business" class="form-input" placeholder="Business Name">
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" class="form-input" placeholder="Email Address *" required>
-          </div>
+<!-- 9. CONTACT (Book Your Free Strategy Call) -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <span class="label fade-up">Free Stuff</span>
+      <h2 class="fade-up d1">Book Your Free <strong>Strategy Call</strong></h2>
+      <p class="fade-up d2">If this sounds like what your business needs, fill out the form and I'll get back to you within a few hours with a free strategy plan.</p>
+      <div class="form-card fade-up d3">
+        <form id="cform" onsubmit="submitForm(event)">
+          <div class="form-group"><input type="text" name="name" class="form-input" placeholder="Your Name *" required></div>
+          <div class="form-group"><input type="text" name="business" class="form-input" placeholder="Business Name"></div>
+          <div class="form-group"><input type="email" name="email" class="form-input" placeholder="Email Address *" required></div>
+          <div class="form-group"><textarea name="notes" class="form-input" placeholder="Notes (optional) — Tell me about your business, your current site, or what you need help with"></textarea></div>
           <button type="submit" class="form-submit" id="subBtn">Get My Free Consultation</button>
           <p class="form-note">No obligation — No contracts — I reply within hours</p>
         </form>
-
         <div id="fsuccess" class="form-success" style="display:none">
-          <div>
-            <svg viewBox="0 0 24 24" style="width:46px;height:46px;stroke:var(--sage);fill:none;stroke-width:2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="9 12 11 14 15 10"></polyline>
-            </svg>
-          </div>
-          <h4>You’re in.</h4>
-          <p>I’ll reach out within a few hours with your free strategy plan.</p>
+          <div><svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:var(--sage);fill:none;stroke-width:2"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg></div>
+          <h4>You're in.</h4><p>I'll reach out within a few hours with your free strategy plan.</p>
         </div>
+      </div>
+      <div class="contact-methods fade-up d4">
+        <div class="contact-method"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3"></path></svg><span><strong>(503) 569-4291</strong> · Text preferred</span></div>
+        <div class="contact-method"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span><strong><a href="mailto:samuelkumpula4@gmail.com" style="color:var(--forest)">samuelkumpula4@gmail.com</a></strong></span></div>
+        <div class="contact-method"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span><strong>Salem &amp; Keizer, Oregon</strong></span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="faq section-shell" id="faq">
+<!-- 10. FAQ (moved to bottom) -->
+<section class="faq section" id="faq">
   <div class="container">
     <div class="faq-head fade-up">
-      <div class="eyebrow">FAQ</div>
-      <h2 class="heading">Questions. Straight answers.</h2>
-      <p>No fluff. Just the stuff a real client actually wants to know before saying yes.</p>
+      <span class="label">FAQs</span>
+      <h2>Frequently Asked <strong>Questions</strong></h2>
     </div>
-
     <div class="faq-list">
-      <div class="faq-item fade-up">
-        <div class="faq-q">
-          <h3>How fast can my website be ready?</h3>
-          <span class="faq-t">+</span>
-        </div>
-        <div class="faq-a">
-          <p>Usually 5 to 7 business days. If the project is straightforward, it can move faster.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-up d1">
-        <div class="faq-q">
-          <h3>Do I need to provide content?</h3>
-          <span class="faq-t">+</span>
-        </div>
-        <div class="faq-a">
-          <p>No. I can write the copy too. You just tell me about your business, what you want to sell, and who you want calling.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-up d2">
-        <div class="faq-q">
-          <h3>How does “build first, pay later” actually work?</h3>
-          <span class="faq-t">+</span>
-        </div>
-        <div class="faq-a">
-          <p>We talk, I build it, and you review it. If you love it, we move forward. If not, you do not pay for a site you do not want.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-up d3">
-        <div class="faq-q">
-          <h3>Why can’t I keep the site if I cancel?</h3>
-          <span class="faq-t">+</span>
-        </div>
-        <div class="faq-a">
-          <p>The low upfront build price works because of the monthly partnership. That’s how I can deliver a much higher-value custom site without charging a huge build fee up front.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-up d4">
-        <div class="faq-q">
-          <h3>Is the sale real?</h3>
-          <span class="faq-t">+</span>
-        </div>
-        <div class="faq-a">
-          <p>Yes. The timer is there because I’m pushing to close a few new clients right now. When it ends, pricing goes back up.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-up">
-        <div class="faq-q">
-          <h3>Can you help with Google Ads too?</h3>
-          <span class="faq-t">+</span>
-        </div>
-        <div class="faq-a">
-          <p>Yes, but the website needs to convert first. Ads work a lot better when the landing experience is already strong.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="final-cta">
-  <div class="container">
-    <div class="final-cta-inner fade-up">
-      <h2 class="heading">I build it first. <em>You only pay if you love it.</em></h2>
-      <p>Zero risk. No pressure. No invoice if it doesn’t feel like a real upgrade for your business.</p>
-      <a href="#contact" class="btn-primary">Get Your Free Website Consultation</a>
+      <div class="faq-item fade-up"><div class="faq-q"><h3>How fast can my website be ready?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>Usually 5 to 7 business days. If the project is straightforward, it can move faster.</p></div></div>
+      <div class="faq-item fade-up d1"><div class="faq-q"><h3>Do I need to provide content?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>No. I can write the copy too. You just tell me about your business, what you want to sell, and who you want calling.</p></div></div>
+      <div class="faq-item fade-up d2"><div class="faq-q"><h3>How does "build first, pay later" actually work?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>We talk, I build it, and you review it. If you love it, we move forward. If not, you don't pay for a site you don't want.</p></div></div>
+      <div class="faq-item fade-up d3"><div class="faq-q"><h3>Why can't I keep the site if I cancel?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>The low upfront build price works because of the monthly partnership. That's how I deliver a higher-value site without a huge build fee.</p></div></div>
+      <div class="faq-item fade-up d4"><div class="faq-q"><h3>Can you help with Google Ads too?</h3><span class="faq-t">+</span></div><div class="faq-a"><p>Yes, but the website needs to convert first. Ads work a lot better when the landing experience is already strong.</p></div></div>
     </div>
   </div>
 </section>
@@ -1653,247 +561,90 @@ textarea.form-input{resize:vertical;min-height:92px}
     <div class="footer-inner">
       <div class="footer-logo">KUMPULA <span>MARKETING</span></div>
       <div class="footer-copy">Custom websites for local businesses in Salem &amp; Keizer, Oregon.</div>
-      <div class="footer-links">
-        <a href="#work">Work</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <div class="footer-links"><a href="#work">Work</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
     </div>
   </div>
 </footer>
 
-<div class="sticky-bar">
-  <div class="sticky-bar-inner">
-    <div class="sticky-bar-timer">
-      <span class="stb" id="sH">47</span><span class="sts">:</span>
-      <span class="stb" id="sM">59</span><span class="sts">:</span>
-      <span class="stb" id="sS">59</span>
-    </div>
-    <a href="#contact">Get Your Free Website Consultation</a>
-  </div>
-</div>
+<div class="sticky-bar"><div class="sticky-bar-inner"><div class="sticky-bar-timer"><span class="stb" id="sH">--</span><span class="sts">:</span><span class="stb" id="sM">--</span><span class="sts">:</span><span class="stb" id="sS">--</span></div><a href="#contact">Get Your Free Consultation</a></div></div>
 
-<div class="spots-toast" id="spotsToast">
-  <div class="st-icon">
-    <svg viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="10"></circle>
-      <line x1="12" y1="8" x2="12" y2="12"></line>
-      <line x1="12" y1="16" x2="12.01" y2="16"></line>
-    </svg>
-  </div>
-  <div class="st-text">
-    Only 2 consultation spots left this week
-    <small>Limited availability — Salem &amp; Keizer</small>
-  </div>
-</div>
+<div class="spots-toast" id="spotsToast"><div class="st-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div><div class="st-text">Only 2 spots left this week<small>Limited — Salem &amp; Keizer</small></div></div>
 
 <div class="exit-overlay" id="exitOverlay">
   <div class="exit-popup">
     <button class="exit-close" onclick="closeExitPopup()" aria-label="Close popup">&times;</button>
-    <h2>Wait — your 30% off<br>is about to expire</h2>
-    <p>Fill out the form before the timer runs out and lock in your discounted rate.</p>
-    <div class="exit-timer">
-      <div class="et-b"><span class="et-n" id="eH">47</span><span class="et-l">Hours</span></div>
-      <div class="et-b"><span class="et-n" id="eM">59</span><span class="et-l">Min</span></div>
-      <div class="et-b"><span class="et-n" id="eS">59</span><span class="et-l">Sec</span></div>
-    </div>
-    <button class="exit-cta" onclick="closeExitPopup();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Claim 30% Off Now</button>
+    <h2>Wait — don't miss your<br>free consultation</h2>
+    <p>Fill out the form before the timer runs out and lock in your free strategy session.</p>
+    <div class="exit-timer"><div class="et-b"><span class="et-n" id="eH">--</span><span class="et-l">Hours</span></div><div class="et-b"><span class="et-n" id="eM">--</span><span class="et-l">Min</span></div><div class="et-b"><span class="et-n" id="eS">--</span><span class="et-l">Sec</span></div></div>
+    <button class="exit-cta" onclick="closeExitPopup();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Claim Free Consultation Now</button>
     <div class="exit-phone">Or text: <strong>(503) 569-4291</strong></div>
   </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.12});
+document.addEventListener('DOMContentLoaded',function(){
+  var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.12});
+  document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el)});
+  var nav=document.getElementById('navbar'),banner=document.getElementById('saleBanner');
+  function updateNav(){var scrolled=window.scrollY>40;nav.classList.toggle('scrolled',scrolled);nav.style.top=scrolled?'0':banner.offsetHeight+'px'}
+  updateNav();window.addEventListener('scroll',updateNav);
+  var ham=document.querySelector('.hamburger'),mob=document.querySelector('.mobile-menu');
+  ham.addEventListener('click',function(){ham.classList.toggle('active');mob.classList.toggle('open')});
+  mob.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){ham.classList.remove('active');mob.classList.remove('open')})});
+  var rotateWord=document.querySelector('.hero-rotate .word');
+  if(rotateWord){var words=['Customers','Calls','Leads','Revenue'],i=0;setInterval(function(){i=(i+1)%words.length;rotateWord.style.animation='none';rotateWord.offsetHeight;rotateWord.textContent=words[i];rotateWord.style.animation='fadeSlide .45s ease'},2800)}
+  document.querySelectorAll('.faq-item').forEach(function(item){item.querySelector('.faq-q').addEventListener('click',function(){var isOpen=item.classList.contains('open'),a=item.querySelector('.faq-a');document.querySelectorAll('.faq-item').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight='0'});if(!isOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}})});
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){link.addEventListener('click',function(e){var t=document.querySelector(link.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
 
-  document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
+  // RANDOMIZED 48-HOUR TIMER
+  // On each page load, generate a random remaining time between 1 hour and 47 hours
+  // so it never looks like it just started and never looks nearly done
+  var SALE_KEY='kmConsultEnd4';
+  var stored=localStorage.getItem(SALE_KEY);
+  var now=Date.now();
+  var end;
 
-  var nav = document.getElementById('navbar');
-  var banner = document.getElementById('saleBanner');
-  function updateNav(){
-    var scrolled = window.scrollY > 40;
-    nav.classList.toggle('scrolled', scrolled);
-    nav.style.top = scrolled ? '0' : banner.offsetHeight + 'px';
-  }
-  updateNav();
-  window.addEventListener('scroll', updateNav);
-
-  var ham = document.querySelector('.hamburger');
-  var mob = document.querySelector('.mobile-menu');
-  ham.addEventListener('click', function(){
-    ham.classList.toggle('active');
-    mob.classList.toggle('open');
-  });
-  mob.querySelectorAll('a').forEach(function(link){
-    link.addEventListener('click', function(){
-      ham.classList.remove('active');
-      mob.classList.remove('open');
-    });
-  });
-
-  var rotateWord = document.querySelector('.hero-rotate .word');
-  if(rotateWord){
-    var words = ['Customers','Calls','Leads','Revenue'];
-    var i = 0;
-    setInterval(function(){
-      i = (i + 1) % words.length;
-      rotateWord.style.animation = 'none';
-      rotateWord.offsetHeight;
-      rotateWord.textContent = words[i];
-      rotateWord.style.animation = 'fadeSlide .45s ease';
-    }, 2800);
+  if(stored && parseInt(stored,10)>now){
+    // Use existing timer if it hasn't expired
+    end=parseInt(stored,10);
+  } else {
+    // Generate random remaining time: between 1hr and 47hr
+    var minMs=1*3600*1000;   // 1 hour
+    var maxMs=47*3600*1000;  // 47 hours
+    var randomRemaining=Math.floor(Math.random()*(maxMs-minMs))+minMs;
+    end=now+randomRemaining;
+    localStorage.setItem(SALE_KEY,end);
   }
 
-  document.querySelectorAll('.faq-item').forEach(function(item){
-    var q = item.querySelector('.faq-q');
-    var a = item.querySelector('.faq-a');
-    q.addEventListener('click', function(){
-      var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(other){
-        other.classList.remove('open');
-        other.querySelector('.faq-a').style.maxHeight = '0';
-      });
-      if(!isOpen){
-        item.classList.add('open');
-        a.style.maxHeight = a.scrollHeight + 'px';
-      }
-    });
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach(function(link){
-    link.addEventListener('click', function(e){
-      var target = document.querySelector(link.getAttribute('href'));
-      if(target){
-        e.preventDefault();
-        target.scrollIntoView({behavior:'smooth'});
-      }
-    });
-  });
-
-  var SALE_DURATION = 48 * 3600 * 1000;
-  var end = localStorage.getItem('kmSaleEnd3');
-  var now = Date.now();
-  if(!end || parseInt(end, 10) <= now){
-    end = now + SALE_DURATION;
-    localStorage.setItem('kmSaleEnd3', end);
-  }
-  end = parseInt(end, 10);
-
-  function pad(n){ return String(n).padStart(2, '0'); }
-
+  function pad(n){return String(n).padStart(2,'0')}
   function tick(){
-    var diff = Math.max(0, end - Date.now());
-    if(diff <= 0){
-      end = Date.now() + SALE_DURATION;
-      localStorage.setItem('kmSaleEnd3', end);
-      diff = SALE_DURATION;
+    var diff=Math.max(0,end-Date.now());
+    if(diff<=0){
+      // Timer expired — generate a new random time
+      var minMs=1*3600*1000;
+      var maxMs=47*3600*1000;
+      var randomRemaining=Math.floor(Math.random()*(maxMs-minMs))+minMs;
+      end=Date.now()+randomRemaining;
+      localStorage.setItem(SALE_KEY,end);
+      diff=randomRemaining;
     }
-    var h = Math.floor(diff / 3600000);
-    diff %= 3600000;
-    var m = Math.floor(diff / 60000);
-    diff %= 60000;
-    var s = Math.floor(diff / 1000);
-
-    ['bH','pH','eH','sH'].forEach(function(id){
-      var el = document.getElementById(id);
-      if(el) el.textContent = pad(h);
-    });
-    ['bM','pM','eM','sM'].forEach(function(id){
-      var el = document.getElementById(id);
-      if(el) el.textContent = pad(m);
-    });
-    ['bS','pS','eS','sS'].forEach(function(id){
-      var el = document.getElementById(id);
-      if(el) el.textContent = pad(s);
-    });
+    var h=Math.floor(diff/3600000);diff%=3600000;
+    var m=Math.floor(diff/60000);diff%=60000;
+    var s=Math.floor(diff/1000);
+    ['bH','cH','eH','sH'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(h)});
+    ['bM','cM','eM','sM'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(m)});
+    ['bS','cS','eS','sS'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=pad(s)});
   }
-  tick();
-  setInterval(tick, 1000);
+  tick();setInterval(tick,1000);
 
-
-  setTimeout(function(){
-    (function showToastLoop(){
-      var toast = document.getElementById('spotsToast');
-      if(!toast) return;
-      toast.classList.add('show');
-      setTimeout(function(){ toast.classList.remove('show'); }, 5000);
-      setTimeout(showToastLoop, 45000);
-    })();
-  }, 8000);
-
-  var exitShown = false;
-  var exitReady = false;
-
-  setTimeout(function(){
-    exitReady = true;
-  }, 5000);
-
-  document.addEventListener('mouseout', function(e){
-    if(exitShown) return;
-    if(!exitReady) return;
-    if(window.innerWidth < 769) return;
-    if(window.scrollY < 120) return;
-    if(e.clientY > 8) return;
-    if(e.relatedTarget) return;
-
-    exitShown = true;
-    document.getElementById('exitOverlay').classList.add('show');
-  });
-
-  document.getElementById('exitOverlay').addEventListener('click', function(e){
-    if(e.target === document.getElementById('exitOverlay')){
-      closeExitPopup();
-    }
-  });
+  setTimeout(function(){(function showToastLoop(){var toast=document.getElementById('spotsToast');if(!toast)return;toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},5000);setTimeout(showToastLoop,45000)})()},8000);
+  var exitShown=false,exitReady=false;setTimeout(function(){exitReady=true},5000);
+  document.addEventListener('mouseout',function(e){if(exitShown||!exitReady||window.innerWidth<769||window.scrollY<120||e.clientY>8||e.relatedTarget)return;exitShown=true;document.getElementById('exitOverlay').classList.add('show')});
+  document.getElementById('exitOverlay').addEventListener('click',function(e){if(e.target===document.getElementById('exitOverlay'))closeExitPopup()})
 });
-
-function closeExitPopup(){
-  document.getElementById('exitOverlay').classList.remove('show');
-}
-
-var FE = 'https://script.google.com/macros/s/AKfycbwQTWT0RIyblO6S1ObWEl3PM6yFE2L4RzbVlS0X_ez81SLWhJkWTHK7RkD7Pc6SVqli/execE';
-
-function submitForm(e){
-  e.preventDefault();
-  var f = document.getElementById('cform');
-  var b = document.getElementById('subBtn');
-
-  var data = {
-    name: f.querySelector('[name="name"]').value.trim(),
-    business: f.querySelector('[name="business"]').value.trim(),
-    email: f.querySelector('[name="email"]').value.trim(),
-    timestamp: new Date().toISOString()
-  };
-
-  if(!data.name || !data.email){
-    alert('Please fill in your name and email.');
-    return;
-  }
-
-  b.disabled = true;
-  b.textContent = 'Sending...';
-
-  fetch(FE, {
-    method:'POST',
-    mode:'no-cors',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(data)
-  }).then(function(){
-    f.style.display = 'none';
-    document.getElementById('fsuccess').style.display = 'block';
-  }).catch(function(){
-    f.style.display = 'none';
-    document.getElementById('fsuccess').style.display = 'block';
-  });
-}
+function closeExitPopup(){document.getElementById('exitOverlay').classList.remove('show')}
+var FE='https://script.google.com/macros/s/AKfycbwQTWT0RIyblO6S1ObWEl3PM6yFE2L4RzbVlS0X_ez81SLWhJkWTHK7RkD7Pc6SVqli/execE';
+function submitForm(e){e.preventDefault();var f=document.getElementById('cform'),b=document.getElementById('subBtn');var data={name:f.querySelector('[name="name"]').value.trim(),business:f.querySelector('[name="business"]').value.trim(),email:f.querySelector('[name="email"]').value.trim(),notes:f.querySelector('[name="notes"]').value.trim(),timestamp:new Date().toISOString()};if(!data.name||!data.email){alert('Please fill in your name and email.');return}b.disabled=true;b.textContent='Sending...';fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(){f.style.display='none';document.getElementById('fsuccess').style.display='block'}).catch(function(){f.style.display='none';document.getElementById('fsuccess').style.display='block'})}
 </script>
-
 </body>
 </html>
