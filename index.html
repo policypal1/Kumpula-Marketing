@@ -56,6 +56,7 @@ h2 strong,h1 strong{color:var(--tan)}
 .btn:hover{transform:translateY(-2px)}
 .btn-gold{background:linear-gradient(135deg,var(--tan),var(--gold));color:var(--forest-deep);box-shadow:0 10px 30px rgba(201,168,76,.25)}
 .btn-outline-light{background:rgba(255,255,255,.06);border:1px solid rgba(232,213,184,.18);color:var(--cream)}
+.btn-outline-dark{background:transparent;border:1.5px solid rgba(26,58,42,.14);color:var(--forest)}
 
 /* ── SALE BANNER ── */
 .sale-banner{position:relative;z-index:1002;background:linear-gradient(90deg,var(--forest-deep),var(--forest-mid),var(--forest-deep));padding:11px 18px;text-align:center}
@@ -183,29 +184,69 @@ h2 strong,h1 strong{color:var(--tan)}
 .port-body p{color:rgba(232,213,184,.56);font-size:14px;line-height:1.65;margin-bottom:12px}
 .port-link{color:var(--tan);font-size:13px;font-weight:700}
 
-/* ── CONTACT ── */
+/* ── PRICING ── */
+.pricing{text-align:center}
+.pricing-head{max-width:640px;margin:0 auto 60px}
+.pricing-head h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1;margin-bottom:14px}
+.pricing-head p{font-size:17px;line-height:1.75;color:var(--text-muted)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1020px;margin:0 auto 48px;align-items:stretch}
+.price-card{position:relative;padding:36px 28px 32px;border-radius:24px;background:white;border:1px solid rgba(26,58,42,.08);box-shadow:0 4px 20px rgba(10,20,14,.04);text-align:left;display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(10,20,14,.08)}
+.price-card.featured{background:linear-gradient(160deg,var(--forest-deep),var(--forest));border:1px solid rgba(212,184,150,.18);box-shadow:0 20px 50px rgba(15,36,25,.18);transform:scale(1.03)}
+.price-card.featured:hover{transform:scale(1.03) translateY(-4px)}
+.price-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--tan),var(--gold));color:var(--forest-deep);font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;padding:6px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(201,168,76,.32)}
+.price-name{font-family:var(--font-display);font-size:22px;color:var(--forest);margin-bottom:6px}
+.price-card.featured .price-name{color:var(--cream)}
+.price-tag-row{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.price-amount{font-family:var(--font-display);font-size:44px;color:var(--forest);line-height:1;font-weight:700}
+.price-card.featured .price-amount{color:var(--cream)}
+.price-unit{font-size:13px;color:var(--text-muted);font-weight:600}
+.price-card.featured .price-unit{color:rgba(232,213,184,.58)}
+.price-sub{font-size:13px;color:var(--sage);font-weight:700;margin-bottom:18px;letter-spacing:.02em}
+.price-card.featured .price-sub{color:var(--tan)}
+.price-desc{font-size:14px;line-height:1.65;color:var(--text-muted);margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid rgba(26,58,42,.08)}
+.price-card.featured .price-desc{color:rgba(232,213,184,.60);border-bottom-color:rgba(212,184,150,.12)}
+.price-list{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:11px;flex:1}
+.price-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.55;color:var(--text)}
+.price-card.featured .price-list li{color:rgba(232,213,184,.85)}
+.price-list li::before{content:'';flex:0 0 16px;width:16px;height:16px;margin-top:3px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a7c5c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");background-repeat:no-repeat;background-size:contain}
+.price-card.featured .price-list li::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4b896' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>")}
+.price-btn{width:100%;min-height:52px;border:none;border-radius:12px;cursor:pointer;font-weight:700;font-size:14px;letter-spacing:.03em;text-align:center;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s ease}
+.price-btn:hover{transform:translateY(-2px)}
+.price-btn.outline{background:transparent;border:1.5px solid var(--forest);color:var(--forest)}
+.price-btn.solid{background:linear-gradient(135deg,var(--tan),var(--gold));color:var(--forest-deep);box-shadow:0 10px 26px rgba(201,168,76,.28)}
+.mgmt-block{max-width:820px;margin:0 auto;padding:36px 32px;border-radius:24px;background:linear-gradient(135deg,var(--cream-dark),#ece2d3);border:1px solid rgba(26,58,42,.08);text-align:left}
+.mgmt-top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(26,58,42,.10)}
+.mgmt-title{font-family:var(--font-display);font-size:22px;color:var(--forest);line-height:1.2}
+.mgmt-title span{color:var(--sage);display:block;font-size:13px;font-weight:600;font-family:var(--font-body);margin-top:4px;letter-spacing:.03em}
+.mgmt-price{font-family:var(--font-display);font-size:36px;color:var(--forest);line-height:1;white-space:nowrap}
+.mgmt-price small{font-size:14px;color:var(--text-muted);font-weight:600;font-family:var(--font-body);margin-left:4px}
+.mgmt-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.mgmt-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.55;color:var(--text)}
+.mgmt-list li::before{content:'';flex:0 0 16px;width:16px;height:16px;margin-top:3px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a7c5c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");background-repeat:no-repeat;background-size:contain}
+.pricing-note{margin-top:28px;font-size:13px;color:var(--text-muted);font-style:italic}
+
+/* ── CONTACT CTA ── */
 .contact{text-align:center}
-.contact-inner{max-width:560px;margin:0 auto}
+.contact-inner{max-width:760px;margin:0 auto}
 .contact-inner h2{font-size:clamp(32px,5vw,52px);color:var(--forest);line-height:1.1;margin-bottom:14px}
 .contact-inner>p{font-size:17px;line-height:1.8;color:var(--text-muted);margin-bottom:36px}
-.form-card{background:white;border:1px solid rgba(26,58,42,.06);border-radius:24px;padding:32px 28px;box-shadow:0 4px 20px rgba(10,20,14,.04);text-align:left}
-.form-card h3{font-size:20px;color:var(--forest);margin-bottom:18px;text-align:center}
-.form-group{margin-bottom:12px}
-.form-input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(26,58,42,.10);background:var(--cream);color:var(--text);outline:none;transition:border-color .18s ease, box-shadow .18s ease}
-textarea.form-input{resize:vertical;min-height:80px}
-.form-input:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(74,124,92,.08)}
-.form-submit{width:100%;min-height:52px;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);font-size:15px;font-weight:700;box-shadow:0 8px 24px rgba(26,58,42,.16);margin-top:4px}
-.form-note{text-align:center;font-size:12px;color:var(--text-muted);margin-top:10px}
-.form-success{text-align:center;padding:28px 0}
-.form-success h4{font-size:20px;color:var(--forest);margin:10px 0 6px}
-.form-success p{font-size:14px;color:var(--text-muted)}
+.contact-cta-card{background:white;border:1px solid rgba(26,58,42,.06);border-radius:24px;padding:34px 28px;box-shadow:0 4px 20px rgba(10,20,14,.04);text-align:center}
+.contact-cta-card h3{font-size:28px;color:var(--forest);margin-bottom:10px}
+.contact-cta-card p{font-size:15px;line-height:1.75;color:var(--text-muted);max-width:560px;margin:0 auto}
+.contact-primary-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:24px 0 18px}
+.contact-package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.contact-package-btn{min-height:54px;border:1.5px solid rgba(26,58,42,.12);background:var(--cream);color:var(--forest);border-radius:14px;font-weight:700;cursor:pointer;transition:transform .2s ease, border-color .2s ease, background .2s ease;padding:14px 12px}
+.contact-package-btn:hover{transform:translateY(-2px);border-color:var(--sage);background:#fff}
+.contact-package-btn span{display:block;font-size:12px;font-weight:500;color:var(--text-muted);margin-top:3px}
+.contact-mini-note{margin-top:14px;font-size:12px;color:var(--text-muted)}
 .contact-methods{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px}
 .contact-method{display:flex;align-items:center;gap:10px}
 .contact-method svg{width:18px;height:18px;stroke:var(--sage);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 18px}
 .contact-method span{font-size:14px;color:var(--text-muted)}
 .contact-method strong{color:var(--forest)}
 
-/* ── URGENCY BLOCK ABOVE FORM ── */
+/* ── URGENCY BLOCK ABOVE CTA ── */
 .urgency-block{max-width:560px;margin:0 auto 32px;background:linear-gradient(135deg,var(--forest-deep),var(--forest));border-radius:22px;padding:28px 24px;border:1px solid rgba(212,184,150,.12);text-align:center}
 .urgency-block h3{font-family:var(--font-display);font-size:clamp(20px,3vw,26px);color:var(--cream);margin-bottom:6px;line-height:1.2}
 .urgency-block p{color:rgba(232,213,184,.56);font-size:14px;line-height:1.6;margin-bottom:16px}
@@ -265,11 +306,67 @@ textarea.form-input{resize:vertical;min-height:80px}
 .st-text{font-size:13px;font-weight:700;color:var(--text);line-height:1.35}
 .st-text small{display:block;margin-top:2px;font-size:11px;font-weight:500;color:var(--text-muted)}
 
+/* ── MULTI-STEP QUOTE POPUP ── */
+.quote-overlay{display:none;position:fixed;inset:0;z-index:2100;background:rgba(0,0,0,.70);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .28s ease}
+.quote-overlay.show{display:flex;opacity:1}
+.quote-modal{position:relative;width:min(96vw,560px);max-height:92vh;overflow-y:auto;border-radius:24px;background:white;box-shadow:0 30px 90px rgba(0,0,0,.35);transform:translateY(20px) scale(.98);transition:transform .34s cubic-bezier(.16,1,.3,1)}
+.quote-overlay.show .quote-modal{transform:none}
+.quote-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--text-muted);font-size:28px;cursor:pointer;line-height:1;padding:4px 8px;border-radius:8px;z-index:2;transition:background .18s ease, color .18s ease}
+.quote-close:hover{background:rgba(26,58,42,.06);color:var(--forest)}
+.quote-progress{padding:20px 28px 0}
+.quote-progress-bar{height:5px;border-radius:999px;background:rgba(26,58,42,.08);overflow:hidden;position:relative}
+.quote-progress-fill{height:100%;background:linear-gradient(90deg,var(--sage),var(--forest-mid));border-radius:999px;transition:width .4s cubic-bezier(.16,1,.3,1);width:20%}
+.quote-progress-text{margin-top:10px;font-size:11px;color:var(--text-muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+.quote-body{padding:22px 28px 28px}
+.quote-step{display:none;animation:qStepIn .4s cubic-bezier(.16,1,.3,1)}
+.quote-step.active{display:block}
+@keyframes qStepIn{0%{opacity:0;transform:translateX(14px)}100%{opacity:1;transform:translateX(0)}}
+.quote-step h3{font-family:var(--font-display);font-size:clamp(22px,3.4vw,28px);color:var(--forest);line-height:1.2;margin-bottom:8px}
+.quote-step>p{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:22px}
+.quote-input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(26,58,42,.12);background:var(--cream);color:var(--text);outline:none;font-size:15px;transition:border-color .18s ease, box-shadow .18s ease}
+.quote-input:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(74,124,92,.08)}
+.quote-input + .quote-input{margin-top:10px}
+.quote-options{display:grid;gap:10px}
+.quote-option{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(26,58,42,.10);background:var(--cream);cursor:pointer;transition:all .18s ease;position:relative}
+.quote-option:hover{border-color:var(--sage);background:rgba(74,124,92,.04)}
+.quote-option input{position:absolute;opacity:0;pointer-events:none}
+.quote-option .q-check{flex:0 0 22px;width:22px;height:22px;border-radius:50%;border:2px solid rgba(26,58,42,.20);display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .18s ease}
+.quote-option.multi .q-check{border-radius:6px}
+.quote-option.checked{border-color:var(--sage);background:rgba(74,124,92,.06)}
+.quote-option.checked .q-check{background:var(--sage);border-color:var(--sage)}
+.quote-option.checked .q-check::after{content:'';width:10px;height:10px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");background-repeat:no-repeat;background-size:contain}
+.q-opt-body{flex:1}
+.q-opt-title{font-size:15px;font-weight:700;color:var(--forest);line-height:1.3;margin-bottom:2px}
+.q-opt-sub{font-size:13px;color:var(--text-muted);line-height:1.45}
+.q-opt-price{font-size:13px;color:var(--sage);font-weight:700;margin-top:3px}
+.quote-yesno{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.quote-yesno button{padding:14px;border-radius:12px;border:1.5px solid rgba(26,58,42,.10);background:var(--cream);color:var(--forest);font-weight:700;font-size:15px;cursor:pointer;transition:all .18s ease}
+.quote-yesno button:hover{border-color:var(--sage)}
+.quote-yesno button.active{border-color:var(--sage);background:rgba(74,124,92,.08);color:var(--forest)}
+.quote-conditional{display:none}
+.quote-conditional.show{display:block;animation:qStepIn .3s ease}
+.quote-nav{display:flex;gap:10px;margin-top:24px}
+.quote-back,.quote-next{flex:1;min-height:52px;border-radius:12px;cursor:pointer;font-weight:700;font-size:15px;border:none;transition:transform .2s ease, box-shadow .2s ease}
+.quote-back{background:transparent;border:1.5px solid rgba(26,58,42,.14);color:var(--text);max-width:110px;flex:0 0 auto}
+.quote-back:hover{border-color:var(--forest);background:rgba(26,58,42,.03)}
+.quote-next{background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);box-shadow:0 8px 24px rgba(26,58,42,.18)}
+.quote-next:hover{transform:translateY(-2px)}
+.quote-next:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.quote-success{text-align:center;padding:20px 10px}
+.quote-success svg{width:56px;height:56px;stroke:var(--sage);fill:none;stroke-width:2;margin-bottom:14px}
+.quote-success h3{font-family:var(--font-display);font-size:28px;color:var(--forest);margin-bottom:10px}
+.quote-success p{font-size:15px;color:var(--text-muted);line-height:1.65;max-width:360px;margin:0 auto 18px}
+.quote-err{font-size:13px;color:#a33c36;margin-top:10px;text-align:center;min-height:18px}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .worth-grid,.agitate-grid,.compare-grid,.portfolio-grid{grid-template-columns:1fr}
+  .worth-grid,.agitate-grid,.compare-grid,.portfolio-grid,.pricing-grid,.contact-package-grid{grid-template-columns:1fr}
   .worth-grid,.agitate-grid{max-width:480px;margin-left:auto;margin-right:auto}
-  .compare-grid,.portfolio-grid{max-width:560px;margin-left:auto;margin-right:auto}
+  .compare-grid,.portfolio-grid,.pricing-grid{max-width:520px;margin-left:auto;margin-right:auto}
+  .contact-package-grid{max-width:520px;margin-left:auto;margin-right:auto}
+  .price-card.featured{transform:none}
+  .price-card.featured:hover{transform:translateY(-4px)}
+  .mgmt-list{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .nav-links{display:none}.hamburger{display:block}
@@ -278,6 +375,7 @@ textarea.form-input{resize:vertical;min-height:80px}
   .hero-promise{flex-direction:column;text-align:center}
   .step-item{grid-template-columns:60px 1fr;gap:16px}.step-num{font-size:40px}
   .contact-methods{flex-direction:column;align-items:center;gap:16px}
+  .contact-primary-actions{flex-direction:column;align-items:center}
   .footer-inner{text-align:center;justify-content:center}
   .sticky-bar{display:block}body{padding-bottom:56px}
   .spots-toast{left:12px;right:12px;bottom:70px;max-width:none}
@@ -289,6 +387,12 @@ textarea.form-input{resize:vertical;min-height:80px}
   .hero-btns{flex-direction:column;align-items:center}
   .btn{width:100%;max-width:320px}
   .about-photo{width:200px;height:250px}
+  .quote-modal{max-height:100vh;border-radius:20px}
+  .quote-body{padding:18px 22px 24px}
+  .quote-progress{padding:18px 22px 0}
+  .mgmt-block{padding:28px 22px}
+  .mgmt-top{flex-direction:column;align-items:flex-start;gap:12px}
+  .contact-cta-card{padding:28px 20px}
 }
 
 @keyframes fadeSlide{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
@@ -304,7 +408,7 @@ textarea.form-input{resize:vertical;min-height:80px}
       <div class="timer-block" id="bM">--</div><span class="timer-sep">:</span>
       <div class="timer-block" id="bS">--</div>
     </div>
-    <a href="#contact" class="sale-banner-cta">Claim My Spot</a>
+    <a href="#contact" class="sale-banner-cta" data-open-quote>Claim My Website Spot</a>
   </div>
 </div>
 
@@ -320,16 +424,15 @@ textarea.form-input{resize:vertical;min-height:80px}
           <span class="nt-b" id="nS">--</span>
         </div>
       </div>
-      <a href="#contact" class="nav-cta">Start My Build</a>
+      <a href="#contact" class="nav-cta" data-open-quote>Get My Website Started</a>
     </div>
     <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="#contact" class="nav-cta">Start My Build</a>
+    <a href="#contact" class="nav-cta" data-open-quote>Get My Website Started</a>
   </div>
 </nav>
 
-<!-- 1. HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
@@ -337,7 +440,7 @@ textarea.form-input{resize:vertical;min-height:80px}
       <h1 class="fade-up d1">Your Website Should<br>Bring You <strong><span class="hero-rotate"><span class="word">Customers</span></span></strong></h1>
       <p class="hero-sub fade-up d2">Most local business websites just sit there. I build websites that make people trust you, understand what you do fast, and actually reach out.</p>
       <div class="hero-btns fade-up d3">
-        <a href="#contact" class="btn btn-gold">Start My Build — $0 Down</a>
+        <a href="#contact" class="btn btn-gold" data-open-quote>Get My Website Started — $0 Down</a>
         <a href="#work" class="btn btn-outline-light">See My Work</a>
       </div>
       <div class="hero-promise fade-up d4">
@@ -348,7 +451,6 @@ textarea.form-input{resize:vertical;min-height:80px}
   </div>
 </section>
 
-<!-- 2. ABOUT -->
 <section class="about">
   <div class="container">
     <div class="about-wrap fade-up">
@@ -361,7 +463,6 @@ textarea.form-input{resize:vertical;min-height:80px}
   </div>
 </section>
 
-<!-- 3. BUT IS THIS WORTH IT? -->
 <section class="worth section">
   <div class="container">
     <div class="worth-head fade-up">
@@ -388,7 +489,6 @@ textarea.form-input{resize:vertical;min-height:80px}
   </div>
 </section>
 
-<!-- 4. BEFORE / AFTER -->
 <section class="compare section">
   <div class="container">
     <div class="compare-head fade-up">
@@ -422,7 +522,6 @@ textarea.form-input{resize:vertical;min-height:80px}
   </div>
 </section>
 
-<!-- 5. THE REAL PROBLEM -->
 <section class="agitate section">
   <div class="container">
     <div class="agitate-head fade-up">
@@ -453,12 +552,11 @@ textarea.form-input{resize:vertical;min-height:80px}
     <div class="agitate-cta fade-up">
       <h3>A local marketer who builds your site first — and only gets paid if you love it.</h3>
       <p>No massive roster. No junior hand-offs. No money up front. One person who builds the site, runs the strategy, and is accountable for the results.</p>
-      <a href="#contact" class="btn btn-gold">Start My Build — $0 Down</a>
+      <a href="#contact" class="btn btn-gold" data-open-quote>Get My Website Started — $0 Down</a>
     </div>
   </div>
 </section>
 
-<!-- 6. HOW IT WORKS -->
 <section class="steps section">
   <div class="container">
     <div class="steps-head fade-up">
@@ -474,7 +572,6 @@ textarea.form-input{resize:vertical;min-height:80px}
   </div>
 </section>
 
-<!-- 7. PORTFOLIO -->
 <section class="portfolio section" id="work">
   <div class="container">
     <div class="portfolio-head fade-up">
@@ -496,15 +593,97 @@ textarea.form-input{resize:vertical;min-height:80px}
   </div>
 </section>
 
-<!-- 8. CONTACT — $0 Down, Pay When It's Live -->
+<section class="pricing section" id="pricing">
+  <div class="container">
+    <div class="pricing-head fade-up">
+      <span class="label">Simple, Honest Pricing</span>
+      <h2>Pick your package. <strong>Pay nothing until it's live.</strong></h2>
+      <p>Every package is $0 down. I build it, you see the live preview, and you only pay if you love it. Pricing below is what you'd pay after launch.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card fade-up d1">
+        <div class="price-name">Starter Site</div>
+        <div class="price-tag-row"><span class="price-amount">$800</span><span class="price-unit">one-time</span></div>
+        <div class="price-sub">+ $200/mo management</div>
+        <div class="price-desc">A focused 1-page site — perfect for a single service, a new offer, or local ads.</div>
+        <ul class="price-list">
+          <li>Custom 1-page design</li>
+          <li>Copywriting included</li>
+          <li>Mobile-optimized &amp; fast</li>
+          <li>Contact form &amp; call buttons</li>
+          <li>Basic local SEO setup</li>
+          <li>5–7 day turnaround</li>
+        </ul>
+        <button class="price-btn outline" data-quote-pkg="Starter">Choose Starter Website</button>
+      </div>
+
+      <div class="price-card featured fade-up d2">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-name">Growth Site</div>
+        <div class="price-tag-row"><span class="price-amount">$1,500</span><span class="price-unit">one-time</span></div>
+        <div class="price-sub">+ $200/mo management</div>
+        <div class="price-desc">A full 3–5 page site built to convert — my recommendation for most local businesses.</div>
+        <ul class="price-list">
+          <li>3–5 custom pages</li>
+          <li>Copywriting + positioning</li>
+          <li>Advanced local SEO</li>
+          <li>Google Business Profile setup</li>
+          <li>Quote/booking flow</li>
+          <li>Analytics &amp; call tracking</li>
+          <li>Priority revisions</li>
+        </ul>
+        <button class="price-btn solid" data-quote-pkg="Growth">Choose Growth Website</button>
+      </div>
+
+      <div class="price-card fade-up d3">
+        <div class="price-name">Lead-Gen Site</div>
+        <div class="price-tag-row"><span class="price-amount">$2,500</span><span class="price-unit">one-time</span></div>
+        <div class="price-sub">+ $200/mo management</div>
+        <div class="price-desc">A 5+ page lead-generation machine for businesses serious about scaling calls and revenue.</div>
+        <ul class="price-list">
+          <li>5+ custom pages</li>
+          <li>Full funnel copywriting</li>
+          <li>Advanced SEO + schema</li>
+          <li>Lead magnet / quote tool</li>
+          <li>Google Ads ready landing pages</li>
+          <li>Monthly strategy call</li>
+          <li>Priority everything</li>
+        </ul>
+        <button class="price-btn outline" data-quote-pkg="Lead-Gen">Choose Lead-Gen Website</button>
+      </div>
+    </div>
+
+    <div class="mgmt-block fade-up">
+      <div class="mgmt-top">
+        <div class="mgmt-title">Monthly Management <span>Included with every package</span></div>
+        <div class="mgmt-price">$200<small>/month</small></div>
+      </div>
+      <ul class="mgmt-list">
+        <li>Hosting on Vercel (SSL, fast CDN)</li>
+        <li>Domain &amp; DNS management</li>
+        <li>Unlimited small content updates</li>
+        <li>Speed &amp; uptime monitoring</li>
+        <li>Ongoing SEO maintenance</li>
+        <li>Google Business Profile updates</li>
+        <li>Security updates &amp; backups</li>
+        <li>Same-day priority text support</li>
+        <li>Monthly analytics report</li>
+        <li>Cancel anytime — no contracts</li>
+      </ul>
+    </div>
+
+    <p class="pricing-note fade-up">Not sure which fits? Open the quote flow and I'll recommend the right package on our call.</p>
+  </div>
+</section>
+
 <section class="contact section" id="contact">
   <div class="container">
     <div class="contact-inner">
       <span class="label fade-up">Limited Time — $0 Down</span>
-      <h2 class="fade-up d1">Get Your New Website — <strong>Pay When It's Live</strong></h2>
-      <p class="fade-up d2">Tell me about your business and I'll start your build. You'll see the finished site on a live preview link before you ever spend a dollar. If you love it, we launch and you pay. If you don't, you owe nothing.</p>
+      <h2 class="fade-up d1">Ready to get your <strong>website done?</strong></h2>
+      <p class="fade-up d2">Instead of showing another full form down here, this section now pushes people straight into the quote flow. They answer a few quick questions, you get cleaner lead info, and the page stays tighter.</p>
 
-      <!-- URGENCY TIMER BLOCK -->
       <div class="urgency-block fade-up d2">
         <h3>$0 Down Is Only Available For The Next</h3>
         <p>I only take on a few builds at a time. After this window closes, standard deposits apply.</p>
@@ -515,20 +694,24 @@ textarea.form-input{resize:vertical;min-height:80px}
         </div>
       </div>
 
-      <div class="form-card fade-up d3">
-        <form id="cform" onsubmit="submitForm(event)">
-          <div class="form-group"><input type="text" name="name" class="form-input" placeholder="Your Name *" required></div>
-          <div class="form-group"><input type="text" name="business" class="form-input" placeholder="Business Name"></div>
-          <div class="form-group"><input type="email" name="email" class="form-input" placeholder="Email Address *" required></div>
-          <div class="form-group"><textarea name="notes" class="form-input" placeholder="Notes (optional) — Tell me about your business, your current site, or what you need help with"></textarea></div>
-          <button type="submit" class="form-submit" id="subBtn">Start My Build — $0 Down</button>
-          <p class="form-note">$0 Down — No contracts — I reply within hours</p>
-        </form>
-        <div id="fsuccess" class="form-success" style="display:none">
-          <div><svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:var(--sage);fill:none;stroke-width:2"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg></div>
-          <h4>You're in.</h4><p>I'll reach out within a few hours to kick off your build.</p>
+      <div class="contact-cta-card fade-up d3">
+        <h3>Pick a path and get started.</h3>
+        <p>Use the quick quote flow to lock in your spot. If you already know the package you want, click one below and it will preselect it for you.</p>
+
+        <div class="contact-primary-actions">
+          <button type="button" class="btn btn-gold" data-open-quote>Claim My $0 Down Website</button>
+          <a href="#pricing" class="btn btn-outline-dark">See Packages Again</a>
         </div>
+
+        <div class="contact-package-grid">
+          <button type="button" class="contact-package-btn" data-quote-pkg="Starter">Starter Website<span>1-page site</span></button>
+          <button type="button" class="contact-package-btn" data-quote-pkg="Growth">Growth Website<span>3–5 pages</span></button>
+          <button type="button" class="contact-package-btn" data-quote-pkg="Lead-Gen">Lead-Gen Website<span>5+ pages</span></button>
+        </div>
+
+        <div class="contact-mini-note">Quick quote flow · No contracts · I reply within hours</div>
       </div>
+
       <div class="contact-methods fade-up d4">
         <div class="contact-method"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3"></path></svg><span><strong>(503) 569-4291</strong> · Text preferred</span></div>
         <div class="contact-method"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span><strong><a href="mailto:samuelkumpula4@gmail.com" style="color:var(--forest)">samuelkumpula4@gmail.com</a></strong></span></div>
@@ -538,7 +721,6 @@ textarea.form-input{resize:vertical;min-height:80px}
   </div>
 </section>
 
-<!-- 9. FAQ (bottom) -->
 <section class="faq section" id="faq">
   <div class="container">
     <div class="faq-head fade-up">
@@ -561,22 +743,148 @@ textarea.form-input{resize:vertical;min-height:80px}
     <div class="footer-inner">
       <div class="footer-logo">KUMPULA <span>MARKETING</span></div>
       <div class="footer-copy">Custom websites for local businesses in Salem &amp; Keizer, Oregon.</div>
-      <div class="footer-links"><a href="#work">Work</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+      <div class="footer-links"><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
     </div>
   </div>
 </footer>
 
-<div class="sticky-bar"><div class="sticky-bar-inner"><div class="sticky-bar-timer"><span class="stb" id="sH">--</span><span class="sts">:</span><span class="stb" id="sM">--</span><span class="sts">:</span><span class="stb" id="sS">--</span></div><a href="#contact">Start My Build — $0 Down</a></div></div>
+<div class="sticky-bar"><div class="sticky-bar-inner"><div class="sticky-bar-timer"><span class="stb" id="sH">--</span><span class="sts">:</span><span class="stb" id="sM">--</span><span class="sts">:</span><span class="stb" id="sS">--</span></div><a href="#contact" data-open-quote>Get My Website Started — $0 Down</a></div></div>
 
 <div class="spots-toast" id="spotsToast"><div class="st-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div><div class="st-text">Only 2 build spots left this week<small>Limited — Salem &amp; Keizer</small></div></div>
+
+<div class="quote-overlay" id="quoteOverlay" role="dialog" aria-modal="true" aria-labelledby="qStepHeading">
+  <div class="quote-modal">
+    <button class="quote-close" onclick="closeQuote()" aria-label="Close quote">&times;</button>
+    <div class="quote-progress">
+      <div class="quote-progress-bar"><div class="quote-progress-fill" id="qProgressFill"></div></div>
+      <div class="quote-progress-text" id="qProgressText">Step 1 of 5</div>
+    </div>
+    <div class="quote-body" id="qBody">
+      <div class="quote-step active" data-step="1">
+        <h3 id="qStepHeading">What kind of business do you run?</h3>
+        <p>Just a word or two — roofing, plumbing, auto glass, etc. This helps me tailor the site to your market.</p>
+        <input type="text" class="quote-input" id="qBizType" placeholder="e.g. Roofing, Plumbing, HVAC" autocomplete="off">
+      </div>
+
+      <div class="quote-step" data-step="2">
+        <h3>Which package fits you best?</h3>
+        <p>Not 100% sure? Pick "Not sure yet" and I'll recommend on our call.</p>
+        <div class="quote-options" id="qPackageOpts">
+          <label class="quote-option" data-value="Starter">
+            <input type="radio" name="qPkg" value="Starter">
+            <span class="q-check"></span>
+            <div class="q-opt-body">
+              <div class="q-opt-title">Starter Site</div>
+              <div class="q-opt-sub">1-page site, focused service</div>
+              <div class="q-opt-price">$800 + $200/mo</div>
+            </div>
+          </label>
+          <label class="quote-option" data-value="Growth">
+            <input type="radio" name="qPkg" value="Growth">
+            <span class="q-check"></span>
+            <div class="q-opt-body">
+              <div class="q-opt-title">Growth Site <span style="color:var(--sage);font-size:11px;font-weight:700;margin-left:4px">· POPULAR</span></div>
+              <div class="q-opt-sub">3–5 pages, built to convert</div>
+              <div class="q-opt-price">$1,500 + $200/mo</div>
+            </div>
+          </label>
+          <label class="quote-option" data-value="Lead-Gen">
+            <input type="radio" name="qPkg" value="Lead-Gen">
+            <span class="q-check"></span>
+            <div class="q-opt-body">
+              <div class="q-opt-title">Lead-Gen Site</div>
+              <div class="q-opt-sub">5+ pages, full lead machine</div>
+              <div class="q-opt-price">$2,500 + $200/mo</div>
+            </div>
+          </label>
+          <label class="quote-option" data-value="Not sure yet">
+            <input type="radio" name="qPkg" value="Not sure yet">
+            <span class="q-check"></span>
+            <div class="q-opt-body">
+              <div class="q-opt-title">Not sure yet</div>
+              <div class="q-opt-sub">I'll recommend the right fit on our call</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="quote-step" data-step="3">
+        <h3>Do you have a current website?</h3>
+        <p>Either way works — this just tells me what I'm starting from.</p>
+        <div class="quote-yesno">
+          <button type="button" id="qHasSiteYes">Yes, I have one</button>
+          <button type="button" id="qHasSiteNo">No, I don't</button>
+        </div>
+        <div class="quote-conditional" id="qSiteUrlWrap">
+          <input type="text" class="quote-input" id="qSiteUrl" placeholder="Your website URL (e.g. mybusiness.com)" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="quote-step" data-step="4">
+        <h3>What's your biggest goal?</h3>
+        <p>Pick anything that matters. I'll design around the top ones.</p>
+        <div class="quote-options" id="qGoalsOpts">
+          <label class="quote-option multi" data-value="More calls">
+            <input type="checkbox" name="qGoal" value="More calls">
+            <span class="q-check"></span>
+            <div class="q-opt-body"><div class="q-opt-title">More calls</div></div>
+          </label>
+          <label class="quote-option multi" data-value="More form fills / leads">
+            <input type="checkbox" name="qGoal" value="More form fills / leads">
+            <span class="q-check"></span>
+            <div class="q-opt-body"><div class="q-opt-title">More form fills / leads</div></div>
+          </label>
+          <label class="quote-option multi" data-value="Look more professional">
+            <input type="checkbox" name="qGoal" value="Look more professional">
+            <span class="q-check"></span>
+            <div class="q-opt-body"><div class="q-opt-title">Look more professional</div></div>
+          </label>
+          <label class="quote-option multi" data-value="Rank on Google">
+            <input type="checkbox" name="qGoal" value="Rank on Google">
+            <span class="q-check"></span>
+            <div class="q-opt-body"><div class="q-opt-title">Rank on Google</div></div>
+          </label>
+          <label class="quote-option multi" data-value="Run Google Ads">
+            <input type="checkbox" name="qGoal" value="Run Google Ads">
+            <span class="q-check"></span>
+            <div class="q-opt-body"><div class="q-opt-title">Run Google Ads to it</div></div>
+          </label>
+        </div>
+      </div>
+
+      <div class="quote-step" data-step="5">
+        <h3>Last step — where can I reach you?</h3>
+        <p>I'll text or email you within a few hours to kick things off. No spam, no newsletters.</p>
+        <input type="text" class="quote-input" id="qName" placeholder="Your Name *" autocomplete="name">
+        <input type="text" class="quote-input" id="qBiz" placeholder="Business Name" autocomplete="organization">
+        <input type="email" class="quote-input" id="qEmail" placeholder="Email Address *" autocomplete="email">
+        <input type="tel" class="quote-input" id="qPhone" placeholder="Phone (optional — I prefer to text)" autocomplete="tel">
+      </div>
+
+      <div class="quote-step" data-step="6">
+        <div class="quote-success">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>
+          <h3>You're in.</h3>
+          <p>I'll review your info and reach out within a few hours to start your build. Check your email and phone — you can also text me directly at <strong>(503) 569-4291</strong>.</p>
+        </div>
+      </div>
+
+      <div class="quote-nav" id="qNavRow">
+        <button type="button" class="quote-back" id="qBack" style="display:none">Back</button>
+        <button type="button" class="quote-next" id="qNext">Continue</button>
+      </div>
+      <div class="quote-err" id="qErr"></div>
+    </div>
+  </div>
+</div>
 
 <div class="exit-overlay" id="exitOverlay">
   <div class="exit-popup">
     <button class="exit-close" onclick="closeExitPopup()" aria-label="Close popup">&times;</button>
-    <h2>Wait — you haven't<br>claimed your $0 down build</h2>
+    <h2>Wait — you haven't<br>claimed your $0 down website</h2>
     <p>I'll build your new site first. You only pay once it's live and you love it. Don't leave without grabbing your spot.</p>
     <div class="exit-timer"><div class="et-b"><span class="et-n" id="eH">--</span><span class="et-l">Hours</span></div><div class="et-b"><span class="et-n" id="eM">--</span><span class="et-l">Min</span></div><div class="et-b"><span class="et-n" id="eS">--</span><span class="et-l">Sec</span></div></div>
-    <button class="exit-cta" onclick="closeExitPopup();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start My Build — $0 Down</button>
+    <button class="exit-cta" onclick="closeExitPopup();openQuote()">Get My Website Started — $0 Down</button>
     <div class="exit-phone">Or text: <strong>(503) 569-4291</strong></div>
   </div>
 </div>
@@ -610,7 +918,6 @@ document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.faq-item').forEach(function(item){item.querySelector('.faq-q').addEventListener('click',function(){var isOpen=item.classList.contains('open'),a=item.querySelector('.faq-a');document.querySelectorAll('.faq-item').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight='0'});if(!isOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}})});
   document.querySelectorAll('a[href^="#"]').forEach(function(link){link.addEventListener('click',function(e){var t=document.querySelector(link.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
 
-  // RANDOMIZED 48-HOUR TIMER
   var SALE_KEY='kmBuildOfferEnd1';
   var stored=localStorage.getItem(SALE_KEY);
   var now=Date.now();
@@ -652,8 +959,170 @@ document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('exitOverlay').addEventListener('click',function(e){if(e.target===document.getElementById('exitOverlay'))closeExitPopup()})
 });
 function closeExitPopup(){document.getElementById('exitOverlay').classList.remove('show')}
+
+var qState={step:1,total:5,data:{businessType:'',package:'',hasCurrentSite:'',currentSiteUrl:'',goals:[],name:'',business:'',email:'',phone:''},submitted:false};
+
+function openQuote(presetPkg){
+  var overlay=document.getElementById('quoteOverlay');
+  if(presetPkg){
+    qState.data.package=presetPkg;
+    var radio=document.querySelector('input[name="qPkg"][value="'+presetPkg+'"]');
+    if(radio){radio.checked=true;var lbl=radio.closest('.quote-option');document.querySelectorAll('#qPackageOpts .quote-option').forEach(function(o){o.classList.remove('checked')});if(lbl)lbl.classList.add('checked')}
+  }
+  overlay.classList.add('show');
+  document.body.style.overflow='hidden';
+  setTimeout(function(){var f=document.querySelector('.quote-step.active input[type="text"],.quote-step.active input[type="email"]');if(f)f.focus()},300);
+}
+function closeQuote(){
+  document.getElementById('quoteOverlay').classList.remove('show');
+  document.body.style.overflow='';
+}
+function goToStep(n){
+  qState.step=n;
+  document.querySelectorAll('.quote-step').forEach(function(s){s.classList.remove('active')});
+  var target=document.querySelector('.quote-step[data-step="'+n+'"]');
+  if(target)target.classList.add('active');
+  var pct=n===6?100:(n/qState.total)*100;
+  document.getElementById('qProgressFill').style.width=pct+'%';
+  document.getElementById('qProgressText').textContent=n===6?'Complete':'Step '+n+' of '+qState.total;
+  var backBtn=document.getElementById('qBack'),nextBtn=document.getElementById('qNext'),navRow=document.getElementById('qNavRow');
+  if(n===6){navRow.style.display='none';return}
+  navRow.style.display='flex';
+  backBtn.style.display=n>1?'inline-flex':'none';
+  nextBtn.textContent=n===qState.total?'Submit':'Continue';
+  document.getElementById('qErr').textContent='';
+  setTimeout(function(){var f=target.querySelector('input[type="text"]:not([readonly]),input[type="email"]');if(f)f.focus()},300);
+}
+function validateStep(n){
+  var err=document.getElementById('qErr');err.textContent='';
+  if(n===1){
+    var v=document.getElementById('qBizType').value.trim();
+    if(!v){err.textContent='Please tell me what kind of business you run.';return false}
+    qState.data.businessType=v;return true;
+  }
+  if(n===2){
+    var pkg=document.querySelector('input[name="qPkg"]:checked');
+    if(!pkg){err.textContent='Please pick an option (or "Not sure yet").';return false}
+    qState.data.package=pkg.value;return true;
+  }
+  if(n===3){
+    if(!qState.data.hasCurrentSite){err.textContent='Please choose Yes or No.';return false}
+    if(qState.data.hasCurrentSite==='Yes'){qState.data.currentSiteUrl=document.getElementById('qSiteUrl').value.trim()}
+    return true;
+  }
+  if(n===4){
+    var goals=[];document.querySelectorAll('input[name="qGoal"]:checked').forEach(function(i){goals.push(i.value)});
+    if(goals.length===0){err.textContent='Pick at least one goal so I know what to focus on.';return false}
+    qState.data.goals=goals;return true;
+  }
+  if(n===5){
+    var name=document.getElementById('qName').value.trim();
+    var email=document.getElementById('qEmail').value.trim();
+    if(!name){err.textContent='Please enter your name.';return false}
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='Please enter a valid email address.';return false}
+    qState.data.name=name;
+    qState.data.business=document.getElementById('qBiz').value.trim();
+    qState.data.email=email;
+    qState.data.phone=document.getElementById('qPhone').value.trim();
+    return true;
+  }
+  return true;
+}
+
 var FE='https://script.google.com/macros/s/AKfycbzmO7FSQ5BjXrRlTwK1S3-emZ2od_1hsosR9aV9tKKiNXZ2B5artvHj7XBC_HUcTG5T/exec';
-function submitForm(e){e.preventDefault();var f=document.getElementById('cform'),b=document.getElementById('subBtn'),originalText=b.textContent;var data={name:f.querySelector('[name="name"]').value.trim(),business:f.querySelector('[name="business"]').value.trim(),email:f.querySelector('[name="email"]').value.trim(),notes:f.querySelector('[name="notes"]').value.trim(),timestamp:new Date().toISOString()};if(!data.name||!data.email){alert('Please fill in your name and email.');return}b.disabled=true;b.textContent='Sending...';fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)}).then(function(){formSubmitted=true;f.style.display='none';document.getElementById('fsuccess').style.display='block'}).catch(function(){b.disabled=false;b.textContent=originalText;alert('There was a problem sending your form. Please try again.')})}
+
+function sendLead(payload){
+  return fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+}
+
+function submitQuote(){
+  var btn=document.getElementById('qNext');
+  var originalText=btn.textContent;
+  btn.disabled=true;btn.textContent='Sending...';
+  var payload={
+    name:qState.data.name,
+    business:qState.data.business,
+    email:qState.data.email,
+    phone:qState.data.phone,
+    businessType:qState.data.businessType,
+    package:qState.data.package,
+    hasCurrentSite:qState.data.hasCurrentSite,
+    currentSiteUrl:qState.data.currentSiteUrl,
+    goals:qState.data.goals.join(', '),
+    notes:'[Quote Flow] Business: '+qState.data.businessType+' | Package: '+qState.data.package+' | Current site: '+(qState.data.hasCurrentSite==='Yes'?(qState.data.currentSiteUrl||'Yes'):'No')+' | Goals: '+qState.data.goals.join(', '),
+    source:'quote-popup',
+    timestamp:new Date().toISOString()
+  };
+
+  sendLead(payload).then(function(){
+    qState.submitted=true;formSubmitted=true;
+    goToStep(6);
+  }).catch(function(){
+    btn.disabled=false;btn.textContent=originalText;
+    document.getElementById('qErr').textContent='Something went wrong sending that. Please try again or text (503) 569-4291.';
+  });
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('[data-open-quote]').forEach(function(el){
+    el.addEventListener('click',function(e){e.preventDefault();openQuote()});
+  });
+  document.querySelectorAll('[data-quote-pkg]').forEach(function(btn){
+    btn.addEventListener('click',function(){openQuote(btn.getAttribute('data-quote-pkg'))});
+  });
+  document.querySelectorAll('#qPackageOpts .quote-option').forEach(function(opt){
+    opt.addEventListener('click',function(){
+      document.querySelectorAll('#qPackageOpts .quote-option').forEach(function(o){o.classList.remove('checked')});
+      opt.classList.add('checked');
+      var input=opt.querySelector('input');if(input)input.checked=true;
+    });
+  });
+  document.querySelectorAll('#qGoalsOpts .quote-option').forEach(function(opt){
+    opt.addEventListener('click',function(e){
+      if(e.target.tagName==='INPUT')return;
+      e.preventDefault();
+      var input=opt.querySelector('input');
+      input.checked=!input.checked;
+      opt.classList.toggle('checked',input.checked);
+    });
+    var input=opt.querySelector('input');
+    input.addEventListener('change',function(){opt.classList.toggle('checked',input.checked)});
+  });
+  document.getElementById('qHasSiteYes').addEventListener('click',function(){
+    qState.data.hasCurrentSite='Yes';
+    document.getElementById('qHasSiteYes').classList.add('active');
+    document.getElementById('qHasSiteNo').classList.remove('active');
+    document.getElementById('qSiteUrlWrap').classList.add('show');
+  });
+  document.getElementById('qHasSiteNo').addEventListener('click',function(){
+    qState.data.hasCurrentSite='No';
+    qState.data.currentSiteUrl='';
+    document.getElementById('qHasSiteNo').classList.add('active');
+    document.getElementById('qHasSiteYes').classList.remove('active');
+    document.getElementById('qSiteUrlWrap').classList.remove('show');
+  });
+  document.getElementById('qNext').addEventListener('click',function(){
+    if(!validateStep(qState.step))return;
+    if(qState.step===qState.total){submitQuote();return}
+    goToStep(qState.step+1);
+  });
+  document.getElementById('qBack').addEventListener('click',function(){
+    if(qState.step>1)goToStep(qState.step-1);
+  });
+  document.getElementById('qBody').addEventListener('keydown',function(e){
+    if(e.key==='Enter'&&e.target.tagName==='INPUT'&&e.target.type!=='checkbox'){
+      e.preventDefault();
+      document.getElementById('qNext').click();
+    }
+  });
+  document.getElementById('quoteOverlay').addEventListener('click',function(e){
+    if(e.target===document.getElementById('quoteOverlay'))closeQuote();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&document.getElementById('quoteOverlay').classList.contains('show'))closeQuote();
+  });
+  goToStep(1);
+});
 </script>
 </body>
 </html>
