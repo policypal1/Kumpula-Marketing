@@ -858,7 +858,7 @@ body.sale-ended .qm-sale-note{display:none}
       <div class="timer-block" id="bM">--</div><span class="timer-sep">:</span>
       <div class="timer-block" id="bS">--</div>
     </div>
-    <a href="#contact" class="sb-cta" data-open-quote><span class="sale-only">Claim 30% OFF</span><span class="sale-ended-only" style="display:none">Get Started</span></a>
+    <a href="javascript:void(0)" class="sb-cta" data-open-quote><span class="sale-only">Claim 30% OFF</span><span class="sale-ended-only" style="display:none">Get Started</span></a>
   </div>
 </div>
 
@@ -875,12 +875,12 @@ body.sale-ended .qm-sale-note{display:none}
           <span class="nt-b" id="nS">--</span>
         </div>
       </div>
-      <a href="#contact" class="nav-cta" data-open-quote>Get started →</a>
+      <a href="javascript:void(0)" class="nav-cta" data-open-quote>Get started →</a>
     </div>
     <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="#contact" class="nav-cta" data-open-quote>Get started →</a>
+    <a href="javascript:void(0)" class="nav-cta" data-open-quote>Get started →</a>
   </div>
 </nav>
 
@@ -922,7 +922,7 @@ body.sale-ended .qm-sale-note{display:none}
           </h1>
           <p class="hero-sub fade-up d2">Most local business sites just sit there. I build websites that make people trust you, understand what you do fast, and actually reach out — <strong class="sale-only">and right now they're 30% off.</strong><span class="sale-ended-only" style="display:none">no deposit required.</span></p>
           <div class="hero-btns fade-up d3">
-            <a href="#contact" class="btn btn-gold" data-open-quote><span class="sale-only">Claim 30% OFF</span><span class="sale-ended-only" style="display:none">Get Started — $0 Down</span><span class="arrow">→</span></a>
+            <a href="javascript:void(0)" class="btn btn-gold" data-open-quote><span class="sale-only">Claim 30% OFF</span><span class="sale-ended-only" style="display:none">Get Started — $0 Down</span><span class="arrow">→</span></a>
             <a href="#work" class="btn btn-outline-light">See my work</a>
           </div>
           <div class="hero-trust fade-up d4">
@@ -1135,7 +1135,7 @@ body.sale-ended .qm-sale-note{display:none}
               <span>5–7 day build</span>
               <span>Based in Salem</span>
             </div>
-            <a href="#contact" class="btn btn-gold" data-open-quote><span class="sale-only">Claim 30% OFF — $0 Down</span><span class="sale-ended-only" style="display:none">Get Started — $0 Down</span><span class="arrow">→</span></a>
+            <a href="javascript:void(0)" class="btn btn-gold" data-open-quote><span class="sale-only">Claim 30% OFF — $0 Down</span><span class="sale-ended-only" style="display:none">Get Started — $0 Down</span><span class="arrow">→</span></a>
           </div>
           <div class="agitate-reveal-mark">4<em style="font-size:.45em;vertical-align:top;color:var(--sale-red-soft);font-style:italic;font-weight:500">th</em></div>
         </div>
@@ -1886,16 +1886,6 @@ body.sale-ended .qm-sale-note{display:none}
   </div>
 </footer>
 
-<div class="sticky-bar">
-  <div class="sticky-bar-inner">
-    <span class="sticky-bar-pct">30% OFF</span>
-    <div class="sticky-bar-timer"><span class="stb" id="sH">--</span><span class="sts">:</span><span class="stb" id="sM">--</span><span class="sts">:</span><span class="stb" id="sS">--</span></div>
-    <a href="#contact" data-open-quote><span class="sale-only">Claim 30% OFF · $0 Down</span><span class="sale-ended-only" style="display:none">Get my website · $0 Down</span></a>
-  </div>
-</div>
-
-<div class="spots-toast" id="spotsToast"><div class="st-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div><div class="st-text">Only 2 build spots left this week<small>Limited — Salem &amp; Keizer</small></div></div>
-
 <!-- QUOTE MODAL -->
 <div class="quote-overlay" id="quoteOverlay" role="dialog" aria-modal="true" aria-labelledby="qStepHeading">
   <div class="quote-modal">
@@ -2472,6 +2462,451 @@ body > *:not(.site-bg):not(.site-bg-cursor){
   z-index:1 !important;
   background:#0c1f15 !important;
   pointer-events:none !important;
+}
+</style>
+
+
+<style id="quote-modal-final-fix">
+/* =============================================================
+   FINAL QUOTE MODAL FIX
+   Fixes the footer dot-strip bug by forcing the quote popup to be a
+   true fixed overlay. Also upgrades the popup design.
+============================================================= */
+
+/* The earlier background rule made every direct body child position:relative.
+   This forces overlays back to fixed so they do not appear under the footer. */
+body > .quote-overlay,
+body > .exit-overlay{
+  position:fixed !important;
+}
+
+#quoteOverlay.quote-overlay{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:6000 !important;
+  display:none !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:28px !important;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(212,184,150,.18), transparent 34%),
+    radial-gradient(circle at 80% 80%, rgba(74,124,92,.18), transparent 36%),
+    rgba(7,12,9,.78) !important;
+  backdrop-filter:blur(12px) saturate(1.1) !important;
+  -webkit-backdrop-filter:blur(12px) saturate(1.1) !important;
+  opacity:0 !important;
+  overflow:hidden !important;
+  transition:opacity .28s ease !important;
+}
+
+#quoteOverlay.quote-overlay.show{
+  display:flex !important;
+  opacity:1 !important;
+}
+
+#quoteOverlay .quote-modal{
+  position:relative !important;
+  width:min(94vw,780px) !important;
+  max-height:min(760px,92vh) !important;
+  overflow:hidden !important;
+  border-radius:34px !important;
+  background:linear-gradient(145deg,#fffdf9 0%,#f8efe3 100%) !important;
+  border:1px solid rgba(232,213,184,.52) !important;
+  box-shadow:
+    0 44px 120px rgba(0,0,0,.48),
+    0 0 0 1px rgba(255,255,255,.45) inset !important;
+  display:grid !important;
+  grid-template-columns:235px minmax(0,1fr) !important;
+  transform:translateY(16px) scale(.985) !important;
+  transition:transform .34s cubic-bezier(.16,1,.3,1) !important;
+}
+
+#quoteOverlay.show .quote-modal{
+  transform:translateY(0) scale(1) !important;
+}
+
+#quoteOverlay .quote-modal::before{
+  content:'';
+  position:absolute;
+  inset:0 auto 0 0;
+  width:235px;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(212,184,150,.22), transparent 34%),
+    radial-gradient(circle at 85% 95%, rgba(74,124,92,.2), transparent 42%),
+    linear-gradient(180deg,#0c1f15 0%,#10291d 100%);
+  z-index:0;
+}
+
+#quoteOverlay .quote-modal::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:radial-gradient(circle, rgba(201,165,113,.11) 1px, transparent 1.2px);
+  background-size:18px 18px;
+  opacity:.45;
+  mask-image:linear-gradient(90deg, black 0 235px, transparent 235px);
+  z-index:1;
+}
+
+#quoteOverlay .quote-close{
+  position:absolute !important;
+  top:18px !important;
+  right:18px !important;
+  z-index:8 !important;
+  width:38px !important;
+  height:38px !important;
+  border-radius:999px !important;
+  background:rgba(12,31,21,.07) !important;
+  border:1px solid rgba(12,31,21,.08) !important;
+  color:var(--forest) !important;
+  font-size:22px !important;
+  line-height:1 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  transition:transform .2s ease, background .2s ease !important;
+}
+
+#quoteOverlay .quote-close:hover{
+  transform:rotate(90deg) !important;
+  background:rgba(12,31,21,.12) !important;
+}
+
+#quoteOverlay .quote-progress{
+  position:relative !important;
+  z-index:3 !important;
+  grid-column:1 !important;
+  grid-row:1 / span 2 !important;
+  padding:34px 24px !important;
+  color:var(--cream) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:space-between !important;
+  gap:24px !important;
+  min-height:500px !important;
+}
+
+#quoteOverlay .quote-progress::before{
+  content:'Kumpula Marketing';
+  display:block;
+  font-family:var(--font-display);
+  font-size:22px;
+  line-height:1.05;
+  color:var(--cream);
+  letter-spacing:-.02em;
+  margin-bottom:20px;
+}
+
+#quoteOverlay .quote-progress::after{
+  content:'$0 down. Built first. Pay only when it is live and you love it.';
+  display:block;
+  padding:16px 15px;
+  border-radius:18px;
+  background:rgba(250,245,238,.08);
+  border:1px solid rgba(212,184,150,.16);
+  color:rgba(232,213,184,.78);
+  font-size:13px;
+  line-height:1.55;
+  font-family:var(--font-display);
+  font-style:italic;
+}
+
+#quoteOverlay .quote-progress-bar{
+  height:9px !important;
+  border-radius:999px !important;
+  background:rgba(250,245,238,.12) !important;
+  overflow:hidden !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+#quoteOverlay .quote-progress-fill{
+  height:100% !important;
+  border-radius:999px !important;
+  background:linear-gradient(90deg,var(--tan-warm),var(--gold)) !important;
+  box-shadow:0 0 22px rgba(201,168,76,.38) !important;
+}
+
+#quoteOverlay .quote-progress-text{
+  margin-top:14px !important;
+  color:rgba(232,213,184,.78) !important;
+  font-size:11px !important;
+  letter-spacing:.18em !important;
+  text-transform:uppercase !important;
+  font-weight:800 !important;
+  text-align:left !important;
+  font-family:var(--font-body) !important;
+  font-style:normal !important;
+}
+
+#quoteOverlay .quote-body{
+  position:relative !important;
+  z-index:4 !important;
+  grid-column:2 !important;
+  padding:54px 48px 38px !important;
+  overflow-y:auto !important;
+  max-height:min(760px,92vh) !important;
+}
+
+#quoteOverlay .quote-step{
+  animation:qStepIn .34s cubic-bezier(.16,1,.3,1) !important;
+}
+
+#quoteOverlay .quote-step h3{
+  font-size:clamp(30px,3.4vw,42px) !important;
+  line-height:1.02 !important;
+  color:var(--forest) !important;
+  letter-spacing:-.035em !important;
+  margin-bottom:13px !important;
+}
+
+#quoteOverlay .quote-step h3 em{
+  color:var(--sage) !important;
+}
+
+#quoteOverlay .quote-step > p{
+  color:var(--text-soft) !important;
+  font-size:15px !important;
+  line-height:1.72 !important;
+  margin-bottom:24px !important;
+  max-width:470px !important;
+}
+
+#quoteOverlay .qm-sale-note{
+  margin-bottom:16px !important;
+  background:rgba(184,65,47,.1) !important;
+  border:1px solid rgba(184,65,47,.16) !important;
+}
+
+#quoteOverlay .quote-input{
+  min-height:58px !important;
+  padding:16px 18px !important;
+  border-radius:18px !important;
+  background:#fffaf4 !important;
+  border:1.5px solid rgba(20,47,33,.12) !important;
+  box-shadow:0 8px 24px rgba(21,55,42,.04) !important;
+  transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease !important;
+}
+
+#quoteOverlay .quote-input:focus{
+  border-color:rgba(74,124,92,.72) !important;
+  box-shadow:0 0 0 5px rgba(74,124,92,.12), 0 14px 30px rgba(21,55,42,.08) !important;
+  transform:translateY(-1px) !important;
+}
+
+#quoteOverlay .quote-options{
+  gap:12px !important;
+}
+
+#quoteOverlay .quote-option,
+#quoteOverlay .quote-yesno button{
+  border-radius:18px !important;
+  background:rgba(255,250,244,.82) !important;
+  border:1.5px solid rgba(20,47,33,.1) !important;
+  box-shadow:0 10px 26px rgba(21,55,42,.045) !important;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease !important;
+}
+
+#quoteOverlay .quote-option:hover,
+#quoteOverlay .quote-yesno button:hover{
+  transform:translateY(-2px) !important;
+  border-color:rgba(74,124,92,.42) !important;
+  box-shadow:0 16px 32px rgba(21,55,42,.075) !important;
+}
+
+#quoteOverlay .quote-option.checked,
+#quoteOverlay .quote-yesno button.active{
+  background:rgba(74,124,92,.075) !important;
+  border-color:rgba(74,124,92,.62) !important;
+  box-shadow:0 18px 34px rgba(74,124,92,.12) !important;
+}
+
+#quoteOverlay .q-check{
+  border-color:rgba(20,47,33,.22) !important;
+}
+
+#quoteOverlay .quote-option.checked .q-check{
+  background:linear-gradient(135deg,var(--forest),var(--sage)) !important;
+  border-color:var(--sage) !important;
+}
+
+#quoteOverlay .quote-nav{
+  margin-top:30px !important;
+  padding-top:22px !important;
+  border-top:1px solid rgba(20,47,33,.08) !important;
+}
+
+#quoteOverlay .quote-back,
+#quoteOverlay .quote-next{
+  min-height:58px !important;
+  border-radius:999px !important;
+}
+
+#quoteOverlay .quote-next{
+  background:linear-gradient(135deg,var(--forest-deep),var(--forest-mid)) !important;
+  box-shadow:0 18px 36px -16px rgba(12,31,21,.52) !important;
+}
+
+#quoteOverlay .quote-back{
+  background:rgba(255,255,255,.42) !important;
+}
+
+#quoteOverlay .quote-success{
+  padding:26px 6px !important;
+}
+
+#quoteOverlay .quote-success .success-circle{
+  width:86px !important;
+  height:86px !important;
+  background:rgba(74,124,92,.11) !important;
+  box-shadow:0 0 0 12px rgba(74,124,92,.045) !important;
+}
+
+#quoteOverlay .quote-err{
+  margin-top:12px !important;
+  color:#9e392f !important;
+  font-weight:600 !important;
+}
+
+/* Keep the footer fully solid. No dotted band under it. */
+.footer{
+  margin-bottom:0 !important;
+}
+.footer + .sticky-bar,
+.footer + *{
+  margin-top:0 !important;
+}
+
+@media(max-width:760px){
+  #quoteOverlay.quote-overlay{
+    padding:12px !important;
+    align-items:flex-end !important;
+  }
+
+  #quoteOverlay .quote-modal{
+    width:100% !important;
+    max-height:92vh !important;
+    border-radius:28px 28px 18px 18px !important;
+    display:block !important;
+    overflow-y:auto !important;
+  }
+
+  #quoteOverlay .quote-modal::before,
+  #quoteOverlay .quote-modal::after{
+    display:none !important;
+  }
+
+  #quoteOverlay .quote-progress{
+    min-height:0 !important;
+    padding:24px 24px 0 !important;
+    color:var(--forest) !important;
+    display:block !important;
+  }
+
+  #quoteOverlay .quote-progress::before,
+  #quoteOverlay .quote-progress::after{
+    display:none !important;
+  }
+
+  #quoteOverlay .quote-progress-text{
+    color:var(--text-muted) !important;
+    text-align:center !important;
+  }
+
+  #quoteOverlay .quote-body{
+    padding:24px 24px 28px !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+
+  #quoteOverlay .quote-step h3{
+    font-size:30px !important;
+  }
+}
+</style>
+
+
+<style id="footer-gap-real-final-fix">
+/* =============================================================
+   REAL FINAL FOOTER GAP FIX
+   The visible white/dotted bug was caused by the mobile sticky bar
+   and the limited-spots toast living after the footer. This disables
+   that whole layer and removes the forced bottom padding.
+============================================================= */
+
+html,
+body{
+  margin:0 !important;
+  padding-bottom:0 !important;
+  min-height:100% !important;
+  overflow-x:hidden !important;
+}
+
+/* Kill the two footer-adjacent floating elements that caused the dotted strip */
+.sticky-bar,
+.spots-toast,
+#spotsToast{
+  display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+  width:0 !important;
+  height:0 !important;
+  min-height:0 !important;
+  max-height:0 !important;
+  overflow:hidden !important;
+  transform:none !important;
+}
+
+/* Keep the footer as the clean final visible page section */
+.footer{
+  margin-bottom:0 !important;
+  padding-bottom:34px !important;
+  background:#0c1f15 !important;
+  position:relative !important;
+  z-index:5 !important;
+  overflow:hidden !important;
+}
+
+.footer::before{
+  content:'' !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:-1 !important;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(74,124,92,.18), transparent 34%),
+    linear-gradient(180deg,#0c1f15 0%, #07150e 100%) !important;
+}
+
+.footer::after{
+  content:none !important;
+}
+
+/* Quote popup stays as a real overlay, never below the footer */
+#quoteOverlay.quote-overlay{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:9000 !important;
+  margin:0 !important;
+  width:100vw !important;
+  height:100vh !important;
+  max-width:none !important;
+  max-height:none !important;
+}
+
+#quoteOverlay.quote-overlay.show{
+  display:flex !important;
+}
+
+/* Stop mobile CSS from adding extra page space for the removed sticky bar */
+@media(max-width:768px){
+  body{
+    padding-bottom:0 !important;
+  }
+
+  .footer{
+    margin-bottom:0 !important;
+  }
 }
 </style>
 
