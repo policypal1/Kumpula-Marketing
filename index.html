@@ -456,6 +456,8 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
 .price-mgmt{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sage);font-weight:600;margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed rgba(20,47,33,.1)}
 .price-card.featured .price-mgmt{color:var(--tan);border-bottom-color:rgba(212,184,150,.15)}
 .price-mgmt::before{content:'+'}
+/* Hidden for now: monthly management/hosting prices. Remove this rule to show them again. */
+.price-mgmt,.mgmt-block{display:none!important}
 .price-desc{font-size:14px;line-height:1.6;color:var(--text-soft);margin-bottom:22px;font-family:var(--font-display);font-style:italic}
 .price-card.featured .price-desc{color:rgba(232,213,184,.7)}
 .price-section-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
@@ -1065,7 +1067,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
           <div class="price-tag">For one service, one clear offer</div>
         </div>
         <div class="price-money">
-          <span class="price-amount">$800</span>
+          <span class="price-amount">$797</span>
           <span class="price-unit">one-time</span>
         </div>
         <div class="price-mgmt">$149/mo management</div>
@@ -1090,7 +1092,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
           <div class="price-tag">The package most businesses actually need</div>
         </div>
         <div class="price-money">
-          <span class="price-amount">$1,200</span>
+          <span class="price-amount">$1,197</span>
           <span class="price-unit">one-time</span>
         </div>
         <div class="price-mgmt">$199/mo management</div>
@@ -1114,7 +1116,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
           <div class="price-tag">For serious scale &amp; paid ads</div>
         </div>
         <div class="price-money">
-          <span class="price-amount">$2,500</span>
+          <span class="price-amount">$2,397</span>
           <span class="price-unit">one-time</span>
         </div>
         <div class="price-mgmt">$299/mo management</div>
@@ -1235,9 +1237,9 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
         <h3>Which package <em>fits</em> you best?</h3>
         <p>Not sure? Pick "Not sure yet" and I'll recommend on our call.</p>
         <div class="quote-options" id="qPackageOpts">
-          <label class="quote-option" data-value="Starter"><input type="radio" name="qPkg" value="Starter"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Starter</div><div class="q-opt-sub">1-page site, focused service</div><div class="q-opt-price">$800 + $149/mo</div></div></label>
-          <label class="quote-option" data-value="Growth"><input type="radio" name="qPkg" value="Growth"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Growth <span style="color:var(--sage);font-size:10px;font-weight:700;margin-left:4px;letter-spacing:.06em;text-transform:uppercase">· popular</span></div><div class="q-opt-sub">3 pages, auto follow-ups, SMS alerts</div><div class="q-opt-price">$1,200 + $199/mo</div></div></label>
-          <label class="quote-option" data-value="Lead-Gen"><input type="radio" name="qPkg" value="Lead-Gen"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Lead-Gen</div><div class="q-opt-sub">5+ pages, full lead machine</div><div class="q-opt-price">$2,500 + $299/mo</div></div></label>
+          <label class="quote-option" data-value="Starter"><input type="radio" name="qPkg" value="Starter"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Starter</div><div class="q-opt-sub">1-page site, focused service</div><div class="q-opt-price">$797</div></div></label>
+          <label class="quote-option" data-value="Growth"><input type="radio" name="qPkg" value="Growth"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Growth <span style="color:var(--sage);font-size:10px;font-weight:700;margin-left:4px;letter-spacing:.06em;text-transform:uppercase">· popular</span></div><div class="q-opt-sub">3 pages, auto follow-ups, SMS alerts</div><div class="q-opt-price">$1,197</div></div></label>
+          <label class="quote-option" data-value="Lead-Gen"><input type="radio" name="qPkg" value="Lead-Gen"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Lead-Gen</div><div class="q-opt-sub">5+ pages, full lead machine</div><div class="q-opt-price">$2,397</div></div></label>
           <label class="quote-option" data-value="Not sure yet"><input type="radio" name="qPkg" value="Not sure yet"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Not sure yet</div><div class="q-opt-sub">I'll recommend on our call</div></div></label>
         </div>
       </div>
@@ -1379,7 +1381,7 @@ function sendLead(payload){return fetch(FE,{method:'POST',mode:'no-cors',headers
 function submitQuote() {
   var btn=document.getElementById('qNext');
   btn.disabled=true;btn.innerHTML='Sending...';
-  var priceMap={'Starter':'$800 + $149/mo','Growth':'$1,200 + $199/mo','Lead-Gen':'$2,500 + $299/mo'};
+  var priceMap={'Starter':'$797','Growth':'$1,197','Lead-Gen':'$2,397'};
   var payload={
     name:qState.data.name,business:qState.data.business,email:qState.data.email,phone:qState.data.phone,
     businessType:qState.data.businessType,package:qState.data.package,hasCurrentSite:qState.data.hasCurrentSite,
