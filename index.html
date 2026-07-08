@@ -694,12 +694,12 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Kumpula<em>Marketing</em></a>
     <div class="nav-links">
-      <a href="#contact" class="nav-cta">Get your website started →</a>
+      <a href="#quick-quote" class="nav-cta" data-open-quote data-package="Not sure yet">Get your website started →</a>
     </div>
     <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="#contact" class="nav-cta">Get your website started →</a>
+    <a href="#quick-quote" class="nav-cta" data-open-quote data-package="Not sure yet">Get your website started →</a>
   </div>
 </nav>
 
@@ -763,6 +763,27 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
 @media(max-width:560px){
   .hero-btns{flex-direction:column}.hero-btns .btn{width:100%}.no-site-card{padding:30px 22px;border-radius:24px}.no-site-points{gap:10px}.port-screen{min-height:230px}.sticky-quote{left:12px;right:12px;bottom:12px;transform:translateY(120px);justify-content:space-between;gap:8px;padding-left:16px}.sticky-quote.show{transform:translateY(0)}.sticky-quote>span{font-size:18px}.sticky-quote a{padding:12px 13px;white-space:nowrap;font-size:12px}
 }
+
+/* Compact quick quote form */
+.quick-quote-panel{position:fixed;inset:0;z-index:7000;display:none;align-items:flex-end;justify-content:center;padding:18px;background:rgba(12,31,21,.45);backdrop-filter:blur(5px);opacity:0;transition:opacity .22s ease}
+.quick-quote-panel.open{display:flex;opacity:1}
+.quick-quote-card{width:min(94vw,470px);max-height:86vh;overflow:auto;background:rgba(255,255,255,.98);border:1px solid rgba(20,47,33,.1);border-radius:24px;box-shadow:0 32px 90px -35px rgba(0,0,0,.75);transform:translateY(18px);transition:transform .28s cubic-bezier(.16,1,.3,1);position:relative}
+.quick-quote-panel.open .quick-quote-card{transform:translateY(0)}
+.quick-quote-top{position:sticky;top:0;z-index:2;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);padding:20px 22px 14px;border-bottom:1px solid rgba(20,47,33,.08)}
+.quick-quote-top h3{font-family:var(--font-display);font-size:28px;line-height:1.08;color:var(--forest);font-weight:500;margin:0 38px 6px 0}.quick-quote-top h3 em{color:var(--sage);font-style:italic}
+.quick-quote-top p{font-size:13.5px;line-height:1.5;color:var(--text-muted);margin:0;max-width:360px}
+.quick-quote-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border:none;border-radius:999px;background:var(--cream);color:var(--forest);font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease,transform .2s ease}
+.quick-quote-close:hover{background:var(--cream-dark);transform:rotate(6deg)}
+.quick-quote-form{padding:18px 22px 22px;display:grid;gap:16px}
+.qf-block{display:grid;gap:10px}.qf-label{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--sage)}
+.qf-package-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.qf-package{position:relative;display:block;cursor:pointer}.qf-package input{position:absolute;opacity:0;pointer-events:none}
+.qf-package span{display:block;padding:12px 12px;border-radius:14px;background:var(--cream);border:1.5px solid rgba(20,47,33,.1);font-size:13.5px;font-weight:700;color:var(--forest);transition:border-color .2s ease,background .2s ease,box-shadow .2s ease}.qf-package small{display:block;margin-top:3px;font-size:11px;color:var(--text-muted);font-weight:500;line-height:1.25}
+.qf-package input:checked+span{border-color:var(--sage);background:rgba(74,124,92,.08);box-shadow:0 0 0 4px rgba(74,124,92,.08)}
+.qf-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.qf-input,.qf-select,.qf-textarea{width:100%;border:1px solid rgba(20,47,33,.12);background:var(--cream);border-radius:13px;padding:12px 13px;font-size:14px;color:var(--text);outline:none;transition:border-color .2s ease,box-shadow .2s ease}.qf-textarea{min-height:72px;resize:vertical;grid-column:1/-1}.qf-input:focus,.qf-select:focus,.qf-textarea:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(74,124,92,.1)}
+.qf-submit{min-height:50px;border:none;border-radius:999px;background:linear-gradient(135deg,var(--tan-warm),var(--gold));color:var(--forest-deep);font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 14px 28px -12px rgba(201,168,76,.6);transition:transform .22s ease}.qf-submit:hover{transform:translateY(-2px)}
+.qf-note{font-size:11.5px;line-height:1.45;color:var(--text-muted);text-align:center;margin-top:-4px}.qf-note a{color:var(--forest);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:560px){.quick-quote-panel{padding:10px;align-items:flex-end}.quick-quote-card{width:100%;max-height:88vh;border-radius:22px}.quick-quote-top{padding:18px 18px 13px}.quick-quote-form{padding:16px 18px 20px}.qf-package-grid,.qf-grid{grid-template-columns:1fr}.qf-textarea{min-height:70px}.quick-quote-top h3{font-size:25px}}
+
 </style>
 
 <section class="hero">
@@ -798,7 +819,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
           </h1>
           <p class="hero-sub fade-up d2">A clean local website that helps people find you, trust you, and call you.</p>
           <div class="hero-btns fade-up d3">
-            <a href="#contact" class="btn btn-gold"><span>Get your website started</span><span class="arrow">→</span></a>
+            <a href="#quick-quote" class="btn btn-gold" data-open-quote data-package="Not sure yet"><span>Get your website started</span><span class="arrow">→</span></a>
             <a href="#work" class="btn btn-outline-light">See my work</a>
           </div>
           <div class="hero-proof-card fade-up d4">
@@ -994,7 +1015,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
           <li>Fast loading setup</li>
           <li>Basic local SEO setup</li>
         </ul>
-        <a class="price-btn outline" href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20the%20%24600%20website%20for%20my%20business."><span>Get your website started</span> <span class="arrow">→</span></a>
+        <a class="price-btn outline" href="#quick-quote" data-open-quote data-package="Basic Website - $600"><span>Get your website started</span> <span class="arrow">→</span></a>
       </div>
       <div class="price-card featured fade-up d2">
         <div class="price-badge">Most popular</div>
@@ -1016,7 +1037,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
           <li>Review and trust sections</li>
           <li>Local SEO structure for your service area</li>
         </ul>
-        <a class="price-btn solid" href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20the%20%24900%20website%20for%20my%20business."><span>Get your website started</span> <span class="arrow">→</span></a>
+        <a class="price-btn solid" href="#quick-quote" data-open-quote data-package="Growth Website - $900"><span>Get your website started</span> <span class="arrow">→</span></a>
       </div>
       <div class="price-card fade-up d3">
         <div class="price-head">
@@ -1038,7 +1059,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
           <li>Review, gallery, and trust integrations</li>
           <li>More revisions before launch</li>
         </ul>
-        <a class="price-btn outline" href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20a%20custom%20website%20quote%20for%20my%20business."><span>Get custom quote</span> <span class="arrow">→</span></a>
+        <a class="price-btn outline" href="#quick-quote" data-open-quote data-package="Custom Build"><span>Get custom quote</span> <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -1057,7 +1078,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
       <h2 class="cta-h">Let's build your local site. <em>Pay only if you love it.</em></h2>
       <p class="cta-p">Send me your business name and what you do. I’ll tell you the cleanest way to turn it into a site that looks legit and gets customers to reach out.</p>
       <div class="cta-actions">
-        <a href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20to%20start%20a%20website%20for%20my%20business." class="btn btn-gold"><span>Get your website started</span><span class="arrow">→</span></a>
+        <a href="#quick-quote" class="btn btn-gold" data-open-quote data-package="Not sure yet"><span>Get your website started</span><span class="arrow">→</span></a>
         <a href="tel:+15035694291" class="btn btn-outline-light"><span>Call or text (503) 569-4291</span></a>
       </div>
     </div>
@@ -1100,9 +1121,59 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
   </div>
 </footer>
 
+
+<div class="quick-quote-panel" id="quickQuote" aria-hidden="true">
+  <div class="quick-quote-card" role="dialog" aria-modal="true" aria-labelledby="quickQuoteTitle">
+    <div class="quick-quote-top">
+      <button class="quick-quote-close" type="button" aria-label="Close quick quote">×</button>
+      <h3 id="quickQuoteTitle">Quick website <em>quote.</em></h3>
+      <p>Answer a few things. It opens a pre-filled text to Samuel so you do not have to write everything out.</p>
+    </div>
+    <form class="quick-quote-form" id="quickQuoteForm">
+      <div class="qf-block">
+        <div class="qf-label">1. Website package</div>
+        <div class="qf-package-grid">
+          <label class="qf-package"><input type="radio" name="package" value="Basic Website - $600" required><span>Basic<small>$600 single-page website</small></span></label>
+          <label class="qf-package"><input type="radio" name="package" value="Growth Website - $900"><span>Growth<small>$900 stronger local site</small></span></label>
+          <label class="qf-package"><input type="radio" name="package" value="Custom Build"><span>Custom<small>larger build or ads setup</small></span></label>
+          <label class="qf-package"><input type="radio" name="package" value="Not sure yet"><span>Not sure<small>help me pick</small></span></label>
+        </div>
+      </div>
+      <div class="qf-block">
+        <div class="qf-label">2. Business and goal</div>
+        <div class="qf-grid">
+          <input class="qf-input" name="niche" type="text" placeholder="Business niche, ex: roofing, detailing" required>
+          <input class="qf-input" name="business" type="text" placeholder="Business name, optional">
+          <select class="qf-select" name="objective" required>
+            <option value="">Main objective</option>
+            <option>Get more calls</option>
+            <option>Get more quote requests</option>
+            <option>Look more legit online</option>
+            <option>Replace an old website</option>
+            <option>Run Google Ads later</option>
+            <option>Not sure yet</option>
+          </select>
+          <input class="qf-input" name="websiteStatus" type="text" placeholder="Current website? yes/no/link">
+        </div>
+        <textarea class="qf-textarea" name="notes" placeholder="Anything important? Services, city, timeline, examples you like, etc."></textarea>
+      </div>
+      <div class="qf-block">
+        <div class="qf-label">3. Your info</div>
+        <div class="qf-grid">
+          <input class="qf-input" name="name" type="text" placeholder="Your name" required>
+          <input class="qf-input" name="phone" type="tel" placeholder="Phone number" required>
+          <input class="qf-input" name="email" type="email" placeholder="Email" required>
+        </div>
+      </div>
+      <button class="qf-submit" type="submit">Send quick quote request</button>
+      <p class="qf-note">If the text message does not open, text <a href="sms:+15035694291">(503) 569-4291</a>.</p>
+    </form>
+  </div>
+</div>
+
 <div class="sticky-quote" id="stickyQuote" aria-label="Need a website?">
   <span>Need a website?</span>
-  <a href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20to%20start%20a%20website%20for%20my%20business." class="btn btn-gold"><span>Get your website started</span><span class="arrow">→</span></a>
+  <a href="#quick-quote" class="btn btn-gold" data-open-quote data-package="Not sure yet"><span>Get your website started</span><span class="arrow">→</span></a>
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -1159,6 +1230,67 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   updateStickyQuote();
   window.addEventListener('scroll', updateStickyQuote, {passive:true});
+
+
+  var quickQuote=document.getElementById('quickQuote');
+  var quickQuoteForm=document.getElementById('quickQuoteForm');
+  var quickQuoteClose=document.querySelector('.quick-quote-close');
+
+  function openQuickQuote(packageName){
+    if(!quickQuote) return;
+    quickQuote.classList.add('open');
+    quickQuote.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    if(packageName && quickQuoteForm){
+      var pkg=quickQuoteForm.querySelector('input[name="package"][value="'+packageName.replace(/"/g,'\\"')+'"]');
+      if(pkg) pkg.checked=true;
+    }
+    var first=quickQuote.querySelector('input, select, textarea, button');
+    setTimeout(function(){ if(first) first.focus(); },80);
+  }
+  function closeQuickQuote(){
+    if(!quickQuote) return;
+    quickQuote.classList.remove('open');
+    quickQuote.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('[data-open-quote]').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      openQuickQuote(btn.getAttribute('data-package') || 'Not sure yet');
+    });
+  });
+  if(quickQuoteClose){quickQuoteClose.addEventListener('click',closeQuickQuote)}
+  if(quickQuote){
+    quickQuote.addEventListener('click',function(e){if(e.target===quickQuote) closeQuickQuote();});
+  }
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') closeQuickQuote();});
+  if(quickQuoteForm){
+    quickQuoteForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(!quickQuoteForm.checkValidity()){
+        quickQuoteForm.reportValidity();
+        return;
+      }
+      var data=new FormData(quickQuoteForm);
+      var lines=[
+        'Hey Samuel, I want a website quote.',
+        '',
+        'Package: '+(data.get('package')||''),
+        'Objective: '+(data.get('objective')||''),
+        'Niche: '+(data.get('niche')||''),
+        'Business name: '+(data.get('business')||'Not provided'),
+        'Current website: '+(data.get('websiteStatus')||'Not provided'),
+        '',
+        'Name: '+(data.get('name')||''),
+        'Phone: '+(data.get('phone')||''),
+        'Email: '+(data.get('email')||''),
+        '',
+        'Notes: '+(data.get('notes')||'None')
+      ];
+      window.location.href='sms:+15035694291?&body='+encodeURIComponent(lines.join('\n'));
+    });
+  }
 
   document.querySelectorAll('.faq-item').forEach(function(item){
     var q=item.querySelector('.faq-q');
