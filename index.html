@@ -694,61 +694,61 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Kumpula<em>Marketing</em></a>
     <div class="nav-links">
-      <a href="#contact" class="nav-cta">Start my website →</a>
+      <a href="#contact" class="nav-cta">Get my website quote →</a>
     </div>
     <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="#contact" class="nav-cta">Start my website →</a>
+    <a href="#contact" class="nav-cta">Get my website quote →</a>
   </div>
 </nav>
 
 <!-- HERO -->
 
 <style id="revision-fixes">
-/* Added revision section, keeps the original visual system but trims the page. */
-.no-site{position:relative;overflow:hidden}
-.no-site-decor{position:absolute;pointer-events:none;color:var(--tan-warm);font-family:var(--font-display);font-style:italic;opacity:.25;z-index:0}
-.no-site-decor-1{top:14%;right:6%;font-size:42px;animation:floatMark 9s ease-in-out infinite}
-.no-site-decor-2{bottom:14%;left:5%;font-size:36px;animation:floatMark 11s ease-in-out infinite -4s}
-.no-site-card{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:stretch;padding:46px;border-radius:32px;background:rgba(255,255,255,.72);border:1px solid rgba(20,47,33,.08);box-shadow:var(--shadow-warm);backdrop-filter:blur(10px);overflow:hidden}
-.no-site-card::before{content:'';position:absolute;top:-120px;right:-120px;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(212,184,150,.36),transparent 70%);pointer-events:none}
-.no-site-copy{position:relative;z-index:1}
-.no-site-copy h2{color:var(--forest);margin-bottom:18px;max-width:600px}
-.no-site-copy p{font-size:17px;line-height:1.72;color:var(--text-soft);max-width:610px}
-.no-site-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-.no-site-points{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px}
-.no-site-point{padding:20px 20px 18px;border-radius:18px;background:rgba(250,245,238,.74);border:1px solid rgba(20,47,33,.07)}
+/* Targeted revision: keep the original visual system, remove hero clutter, add angled client strip, green stat section, and sticky quote CTA. */
+.hero-grid{grid-template-columns:1fr;max-width:980px;gap:0}
+.hero-main{max-width:760px}
+.hero-sub{max-width:590px;margin-bottom:34px}
+.hero-btns{margin-bottom:0}
+.hero-work-strip{width:100%;max-width:1040px;margin-top:42px;display:flex;align-items:stretch;overflow:hidden;border-radius:28px;border:1px solid rgba(212,184,150,.18);box-shadow:0 28px 70px -34px rgba(0,0,0,.7);background:rgba(250,245,238,.04)}
+.hero-work-tile{position:relative;min-height:165px;flex:1;overflow:hidden;clip-path:polygon(14% 0,100% 0,86% 100%,0 100%);margin-left:-28px;background:#10281d;isolation:isolate;transition:flex .35s cubic-bezier(.16,1,.3,1), filter .35s ease}
+.hero-work-tile:first-child{margin-left:0;clip-path:polygon(0 0,100% 0,86% 100%,0 100%)}
+.hero-work-tile:last-child{clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)}
+.hero-work-tile:hover{flex:1.25;filter:saturate(1.1)}
+.hero-work-tile img{width:100%;height:100%;object-fit:cover;object-position:top center;transform:scale(1.08);transition:transform .7s cubic-bezier(.16,1,.3,1);opacity:.88}
+.hero-work-tile:hover img{transform:scale(1.14)}
+.hero-work-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,31,21,.08),rgba(12,31,21,.72));z-index:1}
+.hero-work-tile span{position:absolute;left:24px;right:24px;bottom:18px;z-index:2;color:var(--cream);font-weight:700;font-size:14px;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.hero-work-tile:first-child span{left:22px}.hero-work-tile:not(:first-child) span{left:42px}
+.no-site{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--forest-deep) 0%,#0a1b11 100%);color:var(--cream)}
+.no-site::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(212,184,150,.08) 1px,transparent 1px);background-size:30px 30px;opacity:.8;pointer-events:none}
+.no-site-decor{display:none!important}
+.no-site-card{position:relative;z-index:1;display:grid;grid-template-columns:.95fr 1.05fr;gap:32px;align-items:center;padding:46px;border-radius:32px;background:rgba(250,245,238,.045);border:1px solid rgba(212,184,150,.15);box-shadow:0 36px 80px -42px rgba(0,0,0,.75);backdrop-filter:blur(10px);overflow:hidden}
+.no-site-copy{position:relative;z-index:1}.no-site-copy h2{color:var(--cream);margin-bottom:0;max-width:600px}.no-site-copy h2 em{color:var(--tan-warm)}
+.no-site-copy .chapter-label{color:var(--tan)}.no-site-copy .chapter-line{background:rgba(212,184,150,.22)}
+.no-site-actions{display:none!important}
+.no-site-points{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:12px}
+.no-site-point{padding:20px 20px 18px;border-radius:18px;background:rgba(250,245,238,.06);border:1px solid rgba(212,184,150,.14)}
 .no-site-num{font-family:var(--font-display);font-style:italic;color:var(--tan-warm);font-size:18px;font-weight:500;display:block;margin-bottom:8px}
-.no-site-point strong{display:block;color:var(--forest);font-size:16px;margin-bottom:6px}
-.no-site-point p{font-size:14px;line-height:1.6;color:var(--text-soft)}
-.port-tags{display:none!important}
-.price-money{min-height:54px}
-.price-amount{white-space:nowrap}
-a.price-btn{text-decoration:none}
+.no-site-point strong{display:block;color:var(--cream);font-size:16px;margin-bottom:6px}.no-site-point p{font-size:14px;line-height:1.6;color:rgba(232,213,184,.72)}
+.no-site-source{font-size:11px;color:rgba(232,213,184,.45);margin-top:12px;font-style:italic;font-family:var(--font-display)}
+.portfolio.section{padding-top:120px;padding-bottom:120px}.portfolio-list{gap:24px}.port-content p,.port-metrics,.port-category,.port-tags{display:none!important}.port-content{padding:38px 34px}.port-content h3{margin-bottom:18px}.port-link{font-size:15px}.port-screen{min-height:320px}
+.price-money{min-height:54px}.price-amount{white-space:nowrap}a.price-btn{text-decoration:none}.pricing-head{margin-bottom:42px}.pricing-head p{display:none!important}.pricing-note,.mgmt-block{display:none!important}.price-mgmt{display:none!important}
+.price-list li.analytics-item{display:none!important}
 .quote-overlay,.exit-overlay{display:none!important}
+.sticky-quote{position:fixed;left:50%;bottom:18px;z-index:1200;transform:translate(-50%,120px);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .25s ease;display:flex;align-items:center;gap:12px;padding:10px 10px 10px 18px;border-radius:999px;background:rgba(12,31,21,.94);border:1px solid rgba(212,184,150,.22);box-shadow:0 20px 55px -24px rgba(0,0,0,.78);backdrop-filter:blur(16px);color:var(--cream)}
+.sticky-quote.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}.sticky-quote span{font-size:13px;color:rgba(232,213,184,.76);white-space:nowrap}.sticky-quote strong{color:var(--cream)}.sticky-quote a{min-height:44px;padding:12px 18px;font-size:13px}
 @media(max-width:900px){
-  .no-site-card{grid-template-columns:1fr;padding:36px 28px}
+  .no-site-card{grid-template-columns:1fr;padding:36px 28px}.portfolio.section{padding-top:96px;padding-bottom:96px}
 }
 @media(max-width:768px){
-  .hero-orbits,.hero-bubbles,.sbg-orbs,.sbg-ticker,.site-bg-glow,.site-bg-cursor{display:none!important}
-  .hero{min-height:auto}
-  .hero-inner{padding:118px 0 74px}
-  .hero-grid{grid-template-columns:1fr;gap:34px}
-  .hero-card{transform:none!important}
-  .hero-card:hover{transform:none!important}
-  .port-card,.port-card:nth-child(even){grid-template-columns:1fr}
-  .port-card:nth-child(even) .port-screen{order:0}
-  .port-screen{min-height:300px}
-  .pricing-grid{grid-template-columns:1fr}
-  .price-card.featured{transform:none}
-  .price-card.featured:hover{transform:translateY(-6px)}
+  .hero-orbits,.hero-bubbles,.sbg-orbs,.sbg-ticker,.site-bg-glow,.site-bg-cursor{display:none!important}.hero{min-height:auto}.hero-inner{padding:118px 0 76px}.hero-grid{grid-template-columns:1fr;gap:0;text-align:left}.hero-main{max-width:100%}.hero-sub{font-size:16px;line-height:1.58}.hero h1{font-size:clamp(42px,12vw,60px)}
+  .hero-work-strip{margin-top:34px;overflow-x:auto;overflow-y:hidden;border-radius:22px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.hero-work-strip::-webkit-scrollbar{display:none}.hero-work-tile{min-width:72%;min-height:145px;flex:0 0 72%;scroll-snap-align:center}.hero-work-tile:hover{flex:0 0 72%}.hero-work-tile span{font-size:13px}
+  .port-card,.port-card:nth-child(even){grid-template-columns:1fr}.port-card:nth-child(even) .port-screen{order:0}.port-screen{min-height:260px}.pricing-grid{grid-template-columns:1fr}.price-card.featured{transform:none}.price-card.featured:hover{transform:translateY(-6px)}
 }
 @media(max-width:560px){
-  .no-site-card{padding:30px 22px;border-radius:24px}
-  .no-site-actions .btn{width:100%}
-  .no-site-copy p{font-size:15.5px}
-  .port-screen{min-height:250px}
+  .hero-btns{flex-direction:column}.hero-btns .btn{width:100%}.hero-work-tile{min-width:82%;flex-basis:82%;min-height:132px}.hero-work-tile:hover{flex-basis:82%}.no-site-card{padding:30px 22px;border-radius:24px}.no-site-points{gap:10px}.port-screen{min-height:230px}.sticky-quote{left:12px;right:12px;bottom:12px;transform:translateY(120px);justify-content:space-between}.sticky-quote.show{transform:translateY(0)}.sticky-quote span{font-size:12px}.sticky-quote a{padding:12px 14px;white-space:nowrap}
 }
 </style>
 
@@ -773,59 +773,39 @@ a.price-btn{text-decoration:none}
   <div class="container">
     <div class="hero-inner">
       <div class="hero-grid">
-        <div>
+        <div class="hero-main">
           <div class="fade-up">
             <div class="hero-kicker">
               <span class="kt">Salem · Keizer · Willamette Valley</span>
             </div>
           </div>
           <h1 class="fade-up d1">
-            <span class="line-1">Websites that bring</span>
-            <span class="line-2">you <em><span class="hero-rotate"><span class="word">customers</span></span></em>.</span>
+            <span class="line-1">Finally get your</span>
+            <span class="line-2">business <em>online</em>.</span>
           </h1>
-          <p class="hero-sub fade-up d2">Most local business sites just sit there. I build websites that make people trust you, understand what you do fast, and actually reach out — no deposit required.</p>
+          <p class="hero-sub fade-up d2">A clean local website that helps people find you, trust you, and call you.</p>
           <div class="hero-btns fade-up d3">
-            <a href="#contact" class="btn btn-gold"><span>Start my website</span><span class="arrow">→</span></a>
+            <a href="#contact" class="btn btn-gold"><span>Get my website quote</span><span class="arrow">→</span></a>
             <a href="#work" class="btn btn-outline-light">See my work</a>
           </div>
-          <div class="hero-trust fade-up d4">
-            <div class="trust-thumbs">
-              <a href="https://theoneclearchoiceautoglass.com" target="_blank" rel="noopener" aria-label="The One Clear Choice Auto Glass">
-                <img src="Screenshot 2026-04-06 192032.png" alt="" onerror="this.parentNode.classList.add('fallback');this.parentNode.innerHTML='A'">
-              </a>
-              <a href="https://keizermobiledetailing.com" target="_blank" rel="noopener" aria-label="Keizer Mobile Detailing">
-                <img src="Screenshot 2026-04-06 192106.png" alt="" onerror="this.parentNode.classList.add('fallback');this.parentNode.innerHTML='K'">
-              </a>
-            </div>
-            <div class="trust-text">
-              <strong>Local Salem &amp; Keizer businesses already live</strong>
-              Auto glass &amp; mobile detailing — with more being built now
-            </div>
-          </div>
         </div>
-        <div class="fade-right d2">
-          <div class="hero-card">
-            <div class="hc-label">
-              <span class="hc-dot"></span>
-              <span class="hc-label-text">Live site · Last built</span>
-            </div>
-            <div class="hc-site">One Clear Choice Auto Glass</div>
-            <div class="hc-url">theoneclearchoiceautoglass.com</div>
-            <div class="hc-stats">
-              <div class="hc-stat">
-                <div class="hc-stat-num"><span class="arrow-up">↑</span>3.2×</div>
-                <div class="hc-stat-label">More quote requests vs. old site</div>
-              </div>
-              <div class="hc-stat">
-                <div class="hc-stat-num">0.9s</div>
-                <div class="hc-stat-label">Load time on 4G mobile</div>
-              </div>
-            </div>
-            <div class="hc-quote">
-              Samuel rebuilt our site and it actually gets us calls now. People trust it the second they land.
-              <span class="hc-quote-who">Kaden — One Clear Choice</span>
-            </div>
-          </div>
+        <div class="hero-work-strip fade-up d4" aria-label="Businesses Samuel has worked with">
+          <a class="hero-work-tile" href="https://tenderheartspihc.com/" target="_blank" rel="noopener noreferrer" aria-label="Tender Hearts LLC">
+            <img src="Screenshot 2026-07-08 160239.png" alt="Tender Hearts LLC website preview" onerror="this.style.display='none'">
+            <span>Tender Hearts LLC</span>
+          </a>
+          <a class="hero-work-tile" href="https://zhhomeco.com" target="_blank" rel="noopener noreferrer" aria-label="ZH Homes LLC">
+            <img src="Screenshot 2026-06-15 173223.png" alt="ZH Homes website preview" onerror="this.style.display='none'">
+            <span>ZH Homes LLC</span>
+          </a>
+          <a class="hero-work-tile" href="https://keizermobiledetailing.com" target="_blank" rel="noopener noreferrer" aria-label="Keizer Mobile Detailing">
+            <img src="Screenshot 2026-04-06 192106.png" alt="Keizer Mobile Detailing website preview" onerror="this.style.display='none'">
+            <span>Keizer Mobile Detailing</span>
+          </a>
+          <a class="hero-work-tile" href="https://theoneclearchoiceautoglass.com" target="_blank" rel="noopener noreferrer" aria-label="The One Clear Choice Auto Glass">
+            <img src="Screenshot 2026-04-06 192032.png" alt="The One Clear Choice Auto Glass website preview" onerror="this.style.display='none'">
+            <span>One Clear Choice Auto Glass</span>
+          </a>
         </div>
       </div>
     </div>
@@ -850,9 +830,7 @@ a.price-btn{text-decoration:none}
   </div>
 </section>
 <!-- SIMPLE TARGET SECTION -->
-<section class="no-site section bg-paper">
-  <span class="no-site-decor no-site-decor-1">✦</span>
-  <span class="no-site-decor no-site-decor-2">*</span>
+<section class="no-site section">
   <div class="container">
     <div class="no-site-card fade-up">
       <div class="no-site-copy">
@@ -860,34 +838,100 @@ a.price-btn{text-decoration:none}
           <div class="chapter-line"></div>
           <span class="chapter-label">No Website Yet?</span>
         </div>
-        <h2>If people can't find you, they probably won't hire you.</h2>
-        <p>A lot of customers check online before they call. If they only find an old Facebook page, random photos, or nothing at all, they move on to the business that looks more professional.</p>
-        <div class="no-site-actions">
-          <a href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20do%20not%20have%20a%20website%20yet%20and%20want%20to%20talk." class="btn btn-gold"><span>Text me to start</span><span class="arrow">→</span></a>
-          <a href="#pricing" class="btn btn-outline-dark">View pricing</a>
-        </div>
+        <h2>If people can't find you, they probably won't <em>hire you.</em></h2>
       </div>
-      <div class="no-site-points" aria-label="Why a simple website helps">
-        <div class="no-site-point">
-          <span class="no-site-num">01</span>
-          <strong>Look legit immediately</strong>
-          <p>A clean site makes people feel safer choosing you over another local business.</p>
+      <div>
+        <div class="no-site-points" aria-label="Why a simple website helps">
+          <div class="no-site-point">
+            <span class="no-site-num">01</span>
+            <strong>97% read local business reviews.</strong>
+            <p>People check online before they trust a business. Your site should make that first check feel easy.</p>
+          </div>
+          <div class="no-site-point">
+            <span class="no-site-num">02</span>
+            <strong>76% of nearby mobile searches lead to a visit within a day.</strong>
+            <p>When someone searches for your service nearby, you want to be the business that looks ready to call.</p>
+          </div>
+          <div class="no-site-point">
+            <span class="no-site-num">03</span>
+            <strong>28% of nearby mobile searches lead to a purchase.</strong>
+            <p>A simple site gives those people the info they need fast: services, proof, location, and how to reach you.</p>
+          </div>
         </div>
-        <div class="no-site-point">
-          <span class="no-site-num">02</span>
-          <strong>Explain the basics fast</strong>
-          <p>Services, location, photos, reviews, and contact buttons should be obvious.</p>
-        </div>
-        <div class="no-site-point">
-          <span class="no-site-num">03</span>
-          <strong>Run ads later</strong>
-          <p>Google Ads work better after your site is built to turn clicks into leads.</p>
-        </div>
+        <div class="no-site-source">Sources: BrightLocal Local Consumer Review Survey and Google local search research.</div>
       </div>
     </div>
   </div>
 </section>
-
+<section class="portfolio section bg-dark" id="work">
+  <div class="container">
+    <div class="portfolio-head fade-up">
+      <div class="chapter chapter-center chapter-light">
+        <div class="chapter-line"></div>
+        <span class="chapter-label">Selected Work</span>
+      </div>
+      <h2 class="h-light">Businesses I've <em>worked with.</em></h2>
+    </div>
+    <div class="portfolio-list">
+      <article class="port-card fade-up d1">
+        <div class="port-screen">
+          <div class="port-meta">
+            <div class="port-dots"><span></span><span></span><span></span></div>
+            <div class="port-url">tenderheartspihc.com</div>
+            <div class="port-year">2026</div>
+          </div>
+          <div class="port-media"><img src="Screenshot 2026-07-08 160239.png" alt="Tender Hearts LLC website preview" loading="lazy" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
+        </div>
+        <div class="port-content">
+          <h3>Tender Hearts <em>LLC</em></h3>
+          <a class="port-link" href="https://tenderheartspihc.com/" target="_blank" rel="noopener noreferrer">Visit live site</a>
+        </div>
+      </article>
+      <article class="port-card fade-up d2">
+        <div class="port-screen">
+          <div class="port-meta">
+            <div class="port-dots"><span></span><span></span><span></span></div>
+            <div class="port-url">zhhomeco.com</div>
+            <div class="port-year">2026</div>
+          </div>
+          <div class="port-media"><img loading="lazy" src="Screenshot 2026-06-15 173223.png" alt="ZH Homes website preview" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
+        </div>
+        <div class="port-content">
+          <h3>ZH Homes <em>LLC</em></h3>
+          <a class="port-link" href="https://zhhomeco.com" target="_blank" rel="noopener noreferrer">Visit live site</a>
+        </div>
+      </article>
+      <article class="port-card fade-up d3">
+        <div class="port-screen">
+          <div class="port-meta">
+            <div class="port-dots"><span></span><span></span><span></span></div>
+            <div class="port-url">keizermobiledetailing.com</div>
+            <div class="port-year">2026</div>
+          </div>
+          <div class="port-media"><img loading="lazy" src="Screenshot 2026-04-06 192106.png" alt="Keizer Mobile Detailing" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
+        </div>
+        <div class="port-content">
+          <h3>Keizer <em>Mobile Detailing</em></h3>
+          <a class="port-link" href="https://keizermobiledetailing.com" target="_blank" rel="noopener noreferrer">Visit live site</a>
+        </div>
+      </article>
+      <article class="port-card fade-up d4">
+        <div class="port-screen">
+          <div class="port-meta">
+            <div class="port-dots"><span></span><span></span><span></span></div>
+            <div class="port-url">theoneclearchoiceautoglass.com</div>
+            <div class="port-year">2026</div>
+          </div>
+          <div class="port-media"><img loading="lazy" src="Screenshot 2026-04-06 192032.png" alt="The One Clear Choice Auto Glass" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
+        </div>
+        <div class="port-content">
+          <h3>The One Clear Choice <em>Auto Glass</em></h3>
+          <a class="port-link" href="https://theoneclearchoiceautoglass.com" target="_blank" rel="noopener noreferrer">Visit live site</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 <section class="pricing section bg-light" id="pricing">
   <span class="pricing-decor pricing-decor-1">✦</span>
   <span class="pricing-decor pricing-decor-2">*</span>
@@ -897,8 +941,7 @@ a.price-btn{text-decoration:none}
         <div class="chapter-line"></div>
         <span class="chapter-label">Pricing</span>
       </div>
-      <h2>Every website is custom. <em>Pay nothing until launch.</em></h2>
-      <p>I do not force businesses into fixed packages. These are simple starting points so you have an idea of budget. The final build is based on your goals, services, photos, pages, and what the site needs to convert.</p>
+      <h2>Simple website <em>pricing.</em></h2>
     </div>
     <div class="pricing-grid">
       <div class="price-card fade-up d1">
@@ -909,9 +952,8 @@ a.price-btn{text-decoration:none}
         <div class="price-money">
           <span class="price-amount">$600</span>
         </div>
-        <div class="price-mgmt">Custom management available</div>
-        <div class="price-desc">A custom basic website for businesses that need a professional online presence without overcomplicating the build.</div>
-        <div class="price-section-label">Commonly includes</div>
+        <div class="price-desc">For businesses that need a clean online presence without overcomplicating the build.</div>
+        <div class="price-section-label">Includes</div>
         <ul class="price-list">
           <li>Custom 1-page website</li>
           <li>Mobile-friendly design</li>
@@ -922,7 +964,7 @@ a.price-btn{text-decoration:none}
           <li>Fast loading setup</li>
           <li>Basic local SEO setup</li>
         </ul>
-        <a class="price-btn outline" href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20the%20%24600%20website%20for%20my%20business."><span>Text me to start</span> <span class="arrow">→</span></a>
+        <a class="price-btn outline" href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20the%20%24600%20website%20for%20my%20business."><span>Get this website</span> <span class="arrow">→</span></a>
       </div>
       <div class="price-card featured fade-up d2">
         <div class="price-badge">Most popular</div>
@@ -933,9 +975,8 @@ a.price-btn{text-decoration:none}
         <div class="price-money">
           <span class="price-amount">$900</span>
         </div>
-        <div class="price-mgmt">Custom management available</div>
-        <div class="price-desc">A stronger custom website for businesses that need more trust, more detail, and a better setup for calls and form submissions.</div>
-        <div class="price-section-label">Commonly includes</div>
+        <div class="price-desc">For businesses that need more trust, more detail, and a better setup for calls and form submissions.</div>
+        <div class="price-section-label">Includes</div>
         <ul class="price-list">
           <li>Custom multi-section or multi-page layout</li>
           <li>Service-focused page structure</li>
@@ -944,9 +985,8 @@ a.price-btn{text-decoration:none}
           <li>Before/after, gallery, or project sections</li>
           <li>Review and trust sections</li>
           <li>Local SEO structure for your service area</li>
-          <li>Analytics setup</li>
         </ul>
-        <a class="price-btn solid" href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20the%20%24900%20website%20for%20my%20business."><span>Text me to start</span> <span class="arrow">→</span></a>
+        <a class="price-btn solid" href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20the%20%24900%20website%20for%20my%20business."><span>Get this website</span> <span class="arrow">→</span></a>
       </div>
       <div class="price-card fade-up d3">
         <div class="price-head">
@@ -956,8 +996,7 @@ a.price-btn{text-decoration:none}
         <div class="price-money">
           <span class="price-amount">Custom</span>
         </div>
-        <div class="price-mgmt">Custom management available</div>
-        <div class="price-desc">For larger builds that need service pages, quote flows, ad landing pages, deeper SEO, or a more advanced lead-generation setup.</div>
+        <div class="price-desc">For larger builds that need service pages, quote flows, ad landing pages, deeper SEO, or advanced lead generation.</div>
         <div class="price-section-label">Built around what you need</div>
         <ul class="price-list">
           <li>Custom page count and structure</li>
@@ -969,120 +1008,8 @@ a.price-btn{text-decoration:none}
           <li>Review, gallery, and trust integrations</li>
           <li>More revisions before launch</li>
         </ul>
-        <a class="price-btn outline" href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20a%20custom%20website%20quote%20for%20my%20business."><span>Text me for custom quote</span> <span class="arrow">→</span></a>
+        <a class="price-btn outline" href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20a%20custom%20website%20quote%20for%20my%20business."><span>Get custom quote</span> <span class="arrow">→</span></a>
       </div>
-    </div>
-    <div class="mgmt-block fade-up">
-      <div class="mgmt-top">
-        <div class="mgmt-title">Monthly management <em>— optional</em><span>For updates, hosting help, and ongoing support after launch</span></div>
-        <div class="mgmt-price">Custom<small>/mo</small></div>
-      </div>
-      <ul class="mgmt-list">
-        <li>Hosting on Vercel (SSL, fast CDN)</li>
-        <li>Domain &amp; DNS management</li>
-        <li>Small content updates</li>
-        <li>Speed &amp; uptime monitoring</li>
-        <li>Ongoing SEO maintenance</li>
-        <li>Security updates &amp; backups</li>
-        <li>Text support</li>
-        <li>Analytics review</li>
-        <li>No long-term contracts</li>
-      </ul>
-    </div>
-    <p class="pricing-note fade-up">Simple sites are $600 or $900 depending on the build. Bigger projects are custom quoted based on what the site needs to do.</p>
-  </div>
-</section>
-<section class="portfolio section bg-dark" id="work">
-  <div class="container">
-    <div class="portfolio-head fade-up">
-      <div class="chapter chapter-center chapter-light">
-        <div class="chapter-line"></div>
-        <span class="chapter-label">Selected Work</span>
-      </div>
-      <h2 class="h-light">Businesses I've <em>worked with.</em></h2>
-      <p>Real sites, real businesses, right here in the Willamette Valley.</p>
-    </div>
-    <div class="portfolio-list">
-      <article class="port-card fade-up d1">
-        <div class="port-screen">
-          <div class="port-meta">
-            <div class="port-dots"><span></span><span></span><span></span></div>
-            <div class="port-url">Tender Hearts LLC</div>
-            <div class="port-year">2026</div>
-          </div>
-          <div class="port-media"><img src="Screenshot 2026-07-08 160239.png" alt="Tender Hearts LLC website preview" loading="lazy" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
-        </div>
-        <div class="port-content">
-          <span class="port-category">Care Service · Oregon</span>
-          <h3>Tender Hearts <em>LLC</em></h3>
-          <p>Website project added for Tender Hearts LLC, built to make the business feel trustworthy online and give visitors a simple path to learn more and reach out.</p>
-          <div class="port-metrics">
-            <div><div class="port-metric-n">1</div><div class="port-metric-l">New project</div></div>
-            <div><div class="port-metric-n">2026</div><div class="port-metric-l">Added</div></div>
-          </div>
-          <a class="port-link" href="#contact">URL coming soon</a>
-        </div>
-      </article>
-<article class="port-card fade-up d2">
-        <div class="port-screen">
-          <div class="port-meta">
-            <div class="port-dots"><span></span><span></span><span></span></div>
-            <div class="port-url">zhhomeco.com</div>
-            <div class="port-year">2026</div>
-          </div>
-          <div class="port-media"><img loading="lazy" src="Screenshot 2026-06-15 173223.png" alt="ZH Homes website preview" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
-        </div>
-        <div class="port-content">
-          <span class="port-category">Construction · Willamette Valley, OR</span>
-          <h3>ZH Homes <em>LLC</em></h3>
-          <p>Custom construction website built to give ZH Homes a stronger local presence, showcase services and project work, and make it simple for homeowners to request an estimate.</p>
-          <div class="port-metrics">
-            <div><div class="port-metric-n">1</div><div class="port-metric-l">Custom site</div></div>
-            <div><div class="port-metric-n">2026</div><div class="port-metric-l">Launch year</div></div>
-          </div>
-          <a class="port-link" href="https://zhhomeco.com" target="_blank" rel="noopener noreferrer">Visit live site</a>
-        </div>
-      </article>
-<article class="port-card fade-up d3">
-        <div class="port-screen">
-          <div class="port-meta">
-            <div class="port-dots"><span></span><span></span><span></span></div>
-            <div class="port-url">keizermobiledetailing.com</div>
-            <div class="port-year">2026</div>
-          </div>
-          <div class="port-media"><img loading="lazy" src="Screenshot 2026-04-06 192106.png" alt="Keizer Mobile Detailing" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
-        </div>
-        <div class="port-content">
-          <span class="port-category">Mobile Detailing · Keizer, OR</span>
-          <h3>Keizer <em>Mobile Detailing</em></h3>
-          <p>Cleaner local-service layout with a stronger booking path, autoplay video hero reel that adapts to device, and a more premium feel that matches the quality of the actual detailing work.</p>
-          <div class="port-metrics">
-            <div><div class="port-metric-n">5★</div><div class="port-metric-l">Client feedback</div></div>
-            <div><div class="port-metric-n">1.1s</div><div class="port-metric-l">Mobile load</div></div>
-          </div>
-          <a class="port-link" href="https://keizermobiledetailing.com" target="_blank" rel="noopener noreferrer">Visit live site</a>
-        </div>
-      </article>
-<article class="port-card fade-up d4">
-        <div class="port-screen">
-          <div class="port-meta">
-            <div class="port-dots"><span></span><span></span><span></span></div>
-            <div class="port-url">theoneclearchoiceautoglass.com</div>
-            <div class="port-year">2026</div>
-          </div>
-          <div class="port-media"><img loading="lazy" src="Screenshot 2026-04-06 192032.png" alt="The One Clear Choice Auto Glass" onerror="this.parentNode.style.background='#1a3a2a';this.remove();"></div>
-        </div>
-        <div class="port-content">
-          <span class="port-category">Auto Glass · Salem, OR</span>
-          <h3>The One Clear Choice <em>Auto Glass</em></h3>
-          <p>Custom site, full local SEO, Google Ads support, and a streamlined quote flow built to turn local traffic into booked repairs. Replaced a generic template site that was getting zero calls.</p>
-          <div class="port-metrics">
-            <div><div class="port-metric-n"><span class="up">↑</span>3.2×</div><div class="port-metric-l">Quote requests</div></div>
-            <div><div class="port-metric-n">0.9s</div><div class="port-metric-l">Mobile load</div></div>
-          </div>
-          <a class="port-link" href="https://theoneclearchoiceautoglass.com" target="_blank" rel="noopener noreferrer">Visit live site</a>
-        </div>
-      </article>
     </div>
   </div>
 </section>
@@ -1100,7 +1027,7 @@ a.price-btn{text-decoration:none}
       <h2 class="cta-h">Let's build your site. <em>Pay only if you love it.</em></h2>
       <p class="cta-p">Send me your business name and what you do. I’ll tell you the cleanest way to turn it into a site that looks legit and gets customers to reach out.</p>
       <div class="cta-actions">
-        <a href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20to%20start%20a%20website%20for%20my%20business." class="btn btn-gold"><span>Text me your business name</span><span class="arrow">→</span></a>
+        <a href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20to%20start%20a%20website%20for%20my%20business." class="btn btn-gold"><span>Get my website quote</span><span class="arrow">→</span></a>
         <a href="tel:+15035694291" class="btn btn-outline-light"><span>Call or text (503) 569-4291</span></a>
       </div>
     </div>
@@ -1142,6 +1069,11 @@ a.price-btn{text-decoration:none}
     <div class="footer-flourish">— Made in the Willamette Valley —</div>
   </div>
 </footer>
+
+<div class="sticky-quote" id="stickyQuote" aria-label="Get a website quote">
+  <span><strong>Need a website?</strong> Get a quick quote.</span>
+  <a href="sms:+15035694291?&body=Hey%20Samuel%2C%20I%20want%20a%20website%20quote%20for%20my%20business." class="btn btn-gold"><span>Get quote</span><span class="arrow">→</span></a>
+</div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   var observer = 'IntersectionObserver' in window ? new IntersectionObserver(function(entries){
@@ -1186,6 +1118,17 @@ document.addEventListener('DOMContentLoaded', function () {
       rotateWord.style.animation='fadeSlide .45s ease';
     },2800);
   }
+
+
+
+  var stickyQuote=document.getElementById('stickyQuote');
+  var heroSection=document.querySelector('.hero');
+  function updateStickyQuote(){
+    if(!stickyQuote || !heroSection) return;
+    stickyQuote.classList.toggle('show', window.scrollY > heroSection.offsetHeight - 80);
+  }
+  updateStickyQuote();
+  window.addEventListener('scroll', updateStickyQuote, {passive:true});
 
   document.querySelectorAll('.faq-item').forEach(function(item){
     var q=item.querySelector('.faq-q');
