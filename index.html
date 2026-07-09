@@ -601,7 +601,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
 .quote-conditional.show{display:block;animation:qStepIn .3s ease}
 .quote-nav{display:flex;gap:10px;margin-top:26px}
 .quote-back,.quote-next{flex:1;min-height:52px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;border:none;transition:transform .2s ease, box-shadow .2s ease;display:inline-flex;align-items:center;justify-content:center}
-.quote-back{background:transparent;border:1.5px solid rgba(20,47,33,.14);color:var(--text);max-width:110px;flex:0 0 auto}
+.quote-back{background:transparent;border:1.5px solid rgba(20,47,33,.14);color:var(--text);max-width:110px;min-width:96px;padding:0 22px;flex:0 0 auto}
 .quote-back:hover{border-color:var(--forest);background:rgba(20,47,33,.03)}
 .quote-next{background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);box-shadow:0 14px 28px -10px rgba(20,47,33,.4)}
 .quote-next:hover{transform:translateY(-2px)}
@@ -1158,10 +1158,10 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
       <div class="quote-step" data-step="4">
         <h3>Last step — where can I <em>reach</em> you?</h3>
         <p>I'll text or email you within a few hours to kick things off. No spam, no newsletters.</p>
-        <input type="text" class="quote-input" id="qName" placeholder="Your Name *" autocomplete="name">
+        <input type="text" class="quote-input" id="qName" placeholder="Your Name *" autocomplete="name" required>
         <input type="text" class="quote-input" id="qBiz" placeholder="Business Name" autocomplete="organization">
-        <input type="email" class="quote-input" id="qEmail" placeholder="Email Address *" autocomplete="email">
-        <input type="tel" class="quote-input" id="qPhone" placeholder="Phone (optional — I prefer to text)" autocomplete="tel">
+        <input type="email" class="quote-input" id="qEmail" placeholder="Email Address *" autocomplete="email" required>
+        <input type="tel" class="quote-input" id="qPhone" placeholder="Phone Number *" autocomplete="tel" required>
       </div>
       <div class="quote-step" data-step="5">
         <div class="quote-success">
@@ -1270,7 +1270,7 @@ function validateStep(n) {
   if(n===1){var v=document.getElementById('qBizType').value.trim();if(!v){return fail('Please tell me what kind of business you run.')}qState.data.businessType=v;return true}
   if(n===2){var scope=document.querySelector('input[name="qScope"]:checked');if(!scope){return fail('Please pick the closest fit (or "Not sure yet").')}qState.data.scope=scope.value;return true}
   if(n===3){if(!qState.data.hasCurrentSite){return fail('Please choose Yes or No.')}if(qState.data.hasCurrentSite==='Yes'){qState.data.currentSiteUrl=document.getElementById('qSiteUrl').value.trim()}return true}
-  if(n===4){var name=document.getElementById('qName').value.trim();var email=document.getElementById('qEmail').value.trim();if(!name){return fail('Please enter your name.')}if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){return fail('Please enter a valid email address.')}qState.data.name=name;qState.data.business=document.getElementById('qBiz').value.trim();qState.data.email=email;qState.data.phone=document.getElementById('qPhone').value.trim();return true}
+  if(n===4){var name=document.getElementById('qName').value.trim();var email=document.getElementById('qEmail').value.trim();var phone=document.getElementById('qPhone').value.trim();if(!name){return fail('Please enter your name.')}if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){return fail('Please enter a valid email address.')}if(!phone){return fail('Please enter your phone number.')}qState.data.name=name;qState.data.business=document.getElementById('qBiz').value.trim();qState.data.email=email;qState.data.phone=phone;return true}
   return true;
 }
 
