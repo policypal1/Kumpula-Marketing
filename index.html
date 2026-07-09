@@ -568,7 +568,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
 .quote-close:hover{background:var(--cream-dark)}
 .quote-progress{padding:22px 30px 0}
 .quote-progress-bar{height:5px;border-radius:999px;background:rgba(20,47,33,.08);overflow:hidden}
-.quote-progress-fill{height:100%;background:linear-gradient(90deg,var(--sage),var(--tan-warm));border-radius:999px;transition:width .4s cubic-bezier(.16,1,.3,1);width:20%}
+.quote-progress-fill{height:100%;background:linear-gradient(90deg,var(--sage),var(--tan-warm));border-radius:999px;transition:width .4s cubic-bezier(.16,1,.3,1);width:25%}
 .quote-progress-text{margin-top:10px;font-size:11px;color:var(--text-muted);font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-align:center;font-family:var(--font-display);font-style:italic}
 .quote-body{padding:24px 30px 30px}
 .quote-step{display:none;animation:qStepIn .4s cubic-bezier(.16,1,.3,1)}
@@ -600,7 +600,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
 .quote-conditional{display:none}
 .quote-conditional.show{display:block;animation:qStepIn .3s ease}
 .quote-nav{display:flex;gap:10px;margin-top:26px}
-.quote-back,.quote-next{flex:1;min-height:52px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;border:none;transition:transform .2s ease, box-shadow .2s ease}
+.quote-back,.quote-next{flex:1;min-height:52px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;border:none;transition:transform .2s ease, box-shadow .2s ease;display:inline-flex;align-items:center;justify-content:center}
 .quote-back{background:transparent;border:1.5px solid rgba(20,47,33,.14);color:var(--text);max-width:110px;flex:0 0 auto}
 .quote-back:hover{border-color:var(--forest);background:rgba(20,47,33,.03)}
 .quote-next{background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:var(--cream);box-shadow:0 14px 28px -10px rgba(20,47,33,.4)}
@@ -1128,7 +1128,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
     <button class="quote-close" onclick="closeQuote()" aria-label="Close quote">×</button>
     <div class="quote-progress">
       <div class="quote-progress-bar"><div class="quote-progress-fill" id="qProgressFill"></div></div>
-      <div class="quote-progress-text" id="qProgressText">Step 1 of 5</div>
+      <div class="quote-progress-text" id="qProgressText">Step 1 of 4</div>
     </div>
     <div class="quote-body" id="qBody">
       <div class="quote-step active" data-step="1">
@@ -1140,10 +1140,10 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
         <h3>What kind of <em>site</em> are you thinking?</h3>
         <p>Everything is custom. Pick the closest starting point and I’ll recommend the right setup after seeing what you need.</p>
         <div class="quote-options" id="qScopeOpts">
-          <label class="quote-option" data-value="Basic custom website"><input type="radio" name="qScope" value="Basic custom website"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Basic website</div><div class="q-opt-sub">Simple custom site for a clean online presence</div><div class="q-opt-price">Starting around $600</div></div></label>
-          <label class="quote-option" data-value="Growth custom website"><input type="radio" name="qScope" value="Growth custom website"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Growth website <span style="color:var(--sage);font-size:10px;font-weight:700;margin-left:4px;letter-spacing:.06em;text-transform:uppercase">· popular</span></div><div class="q-opt-sub">More trust, stronger structure, and better lead flow</div><div class="q-opt-price">Starting around $900</div></div></label>
-          <label class="quote-option" data-value="Fully custom website build"><input type="radio" name="qScope" value="Fully custom website build"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Fully custom build</div><div class="q-opt-sub">Custom built for larger sites, service pages, funnels, SEO, or ads</div><div class="q-opt-price">Custom quote</div></div></label>
-          <label class="quote-option" data-value="Not sure yet"><input type="radio" name="qScope" value="Not sure yet"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Not sure yet</div><div class="q-opt-sub">I'll recommend the best setup on our call</div></div></label>
+          <label class="quote-option" data-value="Basic custom website"><input type="radio" name="qScope" value="Basic custom website"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Basic website</div><div class="q-opt-sub">Single-page custom website for a clean online presence</div></div></label>
+          <label class="quote-option" data-value="Growth custom website"><input type="radio" name="qScope" value="Growth custom website"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Growth website <span style="color:var(--sage);font-size:10px;font-weight:700;margin-left:4px;letter-spacing:.06em;text-transform:uppercase">· popular</span></div><div class="q-opt-sub">Multi-page or more detailed site with stronger service sections, trust, and lead flow</div></div></label>
+          <label class="quote-option" data-value="Fully custom website build"><input type="radio" name="qScope" value="Fully custom website build"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Fully custom build</div><div class="q-opt-sub">Larger custom build for funnels, service pages, SEO, ads, or advanced quote tools</div></div></label>
+          <label class="quote-option" data-value="Not sure yet"><input type="radio" name="qScope" value="Not sure yet"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Not sure yet</div><div class="q-opt-sub">I’ll recommend the best setup after I see what you need</div></div></label>
         </div>
       </div>
       <div class="quote-step" data-step="3">
@@ -1156,17 +1156,6 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
         <div class="quote-conditional" id="qSiteUrlWrap"><input type="text" class="quote-input" id="qSiteUrl" placeholder="Your website URL (e.g. mybusiness.com)" autocomplete="off"></div>
       </div>
       <div class="quote-step" data-step="4">
-        <h3>What's your biggest <em>goal?</em></h3>
-        <p>Pick anything that matters. I'll design around the top ones.</p>
-        <div class="quote-options" id="qGoalsOpts">
-          <label class="quote-option multi" data-value="More calls"><input type="checkbox" name="qGoal" value="More calls"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">More calls</div></div></label>
-          <label class="quote-option multi" data-value="More form fills / leads"><input type="checkbox" name="qGoal" value="More form fills / leads"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">More form fills / leads</div></div></label>
-          <label class="quote-option multi" data-value="Look more professional"><input type="checkbox" name="qGoal" value="Look more professional"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Look more professional</div></div></label>
-          <label class="quote-option multi" data-value="Rank on Google"><input type="checkbox" name="qGoal" value="Rank on Google"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Rank on Google</div></div></label>
-          <label class="quote-option multi" data-value="Run Google Ads"><input type="checkbox" name="qGoal" value="Run Google Ads"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Run Google Ads to it</div></div></label>
-        </div>
-      </div>
-      <div class="quote-step" data-step="5">
         <h3>Last step — where can I <em>reach</em> you?</h3>
         <p>I'll text or email you within a few hours to kick things off. No spam, no newsletters.</p>
         <input type="text" class="quote-input" id="qName" placeholder="Your Name *" autocomplete="name">
@@ -1174,7 +1163,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
         <input type="email" class="quote-input" id="qEmail" placeholder="Email Address *" autocomplete="email">
         <input type="tel" class="quote-input" id="qPhone" placeholder="Phone (optional — I prefer to text)" autocomplete="tel">
       </div>
-      <div class="quote-step" data-step="6">
+      <div class="quote-step" data-step="5">
         <div class="quote-success">
           <div class="success-circle"><svg viewBox="0 0 24 24"><polyline points="5 12 10 17 19 7"></polyline></svg></div>
           <h3>You're <em>in.</em></h3>
@@ -1204,7 +1193,7 @@ body > .quote-overlay{position:fixed !important}
 <script>
 
 var formSubmitted = false;
-var qState = {step:1,total:5,data:{businessType:'',scope:'',hasCurrentSite:'',currentSiteUrl:'',goals:[],name:'',business:'',email:'',phone:''}};
+var qState = {step:1,total:4,data:{businessType:'',scope:'',hasCurrentSite:'',currentSiteUrl:'',name:'',business:'',email:'',phone:''}};
 
 function mapPackageToOriginalScope(packageName){
   var map={
@@ -1219,20 +1208,26 @@ function mapPackageToOriginalScope(packageName){
   return map[packageName] || packageName || '';
 }
 
-function openQuote(presetScope) {
+function resetQuoteForm(){
+  qState = {step:1,total:4,data:{businessType:'',scope:'',hasCurrentSite:'',currentSiteUrl:'',name:'',business:'',email:'',phone:''}};
+  ['qBizType','qSiteUrl','qName','qBiz','qEmail','qPhone'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  document.querySelectorAll('input[name="qScope"]').forEach(function(input){input.checked=false;});
+  document.querySelectorAll('#qScopeOpts .quote-option').forEach(function(opt){opt.classList.remove('checked');});
+  var yesBtn=document.getElementById('qHasSiteYes');
+  var noBtn=document.getElementById('qHasSiteNo');
+  if(yesBtn) yesBtn.classList.remove('active');
+  if(noBtn) noBtn.classList.remove('active');
+  var siteWrap=document.getElementById('qSiteUrlWrap');
+  if(siteWrap) siteWrap.classList.remove('show');
+  var err=document.getElementById('qErr');
+  if(err) err.textContent='';
+  goToStep(1);
+}
+
+function openQuote() {
   var overlay=document.getElementById('quoteOverlay');
   if(!overlay) return;
-  var mappedScope=mapPackageToOriginalScope(presetScope);
-  if(mappedScope) {
-    qState.data.scope = mappedScope;
-    var radio = document.querySelector('input[name="qScope"][value="'+mappedScope.replace(/"/g,'\\"')+'"]');
-    if(radio){
-      radio.checked=true;
-      var lbl=radio.closest('.quote-option');
-      document.querySelectorAll('#qScopeOpts .quote-option').forEach(function(o){o.classList.remove('checked')});
-      if(lbl) lbl.classList.add('checked');
-    }
-  }
+  resetQuoteForm();
   overlay.classList.add('show');
   document.body.style.overflow = 'hidden';
   setTimeout(function(){var f=document.querySelector('.quote-step.active input[type="text"]');if(f)f.focus()},300);
@@ -1252,11 +1247,11 @@ function goToStep(n) {
   if(target) target.classList.add('active');
   var fill=document.getElementById('qProgressFill');
   var text=document.getElementById('qProgressText');
-  var pct = n===6 ? 100 : (n/qState.total)*100;
+  var pct = n===5 ? 100 : (n/qState.total)*100;
   if(fill) fill.style.width = pct+'%';
-  if(text) text.textContent = n===6 ? 'Complete' : 'Step '+n+' of '+qState.total;
+  if(text) text.textContent = n===5 ? 'Complete' : 'Step '+n+' of '+qState.total;
   var backBtn=document.getElementById('qBack'),nextBtn=document.getElementById('qNext'),navRow=document.getElementById('qNavRow');
-  if(navRow && n===6){navRow.style.display='none';return}
+  if(navRow && n===5){navRow.style.display='none';return}
   if(navRow) navRow.style.display='flex';
   if(backBtn) backBtn.style.display=n>1?'inline-flex':'none';
   if(nextBtn){
@@ -1275,10 +1270,10 @@ function validateStep(n) {
   if(n===1){var v=document.getElementById('qBizType').value.trim();if(!v){return fail('Please tell me what kind of business you run.')}qState.data.businessType=v;return true}
   if(n===2){var scope=document.querySelector('input[name="qScope"]:checked');if(!scope){return fail('Please pick the closest fit (or "Not sure yet").')}qState.data.scope=scope.value;return true}
   if(n===3){if(!qState.data.hasCurrentSite){return fail('Please choose Yes or No.')}if(qState.data.hasCurrentSite==='Yes'){qState.data.currentSiteUrl=document.getElementById('qSiteUrl').value.trim()}return true}
-  if(n===4){var goals=[];document.querySelectorAll('input[name="qGoal"]:checked').forEach(function(i){goals.push(i.value)});if(goals.length===0){return fail('Pick at least one goal so I know what to focus on.')}qState.data.goals=goals;return true}
-  if(n===5){var name=document.getElementById('qName').value.trim();var email=document.getElementById('qEmail').value.trim();if(!name){return fail('Please enter your name.')}if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){return fail('Please enter a valid email address.')}qState.data.name=name;qState.data.business=document.getElementById('qBiz').value.trim();qState.data.email=email;qState.data.phone=document.getElementById('qPhone').value.trim();return true}
+  if(n===4){var name=document.getElementById('qName').value.trim();var email=document.getElementById('qEmail').value.trim();if(!name){return fail('Please enter your name.')}if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){return fail('Please enter a valid email address.')}qState.data.name=name;qState.data.business=document.getElementById('qBiz').value.trim();qState.data.email=email;qState.data.phone=document.getElementById('qPhone').value.trim();return true}
   return true;
 }
+
 
 var FE='https://script.google.com/macros/s/AKfycbxspFvSuybmxFstfic3UUuv-tEsEEpHz383NtCse7B4TQIKEjksaNx-MHmmNb-3pO2hSg/exec';
 function sendLead(payload){return fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})}
@@ -1290,12 +1285,13 @@ function submitQuote() {
   var payload={
     name:qState.data.name,business:qState.data.business,email:qState.data.email,phone:qState.data.phone,
     businessType:qState.data.businessType,websiteScope:qState.data.scope,package:qState.data.scope,hasCurrentSite:qState.data.hasCurrentSite,
-    currentSiteUrl:qState.data.currentSiteUrl,goals:qState.data.goals.join(', '),
-    notes:'[Quote Flow] Business: '+qState.data.businessType+' | Scope: '+qState.data.scope+' | Estimate: '+(priceMap[qState.data.scope]||'TBD')+' | Current site: '+(qState.data.hasCurrentSite==='Yes'?(qState.data.currentSiteUrl||'Yes'):'No')+' | Goals: '+qState.data.goals.join(', '),
+    currentSiteUrl:qState.data.currentSiteUrl,goals:'',
+    notes:'[Quote Flow] Business type: '+qState.data.businessType+' | Business name: '+(qState.data.business||'Not provided')+' | Scope: '+qState.data.scope+' | Estimate: '+(priceMap[qState.data.scope]||'TBD')+' | Current site: '+(qState.data.hasCurrentSite==='Yes'?(qState.data.currentSiteUrl||'Yes'):'No'),
     source:'quote-popup',timestamp:new Date().toISOString()
   };
-  sendLead(payload).then(function(){formSubmitted=true;goToStep(6)}).catch(function(){if(btn){btn.disabled=false;btn.innerHTML='Submit →';}var err=document.getElementById('qErr');if(err)err.textContent='Something went wrong. Please try again or text (503) 569-4291.'});
+  sendLead(payload).then(function(){formSubmitted=true;goToStep(5)}).catch(function(){if(btn){btn.disabled=false;btn.innerHTML='Submit →';}var err=document.getElementById('qErr');if(err)err.textContent='Something went wrong. Please try again or text (503) 569-4291.'});
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var observer = 'IntersectionObserver' in window ? new IntersectionObserver(function(entries){
@@ -1370,17 +1366,6 @@ document.addEventListener('DOMContentLoaded', function () {
       var input=opt.querySelector('input');
       if(input) input.checked=true;
     });
-  });
-  document.querySelectorAll('#qGoalsOpts .quote-option').forEach(function(opt){
-    opt.addEventListener('click',function(e){
-      if(e.target.tagName==='INPUT') return;
-      e.preventDefault();
-      var input=opt.querySelector('input');
-      input.checked=!input.checked;
-      opt.classList.toggle('checked',input.checked);
-    });
-    var input=opt.querySelector('input');
-    if(input){input.addEventListener('change',function(){opt.classList.toggle('checked',input.checked)});}
   });
   var yesBtn=document.getElementById('qHasSiteYes');
   var noBtn=document.getElementById('qHasSiteNo');
