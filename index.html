@@ -749,7 +749,7 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
 .portfolio.section{padding-top:110px;padding-bottom:110px;background:rgba(255,255,255,.86)!important;color:var(--text)}.portfolio-head h2{color:var(--forest)!important}.portfolio-head h2 em{color:var(--sage)!important}.portfolio-head p{color:var(--text-soft)!important}.portfolio .chapter-light .chapter-line{background:rgba(20,47,33,.18)}.portfolio .chapter-light .chapter-label{color:var(--forest)}.portfolio-list{gap:24px}.port-card{background:#fff;border-color:rgba(20,47,33,.08);box-shadow:0 18px 42px -24px rgba(21,55,42,.28)}.port-content p,.port-metrics,.port-category,.port-tags{display:none!important}.port-content{padding:38px 34px;background:linear-gradient(160deg,var(--forest-deep),var(--forest-mid));color:var(--cream)}.port-content h3{margin-bottom:18px;color:var(--cream)!important}.port-content h3 em{color:var(--tan-warm)!important}.port-link{font-size:15px;color:var(--tan-warm)}.port-screen{min-height:320px}
 .price-money{min-height:54px}.price-amount{white-space:nowrap}a.price-btn{text-decoration:none}.pricing-head{margin-bottom:42px}.pricing-head p{display:none!important}.pricing-note,.mgmt-block{display:none!important}.price-mgmt{display:none!important}
 .price-list li.analytics-item{display:none!important}
-.quote-overlay,.exit-overlay{display:none!important}
+.exit-overlay{display:none!important}
 .sticky-quote{position:fixed;left:50%;bottom:18px;z-index:1200;transform:translate(-50%,120px);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .25s ease;display:flex;align-items:center;gap:14px;padding:10px 10px 10px 20px;border-radius:999px;background:rgba(12,31,21,.94);border:1px solid rgba(212,184,150,.22);box-shadow:0 20px 55px -24px rgba(0,0,0,.78);backdrop-filter:blur(16px);color:var(--cream)}
 .sticky-quote.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}.sticky-quote>span{font-size:19px;font-weight:800;color:var(--cream);white-space:nowrap;letter-spacing:-.01em}.sticky-quote a{min-height:44px;padding:12px 18px;font-size:13px;color:var(--forest-deep)!important}.sticky-quote .btn-gold span{font-size:13px;color:var(--forest-deep)!important;white-space:nowrap}
 @media(max-width:900px){
@@ -764,23 +764,25 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
   .hero-btns{flex-direction:column}.hero-btns .btn{width:100%}.no-site-card{padding:30px 22px;border-radius:24px}.no-site-points{gap:10px}.port-screen{min-height:230px}.sticky-quote{left:12px;right:12px;bottom:12px;transform:translateY(120px);justify-content:space-between;gap:8px;padding-left:16px}.sticky-quote.show{transform:translateY(0)}.sticky-quote>span{font-size:18px}.sticky-quote a{padding:12px 13px;white-space:nowrap;font-size:12px}
 }
 
-/* Compact step-by-step quick quote form */
-.quick-quote-panel{position:fixed;inset:0;z-index:7000;display:none;align-items:flex-end;justify-content:center;padding:18px;background:rgba(12,31,21,.46);backdrop-filter:blur(6px);opacity:0;transition:opacity .22s ease}
+/* Compact quick quote form */
+.quick-quote-panel{position:fixed;inset:0;z-index:7000;display:none;align-items:flex-end;justify-content:center;padding:18px;background:rgba(12,31,21,.45);backdrop-filter:blur(5px);opacity:0;transition:opacity .22s ease}
 .quick-quote-panel.open{display:flex;opacity:1}
-.quick-quote-card{width:min(94vw,480px);max-height:88vh;overflow:auto;background:rgba(255,255,255,.98);border:1px solid rgba(20,47,33,.1);border-radius:24px;box-shadow:0 32px 90px -35px rgba(0,0,0,.75);transform:translateY(18px);transition:transform .28s cubic-bezier(.16,1,.3,1);position:relative}
+.quick-quote-card{width:min(94vw,470px);max-height:86vh;overflow:auto;background:rgba(255,255,255,.98);border:1px solid rgba(20,47,33,.1);border-radius:24px;box-shadow:0 32px 90px -35px rgba(0,0,0,.75);transform:translateY(18px);transition:transform .28s cubic-bezier(.16,1,.3,1);position:relative}
 .quick-quote-panel.open .quick-quote-card{transform:translateY(0)}
 .quick-quote-top{position:sticky;top:0;z-index:2;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);padding:20px 22px 14px;border-bottom:1px solid rgba(20,47,33,.08)}
 .quick-quote-top h3{font-family:var(--font-display);font-size:28px;line-height:1.08;color:var(--forest);font-weight:500;margin:0 38px 6px 0}.quick-quote-top h3 em{color:var(--sage);font-style:italic}
-.quick-quote-top p{font-size:13.5px;line-height:1.5;color:var(--text-muted);margin:0;max-width:370px}
+.quick-quote-top p{font-size:13.5px;line-height:1.5;color:var(--text-muted);margin:0;max-width:360px}
 .quick-quote-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border:none;border-radius:999px;background:var(--cream);color:var(--forest);font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease,transform .2s ease}
 .quick-quote-close:hover{background:var(--cream-dark);transform:rotate(6deg)}
-.qq-progress{padding:14px 22px 0;display:grid;gap:8px}.qq-progress-text{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);font-family:var(--font-display);font-style:italic}.qq-progress-track{height:5px;border-radius:999px;background:rgba(20,47,33,.08);overflow:hidden}.qq-progress-fill{height:100%;width:33.333%;border-radius:999px;background:linear-gradient(90deg,var(--sage),var(--tan-warm));transition:width .28s cubic-bezier(.16,1,.3,1)}
-.quick-quote-form{padding:18px 22px 22px}.qq-step{display:none;animation:qqStepIn .28s cubic-bezier(.16,1,.3,1)}.qq-step.active{display:block}@keyframes qqStepIn{0%{opacity:0;transform:translateX(10px)}100%{opacity:1;transform:translateX(0)}}
-.qf-label{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:10px}.qf-question{font-family:var(--font-display);font-size:25px;line-height:1.12;color:var(--forest);font-weight:500;margin-bottom:12px}.qf-question em{font-style:italic;color:var(--sale-red)}.qf-help{font-size:13.5px;line-height:1.55;color:var(--text-muted);margin:-3px 0 14px}
-.qf-package-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.qf-package{position:relative;display:block;cursor:pointer}.qf-package input{position:absolute;opacity:0;pointer-events:none}.qf-package span{display:block;min-height:76px;padding:13px 13px;border-radius:15px;background:var(--cream);border:1.5px solid rgba(20,47,33,.1);font-size:14px;font-weight:800;color:var(--forest);transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease}.qf-package:hover span{transform:translateY(-1px);border-color:rgba(74,124,92,.34)}.qf-package small{display:block;margin-top:4px;font-size:11.5px;color:var(--text-muted);font-weight:500;line-height:1.25}.qf-package input:checked+span{border-color:var(--sage);background:rgba(74,124,92,.08);box-shadow:0 0 0 4px rgba(74,124,92,.08)}
-.qf-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.qf-input,.qf-select,.qf-textarea{width:100%;border:1px solid rgba(20,47,33,.12);background:var(--cream);border-radius:13px;padding:12px 13px;font-size:14px;color:var(--text);outline:none;transition:border-color .2s ease,box-shadow .2s ease}.qf-input:focus,.qf-select:focus,.qf-textarea:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(74,124,92,.1)}.qf-wide{grid-column:1/-1}.qf-textarea{min-height:82px;resize:vertical}
-.qq-actions{display:flex;gap:10px;margin-top:18px}.qq-back,.qq-next,.qf-submit{min-height:50px;border-radius:999px;cursor:pointer;font-weight:800;font-size:14px;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}.qq-back{width:108px;border:1.5px solid rgba(20,47,33,.14);background:transparent;color:var(--forest)}.qq-back:hover{border-color:var(--forest);background:rgba(20,47,33,.03)}.qq-next,.qf-submit{flex:1;border:none;background:linear-gradient(135deg,var(--tan-warm),var(--gold));color:var(--forest-deep);box-shadow:0 14px 28px -12px rgba(201,168,76,.6)}.qq-next:hover,.qf-submit:hover{transform:translateY(-2px)}.qf-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}.qf-note{font-size:11.5px;line-height:1.45;color:var(--text-muted);text-align:center;margin:12px 0 0}.qq-error{min-height:18px;margin-top:10px;color:#a33c36;font-size:12.5px;line-height:1.45;text-align:center}.qq-success{padding:30px 22px 28px;text-align:center}.qq-success[hidden]{display:none!important}.qq-success-icon{width:66px;height:66px;margin:0 auto 16px;border-radius:50%;background:rgba(74,124,92,.1);display:flex;align-items:center;justify-content:center;color:var(--sage);font-size:30px}.qq-success h3{font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--forest);margin-bottom:8px}.qq-success h3 em{font-style:italic;color:var(--sage)}.qq-success p{font-size:14.5px;line-height:1.6;color:var(--text-soft);max-width:350px;margin:0 auto}
-@media(max-width:560px){.quick-quote-panel{padding:10px;align-items:flex-end}.quick-quote-card{width:100%;max-height:90vh;border-radius:22px}.quick-quote-top{padding:18px 18px 13px}.qq-progress{padding:13px 18px 0}.quick-quote-form{padding:16px 18px 20px}.qf-package-grid,.qf-grid{grid-template-columns:1fr}.qf-wide{grid-column:auto}.qf-question{font-size:23px}.quick-quote-top h3{font-size:25px}.qq-actions{position:sticky;bottom:0;background:rgba(255,255,255,.96);padding-top:10px}.qq-back{width:96px}}
+.quick-quote-form{padding:18px 22px 22px;display:grid;gap:16px}
+.qf-block{display:grid;gap:10px}.qf-label{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--sage)}
+.qf-package-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.qf-package{position:relative;display:block;cursor:pointer}.qf-package input{position:absolute;opacity:0;pointer-events:none}
+.qf-package span{display:block;padding:12px 12px;border-radius:14px;background:var(--cream);border:1.5px solid rgba(20,47,33,.1);font-size:13.5px;font-weight:700;color:var(--forest);transition:border-color .2s ease,background .2s ease,box-shadow .2s ease}.qf-package small{display:block;margin-top:3px;font-size:11px;color:var(--text-muted);font-weight:500;line-height:1.25}
+.qf-package input:checked+span{border-color:var(--sage);background:rgba(74,124,92,.08);box-shadow:0 0 0 4px rgba(74,124,92,.08)}
+.qf-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.qf-input,.qf-select,.qf-textarea{width:100%;border:1px solid rgba(20,47,33,.12);background:var(--cream);border-radius:13px;padding:12px 13px;font-size:14px;color:var(--text);outline:none;transition:border-color .2s ease,box-shadow .2s ease}.qf-textarea{min-height:72px;resize:vertical;grid-column:1/-1}.qf-input:focus,.qf-select:focus,.qf-textarea:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(74,124,92,.1)}
+.qf-submit{min-height:50px;border:none;border-radius:999px;background:linear-gradient(135deg,var(--tan-warm),var(--gold));color:var(--forest-deep);font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 14px 28px -12px rgba(201,168,76,.6);transition:transform .22s ease}.qf-submit:hover{transform:translateY(-2px)}
+.qf-note{font-size:11.5px;line-height:1.45;color:var(--text-muted);text-align:center;margin-top:-4px}.qf-note a{color:var(--forest);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:560px){.quick-quote-panel{padding:10px;align-items:flex-end}.quick-quote-card{width:100%;max-height:88vh;border-radius:22px}.quick-quote-top{padding:18px 18px 13px}.quick-quote-form{padding:16px 18px 20px}.qf-package-grid,.qf-grid{grid-template-columns:1fr}.qf-textarea{min-height:70px}.quick-quote-top h3{font-size:25px}}
 
 </style>
 
@@ -1120,89 +1122,181 @@ h2 strong,h1 strong{font-weight:700;color:var(--forest)}
 </footer>
 
 
-<div class="quick-quote-panel" id="quickQuote" aria-hidden="true">
-  <div class="quick-quote-card" role="dialog" aria-modal="true" aria-labelledby="quickQuoteTitle">
-    <div class="quick-quote-top">
-      <button class="quick-quote-close" type="button" aria-label="Close quick quote">×</button>
-      <h3 id="quickQuoteTitle">Quick website <em>quote.</em></h3>
-      <p>Three short steps. Pick a package, tell me what business it is for, then leave your contact info.</p>
+<!-- QUOTE MODAL -->
+<div class="quote-overlay" id="quoteOverlay" role="dialog" aria-modal="true">
+  <div class="quote-modal">
+    <button class="quote-close" onclick="closeQuote()" aria-label="Close quote">×</button>
+    <div class="quote-progress">
+      <div class="quote-progress-bar"><div class="quote-progress-fill" id="qProgressFill"></div></div>
+      <div class="quote-progress-text" id="qProgressText">Step 1 of 5</div>
     </div>
-
-    <div class="qq-progress" aria-hidden="true">
-      <div class="qq-progress-text" id="quickQuoteStepText">Step 1 of 3</div>
-      <div class="qq-progress-track"><div class="qq-progress-fill" id="quickQuoteProgress"></div></div>
-    </div>
-
-    <form class="quick-quote-form" id="quickQuoteForm">
-      <div class="qq-step active" data-step="0">
-        <div class="qf-label">1. Website package</div>
-        <div class="qf-question">What package are you looking at?</div>
-        <p class="qf-help">You can pick “Not sure” and I’ll recommend the best fit.</p>
-        <div class="qf-package-grid">
-          <label class="qf-package"><input type="radio" name="package" value="Basic Website - $600" required><span>Basic Website<small>$600 single-page website</small></span></label>
-          <label class="qf-package"><input type="radio" name="package" value="Growth Website - $900"><span>Growth Website<small>$900 stronger local site</small></span></label>
-          <label class="qf-package"><input type="radio" name="package" value="Custom Build"><span>Custom Build<small>larger website, funnel, or ads setup</small></span></label>
-          <label class="qf-package"><input type="radio" name="package" value="Not sure yet"><span>Not sure yet<small>help me choose</small></span></label>
-        </div>
-        <div class="qq-actions">
-          <button class="qq-next" type="button" data-qq-next>Next</button>
+    <div class="quote-body" id="qBody">
+      <div class="quote-step active" data-step="1">
+        <h3>What kind of <em>business</em> do you run?</h3>
+        <p>Just a word or two — roofing, plumbing, auto glass, etc. This helps me tailor the site to your market.</p>
+        <input type="text" class="quote-input" id="qBizType" placeholder="e.g. Roofing, Plumbing, HVAC" autocomplete="off">
+      </div>
+      <div class="quote-step" data-step="2">
+        <h3>What kind of <em>site</em> are you thinking?</h3>
+        <p>Everything is custom. Pick the closest starting point and I’ll recommend the right setup after seeing what you need.</p>
+        <div class="quote-options" id="qScopeOpts">
+          <label class="quote-option" data-value="Basic custom website"><input type="radio" name="qScope" value="Basic custom website"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Basic website</div><div class="q-opt-sub">Simple custom site for a clean online presence</div><div class="q-opt-price">Starting around $600</div></div></label>
+          <label class="quote-option" data-value="Growth custom website"><input type="radio" name="qScope" value="Growth custom website"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Growth website <span style="color:var(--sage);font-size:10px;font-weight:700;margin-left:4px;letter-spacing:.06em;text-transform:uppercase">· popular</span></div><div class="q-opt-sub">More trust, stronger structure, and better lead flow</div><div class="q-opt-price">Starting around $900</div></div></label>
+          <label class="quote-option" data-value="Fully custom website build"><input type="radio" name="qScope" value="Fully custom website build"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Fully custom build</div><div class="q-opt-sub">Custom built for larger sites, service pages, funnels, SEO, or ads</div><div class="q-opt-price">Custom quote</div></div></label>
+          <label class="quote-option" data-value="Not sure yet"><input type="radio" name="qScope" value="Not sure yet"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Not sure yet</div><div class="q-opt-sub">I'll recommend the best setup on our call</div></div></label>
         </div>
       </div>
-
-      <div class="qq-step" data-step="1">
-        <div class="qf-label">2. Business</div>
-        <div class="qf-question">What business is this for?</div>
-        <p class="qf-help">Keep it quick. I only need enough to understand the project.</p>
-        <div class="qf-grid">
-          <input class="qf-input qf-wide" name="businessType" type="text" placeholder="Business niche, ex: roofing, detailing, landscaping" required>
-          <input class="qf-input" name="business" type="text" placeholder="Business name, optional">
-          <select class="qf-select" name="goals" required>
-            <option value="">Main goal</option>
-            <option>Get more calls</option>
-            <option>Get more quote requests</option>
-            <option>Look more legit online</option>
-            <option>Replace an old website</option>
-            <option>Run Google Ads later</option>
-            <option>Not sure yet</option>
-          </select>
+      <div class="quote-step" data-step="3">
+        <h3>Do you have a <em>current</em> website?</h3>
+        <p>Either way works — this just tells me what I'm starting from.</p>
+        <div class="quote-yesno">
+          <button type="button" id="qHasSiteYes">Yes, I have one</button>
+          <button type="button" id="qHasSiteNo">No, I don't</button>
         </div>
-        <div class="qq-actions">
-          <button class="qq-back" type="button" data-qq-back>Back</button>
-          <button class="qq-next" type="button" data-qq-next>Next</button>
+        <div class="quote-conditional" id="qSiteUrlWrap"><input type="text" class="quote-input" id="qSiteUrl" placeholder="Your website URL (e.g. mybusiness.com)" autocomplete="off"></div>
+      </div>
+      <div class="quote-step" data-step="4">
+        <h3>What's your biggest <em>goal?</em></h3>
+        <p>Pick anything that matters. I'll design around the top ones.</p>
+        <div class="quote-options" id="qGoalsOpts">
+          <label class="quote-option multi" data-value="More calls"><input type="checkbox" name="qGoal" value="More calls"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">More calls</div></div></label>
+          <label class="quote-option multi" data-value="More form fills / leads"><input type="checkbox" name="qGoal" value="More form fills / leads"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">More form fills / leads</div></div></label>
+          <label class="quote-option multi" data-value="Look more professional"><input type="checkbox" name="qGoal" value="Look more professional"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Look more professional</div></div></label>
+          <label class="quote-option multi" data-value="Rank on Google"><input type="checkbox" name="qGoal" value="Rank on Google"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Rank on Google</div></div></label>
+          <label class="quote-option multi" data-value="Run Google Ads"><input type="checkbox" name="qGoal" value="Run Google Ads"><span class="q-check"></span><div class="q-opt-body"><div class="q-opt-title">Run Google Ads to it</div></div></label>
         </div>
       </div>
-
-      <div class="qq-step" data-step="2">
-        <div class="qf-label">3. Your info</div>
-        <div class="qf-question">Where should I reach you?</div>
-        <div class="qf-grid">
-          <input class="qf-input" name="name" type="text" placeholder="Your name" required>
-          <input class="qf-input" name="phone" type="tel" placeholder="Phone number" required>
-          <input class="qf-input qf-wide" name="email" type="email" placeholder="Email" required>
-          <textarea class="qf-textarea qf-wide" name="notes" placeholder="Optional: timeline, city, current website, examples you like, or anything important."></textarea>
-        </div>
-        <div class="qq-actions">
-          <button class="qq-back" type="button" data-qq-back>Back</button>
-          <button class="qf-submit" type="submit">Send quote request</button>
-        </div>
-        <div class="qq-error" id="quickQuoteError" aria-live="polite"></div>
-        <p class="qf-note">This sends straight to Samuel through the website form.</p>
+      <div class="quote-step" data-step="5">
+        <h3>Last step — where can I <em>reach</em> you?</h3>
+        <p>I'll text or email you within a few hours to kick things off. No spam, no newsletters.</p>
+        <input type="text" class="quote-input" id="qName" placeholder="Your Name *" autocomplete="name">
+        <input type="text" class="quote-input" id="qBiz" placeholder="Business Name" autocomplete="organization">
+        <input type="email" class="quote-input" id="qEmail" placeholder="Email Address *" autocomplete="email">
+        <input type="tel" class="quote-input" id="qPhone" placeholder="Phone (optional — I prefer to text)" autocomplete="tel">
       </div>
-    </form>
-
-    <div class="qq-success" id="quickQuoteSuccess" hidden>
-      <div class="qq-success-icon">✓</div>
-      <h3>Request <em>sent.</em></h3>
-      <p>I got your website request. I’ll look it over and reach out with the next step.</p>
+      <div class="quote-step" data-step="6">
+        <div class="quote-success">
+          <div class="success-circle"><svg viewBox="0 0 24 24"><polyline points="5 12 10 17 19 7"></polyline></svg></div>
+          <h3>You're <em>in.</em></h3>
+          <p>I'll review your info and reach out within a few hours to start your build. Check your email and phone — you can also text me directly at <strong>(503) 569-4291</strong>.</p>
+        </div>
+      </div>
+      <div class="quote-nav" id="qNavRow">
+        <button type="button" class="quote-back" id="qBack" style="display:none">Back</button>
+        <button type="button" class="quote-next" id="qNext">Continue →</button>
+      </div>
+      <div class="quote-err" id="qErr"></div>
     </div>
   </div>
 </div>
+
 
 <div class="sticky-quote" id="stickyQuote" aria-label="Need a website?">
   <span>Need a website?</span>
   <a href="#quick-quote" class="btn btn-gold" data-open-quote data-package="Not sure yet"><span>Get your website started</span><span class="arrow">→</span></a>
 </div>
+
+<style id="original-quote-layer-fix">
+#quoteOverlay.quote-overlay{position:fixed !important;inset:0 !important;z-index:9000 !important}
+#quoteOverlay.quote-overlay.show{display:flex !important}
+body > .quote-overlay{position:fixed !important}
+</style>
 <script>
+
+var formSubmitted = false;
+var qState = {step:1,total:5,data:{businessType:'',scope:'',hasCurrentSite:'',currentSiteUrl:'',goals:[],name:'',business:'',email:'',phone:''}};
+
+function mapPackageToOriginalScope(packageName){
+  var map={
+    'Basic Website - $600':'Basic custom website',
+    'Growth Website - $900':'Growth custom website',
+    'Custom Build':'Fully custom website build',
+    'Not sure yet':'Not sure yet',
+    'Basic custom website':'Basic custom website',
+    'Growth custom website':'Growth custom website',
+    'Fully custom website build':'Fully custom website build'
+  };
+  return map[packageName] || packageName || '';
+}
+
+function openQuote(presetScope) {
+  var overlay=document.getElementById('quoteOverlay');
+  if(!overlay) return;
+  var mappedScope=mapPackageToOriginalScope(presetScope);
+  if(mappedScope) {
+    qState.data.scope = mappedScope;
+    var radio = document.querySelector('input[name="qScope"][value="'+mappedScope.replace(/"/g,'\\"')+'"]');
+    if(radio){
+      radio.checked=true;
+      var lbl=radio.closest('.quote-option');
+      document.querySelectorAll('#qScopeOpts .quote-option').forEach(function(o){o.classList.remove('checked')});
+      if(lbl) lbl.classList.add('checked');
+    }
+  }
+  overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){var f=document.querySelector('.quote-step.active input[type="text"]');if(f)f.focus()},300);
+}
+
+function closeQuote(){
+  var overlay=document.getElementById('quoteOverlay');
+  if(!overlay) return;
+  overlay.classList.remove('show');
+  document.body.style.overflow='';
+}
+
+function goToStep(n) {
+  qState.step = n;
+  document.querySelectorAll('.quote-step').forEach(function(s){s.classList.remove('active')});
+  var target = document.querySelector('.quote-step[data-step="'+n+'"]');
+  if(target) target.classList.add('active');
+  var fill=document.getElementById('qProgressFill');
+  var text=document.getElementById('qProgressText');
+  var pct = n===6 ? 100 : (n/qState.total)*100;
+  if(fill) fill.style.width = pct+'%';
+  if(text) text.textContent = n===6 ? 'Complete' : 'Step '+n+' of '+qState.total;
+  var backBtn=document.getElementById('qBack'),nextBtn=document.getElementById('qNext'),navRow=document.getElementById('qNavRow');
+  if(navRow && n===6){navRow.style.display='none';return}
+  if(navRow) navRow.style.display='flex';
+  if(backBtn) backBtn.style.display=n>1?'inline-flex':'none';
+  if(nextBtn){
+    nextBtn.disabled=false;
+    nextBtn.innerHTML=n===qState.total?'Submit →':'Continue →';
+  }
+  var err=document.getElementById('qErr');
+  if(err) err.textContent='';
+  setTimeout(function(){if(target){var f=target.querySelector('input[type="text"]:not([readonly]),input[type="email"]');if(f)f.focus()}},300);
+}
+
+function validateStep(n) {
+  var err=document.getElementById('qErr');
+  if(err) err.textContent='';
+  function fail(msg){if(err) err.textContent=msg; return false;}
+  if(n===1){var v=document.getElementById('qBizType').value.trim();if(!v){return fail('Please tell me what kind of business you run.')}qState.data.businessType=v;return true}
+  if(n===2){var scope=document.querySelector('input[name="qScope"]:checked');if(!scope){return fail('Please pick the closest fit (or "Not sure yet").')}qState.data.scope=scope.value;return true}
+  if(n===3){if(!qState.data.hasCurrentSite){return fail('Please choose Yes or No.')}if(qState.data.hasCurrentSite==='Yes'){qState.data.currentSiteUrl=document.getElementById('qSiteUrl').value.trim()}return true}
+  if(n===4){var goals=[];document.querySelectorAll('input[name="qGoal"]:checked').forEach(function(i){goals.push(i.value)});if(goals.length===0){return fail('Pick at least one goal so I know what to focus on.')}qState.data.goals=goals;return true}
+  if(n===5){var name=document.getElementById('qName').value.trim();var email=document.getElementById('qEmail').value.trim();if(!name){return fail('Please enter your name.')}if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){return fail('Please enter a valid email address.')}qState.data.name=name;qState.data.business=document.getElementById('qBiz').value.trim();qState.data.email=email;qState.data.phone=document.getElementById('qPhone').value.trim();return true}
+  return true;
+}
+
+var FE='https://script.google.com/macros/s/AKfycbxspFvSuybmxFstfic3UUuv-tEsEEpHz383NtCse7B4TQIKEjksaNx-MHmmNb-3pO2hSg/exec';
+function sendLead(payload){return fetch(FE,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})}
+
+function submitQuote() {
+  var btn=document.getElementById('qNext');
+  if(btn){btn.disabled=true;btn.innerHTML='Sending...';}
+  var priceMap={'Basic custom website':'Starting around $600','Growth custom website':'Starting around $900','Fully custom website build':'Custom quote','Not sure yet':'TBD'};
+  var payload={
+    name:qState.data.name,business:qState.data.business,email:qState.data.email,phone:qState.data.phone,
+    businessType:qState.data.businessType,websiteScope:qState.data.scope,package:qState.data.scope,hasCurrentSite:qState.data.hasCurrentSite,
+    currentSiteUrl:qState.data.currentSiteUrl,goals:qState.data.goals.join(', '),
+    notes:'[Quote Flow] Business: '+qState.data.businessType+' | Scope: '+qState.data.scope+' | Estimate: '+(priceMap[qState.data.scope]||'TBD')+' | Current site: '+(qState.data.hasCurrentSite==='Yes'?(qState.data.currentSiteUrl||'Yes'):'No')+' | Goals: '+qState.data.goals.join(', '),
+    source:'quote-popup',timestamp:new Date().toISOString()
+  };
+  sendLead(payload).then(function(){formSubmitted=true;goToStep(6)}).catch(function(){if(btn){btn.disabled=false;btn.innerHTML='Submit →';}var err=document.getElementById('qErr');if(err)err.textContent='Something went wrong. Please try again or text (503) 569-4291.'});
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   var observer = 'IntersectionObserver' in window ? new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
@@ -1259,157 +1353,49 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', updateStickyQuote, {passive:true});
 
 
-  var quickQuote=document.getElementById('quickQuote');
-  var quickQuoteForm=document.getElementById('quickQuoteForm');
-  var quickQuoteClose=document.querySelector('.quick-quote-close');
-  var quickQuoteSuccess=document.getElementById('quickQuoteSuccess');
-  var quickQuoteError=document.getElementById('quickQuoteError');
-  var quickQuoteStepText=document.getElementById('quickQuoteStepText');
-  var quickQuoteProgress=document.getElementById('quickQuoteProgress');
-  var quickQuoteStep=0;
-
-  /* Paste your deployed Google Apps Script Web App URL between the quotes below. */
-  var QUICK_QUOTE_ENDPOINT='PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
-
-  function packageAlias(value){
-    var aliases={
-      'Basic Website - $600':'Basic Website - $600',
-      'Growth Website - $900':'Growth Website - $900',
-      'Custom Build':'Custom Build',
-      'Not sure yet':'Not sure yet',
-      'Starter':'Basic Website - $600',
-      'Growth':'Growth Website - $900',
-      'Lead-Gen':'Custom Build'
-    };
-    return aliases[value] || value || 'Not sure yet';
-  }
-
-  function setQuickQuoteStep(step){
-    if(!quickQuoteForm) return;
-    var steps=quickQuoteForm.querySelectorAll('.qq-step');
-    quickQuoteStep=Math.max(0, Math.min(step, steps.length-1));
-    steps.forEach(function(el, index){el.classList.toggle('active', index===quickQuoteStep)});
-    if(quickQuoteStepText) quickQuoteStepText.textContent='Step '+(quickQuoteStep+1)+' of '+steps.length;
-    if(quickQuoteProgress) quickQuoteProgress.style.width=(((quickQuoteStep+1)/steps.length)*100)+'%';
-    if(quickQuoteError) quickQuoteError.textContent='';
-  }
-
-  function currentStepIsValid(){
-    if(!quickQuoteForm) return false;
-    var stepEl=quickQuoteForm.querySelector('.qq-step.active');
-    if(!stepEl) return true;
-    var fields=stepEl.querySelectorAll('input, select, textarea');
-    for(var i=0;i<fields.length;i++){
-      if(!fields[i].checkValidity()){
-        fields[i].reportValidity();
-        return false;
-      }
-    }
-    return true;
-  }
-
-  function openQuickQuote(packageName){
-    if(!quickQuote) return;
-    quickQuote.classList.add('open');
-    quickQuote.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-    if(quickQuoteForm){
-      quickQuoteForm.hidden=false;
-      quickQuoteForm.reset();
-    }
-    if(quickQuoteSuccess) quickQuoteSuccess.hidden=true;
-    if(quickQuoteError) quickQuoteError.textContent='';
-    setQuickQuoteStep(0);
-    if(packageName && quickQuoteForm){
-      var pkgValue=packageAlias(packageName);
-      var pkg=Array.prototype.slice.call(quickQuoteForm.querySelectorAll('input[name="package"]')).find(function(input){return input.value===pkgValue});
-      if(pkg) pkg.checked=true;
-    }
-    var first=quickQuote.querySelector('input, select, textarea, button');
-    setTimeout(function(){ if(first) first.focus(); },80);
-  }
-
-  function closeQuickQuote(){
-    if(!quickQuote) return;
-    quickQuote.classList.remove('open');
-    quickQuote.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-  }
-
+  /* Original quote modal */
   document.querySelectorAll('[data-open-quote]').forEach(function(btn){
     btn.addEventListener('click',function(e){
       e.preventDefault();
-      openQuickQuote(btn.getAttribute('data-package') || 'Not sure yet');
+      openQuote(btn.getAttribute('data-package') || btn.getAttribute('data-quote-scope') || '');
     });
   });
-  if(quickQuoteClose){quickQuoteClose.addEventListener('click',closeQuickQuote)}
-  if(quickQuote){
-    quickQuote.addEventListener('click',function(e){if(e.target===quickQuote) closeQuickQuote();});
-  }
-  document.addEventListener('keydown',function(e){if(e.key==='Escape') closeQuickQuote();});
-
-  if(quickQuoteForm){
-    quickQuoteForm.querySelectorAll('[data-qq-next]').forEach(function(btn){
-      btn.addEventListener('click',function(){
-        if(currentStepIsValid()) setQuickQuoteStep(quickQuoteStep+1);
-      });
+  document.querySelectorAll('[data-quote-scope]').forEach(function(btn){
+    btn.addEventListener('click',function(){openQuote(btn.getAttribute('data-quote-scope'))});
+  });
+  document.querySelectorAll('#qScopeOpts .quote-option').forEach(function(opt){
+    opt.addEventListener('click',function(){
+      document.querySelectorAll('#qScopeOpts .quote-option').forEach(function(o){o.classList.remove('checked')});
+      opt.classList.add('checked');
+      var input=opt.querySelector('input');
+      if(input) input.checked=true;
     });
-    quickQuoteForm.querySelectorAll('[data-qq-back]').forEach(function(btn){
-      btn.addEventListener('click',function(){setQuickQuoteStep(quickQuoteStep-1)});
-    });
-
-    quickQuoteForm.addEventListener('submit',function(e){
+  });
+  document.querySelectorAll('#qGoalsOpts .quote-option').forEach(function(opt){
+    opt.addEventListener('click',function(e){
+      if(e.target.tagName==='INPUT') return;
       e.preventDefault();
-      if(!quickQuoteForm.checkValidity()){
-        quickQuoteForm.reportValidity();
-        return;
-      }
-      if(!QUICK_QUOTE_ENDPOINT || QUICK_QUOTE_ENDPOINT.indexOf('script.google.com') === -1){
-        if(quickQuoteError) quickQuoteError.textContent='Paste your Google Apps Script Web App URL into QUICK_QUOTE_ENDPOINT first.';
-        return;
-      }
-
-      var submitBtn=quickQuoteForm.querySelector('.qf-submit');
-      var data=new FormData(quickQuoteForm);
-      var payload={
-        timestamp:new Date().toISOString(),
-        source:'website-step-form',
-        package:data.get('package') || '',
-        businessType:data.get('businessType') || '',
-        business:data.get('business') || '',
-        goals:data.get('goals') || '',
-        hasCurrentSite:'Not asked',
-        currentSiteUrl:'',
-        name:data.get('name') || '',
-        phone:data.get('phone') || '',
-        email:data.get('email') || '',
-        notes:data.get('notes') || ''
-      };
-
-      if(submitBtn){
-        submitBtn.disabled=true;
-        submitBtn.textContent='Sending...';
-      }
-      if(quickQuoteError) quickQuoteError.textContent='';
-
-      fetch(QUICK_QUOTE_ENDPOINT,{
-        method:'POST',
-        mode:'no-cors',
-        headers:{'Content-Type':'text/plain;charset=utf-8'},
-        body:JSON.stringify(payload)
-      }).then(function(){
-        quickQuoteForm.hidden=true;
-        if(quickQuoteSuccess) quickQuoteSuccess.hidden=false;
-      }).catch(function(){
-        if(quickQuoteError) quickQuoteError.textContent='Something went wrong. Try again, or text Samuel directly.';
-      }).finally(function(){
-        if(submitBtn){
-          submitBtn.disabled=false;
-          submitBtn.textContent='Send quote request';
-        }
-      });
+      var input=opt.querySelector('input');
+      input.checked=!input.checked;
+      opt.classList.toggle('checked',input.checked);
     });
-  }
+    var input=opt.querySelector('input');
+    if(input){input.addEventListener('change',function(){opt.classList.toggle('checked',input.checked)});}
+  });
+  var yesBtn=document.getElementById('qHasSiteYes');
+  var noBtn=document.getElementById('qHasSiteNo');
+  if(yesBtn){yesBtn.addEventListener('click',function(){qState.data.hasCurrentSite='Yes';this.classList.add('active');if(noBtn)noBtn.classList.remove('active');document.getElementById('qSiteUrlWrap').classList.add('show')});}
+  if(noBtn){noBtn.addEventListener('click',function(){qState.data.hasCurrentSite='No';qState.data.currentSiteUrl='';this.classList.add('active');if(yesBtn)yesBtn.classList.remove('active');document.getElementById('qSiteUrlWrap').classList.remove('show')});}
+  var nextBtn=document.getElementById('qNext');
+  if(nextBtn){nextBtn.addEventListener('click',function(){if(!validateStep(qState.step))return;if(qState.step===qState.total){submitQuote();return}goToStep(qState.step+1)});}
+  var backBtn=document.getElementById('qBack');
+  if(backBtn){backBtn.addEventListener('click',function(){if(qState.step>1)goToStep(qState.step-1)});}
+  var qBody=document.getElementById('qBody');
+  if(qBody){qBody.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.tagName==='INPUT'&&e.target.type!=='checkbox'){e.preventDefault();if(nextBtn)nextBtn.click()}});}
+  var quoteOverlay=document.getElementById('quoteOverlay');
+  if(quoteOverlay){quoteOverlay.addEventListener('click',function(e){if(e.target===quoteOverlay)closeQuote()});}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&quoteOverlay&&quoteOverlay.classList.contains('show'))closeQuote()});
+  goToStep(1);
 
   document.querySelectorAll('.faq-item').forEach(function(item){
     var q=item.querySelector('.faq-q');
