@@ -1,24 +1,26 @@
-const header = document.querySelector('.site-header');
-const menuButton = document.querySelector('.menu-button');
-const mobileNav = document.querySelector('.mobile-nav');
+const header = document.getElementById('navbar');
+const menuButton = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
 
 function updateHeader() {
   if (!header) return;
-  header.classList.toggle('scrolled', window.scrollY > 18);
+  header.classList.toggle('scrolled', window.scrollY > 24);
 }
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
-if (menuButton && mobileNav) {
+if (menuButton && mobileMenu) {
   menuButton.addEventListener('click', () => {
-    const open = mobileNav.classList.toggle('open');
+    const open = mobileMenu.classList.toggle('open');
+    menuButton.classList.toggle('active', open);
     menuButton.setAttribute('aria-expanded', String(open));
     document.body.classList.toggle('menu-open', open);
   });
 
-  mobileNav.querySelectorAll('a').forEach((link) => {
+  mobileMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      mobileNav.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      menuButton.classList.remove('active');
       menuButton.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('menu-open');
     });
@@ -26,7 +28,7 @@ if (menuButton && mobileNav) {
 }
 
 const revealItems = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window) {
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -77,12 +79,12 @@ if (leadForm) {
         `Website: ${data.website || 'Not provided'}`,
         `Notes: ${data.notes || 'None'}`
       ].join(' | '),
-      source: 'lean-green-homepage',
+      source: 'original-style-mobile-homepage',
       timestamp: new Date().toISOString()
     };
 
     submitButton.disabled = true;
-    submitButton.innerHTML = 'Sending...';
+    submitButton.textContent = 'Sending...';
     showStatus('Sending your request...', 'success');
 
     try {
@@ -95,10 +97,10 @@ if (leadForm) {
 
       leadForm.reset();
       showStatus('Request sent. I’ll review it and reach out directly.', 'success');
-      submitButton.innerHTML = 'Request sent ✓';
+      submitButton.textContent = 'Request sent ✓';
       setTimeout(() => {
         submitButton.disabled = false;
-        submitButton.innerHTML = 'Send my campaign request <span>→</span>';
+        submitButton.innerHTML = 'Send my request <span>→</span>';
       }, 2800);
     } catch (error) {
       showStatus('Something went wrong. Please text or call (503) 569-4291.', 'error');
