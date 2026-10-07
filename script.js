@@ -35,6 +35,6 @@ if(form){form.addEventListener('submit',async e=>{
   try{
     await fetch(endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
     form.reset();showStatus('Sent. I’ll reach out directly.','success');button.textContent='Request sent ✓';
-    setTimeout(()=>{button.disabled=false;button.innerHTML='Send my request <span>→</span>'},2500);
+    setTimeout(()=>{button.disabled=false;button.innerHTML='Send request <span>→</span>'},2500);
   }catch(err){showStatus('Something went wrong. Please text (503) 569-4291.','error');button.disabled=false;button.innerHTML='Try again <span>→</span>'}
 })}
